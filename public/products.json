@@ -1,0 +1,116 @@
+[
+  {
+    "id": 7,
+    "name": "Kapalua Bay Glow",
+    "price": "0",
+    "stock": "99",
+    "size": ["20x56"],
+    "image": "./images/bg1.jpg",
+    "category": "Panorama"
+  },
+  {
+    "id": 8,
+    "name": "Hookipa Afternoon Surf ",
+    "price": "0",
+    "stock": "99",
+    "size": ["8x20 ", "12x32 ", "16x44 "],
+    "image": "./images/bg2.jpg",
+    "category": "Panorama"
+  },
+  {
+    "id": 9,
+    "name": "DT Fleming Corner Pines",
+    "price": "0",
+    "stock": "99",
+    "size": ["8x20 ", "12x32 ", "16x44 "],
+    "image": "./images/bg3.jpg",
+    "category": "Panorama"
+  },
+  {
+    "id": 10,
+    "name": "Secret Beach Sunset",
+    "price": "0",
+    "stock": "99",
+    "size": ["8x20 ", "12x32 ", "16x44 "],
+    "image": "./images/10.jpg",
+    "category": "Panorama"
+  },
+  {
+    "id": 11,
+    "name": "DT Fleming Flairs ",
+    "price": "0",
+    "stock": "99",
+    "size": ["8x20 ", "12x32 ", "16x44 "],
+    "image": "./images/11.jpg",
+    "category": "Panorama"
+  },
+  {
+    "id": 12,
+    "name": "Koki Beach Morning - Hana ",
+    "price": "0",
+    "stock": "99",
+    "size": "13x9",
+    "image": "./images/12.jpg",
+    "category": "Panorama"
+  },
+  {
+    "id": 1,
+    "name": "JK Hawaiian Night",
+
+    "price": "0",
+    "stock": "99",
+    "size": "13x9",
+    "image": "./images/1.png",
+    "category": "Portrait"
+  },
+  {
+    "id": 2,
+    "name": "JK Healani",
+
+    "price": "0",
+    "stock": "99",
+    "size": "13x9",
+    "image": "./images/2.png",
+    "category": "Portrait"
+  },
+  {
+    "id": 3,
+    "name": "JK Hula Dancer",
+
+    "price": "0",
+    "stock": "99",
+    "size": "13x9",
+    "image": "./images/3.png",
+    "category": "Portrait"
+  },
+  {
+    "id": 4,
+    "name": "JK Lei Maker",
+
+    "price": "0",
+    "stock": "99",
+    "size": "13x9",
+    "image": "./images/4.png",
+    "category": "Portrait"
+  },
+  {
+    "id": 5,
+    "name": "JK Breadfruit",
+
+    "price": "0",
+    "stock": "99",
+    "size": "13x9",
+    "image": "./images/5.png",
+    "category": "Portrait"
+  },
+  {
+    "id": 6,
+    "name": "JK Fisherman",
+
+    "price": "0",
+    "stock": "99",
+    "size": "13x9",
+    "image": "./images/6.png",
+    "category": "Portrait"
+  }
+]

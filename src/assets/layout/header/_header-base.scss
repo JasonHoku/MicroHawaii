@@ -1,0 +1,77 @@
+// Header Base
+
+.app-header {
+  height: $app-header-height + 25;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  position: center;
+  z-index: 10;
+  transition: all .2s;
+  .h4 {
+
+    position: center;
+  }
+
+
+  .app-header__content {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex: 1;
+    padding: 0 $layout-spacer-x;
+    height: $app-header-height;
+
+    .app-header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .app-header-right {
+      align-items: center;
+      display: flex;
+      margin-left: auto;
+    }
+  }
+
+  .header-user-info {
+    & > .widget-heading,
+    & > .widget-subheading {
+      white-space: nowrap;
+    }
+
+    & > .widget-subheading {
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+.app-header__logo {
+  padding: 0 $layout-spacer-x;
+  height: $app-header-height ;
+  width: $app-sidebar-width;
+  display: flex;
+  align-items: center;
+  transition: width .2s;
+
+  .logo-src {
+    height: $logo-height;
+    width: $logo-width ;
+    }
+}
+
+.app-header__menu,
+.app-header__mobile-menu {
+  display: fixed;
+  padding: 50 $layout-spacer-x;
+  height: 100%;
+  align-items: center;
+}
+
+// Header Modifiers
+
+//@import "modifiers/header-horizontal";
+
+// Header Themes
+
+//@import "themes/header-inverted";
