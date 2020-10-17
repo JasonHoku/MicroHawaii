@@ -218,7 +218,7 @@ export default class ShopPage extends Component {
           />
 <center> <br />
 <Card  style={{ width: "22rem" }}> 
-        <CardHeader> <strong>Welcome to the mciroHawaiiShoppe</strong></CardHeader>
+        <CardHeader> <strong>Welcome to the mciroHawaii E-Shop</strong></CardHeader>
          <CardBody>   <p> </p><p> 
 Thank you so much for expressing interest in the products mciroHawaii has to offer!
 <br></br>
