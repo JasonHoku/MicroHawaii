@@ -50,7 +50,8 @@ class MegaMenu extends React.Component {
         <Nav className="header-megamenu">
           <NavItem>
             <NavLink href="#" onClick={this.toggle} id="PopoverMegaMenu">
-             
+              <i className="nav-link-icon pe-7s-folder"> </i>
+              Directory
               <FontAwesomeIcon className="ml-2 opacity-5" icon={faAngleDown} />
             </NavLink>
           </NavItem>
@@ -141,7 +142,7 @@ class MegaMenu extends React.Component {
         </Nav>&nbsp;&nbsp;&nbsp;&nbsp;
         <div></div>
        <div>
-   PrettyCoolPattern <small> <br></br>Services &amp; Entertainment</small> </div>
+   MicroHawaii <small> <br></br>Services &amp; Provisions</small> </div>
       </Fragment>
     );
   }

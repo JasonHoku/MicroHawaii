@@ -48,23 +48,30 @@ class AppMobileMenu extends React.Component {
   render() {
     return (
       <Fragment>
-        <div> </div> <span> </span> <br ></br>
-        <div className="app-header__mobile-menu"
-        style={{
-          fontSize: "large",
-          color: "white",
-          position: "fixed",
-          textAlign: "left",
-          top: "center",
-          left: "-4px",
-          opacity: 100,
-        }} >
+        <div className="app-header__mobile-menu">
           <div onClick={this.toggleMobileSidebar}>
-          <Slider width={55} lineHeight={6} lineSpacing={13} color="#ffffff"
-                active={this.state.active} onClick={() => this.setState({ active: !this.state.active })}/>
-             </div>
+            <Slider width={26} lineHeight={2} lineSpacing={5} color="#6c757d" 
+              active={this.state.active} onClick={() => this.setState({ active: !this.state.active })}/>
+          </div>
         </div>
-     
+        <div className="app-header__menu">
+          <span onClick={this.toggleMobileSmall}>
+            <Button size="sm" className={cx("btn-icon btn-icon-only", {
+                active: this.state.activeSecondaryMenuMobile,
+              })}
+              color="primary"
+              onClick={() =>
+                this.setState({
+                  activeSecondaryMenuMobile: !this.state
+                    .activeSecondaryMenuMobile,
+                })
+              }>
+              <div className="btn-icon-wrapper">
+                <FontAwesomeIcon icon={faEllipsisV} />
+              </div>
+            </Button>
+          </span>
+        </div>
       </Fragment>
     );
   }

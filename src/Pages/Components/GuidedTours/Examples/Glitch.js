@@ -32,7 +32,7 @@ export default styled.div`
     left: 2px;
     text-shadow: -1px 0 red;
     top: 0;
-     color: #808080;;
+    color: white;
     background: black;
     overflow: hidden;
     clip: rect(0, 900px, 0, 0);
@@ -45,7 +45,7 @@ export default styled.div`
     left: -2px;
     text-shadow: 1px 0 blue;
     top: 0;
-     color: #808080;;
+    color: white;
     background: black;
     overflow: hidden;
     clip: rect(0, 900px, 0, 0);

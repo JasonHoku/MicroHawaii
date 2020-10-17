@@ -14,9 +14,10 @@ import Main from "./Pages/Main";
 import configureStore from "./config/configureStore";
 import { Provider } from "react-redux";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import AppIntro from "./App.js";
+
 const store = configureStore();
 const rootElement = document.getElementById("root");
+
 const renderApp = (Component) => {
   ReactDOM.render(
     <Provider store={store}>

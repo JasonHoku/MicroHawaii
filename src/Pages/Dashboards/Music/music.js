@@ -58,8 +58,10 @@ import CountUp from "react-countup";
 import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
 import avatar2 from "../../../assets/utils/images/avatars/2.jpg";
 import avatar3 from "../../../assets/utils/images/avatars/3.jpg";
- 
- 
+import contrastus from "../../../assets/images/contrastus.png";
+import collage from "../../../assets/images/collage.png";
+import mandalashirt from "../../../assets/images/mandalashirt.png";
+
 const CLIENT = {
   sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
   production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
@@ -210,7 +212,7 @@ export default class MusicElements extends Component {
           <Row>
             <Col xs="4" sm="4" md="4" xl="3">
               <Card>
-                <CardBody> Over 40 PCP musical publishingings can be found on either YouTube or SoundCloud:
+                <CardBody> Over 40 mciroHawaii musical publishingings can be found on either YouTube or SoundCloud:
     <br></br>  </CardBody>
               </Card>  </Col>
 

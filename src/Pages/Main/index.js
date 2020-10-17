@@ -4,8 +4,8 @@ import cx from "classnames";
 import { withRouter } from "react-router-dom";
 
 import ResizeDetector from "react-resize-detector";
+
 import AppMain from "../../Layout/AppMain";
-import AppHeader from "../../Layout/AppHeader";
 
 class Main extends React.Component {
   constructor(props) {
@@ -32,8 +32,16 @@ class Main extends React.Component {
         handleWidth
         render={({ width }) => (
           <Fragment>
-            <div
-              className={cx(
+            <div         style={{  
+               backgroundColor:"transparent",
+position:'sticky',
+margin: 0,
+padding: 0,
+width: "100%",
+height: "100vh",
+          
+        }}
+              className={cx( 
                 "app-container app-theme-" + colorScheme,
                 { "fixed-header": enableFixedHeader },
                 { "fixed-sidebar": enableFixedSidebar || width < 1250 },
@@ -45,17 +53,13 @@ class Main extends React.Component {
                 { "sidebar-mobile-open": enableMobileMenu },
                 { "body-tabs-shadow-btn": enablePageTabsAlt }
               )}>
-              <AppHeader />  
               <AppMain />
-
-              
             </div>
           </Fragment>
         )}
       />
     );
   }
-  
 }
 
 const mapStateToProp = (state) => ({

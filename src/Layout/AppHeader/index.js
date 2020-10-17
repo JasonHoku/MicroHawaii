@@ -1,41 +1,24 @@
 import React, { Fragment } from "react";
 import cx from "classnames";
 
-
 import { connect } from "react-redux";
 
-import AppMobileMenu from "../AppMobileMenu";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-
-import logo2 from "../../assets/images/logo2.png"; // gives image path
 
 import HeaderLogo from "../AppLogo";
 
-let clientWidth = Math.min(window.innerWidth, document.documentElement.clientWidth)
-let logoWidth = null;
-let galleryPos =  (clientWidth );
+import SearchBox from "./Components/SearchBox";
+import MegaMenu from "./Components/MegaMenu";
+import UserBox from "./Components/UserBox";
+import HeaderRightDrawer from "./Components/HeaderRightDrawer";
 
-if(clientWidth <= "800"  ){
-  logoWidth = clientWidth * 0.5;
- galleryPos =  25;
-} if(clientWidth > "800" && clientWidth <= "1400"  ){
-
-  logoWidth = clientWidth * 0.4;
- galleryPos =  100 ;
-}  if(clientWidth > "1400"  ){
-  
-  logoWidth = clientWidth * 0.4;
- galleryPos = 650;
-
-}
-
-
-
+import HeaderDots from "./Components/HeaderDots";
 
 class Header extends React.Component {
   render() {
     let {
       headerBackgroundColor,
+      enableMobileMenuSmall,
       enableHeaderShadow,
     } = this.props;
     return (
@@ -46,42 +29,20 @@ class Header extends React.Component {
           })}
           transitionName="HeaderAnimation" transitionAppear={true} transitionAppearTimeout={1500}
           transitionEnter={false} transitionLeave={false}>
-
-   <HeaderLogo />  
-   <AppMobileMenu />
-
-   <div> <p> </p></div>
-          
-   <span  style={{
-              fontSize: "large",
-              color: "white",
-              position: "relative",
-              textAlign: "left",
-              top: -30,
-              left:  galleryPos,
-              
-              opacity: 100,
-            }}  class="center">
-
-<span class="logoFont"> 
-            <br /> <small>Micro</small>Hawaii</span>
-<br />
-        </span>
-           
-           <span 
-            style={{
-              fontSize: "large",
-              color: "white",
-              position: "relative",
-              textAlign: "left",
-              top: 55,
-              left: clientWidth * .1,
-              opacity: 100,
-            }} > 
-        
-            <br />   
-            <br />   
-          </span>
+          <HeaderLogo />
+          <div className={cx("app-header__content", {
+              "header-mobile-open": enableMobileMenuSmall,
+            })}>
+            <div className="app-header-left">
+              <SearchBox />
+              <MegaMenu />
+            </div>
+            <div className="app-header-right">
+              <HeaderDots />
+              <UserBox />
+              <HeaderRightDrawer />
+            </div>
+          </div>
         </CSSTransitionGroup>
       </Fragment>
     );

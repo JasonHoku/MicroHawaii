@@ -232,8 +232,7 @@
   .navbar-text {
     color: $navbar-light-color;
     a {
-     
-    color: "white";
+      color: $navbar-light-active-color;
 
       @include hover-focus {
         color: $navbar-light-active-color;

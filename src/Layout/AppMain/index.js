@@ -33,7 +33,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-5">
                                Loading Components
-                            <small>Welcome to PrettyCoolPattern</small></h6>
+                            <small>Welcome to MicroHawaii</small></h6>
                     </div>
                 </div>
             }>
@@ -50,7 +50,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-5">
                                   Loading Forms
-                            <small>Welcome to PrettyCoolPattern</small>  </h6>
+                            <small>Welcome to MicroHawaii</small>  </h6>
                     </div>
                 </div>
             }>
@@ -68,7 +68,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-5">
                         Loading Tables
-                            <small>Welcome to PrettyCoolPattern</small>    </h6>
+                            <small>Welcome to MicroHawaii</small>    </h6>
                  
                     </div>
                 </div>
@@ -86,7 +86,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-3">
                         Loading Elements
-                            <small>Welcome to PrettyCoolPattern</small>    </h6>
+                            <small>Welcome to MicroHawaii</small>    </h6>
                     </div>
                 </div>
             }>
@@ -103,7 +103,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-3">
                         Loading Widgets
-                            <small>Welcome to PrettyCoolPattern</small> </h6>
+                            <small>Welcome to MicroHawaii</small> </h6>
                     </div>
                 </div>
             }>
@@ -120,7 +120,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-3">
                         Loading Pages
-                            <small>Welcome to PrettyCoolPattern</small>   </h6>
+                            <small>Welcome to MicroHawaii</small>   </h6>
                     </div>
                 </div>
             }>
@@ -137,7 +137,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-3">
                         Loading Application Tools
-                            <small>Welcome to PrettyCoolPattern</small> </h6>
+                            <small>Welcome to MicroHawaii</small> </h6>
                     </div>
                 </div>
             }>
@@ -154,7 +154,7 @@ const AppMain = () => {
                         </div>
                         <h6 className="mt-3">
                             Loading Dashboard Tools
-                            <small>Welcome to PrettyCoolPattern</small>
+                            <small>Welcome to MicroHawaii</small>
                         </h6>
                     </div>
                 </div>

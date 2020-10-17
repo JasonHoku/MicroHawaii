@@ -9,21 +9,13 @@ class AppFooter extends React.Component {
         <div className="app-footer">
           <div className="app-footer__inner">
             <div className="app-footer-left">
-           
-        <img src="./images/collections.png" />
-  
-
-
-  &nbsp;<h4>All New <strong>Wood</strong>Series</h4>
-
-
+            <a href="./#/dashboards/contact/"> Contact</a>
             </div>
             <div className="app-footer-right">
               <a href="./about"> Privacy</a>
             </div>
           </div>
         </div>
-        
       </Fragment>
     );
   }

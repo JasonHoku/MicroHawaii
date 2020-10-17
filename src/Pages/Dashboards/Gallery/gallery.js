@@ -59,8 +59,10 @@ import CountUp from "../../../../node_modules/react-countup";
 import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
 import avatar2 from "../../../assets/utils/images/avatars/2.jpg";
 import avatar3 from "../../../assets/utils/images/avatars/3.jpg";
- 
- 
+import contrastus from "../../../assets/images/contrastus.png";
+import collage from "../../../assets/images/collage.png";
+import mandalashirt from "../../../assets/images/mandalashirt.png";
+
 const CLIENT = {
   sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
   production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
@@ -210,7 +212,7 @@ export default class GalleryElements extends Component {
 <Card>
   <CardBody><p>An image is said to contain a thousand words, but how should one contain a thousand images?
   </p> <p>
-    PCP has produced over 1,200 logos, icons, textures, and graphics.
+  mciroHawaii has produced over 1,200 logos, icons, textures, and graphics.
     </p> <p>
     Here you shall find a collection of some, growing over time.
     </p> </CardBody>
@@ -222,7 +224,7 @@ export default class GalleryElements extends Component {
                 <CardBody>
                   <center>
 <CarouselBSExample  /></center>
-<center>← PrettyCoolSlideshow →</center>
+<center>← Custom Display →</center>
 </CardBody>
               </Card>
             </Col>
@@ -256,7 +258,7 @@ export default class GalleryElements extends Component {
               Contact
             </CardHeader>
   <CardBody>
-    PrettyCoolPattern eagerly responds to all persons within 1-2 days.
+    MicroHawaii eagerly responds to all persons within 1-2 days.
     <br></br>
      For commission inquiries, suggestions or commentary reach out through the <a href="#/dashboard/contact"> contact page.</a>
   </CardBody>

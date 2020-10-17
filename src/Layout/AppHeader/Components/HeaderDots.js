@@ -91,7 +91,12 @@ class HeaderDots extends React.Component {
       <Fragment>
         <div className="header-dots">
           <UncontrolledDropdown>
-           <a href="#">FazadAzad.com</a>
+            <DropdownToggle className="p-0" color="link">
+              <div className="icon-wrapper icon-wrapper-alt rounded-circle">
+                <div className="icon-wrapper-bg bg-success" />
+                <IoIosAnalytics color="#3ac47d" fontSize="23px" />
+              </div>
+            </DropdownToggle>
             <DropdownMenu right className="dropdown-menu-xl rm-pointers">
               <div className="dropdown-menu-header">
                 <div className="dropdown-menu-header-inner bg-premium-dark">
@@ -102,7 +107,7 @@ class HeaderDots extends React.Component {
                   <div className="menu-header-content text-white">
                     <h5 className="menu-header-title">Reach Count</h5>
                     <h6 className="menu-header-subtitle">
-                      PCP Users.
+                      mciroHawaii Users.
                     </h6>
                   </div>
                 </div>
@@ -118,7 +123,7 @@ class HeaderDots extends React.Component {
                       prefix="" useEasing={false} suffix= "m" duration="3"/>
                   </div>
                   <div className="widget-subheading pt-2">
-                    Accumilated reach of PCP.
+                    Accumilated reach of mciroHawaii.
                   </div>
                   <div className="widget-description text-white">
                     <span className="pr-1">

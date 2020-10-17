@@ -1,7 +1,7 @@
 // Navigation Menu Vertical
 
 .vertical-nav-menu {
-  position: relative;   color: "white";
+  position: relative;
 
   &::after {
     content: " ";
@@ -16,7 +16,6 @@
   .metismenu-container,
   .metismenu-item {
     margin: 0;
-    color: "white";
     padding: 0;
     position: relative;
   }
@@ -36,26 +35,26 @@
       padding: 0 $layout-spacer-x 0 45px;
       position: relative;
       @include border-radius($border-radius);
-      color: "white";
+      color: $gray-800;
       white-space: nowrap;
 
       &:hover {
-        background: "#FF00FF";
+        background: $dropdown-link-hover-bg;
         text-decoration: none;
         //transform: scale(1.02);
 
         i.metismenu-icon {
-          opacity: .9;
+          opacity: .6;
         }
 
         i.metismenu-state-icon {
-          opacity: 5;
+          opacity: 1;
         }
       }
 
       &.active {
-        color: "white";
-        background: "dark";
+        color: $primary;
+        background: $dropdown-link-hover-bg;
       }
 
       &.has-active-child,
@@ -100,8 +99,7 @@
           height: 100%;
           opacity: 1;
           width: 3px;
-
-          background: "black";
+          background: $dropdown-link-hover-bg;
           position: absolute;
           left: 20px;
           top: 0;
@@ -111,12 +109,11 @@
         & > .metismenu-item > .metismenu-link {
           height: 2.3em;
           line-height: 2.3em;
-          color: "white";
+          color: $gray-600;
           margin: 0 0 3px;
 
           &:hover {
-            color: "white";
-            background: "dark";
+            color: $primary;
           }
 
           .metismenu-icon {
@@ -124,7 +121,8 @@
           }
 
           &.active {
-            color: "white";
+            color: $primary;
+            background: $dropdown-link-hover-bg;
           }
         }
       }

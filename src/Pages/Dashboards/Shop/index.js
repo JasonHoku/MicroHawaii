@@ -59,9 +59,6 @@ export default class ShopPage extends Component {
       category: "",
       cartBounce: false,
       quantity: 1,
-      size: 1,
-      style: 1,
-      stock: 1,
       quickViewProduct: {},
       modalActive: false
     };
@@ -110,6 +107,7 @@ export default class ShopPage extends Component {
     let productID = selectedProducts.id;
     let productQty = selectedProducts.quantity;
     if (this.checkProduct(productID)) {
+      console.log("hi");
       let index = cartItem.findIndex(x => x.id == productID);
       cartItem[index].quantity =
         Number(cartItem[index].quantity) + Number(productQty);
@@ -219,7 +217,18 @@ export default class ShopPage extends Component {
             productQuantity={this.state.moq}
           />
 <center> <br />
+<Card  style={{ width: "22rem" }}> 
+        <CardHeader> <strong>Welcome to the mciroHawaii Shoppe!</strong></CardHeader>
+         <CardBody>   <p> </p><p>
+Thank you so much for taking a look at the available products mciroHawaii has to offer!
 
+         </p><p> </p><p>More information about the services offered here can be found at the 
+              <a href="#/dashboards/services"> services</a> page.
+
+         </p>
+         
+         </CardBody>
+          </Card>
        
 </center>
 
@@ -228,9 +237,6 @@ export default class ShopPage extends Component {
           searchTerm={this.state.term}
           addToCart={this.handleAddToCart}
           productQuantity={this.state.quantity}
-          productSize={this.state.size}
-          productStyle={this.state.style}
-          productStock={this.state.stock}
           updateQuantity={this.updateQuantity}
           openModal={this.openModal}
         />
@@ -242,7 +248,7 @@ export default class ShopPage extends Component {
         <center> 
           
           <Card  style={{ position: "bottom" , width: "26rem",}}> 
-        More information coming soon.
+          <img src="/images/shirtsize.png" height="80" ></img>
       </Card> <p> </p><p> </p><p> </p><br></br>
         <Card  style={{ position: "bottom" , width: "17rem" }}> 
            <CardHeader><div><p> Official PayPal API tool: </p> </div></CardHeader>

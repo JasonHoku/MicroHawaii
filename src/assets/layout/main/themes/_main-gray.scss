@@ -4,8 +4,8 @@
 
 $app-container-bg: #eeeeee;
 $app-sidebar-bg: #eeeeee;
-$app-header-bg: #eeeeee;
-$app-header-logo-bg:  transparent;
+$app-header-bg: #f8f9fa;
+$app-header-logo-bg: rgba(0, 0, 0, .03);
 
 // Content
 
@@ -36,7 +36,7 @@ $app-header-logo-bg:  transparent;
 
   .app-header {
     .app-header__logo {
-      border-right: rgba(0, 0, 0, .1) solid 1px;
+      border-right: rgba(75, 75, 75, 0.308) solid 1px;
     }
   }
 
@@ -49,10 +49,11 @@ $app-header-logo-bg:  transparent;
 
   .card {
     border-width: 1px;
+    box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" ;
   }
 
   .main-card {
-    box-shadow: 0 0 0 0 transparent !important;
+    box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" ;
 
     & > .card-body {
 

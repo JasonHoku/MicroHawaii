@@ -60,6 +60,7 @@
 // ELEMENTS
 
 @import "assets/elements/buttons";
+@import "assets/elements/dropdown";
 @import "assets/elements/navs";
 @import "assets/elements/badges";
 @import "assets/elements/cards";
@@ -89,6 +90,9 @@
 // RC Tabs
 @import "assets/components/rc-tabs/rc-tabs";
 
+// Hamburger Button
+@import "assets/components/hamburgers/hamburgers";
+
 // Drawer
 @import "assets/components/drawer/drawer";
 
@@ -116,119 +120,9 @@
 
 @import "assets/layout/responsive/responsive-base";
 
-.bgimg1{
-    opacity:0;   
-   }.bgimg2{
-    opacity:0;   
-   }.bgimg3{
-    opacity:0;   
-   }
-   
-   img{
-       transition:opacity 1s linear;
-   }
 
-h1{
-    color: whitesmoke;
-    text-align: center;
-    font-size: xx-large;
-    font-family: Cinzel;
-    font-weight: lighter;
-    align-items: center;
-    align-content: center;
+
+div.card {
+
+    box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" 
 }
-h3{
-    color: whitesmoke;
-    font-size: x-large;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-}
-.card-header{
-    align-self: center;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-}
-
-h2{
-    color: black;
-    font-size: xx-large;
-    font-family: Cinzel;
-     text-size-adjust: 80%;
-    align-items: center;
-    align-content: center;
-}
-
-
-.logoFont{
-    color: whitesmoke;
-    font-family: Cinzel;
-     font-size: 48px;
-     letter-spacing: 5px;
-     top: 50px;
-    align-items: center;
-    align-content: center; 
-    position: "relative";
-    text-align: "left";
-}
-.logoFont2{
-    color: whitesmoke;
-    font-size: xx-large;
-    font-family: Cinzel;
-    letter-spacing: 10px;
-    align-items: center;
-    align-content: center;
-    font-size: 65px;
-}
-.logoFont3{
-    color: black;
-    font-size: xx-large;
-    font-family: 'Alex Brush';
-    font-size: 80px;
-    letter-spacing: -5px;
-    align-items: center;
-    align-content: center;
-}
-.logoFont4{
-    color: whitesmoke;
-    font-family: Cinzel;
-    font-size: 65px;
-     letter-spacing: -10px;
-    align-items: center;
-    align-content: center; 
-    position: "relative";
-    text-align: "left";
-}
-
-.card-body{
-    color: whitesmoke;
-    font-family: Cinzel;
-    font-size: 19px;
-    align-self: left;
-    text-align: left;
-    align-items: left;
-    align-content: left;
-}
-
-.orderFont{
-        color: black;
-        font-size: xx-large;
-        font-family: 'Alex Brush';
-        font-size: 36;
-        letter-spacing: 5px;
-        align-items: center;
-        align-content: center;
-    }
-
-
-    .slideClass {
-
-        left: -100;
-        position: fixed;
-    }
-
-    .app-header{
-        
-   box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.329);
-    }

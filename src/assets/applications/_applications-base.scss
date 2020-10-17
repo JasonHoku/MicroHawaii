@@ -50,7 +50,7 @@ $app-layout-header-height         : 50px;
       display: flex;
 
       &.card {
-        box-shadow: 0 0 0 0 transparent;
+        box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" ;
         border-radius: 0;
         border: 0;
       }
@@ -95,7 +95,7 @@ $app-layout-header-height         : 50px;
       }
 
       &.card {
-        box-shadow: 0 0 0 0 transparent;
+        box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" ;
         border-radius: 0;
         background: $gray-100;
         border: 0;

@@ -322,7 +322,7 @@ display: none;
   cursor: pointer;
   border-radius: 24px;
   transition: background 250ms 100ms;
-  background-color: #c7c7c7;
+  background-color: #000000;
   width: 50px;
   height: 28px;
   line-height: 50px;
@@ -338,7 +338,7 @@ display: none;
   left: 2px;
   border-radius: 50%;
   transition: 150ms linear;
-  background-color: #808080;;
+  background-color: white;
 }
 
 input:checked + .switch {

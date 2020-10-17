@@ -5,7 +5,7 @@ const styles = `
     border: 0;
     border-radius: 4px;
     outline: 0;
-     color: #808080;;
+    color: white;
     padding: .5em 1em;
     margin-left: .25em;
     margin-right: .25em;

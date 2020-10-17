@@ -35,7 +35,7 @@ class HeaderRightDrawer extends React.Component {
                   this.setState({
                     openRight: false,
                     openLeft: false,
-                    active: this.state.active,
+                    active: !this.state.active,
                   })
                 }/>
             </div>

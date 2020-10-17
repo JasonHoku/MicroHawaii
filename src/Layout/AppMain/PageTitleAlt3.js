@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import cx from "classnames";
 
+import TitleComponent1 from "./PageTitleAlt3Examples/Variation1";
 import TitleComponent2 from "./PageTitleAlt3Examples/Variation2";
 import TitleComponent3 from "./PageTitleAlt3Examples/Variation3";
 import TitleComponent4 from "./PageTitleAlt3Examples/Variation4";
@@ -19,7 +20,7 @@ class PageTitleAlt3 extends Component {
       icon,
     } = this.props;
 
-    var arr = [, <TitleComponent2 />, <TitleComponent4 />];
+    var arr = [<TitleComponent1 />, <TitleComponent2 />, <TitleComponent4 />];
 
     return (
       <Fragment>

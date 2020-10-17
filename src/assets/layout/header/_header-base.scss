@@ -1,18 +1,17 @@
 // Header Base
 
 .app-header {
-  height: $app-header-height + 25;
+  height: $app-header-height;
   display: flex;
   align-items: center;
   align-content: center;
-  position: center;
+  position: relative;
   z-index: 10;
   transition: all .2s;
-  .h4 {
 
-    position: center;
+  &.header-shadow {
+    box-shadow: $box-shadow-default;
   }
-
 
   .app-header__content {
     display: flex;
@@ -48,7 +47,7 @@
 
 .app-header__logo {
   padding: 0 $layout-spacer-x;
-  height: $app-header-height ;
+  height: $app-header-height;
   width: $app-sidebar-width;
   display: flex;
   align-items: center;
@@ -56,22 +55,29 @@
 
   .logo-src {
     height: $logo-height;
-    width: $logo-width ;
-    }
+    width: $logo-width;
+    background: url('/assets/utils/images/logo-inverse.png');
+  }
 }
 
 .app-header__menu,
 .app-header__mobile-menu {
-  display: fixed;
-  padding: 50 $layout-spacer-x;
-  height: 100%;
+  display: none;
+  padding: 0 $layout-spacer-x;
+  height: $app-header-height;
   align-items: center;
 }
 
 // Header Modifiers
 
+@import "modifiers/fixed-header";
+@import "modifiers/header-dots";
+@import "modifiers/header-megamenu";
+@import "modifiers/header-buttons";
 //@import "modifiers/header-horizontal";
 
 // Header Themes
 
+@import "themes/header-light";
+@import "themes/header-dark";
 //@import "themes/header-inverted";

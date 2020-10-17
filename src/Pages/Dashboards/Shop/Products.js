@@ -31,9 +31,6 @@ class Products extends Component {
             id={product.id}
             addToCart={this.props.addToCart}
             productQuantity={this.props.productQuantity}
-            productSize={product.size}
-            productStyle={product.style}
-            productStock={product.stock}
             updateQuantity={this.props.updateQuantity}
             openModal={this.props.openModal}
           />

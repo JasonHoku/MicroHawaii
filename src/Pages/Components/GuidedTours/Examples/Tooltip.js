@@ -10,7 +10,7 @@ export default styled.span`
     position: absolute;
     transition: 0.3s;
     background-color: ${themeColors.dark};
-     color: #808080;;
+    color: white;
     left: 0;
     bottom: 100%;
     box-shadow: 0 0.5em 3em rgba(255, 255, 255, 0.3);

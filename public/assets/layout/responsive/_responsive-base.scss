@@ -37,22 +37,18 @@
       transform: translateX(0);
 
       .app-sidebar__inner {
-        color: "white";
 
         .app-sidebar__heading {
           text-indent: initial;
-          color: "white";
 
           &::before {
             display: none;
-            color: "white";
           }
         }
 
         .metismenu-link {
           text-indent: initial;
           padding: 0 $layout-spacer-x 0 45px;
-          color: "white";
         }
 
         .metismenu-icon {
@@ -76,7 +72,6 @@
 
           .metismenu-container {
             .metismenu-link {
-              color: "white";
               padding-left: 1em;
             }
           }
@@ -162,7 +157,7 @@
     }
 
     .app-header__mobile-menu {
-      display: fixed;
+      display: flex;
       order: 1;
     }
 
@@ -175,8 +170,8 @@
       .app-header__menu {
         & > span .btn,
         & > .btn {
-          background: rgba(255, 255, 255, 0);
-          border-color: rgba(255, 255, 255, 0);
+          background: rgba(255, 255, 255, .1);
+          border-color: rgba(255, 255, 255, .1);
         }
       }
 

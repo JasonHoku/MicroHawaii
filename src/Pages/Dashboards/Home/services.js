@@ -8,6 +8,7 @@ import TabContent from "rc-tabs/lib/SwipeableTabContent";
 import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 
 // Examples
+import CRMDashboard1 from "./Examples/Variation1";
 import CRMDashboard2 from "./Examples/Variation2";
 
 
@@ -20,8 +21,8 @@ export default class HomeDashboard extends Component {
         <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
 
-           <PageTitleAlt2 heading="PrettyCoolPattern Design, Engineering &amp; Services | Website Application Development, Music, Graphic Arts, Apparel, Discussion &amp; Modern Arts Collective Non-Profit of West Maui, Hawaii"
-            subheading="PrettyCoolPattern Design, Engineering &amp; Services | Website Application Development, Music, Graphic Arts, Apparel, Discussion &amp; Modern Arts Collective Non-Profit of West Maui, Hawaii"/>
+           <PageTitleAlt2 heading="MicroHawaii Design, Engineering &amp; Services | Website Application Development, Music, Graphic Arts, Apparel, Discussion &amp; Modern Arts Collective Non-Profit of West Maui, Hawaii"
+            subheading="MicroHawaii Design, Engineering &amp; Services | Website Application Development, Music, Graphic Arts, Apparel, Discussion &amp; Modern Arts Collective Non-Profit of West Maui, Hawaii"/>
             <CRMDashboard2 />
                  </CSSTransitionGroup>
       </Fragment>

@@ -71,6 +71,7 @@
     "react-navi": "^0.13.3",
     "react-navi-helmet-async": "^0.13.3",
     "react-numeric-input": "^2.2.3",
+    "react-paypal-express-checkout": "^1.0.5",
     "react-perfect-scrollbar": "^1.5.3",
     "react-popup": "^0.10.0",
     "react-resize-detector": "^4.2.1",
@@ -106,6 +107,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:production": "SET REACT_APP_ENV=production & npm run build",
+    "start-prod": "SET NODE_ENV=production & npm start",
     "test": "CI=true react-scripts test",
     "eject": "react-scripts eject"
   },

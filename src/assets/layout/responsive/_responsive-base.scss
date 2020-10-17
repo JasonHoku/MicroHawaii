@@ -10,6 +10,7 @@
 
   .app-main {
     display: block;
+    background-image: url("/public/assets/images/bgr.jpg");
   }
 
   .dropdown-menu {
@@ -39,30 +40,25 @@
 
         .app-sidebar__heading {
           text-indent: initial;
-          color: "white";
 
           &::before {
             display: none;
-            color: "white";
           }
         }
 
         .metismenu-link {
           text-indent: initial;
           padding: 0 $layout-spacer-x 0 45px;
-          color: "white";
         }
 
         .metismenu-icon {
           text-indent: initial;
           left: 5px;
-          color: "white";
           margin-left: 0;
         }
 
         .metismenu-state-icon {
           visibility: visible;
-          color: "white";
         }
 
         .metismenu-container {
@@ -70,7 +66,6 @@
             padding: .5em 0 0 2rem;
 
             & > .metismenu-item > .metismenu-link {
-              color: "white";
               height: 2.3em;
             }
           }
@@ -78,7 +73,6 @@
           .metismenu-container {
             .metismenu-link {
               padding-left: 1em;
-              color: "white";
             }
           }
         }
@@ -164,7 +158,6 @@
 
     .app-header__mobile-menu {
       display: flex;
-      left: -500px;
       order: 1;
     }
 
@@ -177,8 +170,8 @@
       .app-header__menu {
         & > span .btn,
         & > .btn {
-          background: rgba(255, 255, 255, 0);
-          border-color: rgba(255, 255, 255, 0);
+          background: rgba(255, 255, 255, .1);
+          border-color: rgba(61, 61, 61, 0.548);
         }
       }
 

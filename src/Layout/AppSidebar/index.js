@@ -52,7 +52,7 @@ class AppSidebar extends Component {
           </div>
         </CSSTransitionGroup>
       </Fragment>
-    ) ;
+    );
   }
 }
 

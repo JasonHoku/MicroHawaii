@@ -70,7 +70,7 @@
   left: 2px;
   border-radius: 50%;
   transition: 150ms linear;
-  background-color: #808080;; }
+  background-color: white; }
 
 input:checked + .switch {
   background: #000000; }
@@ -200,7 +200,7 @@ strong {
     font-weight: 100; }
   #showcase h2 {
     font-size: 24px;
-     color: #808080;; }
+    color: white; }
   #showcase hgroup {
     padding-top: 46px;
     opacity: 1; }
@@ -328,7 +328,7 @@ strong {
   #search-show:checked + label {
     color: #1a1a1a; }
   .dark #search-show:checked + label {
-     color: #808080;; }
+    color: white; }
 
 @media (max-width: 1200px) and (min-width: 768px) {
   .navbar-nav > li.icons-search {
@@ -518,21 +518,21 @@ strong {
 .dark .unicode::-moz-selection,
 .dark .unicode-text::-moz-selection,
 .dark .font-icon-name::-moz-selection {
-   color: #808080;; }
+  color: white; }
 
 .dark .font-icon-name::selection,
 .dark .code-value::selection,
 .dark .unicode::selection,
 .dark .unicode-text::selection,
 .dark .font-icon-name::selection {
-   color: #808080;; }
+  color: white; }
 
 .dark .font-icon-name::-moz-selection,
 .dark .code-value::-moz-selection,
 .dark .unicode::-moz-selection,
 .dark .unicode-text::-moz-selection,
 .dark .font-icon-name::-moz-selection {
-   color: #808080;; }
+  color: white; }
 
 /********************
 *** Download box ***

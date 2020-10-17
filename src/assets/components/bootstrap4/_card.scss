@@ -8,10 +8,11 @@
   flex-direction: column;
   min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
   word-wrap: break-word;
-  background-color: $card-bg;
+  background-color: #fffffff8;
   background-clip: border-box;
   border: $card-border-width solid $card-border-color;
   @include border-radius($card-border-radius);
+  box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" ;
 
   > hr {
     margin-right: 0;
@@ -37,6 +38,7 @@
   flex: 1 1 auto;
   padding: $card-spacer-x;
   color: $card-color;
+  box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" 
 }
 
 .card-title {

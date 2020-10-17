@@ -127,6 +127,7 @@ const Elements = ({ match }) => (
 
           <Route path={`${match.url}/utilities`} component={UtilitiesExamples}/>
         </div>
+        <AppFooter />
       </div>
     </div>
   </Fragment>

@@ -16,7 +16,7 @@ var EJSUSER =process.env.REACT_APP_EJSUSER
 
 init(EJSUSER)
 
-var CLIIP;
+var IPdata;
 
 class Header extends Component {
   constructor(props) {
@@ -30,6 +30,16 @@ class Header extends Component {
   }
 
 
+  componentDidMount() {
+    this.setState({ isLoading: true });
+ 
+    fetch("https://api.ipify.org") 
+    .then(function(response) {
+      return response.json();
+  })
+  .then(function(parsedData) {
+  }) .catch(error => this.setState({ error, isLoading: false }));
+  }
 
 
   handleCart(e) {
@@ -103,6 +113,58 @@ class Header extends Component {
       );
     }
     return (
+      <header>
+        <div className="container">
+          <div className="brand">
+            <img
+              className="logo"
+              src="./images/logo.png"
+              alt="Veggy Brand Logo"
+            />
+          </div>
+
+          <div className="search">
+            <a
+              className="mobile-search"
+              href="#"
+              onClick={this.handleMobileSearch.bind(this)}
+            >
+              <img
+                src="https://res.cloudinary.com/sivadass/image/upload/v1494756966/icons/search-green.png"
+                alt="search"
+              />
+            </a>
+            <form
+              action="#"
+              method="get"
+              className={
+                this.state.mobileSearch ? "search-form active" : "search-form"
+              }
+            >
+              <a
+                className="back-button"
+                href="#"
+                onClick={this.handleSearchNav.bind(this)}
+              >
+                <img
+                  src="https://res.cloudinary.com/sivadass/image/upload/v1494756030/icons/back.png"
+                  alt="back"
+                />
+              </a>
+              <input
+                type="search"
+                ref="searchBox"
+                placeholder="Search Product List"
+                className="search-keyword"
+                onChange={this.props.handleSearch}
+              />
+              <button
+                className="search-button"
+                type="submit"
+                onClick={this.handleSubmit.bind(this)}
+              />
+            </form>
+          </div>
 
           <div className="cart">
             <div className="cart-info">
@@ -119,7 +181,7 @@ class Header extends Component {
                     <td>Total</td>
                     <td>:</td>
                     <td>
-                      <strong>${this.props.total}</strong>  
+                      <strong>${this.props.total}</strong>
                     </td>
                   </tr>
                 </tbody>
@@ -157,6 +219,8 @@ class Header extends Component {
               </div>
             </div>
           </div>
+        </div>
+      </header>
     );
   }
 

@@ -1,7 +1,28 @@
 import React, { Component } from "react";
 import Counter from "./Counter";
-import SizeCounter from "./SizeCounter";
-
+import {
+  Row,
+  Col,
+  Button,
+  UncontrolledButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Nav,
+  NavItem,
+  ListGroup,
+  ListGroupItem,
+  Card,
+  CardBody,
+  CardHeader,
+  CardLink,
+  CardImg,
+  NavLink,
+  TabPane,
+  Progress,
+  CardFooter,
+  ButtonGroup,
+} from "../../../../node_modules/reactstrap";
 
 class Product extends Component {
   constructor(props) {
@@ -12,7 +33,7 @@ class Product extends Component {
       isAdded: false
     };
   }
-  addToCart(image, name, price, id, quantity, size, style, stock) {
+  addToCart(image, name, price, id, quantity) {
     this.setState(
       {
         selectedProduct: {
@@ -20,10 +41,7 @@ class Product extends Component {
           name: name,
           price: price,
           id: id,
-          quantity: quantity,
-          size: size,
-          style: style,
-          stock: stock
+          quantity: quantity
         }
       },
       function() {
@@ -47,7 +65,6 @@ class Product extends Component {
       }
     );
   }
-
   quickView(image, name, price, id) {
     this.setState(
       {
@@ -71,15 +88,12 @@ class Product extends Component {
     let price = this.props.price;
     let id = this.props.id;
     let quantity = this.props.productQuantity;
-    let size = [this.props.productSize];
-    let style = this.props.productStyle;
-    let stock = this.props.productStock;
     return (     <div  style={{ width: "13rem" }}> 
           <p>
      <center>
       
      <div className="product">
-        <div className="product-image">    <img width="100%"
+        <div className="product-image">    <img style={{ width: "12rem" }}
             src={image}
             alt={this.props.name}
             onClick={this.quickView.bind(
@@ -93,22 +107,12 @@ class Product extends Component {
           /></div>
         <h4 className="product-name">{this.props.name}</h4>
         <p className="product-price">{this.props.price}</p>
-       
-       Sizing:&nbsp;
-               <b> 
-    {[size]}
-    </b>
         <Counter
           productQuantity={quantity}
           updateQuantity={this.props.updateQuantity}
           resetQuantity={this.resetQuantity}
-        /> <SizeCounter
-        productSize={[size]}
-        productStyle={style}
-      />
-  
-      <small><p>
-        In-Stock: {stock}</p></small> 
+        /><small><p>
+        In-Stock:</p></small> 
           <button
             className={!this.state.isAdded ? "" : "added"}
             type="button"

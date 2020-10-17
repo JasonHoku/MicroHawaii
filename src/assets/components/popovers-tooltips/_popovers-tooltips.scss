@@ -105,9 +105,9 @@
   }
 
   .popover-header {
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, .1);
     border-bottom: 0;
-    color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 1);
 
     &::before {
       display: none;

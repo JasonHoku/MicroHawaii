@@ -5,13 +5,14 @@
     position: fixed;
     width: 100%;
     top: 0;
-    height: 100px;
-      margin: auto;
-      padding: 0;
-      }
+
+    .app-header__logo {
+      visibility: visible;
+    }
+  }
 
   .app-main {
-    padding-top: $app-header-height  + 0;
+    padding-top: $app-header-height;
   }
 
   &:not(.fixed-sidebar):not(.closed-sidebar) {

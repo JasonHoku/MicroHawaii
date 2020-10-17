@@ -8,29 +8,25 @@
   min-width: $app-sidebar-width;
   position: relative;
   flex: 0 0 $app-sidebar-width;
-  color: "white";
-  margin-top: $app-header-height - 220px;
-  padding-top: $app-header-height + 100 ;
+  margin-top: -$app-header-height;
+  padding-top: $app-header-height;
   transition: all .2s;
 
   .app-sidebar__inner {
     padding: 2px ($layout-spacer-x) $layout-spacer-x;
-    color: "white";
   }
 
   .scrollbar-container {
     z-index: 15;
     width: 100%;
-    height: 100%;
   }
 
   .app-sidebar-bg {
     position: absolute;
     left: 0;
     top: 0;
-    height: 80%;
+    height: 100%;
     width: 100%;
-    color: "white";
     opacity: 0.05;
     background-size: cover;
     z-index: 10;
@@ -54,7 +50,7 @@
   font-size: $font-size-xs;
   margin: ($layout-spacer-x / 2) 0;
   font-weight: bold;
-  color: "white";
+  color: $primary;
   white-space: nowrap;
   position: relative;
 }
@@ -70,15 +66,15 @@
   top: 0;
   z-index: 12;
 }
-a{
-  color: "white";
-}
+
 // Sidebar Components
 
 @import "modifiers/navmenu-vertical";
 
 // Sidebar Modifiers
 
+@import "themes/sidebar-light";
+@import "themes/sidebar-dark";
 //@import "themes/sidebar-inverted";
 
 

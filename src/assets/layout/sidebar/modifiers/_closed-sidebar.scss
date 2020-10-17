@@ -9,7 +9,6 @@
     min-width: $app-sidebar-width-collapsed;
     flex: 0 0 $app-sidebar-width-collapsed;
     z-index: 13;
-    height: 100%;
 
     .app-sidebar__inner {
 
@@ -49,7 +48,6 @@
 
           & > .metismenu-item > .metismenu-link {
             height: 0;
-            color: "white";
           }
         }
       }
@@ -89,14 +87,12 @@
 
             & > .metismenu-item > .metismenu-link {
               height: 2.3em;
-              color: "white";
             }
           }
 
           .metismenu-container {
             .metismenu-link {
               padding-left: 1em;
-              color: "white";
             }
           }
 
@@ -177,7 +173,7 @@
         .logo-src {
           display: block !important;
           margin: 0 auto;
-          width: $logo-width - 0;
+          width: $logo-width - 120;
         }
 
         .header__pane {
@@ -185,8 +181,6 @@
         }
       }
 
-
-      
       &:hover {
         .app-header__logo {
           width: $app-sidebar-width;

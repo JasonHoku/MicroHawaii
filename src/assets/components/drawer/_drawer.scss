@@ -7,9 +7,7 @@
 
   .drawer-heading {
     font-size: $font-size-sm;
-    color: "white";
-
-    color: "white";
+    color: $body-color;
     margin: 0;
     background: $gray-100;
     padding: ($layout-spacer-x / 2) $layout-spacer-x;
@@ -27,7 +25,6 @@
 
   & > .app-sidebar__heading:first-child {
     margin-top: 0;
-    color: "white";
   }
 }
 

@@ -19,7 +19,7 @@ class SearchBox extends React.Component {
             active: this.state.activeSearch,
           })}>
           <div className="input-holder">
-            <a target="_blank" href="https://duckduckgo.com/?q=site%3AFazadAzad.com&t=hw&ia=web">
+            <a target="_blank" href="https://duckduckgo.com/?q=site%3AMicroHawaii.com&t=hw&ia=web">
             <input type="text" className="search-input" placeholder="Type to search"/>
             <button 
               className="search-icon">

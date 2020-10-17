@@ -7,9 +7,8 @@ import Tabs, { TabPane } from "rc-tabs";
 import TabContent from "rc-tabs/lib/SwipeableTabContent";
 import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 
-import AppContent from  "../../../Layout/AppContent/";
-
 // Examples
+import CRMDashboard1 from "./Examples/Variation1";
 import CRMDashboard2 from "./Examples/Variation2";
 
 
@@ -27,7 +26,6 @@ export default class HomeDashboard extends Component {
 
           
             <CRMDashboard2 />
-      <AppContent />
                  </CSSTransitionGroup>
       </Fragment>
     )

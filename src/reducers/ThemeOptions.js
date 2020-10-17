@@ -114,7 +114,7 @@ export default function reducer(state = {
     headerBackgroundColor: '',
     enableMobileMenuSmall: '',
     enableBackgroundImage: false,
-    enableClosedSidebar: true,
+    enableClosedSidebar: false,
     enableFixedHeader: true,
     enableHeaderShadow: true,
     enableSidebarShadow: true,

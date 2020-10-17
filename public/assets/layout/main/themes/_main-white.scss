@@ -1,0 +1,40 @@
+// Theme White
+
+// Variables
+
+$app-container-bg:  rgb(251, 251, 251);
+$app-sidebar-bg: rgb(251, 251, 251);
+$app-header-bg:  rgba(251, 251, 251, 0.931);
+$app-header-logo-bg: rgba(251, 251, 251, 0.931);
+
+// Content
+
+.app-theme-white {
+
+  &.app-container {
+    background: $app-container-bg;
+ 
+  }
+
+  .app-sidebar {
+    background: $app-sidebar-bg;
+    opacity: 0.8
+  }
+
+  .app-page-title {
+    background: rgba(255, 255, 255, .55);
+    height: 100px;
+  }
+
+  .app-footer .app-footer__inner,
+  .app-header {
+    background: $app-header-bg;opacity: 0.85;
+  }
+
+  &.fixed-header {
+    .app-header__logo {
+      background: rgba($app-header-bg, .1);opacity: 0.85;
+    }
+  }
+
+}

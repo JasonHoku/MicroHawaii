@@ -338,7 +338,7 @@ display: none;
   left: 2px;
   border-radius: 50%;
   transition: 150ms linear;
-  background-color: #808080;;
+  background-color: white;
 }
 
 input:checked + .switch {

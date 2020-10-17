@@ -24,7 +24,7 @@ $widget-spacer: $spacer;
     }
 
     .widget-subheading {
-      opacity: 0;
+      opacity: .5;
     }
   }
 
@@ -49,7 +49,7 @@ $widget-spacer: $spacer;
 
     .progress-sub-label {
       margin-top: ($widget-spacer / 3);
-      opacity: 0;
+      opacity: .5;
       display: flex;
       align-content: center;
       align-items: center;

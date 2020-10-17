@@ -43,8 +43,7 @@
 
       .metismenu-link {
         padding: ($layout-spacer-x / 2.5) $layout-spacer-x;
- 
-        color: "white";
+        color: $gray-800;
         font-weight: bold;
         text-decoration: none;
         display: block;
@@ -85,8 +84,7 @@
           .metismenu-link {
             padding: ($layout-spacer-x / 4) ($layout-spacer-x);
             display: block;
-
-            color: "white";
+            color: $gray-800;
             white-space: nowrap;
             font-weight: normal;
           }
