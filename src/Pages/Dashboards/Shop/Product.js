@@ -88,11 +88,14 @@ class Product extends Component {
     let price = this.props.price;
     let id = this.props.id;
     let quantity = this.props.productQuantity;
-    return (     <div  style={{ width: "13rem" }}> 
+    return (     <div  style={{ width: "13rem" }}                
+> 
           <p>
      <center>
       
-     <div className="product">
+     <div className="product"     style={{
+      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+    }}>
         <div className="product-image">    <img style={{ width: "12rem" }}
             src={image}
             alt={this.props.name}
