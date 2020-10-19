@@ -19,7 +19,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 
 import bg2 from "../../../assets/utils/images/dropdown-header/abstract2.jpg";
 import bg10 from "../../../assets/utils/images/dropdown-header/abstract10.jpg";
-
+import 'font-awesome/css/font-awesome.min.css';
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
