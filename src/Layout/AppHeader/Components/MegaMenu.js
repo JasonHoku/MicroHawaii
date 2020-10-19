@@ -19,7 +19,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 
 import bg2 from "../../../assets/utils/images/dropdown-header/abstract2.jpg";
 import bg10 from "../../../assets/utils/images/dropdown-header/abstract10.jpg";
-
+import 'font-awesome/css/font-awesome.min.css';
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -65,13 +65,13 @@ class MegaMenu extends React.Component {
                       <NavItem className="nav-item-header">Main Portals</NavItem>
                       <NavItem>
                         <NavLink href="./#/dashboards/home/">
-                          <i className="nav-link-icon lnr-home"> </i>
+                          <i className="nav-link-icon  fa fa-home"> </i>
                           <span>Home</span>
                         </NavLink>
                       </NavItem>
                       <NavItem>
                         <NavLink href="./#/dashboards/services/">
-                          <i className="nav-link-icon lnr-question-circle"> </i>
+                          <i className="nav-link-icon fa fa-question-circle-o"> </i>
                           <span>About</span>
                           <div className="ml-auto">
                             
@@ -80,13 +80,13 @@ class MegaMenu extends React.Component {
                       </NavItem>
                       <NavItem>
                         <NavLink href="./#/dashboards/shop/">
-                          <i className="nav-link-icon lnr-cart"> </i>
+                          <i className="nav-link-icon fa fa-shopping-cart"> </i>
                           <span>Shop</span>
                         </NavLink>
                       </NavItem>
                       <NavItem>
                         <NavLink href="./#/dashboards/contact/">
-                          <i className="nav-link-icon lnr-envelope"> </i>
+                          <i className="nav-link-icon fa fa-envelope"> </i>
                           <span>Contact</span>
                         </NavLink>
                       </NavItem>
@@ -96,18 +96,18 @@ class MegaMenu extends React.Component {
                     <Nav vertical>
                       <NavItem className="nav-item-header">Favorites</NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/gallery/"><i className="nav-link-icon lnr-picture"> </i>Visual Arts</NavLink>
+                      <NavLink href="./#/dashboards/gallery/"><i className="nav-link-icon fa fa-picture-o"> </i>Visual Arts</NavLink>
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/music/"><i className="nav-link-icon lnr-music-note"> </i>
+                      <NavLink href="./#/dashboards/music/"><i className="nav-link-icon fa fa-music"> </i>
                           Audio Arts
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/writing/"> <i className="nav-link-icon lnr-pencil"> </i>Writing</NavLink>
+                      <NavLink href="./#/dashboards/writing/"> <i className="nav-link-icon fa fa-pencil"> </i>Writing</NavLink>
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/projects/"> <i className="nav-link-icon lnr-code"> </i>Game Development
+                      <NavLink href="./#/dashboards/projects/"> <i className="nav-link-icon fa fa-code"> </i>Game Development
                           <div className="ml-auto badge badge-success">New</div>    </NavLink>
                       </NavItem>
                     </Nav>
@@ -118,18 +118,18 @@ class MegaMenu extends React.Component {
                         Services &amp; Information
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/services/"><i className="nav-link-icon lnr-magic-wand"> </i>Professional Services </NavLink>
+                      <NavLink href="./#/dashboards/services/"><i className="nav-link-icon fa fa-magic"> </i>Professional Services </NavLink>
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/projects/"> <i className="nav-link-icon lnr-users"> </i>Projects</NavLink>
+                      <NavLink href="./#/dashboards/projects/"> <i className="nav-link-icon fa fa-users"> </i>Projects</NavLink>
                       </NavItem>
                       <NavItem>
                       <NavLink href="https://github.com/JasonHoku">
-                        <i className="nav-link-icon lnr-database"> </i>GitHub
+                        <i className="nav-link-icon fa fa-database"> </i>GitHub
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href="https://www.paypal.com/paypalme/JasonLevien" target="_blank"> <i className="nav-link-icon lnr-star"> </i>Donate</NavLink>
+                        <NavLink href="https://www.paypal.com/paypalme/JasonLevien" target="_blank"> <i className="nav-link-icon fa fa-star"> </i>Donate</NavLink>
                       </NavItem>
                     </Nav>
                   </Col>

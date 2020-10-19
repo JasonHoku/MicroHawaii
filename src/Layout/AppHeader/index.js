@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import cx from "classnames";
-
+import axios from 'axios';
 import { connect } from "react-redux";
 
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
@@ -14,7 +14,22 @@ import HeaderRightDrawer from "./Components/HeaderRightDrawer";
 
 import HeaderDots from "./Components/HeaderDots";
 
+
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      apiVar: [],
+      response: [],
+    };
+    this.publishResults = this.publishResults.bind(this);
+  }
+
+  componentDidMount() {
+  
+    this.publishResults()
+  }
+
   render() {
     let {
       headerBackgroundColor,
@@ -38,7 +53,6 @@ class Header extends React.Component {
               <MegaMenu />
             </div>
             <div className="app-header-right">
-              <HeaderDots />
               <UserBox />
               <HeaderRightDrawer />
             </div>
@@ -47,6 +61,21 @@ class Header extends React.Component {
       </Fragment>
     );
   }
+
+  
+  publishResults(){
+    axios.get('http://localhost:1337/pono-maps/').then(response => {
+
+      this.setState({
+        apiVar: response
+    }
+
+
+    );
+     })
+  }
+    
+
 }
 
 const mapStateToProps = (state) => ({
