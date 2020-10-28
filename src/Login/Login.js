@@ -25,7 +25,7 @@ const Loginbutton = (props) =>
                 </Button>
   </a> </div> ;
 
-const Logoutbutton = (props) => <button onClick={props.onClick}>Logout</button>;
+const Logoutbutton = (props) => <Button onClick={props.onClick}>Logout</Button>;
 
 const LoginAct = (props) => {
   const [isLogged, setIsLogged] = useState(!!localStorage.getItem('jwt'));

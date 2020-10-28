@@ -27,7 +27,7 @@ const LoginRedirect = (props) => {
         localStorage.setItem('jwt', res.jwt);
         localStorage.setItem('username', res.user.username);
         setText('You have been successfully logged in. You will be redirected in a few seconds...');
-        setTimeout(() => history.push('/'), 3000); // Redirect to homepage after 3 sec
+        setTimeout(() => history.push('/'), 1000); // Redirect to homepage after 3 sec
       })
       .catch(err => {
         console.log(err);
@@ -35,7 +35,7 @@ const LoginRedirect = (props) => {
       });
   }, [history, location.search, params.providerName]);
 
-  return <p>{text} 123</p>
+  return <p> <h1>{text}</h1> </p>
 };
 
 export default LoginRedirect;
