@@ -15,6 +15,8 @@ import configureStore from "./config/configureStore";
 import { Provider } from "react-redux";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
+import LoginRedirect from "./Login/LoginRedirect"
+
 const store = configureStore();
 const rootElement = document.getElementById("root");
 
@@ -23,6 +25,8 @@ const renderApp = (Component) => {
     <Provider store={store}>
       <HashRouter>
         <Component />
+<Route path="/connect/google/redirect" component={LoginRedirect} />
+
       </HashRouter>
     </Provider>,
     rootElement

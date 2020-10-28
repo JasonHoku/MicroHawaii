@@ -1,8 +1,12 @@
 import React, { Fragment } from "react";
 import cx from "classnames";
-import axios from 'axios';
+import axios from "axios";
 import { connect } from "react-redux";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
 import HeaderLogo from "../AppLogo";
@@ -11,9 +15,13 @@ import SearchBox from "./Components/SearchBox";
 import MegaMenu from "./Components/MegaMenu";
 import UserBox from "./Components/UserBox";
 import HeaderRightDrawer from "./Components/HeaderRightDrawer";
+import { Button } from "reactstrap";
+
+import Login from "../../Login/Login"
 
 import HeaderDots from "./Components/HeaderDots";
 
+import LoginRedirect from "../../Login/LoginRedirect";
 
 class Header extends React.Component {
   constructor(props) {
@@ -26,8 +34,7 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-  
-    this.publishResults()
+    this.publishResults();
   }
 
   render() {
@@ -38,21 +45,40 @@ class Header extends React.Component {
     } = this.props;
     return (
       <Fragment>
-        <CSSTransitionGroup component="div"
+        <CSSTransitionGroup
+          component="div"
           className={cx("app-header", headerBackgroundColor, {
             "header-shadow": enableHeaderShadow,
           })}
-          transitionName="HeaderAnimation" transitionAppear={true} transitionAppearTimeout={1500}
-          transitionEnter={false} transitionLeave={false}>
+          transitionName="HeaderAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={1500}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
           <HeaderLogo />
-          <div className={cx("app-header__content", {
+          <div
+            className={cx("app-header__content", {
               "header-mobile-open": enableMobileMenuSmall,
-            })}>
+            })}
+          >
             <div className="app-header-left">
               <SearchBox />
               <MegaMenu />
             </div>
             <div className="app-header-right">
+              <span> <Router>
+            <Switch>
+            <Route path="/#/dashboards/home/connect/google/redirect" component={LoginRedirect} />
+            <Route exact path="/" component={Login} />
+              <Login />
+       </Switch></Router>
+
+                &nbsp;
+
+                &nbsp;
+              </span>
+
               <UserBox />
               <HeaderRightDrawer />
             </div>
@@ -62,20 +88,13 @@ class Header extends React.Component {
     );
   }
 
-  
-  publishResults(){
-    axios.get('http://localhost:1337/pono-maps/').then(response => {
-
+  publishResults() {
+    axios.get("http://localhost:1337/pono-maps/").then((response) => {
       this.setState({
-        apiVar: response
-    }
-
-
-    );
-     })
+        apiVar: response,
+      });
+    });
   }
-    
-
 }
 
 const mapStateToProps = (state) => ({
