@@ -244,17 +244,22 @@ export default class ContactElements extends Component {
       alert("You must fill this form entirely.");
     } else {
       var templateParams = {
-        name: "Jason Hoku Levien",
+        name: `HokuBot: ${CLIIP}`,
         message: `Contact Form Submission Message: ${formMessage}`,
-        message2: ` FormName: ${formName}  , Email: ${formEmail} ID: ${CLIIP}`,
+        message2: ` FormName: ${formName}  ||, Email: ${formEmail} || ID: ${CLIIP}`,
       };
 
       emailjs.send(EJSSERVICE, EJSTEMPLATE, templateParams).then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
+          alert("Your message has sent successfully!");
+          var form = document.getElementById("contactFormID");
+          document.getElementById("contactFormID").hidden = true;
+          document.getElementById("contactFormThanks").hidden = false;
         },
         function (error) {
           console.log("FAILED...", error);
+          alert("The message did not send. Perhaps you've lost internet?")
         }
       );
     }
@@ -311,8 +316,8 @@ export default class ContactElements extends Component {
                 >
                   <CardBody>
                     <CardTitle>Contact</CardTitle>
-                    <br />
-                    <Form>
+                    <br /> <span id="contactFormThanks" hidden > Thank you for your submission! A response can be expected in 0-3 days.</span>
+                    <Form id="contactFormID">
                       <FormGroup row>
                         <Label for="examplePassword" sm={3}>
                           Name
