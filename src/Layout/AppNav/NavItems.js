@@ -4,6 +4,11 @@ export const MainNav = [
     label: "Home",
         to: "#/dashboards/home",
           
+  },  {
+    icon: "pe-7s-date",
+    label: "Events",
+        to: "#/dashboards/calendar",
+          
   },
   {
     icon: "pe-7s-photo",
