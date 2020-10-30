@@ -212,7 +212,7 @@ export default class MusicElements extends Component {
           <Row>
             <Col xs="4" sm="4" md="4" xl="3">
               <Card>
-                <CardBody> Over 40 mciroHawaii musical publishingings can be found on either YouTube or SoundCloud:
+                <CardBody> Over 40 microHawaii musical publishingings can be found on either YouTube or SoundCloud:
     <br></br>  </CardBody>
               </Card>  </Col>
 
@@ -233,7 +233,7 @@ export default class MusicElements extends Component {
               <Card>
                 <CardBody>
                   <center>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLWGSXq68FTb2TWN6m3PMvSD7oysOjknCV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=PLWGSXq68FTb2TWN6m3PMvSD7oysOjknCV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </center>
 </CardBody>
               </Card>

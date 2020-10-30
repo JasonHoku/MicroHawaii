@@ -2,8 +2,7 @@ import React, { Component, Fragment } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import classnames from "classnames";
 import ReactTable from "react-table";
-import { Route } from 'react-router-dom';
-
+import { Route } from "react-router-dom";
 
 import {
   Row,
@@ -28,7 +27,6 @@ import {
   CardFooter,
   ButtonGroup,
 } from "reactstrap";
-
 
 import {
   ResponsiveContainer,
@@ -192,16 +190,18 @@ export default class CRMDashboard2 extends Component {
   }
 
   render() {
-
-
     const { data } = this.state;
 
     return (
-
-
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation"
-          transitionAppear={true} transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
+        <CSSTransitionGroup
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
           {/*
       
 <div>
@@ -241,120 +241,137 @@ export default class CRMDashboard2 extends Component {
                     */}
 
           <Row>
-
             <Col>
-              <Card className="col-md- opacity-9 " >
+              <Card className="col-md- opacity-9 ">
                 <CardHeader className="card-header-tab">
                   <div className="card text-center card-shadow-focus opacity-9">
-                    MicroHawaii Services  </div>
+                    MicroHawaii Services{" "}
+                  </div>
                 </CardHeader>
-                <CardBody>  <div class="col-md">
+                <CardBody>
+                  {" "}
                   <div class="col-md">
-                    Founded on a five point focus system, mciroHawaii is a team and network of resources, information, abilities and values, youthfully sprouting into the modern world of technology and revolutionary sciences.
-    <br></br> <br></br>    Find out more about what patterns are represented here through the free reading on the publishing page, or by making direct contact via the form on this site.
-     Maui, Hawaii Based - Technology Initiative
-     <div class="col-md">  </div>
-                    <br></br> <br></br> </div>
-
-                      A wide variety of skills and resources are offered here to stimulate wealth and health:
-     <br></br>
-                  <li> Website and Application Design</li> <li>  Custom 3D Modeling/Design Manufacturing</li>
-                  <li> Electronic Hardware Design Manufacturing </li><li>Graphic Design &amp; Printing</li>
-                  <li> Nutritional Guidance </li><li> Audio Production </li> <li>  Writing/Journalism</li><li> Business Advertising</li><li> Logo Production</li><li>Business Card Design
-    </li><li> E-Commerce Services </li><li> Advertising Consultant </li>
-                </div>
+                    <div class="col-md">
+                      microHawaii is a conglomerate of Hawaii based computer
+                      services.
+                      <br></br> <br></br>    This website is a portfolio of
+                      skills and active utilities.
+                      <div class="col-md"> </div>
+                      <br></br> <br></br>{" "}
+                    </div>
+                    Areas of expertise include:
+                    <br></br> <br></br> <li> Website and Application Design</li>{" "}
+                    <li> Custom 3D Modeling/Design Manufacturing</li>
+                    <li> Electronic Hardware Design Manufacturing </li>
+                    <li>Graphic Design &amp; Printing</li>
+                    <li> Business Advertising</li>
+                    <li> Logo Production</li>
+                    <li> E-Commerce Services </li>
+                    <li> Advertising Consultant </li>
+                  </div>
                 </CardBody>
               </Card>
             </Col>
 
             <Col>
-
               <Row>
-
                 <Col>
-
-
-
-                  <Card className="row-md-6 opacity-9 " >
-                    <a href="#" to="#/dashboards/home/contact" activeLinkFromLocation>
-                      <CardHeader className="card-header-tab" >
+                  <Card className="row-md-6 opacity-9 ">
+                    <a
+                      href="#/dashboards/contact"
+                      to="#/dashboards/contact"
+                      activeLinkFromLocation
+                    >
+                      <CardHeader className="card-header-tab">
                         <div className="card text-center card-shadow-focus opacity-9">
-                          Contact
-                    </div>
-                      </CardHeader>
-                      <CardBody>
-                        <div>
-                        </div><center> Click here to send a direct message for consultations and questions.</center>
-                      </CardBody></a>
-                  </Card>
-                  <Row >
-
-
-                    <Col > <br></br>
-
-                    
-                    <Card className=" opacity-9 " >
-                      <CardHeader className="card-header-tab" >
-                        <div className="card text-center card-shadow-focus opacity-9">
-
-Maui, Hawaii Based
-
+                          <i className="pe-7s-mail">Contact</i>
                         </div>
                       </CardHeader>
                       <CardBody>
-                      <CardImg src={maui}></CardImg>
+                        <div></div>
+                        <center> Click here to send a direct message.</center>
                       </CardBody>
+                    </a>
                   </Card>
+                  <Row>
+                    <Col>
+                      {" "}
+                      <br></br>
+                      <Card className=" opacity-9 ">
+                        <CardHeader className="card-header-tab">
+                          <div className="card text-center card-shadow-focus opacity-9">
+                            Maui, Hawaii Based
+                          </div>
+                        </CardHeader>
+                        <CardBody>
+                          <CardImg src={maui}></CardImg>
+                        </CardBody>
+                      </Card>
                     </Col>
                   </Row>
                 </Col>
                 <Col>
-             
-             
-                  <Card className="opacity-9 " >
-                      <CardHeader className="card-header-tab" >
-                        <div className="card text-center card-shadow-focus opacity-9">
-E-Commerce + Design
-
-                        </div>
-                      </CardHeader>
-                      <CardBody>
+                  <Card className="opacity-9 ">
+                    <CardHeader className="card-header-tab">
+                      <div className="card text-center card-shadow-focus opacity-9">
+                        E-Commerce + Design
+                      </div>
+                    </CardHeader>
+                    <CardBody>
                       <CardImg src={illumexample}></CardImg>
-                      </CardBody>
+                    </CardBody>
                   </Card>
                 </Col>
-
-
               </Row>
-
-
             </Col>
           </Row>
 
           <br></br>
 
-          <Row>  <Col>  <Card className="col-md-6 opacity-9 " >
-            <CardHeader className="card-header-tab" >
-              <div className="card text-center card-shadow-focus opacity-9">
-                Website Design Specialist Experiences:
-                    </div>
-            </CardHeader>
-            <CardBody>
-              <div>  <p> Over a decade of researching and designing websites. </p><p> </p><p>  Fluent in 7+ Programming languages</p><p>
-              </p><p>  E-Commerce Design</p><p>  Application Development</p><p>  Software &amp; Hardware Development</p><p>  Database Management </p><p> Team management & oversight experience for large projects
-        </p><p>  Social Media Management</p><p>  API Development </p><p>
-                </p>
-              </div>
-            </CardBody>
-          </Card> <br></br>
-
-          </Col>
+          <Row>
+            {" "}
+            <Col>
+              {" "}
+              <Card className="col-md-6 opacity-9 ">
+                <CardHeader className="card-header-tab">
+                  <div className="card text-center card-shadow-focus opacity-9">
+                    Website Design Specialist Experiences:
+                  </div>
+                </CardHeader>
+                <CardBody>
+                  <div>
+                    {" "}
+                    <p>
+                      {" "}
+                      Over a decade of researching and designing websites.{" "}
+                    </p>
+                    <p> </p>
+                    <p> Fluent in 7+ Programming languages</p>
+                    <p></p>
+                    <p> E-Commerce Design</p>
+                    <p> Application Development</p>
+                    <p> Software &amp; Hardware Development</p>
+                    <p> Database Management </p>
+                    <p>
+                      {" "}
+                      Team management & oversight experience for large projects
+                    </p>
+                    <p> Social Media Management</p>
+                    <p> API Development </p>
+                    <p></p>
+                  </div>
+                </CardBody>
+              </Card>{" "}
+              <br></br>
+            </Col>
           </Row>
-
 
           <Row>
             <Col sm="12" md="6" xl="4">
-              <Card className="card-shadow-primary card-border text-white mb-3" color="primary">
+              <Card
+                className="card-shadow-primary card-border text-white mb-3"
+                color="primary"
+              >
                 <div className="dropdown-menu-header">
                   <div className="dropdown-menu-header-inner bg-primary">
                     <div className="menu-header-content">
@@ -367,7 +384,7 @@ E-Commerce + Design
                         <h5 className="menu-header-title">Jason Hoku Levien</h5>
                         <h6 className="menu-header-subtitle">
                           Lead Web Applications Developer
-                          </h6>
+                        </h6>
                       </div>
                     </div>
                   </div>
@@ -375,11 +392,10 @@ E-Commerce + Design
                 <CardFooter className="text-center d-block">
                   <Button className="btn-shadow-dark btn-wider" color="dark">
                     Send Message
-                    </Button>
+                  </Button>
                 </CardFooter>
               </Card>
             </Col>
-           
           </Row>
         </CSSTransitionGroup>
       </Fragment>

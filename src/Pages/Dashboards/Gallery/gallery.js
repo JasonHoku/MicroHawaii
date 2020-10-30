@@ -212,7 +212,7 @@ export default class GalleryElements extends Component {
 <Card>
   <CardBody><p>An image is said to contain a thousand words, but how should one contain a thousand images?
   </p> <p>
-  mciroHawaii has produced over 1,200 logos, icons, textures, and graphics.
+  microHawaii has produced over 1,200 logos, icons, textures, and graphics.
     </p> <p>
     Here you shall find a collection of some, growing over time.
     </p> </CardBody>

@@ -42,7 +42,7 @@ body {
 background-repeat: repeat-y;
 }
 
-card {
+.card {
 
   box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)" 
 }

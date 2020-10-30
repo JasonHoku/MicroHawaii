@@ -235,7 +235,7 @@ setTimeout(function() {    alert("Your Cart Is Empty");},250);
               <div className="main">
                 <img alt="Order Processed!" />
                 <h2>
-                  Congrats!{" "}
+                  Your order has been received!{" "}
                   <span role="img" aria-label="emoji">
                     {" "}
                     🌞

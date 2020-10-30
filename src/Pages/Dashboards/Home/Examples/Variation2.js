@@ -400,7 +400,7 @@ export default class CRMDashboard2 extends Component {
               added spunk)
               <br></br>
               <br></br>
-              Find out what mciroHawaii is working on, get involved and learn
+              Find out what microHawaii is working on, get involved and learn
               more, by visiting the new
               <a href="#/dashboards/projects"> Projects Page</a>.<br></br>
               <br></br>
@@ -425,7 +425,7 @@ export default class CRMDashboard2 extends Component {
               <div> </div>
             </CardHeader>
             <CardBody>
-              The mciroHawaii 3D Web-Game development is kicking off! Pre-Alpha
+              The microHawaii 3D Web-Game development is kicking off! Pre-Alpha
               0.2 is now available
               <a href="../3D/"> here </a>.<br></br>
               <br></br>
