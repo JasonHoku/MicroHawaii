@@ -4,6 +4,7 @@ import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import classnames from "classnames";
 import ReactTable from "react-table";
 import { Route } from "react-router-dom";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 import {
   Row,
@@ -207,50 +208,99 @@ export default class ProjectElements extends Component {
         >
           <Row>
             <Col xs="auto" sm="auto" md="auto" xl="auto">
-            <Card>
+              <Card>
                 <CardBody>
-                  This page is under construction and will become filled in the coming weeks as schedule allows.
+                  This page is under construction and will become filled in the
+                  coming weeks as schedule allows.
                   <br></br>
                 </CardBody>
               </Card>
             </Col>
-          </Row><br></br>
-
+          </Row>
+          <br></br>
 
           <Row>
             <Col xs="auto" sm="auto" md="auto" xl="auto">
-            <Card>
+              <Card>
                 <CardBody>
-                  A map and synapsis of projects is brewing here and will include:
-                
+                  Projects is brewing here and will include:
+                  <br /> <br />
                   <li>
-                    Website Development: Follow on<a href="https://github.com/JasonHoku"> GitHub
-                            </a>
-                  </li> <li>
-                  <a href="/3D/">Game Development </a>
-                    </li> <li><a href="https://github.com/JasonHoku"> Publishing
-                            </a>
-                  </li><li>
-                    DIY Home Projects (Coming Soon)
+                    Website Development: Follow on
+                    <a href="https://github.com/JasonHoku">
+                      {" "}
+                      GitHub
+                      <br></br>
+                    </a>
+                  </li>{" "}
+                  <li>
+                    <a href="/3D/">Game Development </a>
+                  </li>{" "}
+                  <li>
+                    <a href="https://github.com/JasonHoku"> Publishing</a>
                   </li>
+                  <li>DIY Home Projects (Coming Soon)</li>
                   <br></br>
                 </CardBody>
               </Card>
             </Col>
-          </Row><br></br>
-
+          </Row>
+          <br></br>
 
           <Row>
             <Col xs="auto" sm="auto" md="auto" xl="auto">
-            <Card>
+              <Card><CardHeader>20Minutes:</CardHeader>
                 <CardBody>
-                  For now you can find more on the <a href="#/dashboard/services/">about</a> page.
+                  <CountdownCircleTimer
+                    isPlaying
+                    duration={1200}
+                    colors={[
+                      ["#004777", 0.33],
+                      ["#F7B801", 0.33],
+                      ["#A30000", 0.33],
+                    ]}
+                  >
+                    {({ remainingTime }) => remainingTime}
+                  </CountdownCircleTimer>
+
+                </CardBody>
+              </Card>
+            </Col>
+            <Col xs="auto" sm="auto" md="auto" xl="auto">
+          
+              <Card><CardHeader>2Minutes:</CardHeader>
+                {" "}
+                <CardBody>
+                  {" "}
+                  <CountdownCircleTimer
+                    isPlaying
+                    duration={120}
+                    colors={[
+                      ["#004777", 0.33],
+                      ["#F7B801", 0.33],
+                      ["#A30000", 0.33],
+                    ]}
+                  >
+                    {({ remainingTime }) => remainingTime}
+                  </CountdownCircleTimer>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          <br></br>
+
+          <Row>
+            <Col xs="auto" sm="auto" md="auto" xl="auto">
+              <Card>
+                <CardBody>
+                  For now you can find more on the{" "}
+                  <a href="#/dashboards/services">about</a> page.
                   <br></br>
                 </CardBody>
               </Card>
             </Col>
-          </Row><br></br>
-          
+          </Row>
+          <br></br>
         </CSSTransitionGroup>
       </Fragment>
     );
