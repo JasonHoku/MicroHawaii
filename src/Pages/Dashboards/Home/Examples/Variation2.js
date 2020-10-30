@@ -108,7 +108,7 @@ export default class CRMDashboard2 extends Component {
           transitionEnter={false}
           transitionLeave={false}
         >
-          <center>
+          <center><meta name="description" content="microHawaii.com, software development, e-commerce, education and services."/>
             <Row>
               <Col mx-auto className=" opacity-9" style={{ width: "12rem" }}>
                 <Card
