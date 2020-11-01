@@ -59,12 +59,12 @@ const LoginAct = (props) => {
 
   let text;
 
-  if (isLogged || (1)) {
+  if (isLogged ) {
     text = [
       
       
       
-      `Welcome ${localStorage.getItem("username")}, you are connected!`
+      `Welcome ${localStorage.getItem("username")}, you are connected!` + " "
   
   
   
@@ -72,7 +72,7 @@ const LoginAct = (props) => {
 
     if (isLogged && localStorage.getItem("username") == "jlevien808") {
 
-      text = `Sup ${localStorage.getItem("username")}, you are connected!`;
+      text = `Sup ${localStorage.getItem("username")}, you are connected! + " "`;
     }
   } else {
     text = [
