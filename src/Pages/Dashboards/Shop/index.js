@@ -248,21 +248,38 @@ export default class ShopPage extends Component {
             closeModal={this.closeModal}
           />{" "}
         </div>
-        <center>
-          <Card style={{ position: "bottom", width: "26rem" }}>  <CardHeader> <strong>Shirt Sizings:</strong></CardHeader>
-            <img src="/images/shirtsize.png" height="80"></img>
-          </Card>{" "}
-          <br></br>
-          <Card  style={{ width: "22rem" }}> 
-      
-         <CardBody>   <p> </p><p> If you have any questions please use the <a href="#/dashboards/contact"> easy contact form.</a>
-<br></br>
-         </p><p> </p><p> Please refer to the 
-              <a href="#/dashboards/services"> services</a> page for more information about expertises and offers.
-
-         </p>
-         <br></br>
-         </CardBody>
+        <center> 
+          
+          <Card  style={{ position: "bottom" , width: "26rem",}}> 
+          <img src="/images/shirtsize.png" height="80" ></img>
+      </Card> <p> </p><p> </p><p> </p><br></br>
+        <Card  style={{ position: "bottom" , width: "17rem" }}> 
+           <CardHeader><div><p> Official PayPal API tool: </p> </div></CardHeader>
+         <Footer
+          style={{ width: "13rem" }}
+            cartBounce={this.state.cartBounce}
+            total={this.state.totalAmount}
+            totalItems={this.state.totalItems}
+            cartItems={this.state.cart}
+            removeProduct={this.handleRemoveProduct}
+            handleCategory={this.handleCategory}
+            categoryTerm={this.state.category}
+            updateQuantity={this.updateQuantity}
+            productQuantity={this.state.moq} 
+            ></Footer>        <CardBody> <PayPalButton 
+            cartBounce={this.state.cartBounce}
+            total={this.state.totalAmount}
+            totalItems={this.state.totalItems}
+            cartItems={this.state.cart}
+            removeProduct={this.handleRemoveProduct}
+            handleCategory={this.handleCategory}
+            categoryTerm={this.state.category}
+            updateQuantity={this.updateQuantity}
+            productQuantity={this.state.moq}
+               style={{ width: "13rem" }}/> 
+  
+       
+  </CardBody> 
           </Card>
           <p> </p>
           <p> </p>

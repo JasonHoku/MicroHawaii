@@ -244,9 +244,9 @@ export default class ContactElements extends Component {
       alert("You must fill this form entirely.");
     } else {
       var templateParams = {
-        name: `HokuBot: ${CLIIP}`,
-        message: `Contact Form Submission Message: ${formMessage}`,
-        message2: ` FormName: ${formName}  ||, Email: ${formEmail} || ID: ${CLIIP}`,
+        name: `PonoBot: ${CLIIP}`,
+        message: `Contact Form Submitted Message: ${formMessage}`,
+        message2: ` SubmittedName: ${formName}  ||, SubmittedEmail: ${formEmail} || ID: ${CLIIP}`,
       };
 
       emailjs.send(EJSSERVICE, EJSTEMPLATE, templateParams).then(
@@ -285,19 +285,19 @@ export default class ContactElements extends Component {
                 {" "}
                 <Row>
                   <Col>
-                    <Card
+                  <Card
                       style={{
                         width: "20rem",
                         boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                       }}
                     >
-                      <CardHeader>Contact microHawaii.</CardHeader>
+                      <CardHeader>Contact PonoMap.</CardHeader>
                       <CardBody>
                         <p>
                           {" "}
                           Feel free to reach out at either{" "}
-                          <a href="mailto:contact@microHawaii.com">
-                            contact@microHawaii.com
+                          <a href="mailto:info@ponomap.com">
+                            info@ponomap.com
                           </a>
                           , through the form on this page or by phone at:
                           <p /> (808)385-1775

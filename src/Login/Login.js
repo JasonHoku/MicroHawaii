@@ -9,7 +9,7 @@ const Loginbutton = (props) => (
   <div
     className="app-header-right"
     style={{
-      marginTop: 36,
+      marginTop: 16,
       alignContent: "center",
     }}
   >
@@ -60,8 +60,16 @@ const LoginAct = (props) => {
 
   let text;
 
-  if (isLogged) {
-    text = `Welcome ${localStorage.getItem("username")}, you are connected!`;
+  if (isLogged || (1)) {
+    text = [
+      
+      
+      
+      `Welcome ${localStorage.getItem("username")}, you are connected!`
+  
+  
+  
+  ];
 
     if (isLogged && localStorage.getItem("username") == "jlevien808") {
 
@@ -69,14 +77,7 @@ const LoginAct = (props) => {
     }
   } else {
     text = [
-      <div
-        className="app-header-right"
-        style={{
-          top: "-20px",
-          marginTop: 20,
-          alignContent: "center",
-        }}
-      >
+
         <a href={`${backendUrl}/connect/google`}>
           <Button
             className="btn-icon-horizontal btn-transition app-header-right"
@@ -86,16 +87,21 @@ const LoginAct = (props) => {
             <i className="fa fa-newspaper-o btn-icon-wrapper"></i>&nbsp; Sign-Up
           </Button>
         </a>
-      </div>,
     ];
   }
 
   return (
-    <span className="app-header-right">
-      {text}
-
+    <div
+    className="app-header-right"
+    style={{
+      marginTop: 16,
+      alignContent: "center",
+      
+    }}
+  >
+      {text} 
       {buttons}
-    </span>
+    </div>
   );
 };
 
