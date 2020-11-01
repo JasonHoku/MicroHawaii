@@ -70,7 +70,7 @@ export const AdminNav = [{
 
   icon: "pe-7s-tools",
   label: "Tools",
-  to: "http://Admin.MicroHawaii.com/",
+  to: "#/dashboards/account",
 },
 ]
 

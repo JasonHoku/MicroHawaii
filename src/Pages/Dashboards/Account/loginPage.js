@@ -50,7 +50,7 @@ import {
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: "https://api.ponomap.com/pono-maps",
+    uri: "https://api.microhawaii.com/pono-maps",
     headers: {
       "content-type": "application/json",
     },
@@ -169,7 +169,7 @@ export default class LoginPageElements extends Component {
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                 }}
               >
-                <CardHeader>PrettyCoolPattern Account Tools</CardHeader>
+                <CardHeader>microHawaii Account Tools</CardHeader>
                 <CardBody>
                   <p>
                     As site and account functionality are polished, this page

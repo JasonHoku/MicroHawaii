@@ -72,7 +72,7 @@ const LoginAct = (props) => {
 
     if (isLogged && localStorage.getItem("username") == "jlevien808") {
 
-      text = `Sup ${localStorage.getItem("username")}, you are connected! + " "`;
+      text = `Sup ${localStorage.getItem("username")}, you are connected! `;
     }
   } else {
     text = [
