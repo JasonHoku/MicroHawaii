@@ -28,7 +28,6 @@ const Loginbutton = (props) => (
 );
 
 const Logoutbutton = (props) => <Button     style={{
-  marginTop: 36,
   alignContent: "center",
 }} onClick={props.onClick}>Logout</Button>;
 
