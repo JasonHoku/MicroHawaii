@@ -14,8 +14,9 @@ import Main from "./Pages/Main";
 import configureStore from "./config/configureStore";
 import { Provider } from "react-redux";
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
 import LoginRedirect from "./Login/LoginRedirect"
+import { node } from "prop-types";
+
 
 const store = configureStore();
 const rootElement = document.getElementById("root");

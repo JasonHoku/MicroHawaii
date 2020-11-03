@@ -169,10 +169,10 @@ export default class AccountElements extends Component {
                         boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                       }}
                     >
+                      <CardHeader> Succseffully Signed-In as {localStorage.getItem("username")}</CardHeader>
                       {" "}
-                      <br /> <br />{" "}
                       <CardBody>
-                      Features Coming Soon!
+                      Please request authentication from administration.
                       </CardBody>
                     </Card>
                           <br />

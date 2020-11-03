@@ -54,7 +54,15 @@ export default class Account extends Component {
   render() {
     
     let adminCardEle;
-
+    if (localStorage.getItem("jwt") == null ){
+      {
+       adminCardEle = (
+         <Col>
+           <LoginPageElements />
+         </Col>
+       );
+     }
+ }
     if (localStorage.getItem("jwt") != null) {
       adminCardEle = (
         <Col>
@@ -63,7 +71,7 @@ export default class Account extends Component {
       );
     }
     if (
-      localStorage.getItem("jwt") != null ||
+      localStorage.getItem("jwt") != null &&
       localStorage.getItem("username") == "jlevien808" 
     ) {
       adminCardEle = (
@@ -71,14 +79,7 @@ export default class Account extends Component {
           <AdminElements />
         </Col>
       );
-    } else {
-      adminCardEle = (
-        <Col>
-          <LoginPageElements />
-        </Col>
-      );
-    }
-
+    } 
     return (
       <Fragment>
         <CSSTransitionGroup

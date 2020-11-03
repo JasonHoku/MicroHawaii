@@ -46,45 +46,8 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-// This setup is only needed once per application;
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://api.microhawaii.com/pono-maps",
-    headers: {
-      "content-type": "application/json",
-    },
-  }),
-});
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
-const MY_QUERY_COPY_QUERY = gql`
-  query MyQueryCopy {
-    ponoMap(order_by: {}) {
-      email
-    }
-  }
-`;
-
-const MyQueryCopyQuery = (props) => {
-  return (
-    <Query query={MY_QUERY_COPY_QUERY}>
-      {({ loading, error, data }) => {
-        if (loading) return <pre>Loading</pre>;
-        if (error)
-          return (
-            <pre>
-              Error in MY_QUERY_COPY_QUERY
-              {JSON.stringify(error, null, 2)}
-            </pre>
-          );
-
-        if (data) {
-          return <pre>{JSON.stringify(data.microHawaii, null, 2)}</pre>;
-        }
-      }}
-    </Query>
-  );
-};
 
 export default class LoginPageElements extends Component {
   constructor(props) {
@@ -110,7 +73,6 @@ export default class LoginPageElements extends Component {
     if (formName.length !== null && formName.length < 1) {
       alert("You must fill this form entirely.");
     } else {
-      console.log("success");
     }
   }
 
@@ -118,50 +80,9 @@ export default class LoginPageElements extends Component {
     let { formName, formEmail, formMessage } = this.state;
     const { data } = this.state;
 
-    const MY_MUTATION_MUTATION = gql`
-  mutation MyMutation {
-    insert_microHawaii(objects: {email: "${formName}"}) {
-      affected_rows
-    }
-  }
-`;
-
-    const MyMutationMutation = (props) => {
-      return (
-        <Mutation mutation={MY_MUTATION_MUTATION}>
-          {(MyMutation, { loading, error, data }) => {
-            if (loading) return <pre>Loading</pre>;
-
-            if (error)
-              return (
-                <pre>
-                  Error in MY_MUTATION_MUTATION
-                  {JSON.stringify(error, null, 2)}
-                </pre>
-              );
-
-            const dataEl = data ? (
-              <pre>{JSON.stringify(data, null, 2)}</pre>
-            ) : null;
-
-            return (
-              <div>
-                <br />
-                {dataEl}
-
-                <button onClick={() => MyMutation(formName)} disabled>
-                  Query
-                </button>
-              </div>
-            );
-          }}
-        </Mutation>
-      );
-    };
     return (
       <Fragment>
         <Container fluid>
-          <ApolloProvider client={apolloClient}>
 <Row>
                   <Card
                 style={{
@@ -172,26 +93,35 @@ export default class LoginPageElements extends Component {
                 <CardHeader>microHawaii Account Tools</CardHeader>
                 <CardBody>
                   <p>
-                    As site and account functionality are polished, this page
-                    will propogate with tools.
+                    This page is currently home to microHawaii's web development team tools.
                   </p>
+                  <p> Please sign in to confirm authentication.</p>
                 </CardBody>
               </Card></Row> <br /> <br />
               <Row> 
                   <Card
                 style={{
-                  width: "26rem",
+                  width: "16rem",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                  alignContent: "center",
+                  alignItems:"center"
                 }}
               >
-                <CardHeader>Sign in coming soon.</CardHeader>
+                <CardHeader>Sign-In to microHawaii.</CardHeader>
                 <CardBody>
                   <p>
-                    Public accounts coming soon.
+                  <a href={`${backendUrl}/connect/google`}>
+          <Button
+            className="btn-icon-horizontal btn-transition app-header-right"
+            outline
+            color="dark"
+          >
+            <i className="fa fa-newspaper-o btn-icon-wrapper"></i>&nbsp; Sign-In
+          </Button>
+        </a>
                   </p>
                 </CardBody>
               </Card></Row>
-          </ApolloProvider>
         </Container>
       </Fragment>
     );

@@ -27,15 +27,10 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiVar: [],
       response: [],
     };
-    this.publishResults = this.publishResults.bind(this);
   }
 
-  componentDidMount() {
-    this.publishResults();
-  }
 
   render() {
     let {
@@ -88,13 +83,7 @@ class Header extends React.Component {
     );
   }
 
-  publishResults() {
-    axios.get("http://localhost:1337/pono-maps/").then((response) => {
-      this.setState({
-        apiVar: response,
-      });
-    });
-  }
+
 }
 
 const mapStateToProps = (state) => ({

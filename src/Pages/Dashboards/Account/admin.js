@@ -13,7 +13,8 @@ import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
 import { Query, ApolloProvider, Mutation } from "react-apollo";
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery } from "@apollo/client";
+import axios from 'axios';
 import {
   Row,
   Col,
@@ -46,13 +47,11 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-
-
 // This setup is only needed once per application;
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: "https://api.ponomap.com/graphql",
+    uri: "https://api.microHawaii.com/graphql",
     headers: {
       "content-type": "application/json",
     },
@@ -60,15 +59,11 @@ const apolloClient = new ApolloClient({
 });
 
 const MY_QUERY_COPY_QUERY = gql`
-query MyQueryCopy {
-  ponoMaps {
-    id
-    User
-    data1
-    created_at
-    User
+  query MyQueryCopy {
+    microHawaiis {
+      id
+    }
   }
-}
 `;
 
 const MyQueryCopyQuery = (props) => {
@@ -104,6 +99,36 @@ export default class AdminElements extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+
+  onImageChange = event => {
+    console.log(event.target.files);
+  
+    this.setState({
+      images: event.target.files,
+    });
+  };
+  
+  onSubmit = e => {
+    e.preventDefault();
+  
+    const formData = new FormData();
+  
+    Array.from(this.state.images).forEach(image => {
+      formData.append('files', image);
+    });
+  
+    axios
+      .post(`https://api.microHawaii.com/upload`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data',  },
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+  
   handleInputChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
@@ -168,61 +193,74 @@ export default class AdminElements extends Component {
       <Fragment>
         <Container fluid>
           <ApolloProvider client={apolloClient}>
-                    <Card
-                      style={{
-                        width: "26rem",
-                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                      }}
-                    >
-                      {" "}
-                      <br /> <br />{" "}
-                      <CardBody>
-                        <Form>
-                          <FormGroup row>
-                            <Label for="examplePassword" sm={3}>
-                              
-                          
-                            </Label>
-                            <Col sm={8}>
-                              <Input
-                                type="input"
-                                style={{ width: "170px" }}
-                                name="formName"
-                                value={this.state.formName}
-                                onChange={this.handleInputChange}
-                                id="formName"
-                                placeholder="Admin Commands"
-                              />
-                            </Col>
-                          </FormGroup>
-                          <br />
-                          <center>
-                            <FormGroup check row>
-                              <Col sm={{ size: 12 }}>
-                                <MyMutationMutation />
-                              </Col>
-                            </FormGroup>
-                          </center>
-                        </Form>
-                      </CardBody>
-                    </Card>
-                          <br />
-                          <br />
-                <Card
-                  style={{
-                    width: "26rem",
-                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  }}
-                >
-                  <CardHeader> Query Result:</CardHeader>
-                  <CardBody>
-
-
-                  <MyQueryCopyQuery />
-
-
-                  </CardBody>
-                </Card>
+            <Card
+              style={{
+                width: "26rem",
+                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+              }}
+            >
+              {" "}
+              <br /> <br />{" "}
+              <CardBody>
+                <Form>
+                  <FormGroup row>
+                    <Label for="examplePassword" sm={3}></Label>
+                    <Col sm={8}>
+                      <Input
+                        type="input"
+                        style={{ width: "170px" }}
+                        name="formName"
+                        value={this.state.formName}
+                        onChange={this.handleInputChange}
+                        id="formName"
+                        placeholder="Admin Commands"
+                      />
+                    </Col>
+                  </FormGroup>
+                  <br />
+                  <center>
+                    <FormGroup check row>
+                      <Col sm={{ size: 12 }}>
+                        <MyMutationMutation />
+                      </Col>
+                    </FormGroup>
+                  </center>
+                </Form>
+              </CardBody>
+            </Card>
+            <br />
+            <br />
+            <Card
+              style={{
+                width: "26rem",
+                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+              }}
+            >
+              <CardHeader> Query Result:</CardHeader>
+              <CardBody>
+                <MyQueryCopyQuery />
+              </CardBody>
+            </Card>
+            <br />
+                <Card              style={{
+                width: "26rem",
+                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                alignContent: "center",
+                alignItems:"center"
+              }}>   <div className="App">
+              <br />
+        <Form onSubmit={this.onSubmit}>
+          <Input
+            type="file"
+            name="files"
+            onChange={this.onImageChange}
+            alt="image"
+          />
+          <br />
+          <Button type="submit">Send</Button>
+        </Form>
+            <br />
+      </div></Card>
           </ApolloProvider>
         </Container>
       </Fragment>
