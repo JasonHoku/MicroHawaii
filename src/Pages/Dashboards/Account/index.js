@@ -37,11 +37,9 @@ import LoginPageElements from "./loginPage";
   var CLIIP;
   
   const Koa = require('koa');
-  const cors = require('@koa/cors');
   
   const app = new Koa();
-  app.use(cors());
-
+  
 export default class Account extends Component {
 
 

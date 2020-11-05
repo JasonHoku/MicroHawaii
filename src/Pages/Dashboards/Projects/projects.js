@@ -169,6 +169,7 @@ export default class ProjectElements extends Component {
   constructor(props) {
     super(props);
 
+    this.timerLoader = this.timerLoader.bind(this);
     this.toggle2 = this.toggle2.bind(this);
     this.state = {
       activeTab2: "222",
@@ -192,7 +193,9 @@ export default class ProjectElements extends Component {
       });
     }
   }
-
+  timerLoader() {
+    document.getElementById("timer").hidden = false;
+  }
   render() {
     const { data } = this.state;
 
@@ -210,8 +213,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  This page is under construction and will become filled in the
-                  coming weeks as schedule allows.
+                 Welcome to microHawaii projects portfolio!
                   <br></br>
                 </CardBody>
               </Card>
@@ -223,7 +225,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  Projects is brewing here and will include:
+                  A variety of blogs and projects will become more available here over the coming weeks.
                   <br /> <br />
                   <li>
                     Website Development: Follow on
@@ -235,21 +237,46 @@ export default class ProjectElements extends Component {
                   </li>{" "}
                   <li>
                     <a href="/3D/">Game Development </a>
-                  </li>{" "}
-                  <li>
-                    <a href="https://github.com/JasonHoku"> Publishing</a>
                   </li>
                   <li>DIY Home Projects (Coming Soon)</li>
+                  <br></br>{" "}
+                  <li>
+                    <a href="/#/dashboards/projects" onClick={this.timerLoader}>
+                      Timer Script (for Ani)
+                    </a>
+                  </li>
                   <br></br>
                 </CardBody>
               </Card>
             </Col>
           </Row>
           <br></br>
-
-          <Row>
+          <Card
+            alignContent="center"
+            style={{
+              width: "60%",
+              alignContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CardHeader>
+              {" "}
+              <a href="https://github.com/JasonHoku">
+                Jason Hoku, GitHub Contribution Activity:
+              </a>
+            </CardHeader>
+            <CardBody>
+              <CardImg
+                alignContent="center"
+                src="https://grass-graph.moshimo.works/images/JasonHoku.png"
+              ></CardImg>
+            </CardBody>
+          </Card>
+          <br />
+          <Row id="timer" hidden="true">
             <Col xs="auto" sm="auto" md="auto" xl="auto">
-              <Card><CardHeader>20Minutes:</CardHeader>
+              <Card>
+                <CardHeader>20Minutes:</CardHeader>
                 <CardBody>
                   <CountdownCircleTimer
                     isPlaying
@@ -262,14 +289,12 @@ export default class ProjectElements extends Component {
                   >
                     {({ remainingTime }) => remainingTime}
                   </CountdownCircleTimer>
-
                 </CardBody>
               </Card>
             </Col>
             <Col xs="auto" sm="auto" md="auto" xl="auto">
-          
-              <Card><CardHeader>2Minutes:</CardHeader>
-                {" "}
+              <Card>
+                <CardHeader>2Minutes:</CardHeader>{" "}
                 <CardBody>
                   {" "}
                   <CountdownCircleTimer
