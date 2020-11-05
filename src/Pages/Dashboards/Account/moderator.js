@@ -130,7 +130,7 @@ if (this.state.images != null) {
     });
 
     axios
-      .post(`http://upload.microhawaii.com/uploadfiles/`, formData, {
+      .post(`https://upload.microhawaii.com/uploadfiles/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
