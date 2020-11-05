@@ -104,7 +104,6 @@ export default class LoginPageElements extends Component {
                   width: "16rem",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                   alignContent: "center",
-                  alignItems:"center"
                 }}
               >
                 <CardHeader>Sign-In to microHawaii.</CardHeader>

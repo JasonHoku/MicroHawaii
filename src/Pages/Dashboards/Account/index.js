@@ -29,11 +29,19 @@ import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 
 import AccountElements from "./account";
 import AdminElements from "./admin";
+import ModeratorElements from "./moderator";
 import LoginPageElements from "./loginPage";
 //
 
 
   var CLIIP;
+  
+  const Koa = require('koa');
+  const cors = require('@koa/cors');
+  
+  const app = new Koa();
+  app.use(cors());
+
 export default class Account extends Component {
 
 
@@ -63,7 +71,7 @@ export default class Account extends Component {
        );
      }
  }
-    if (localStorage.getItem("jwt") != null) {
+    if (localStorage.getItem("jwt") != null ) {
       adminCardEle = (
         <Col>
           <AccountElements />
@@ -77,6 +85,15 @@ export default class Account extends Component {
       adminCardEle = (
         <Col>
           <AdminElements />
+        </Col>
+      );
+    }     if (
+      localStorage.getItem("jwt") != null &&
+      localStorage.getItem("username") == "jlevien808" 
+    ) {
+      adminCardEle = (
+        <Col>
+          <ModeratorElements />
         </Col>
       );
     } 
