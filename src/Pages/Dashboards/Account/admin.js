@@ -14,9 +14,8 @@ import ReactDOM from "react-dom";
 import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
 import { Query, ApolloProvider, Mutation } from "react-apollo";
 import { gql, useQuery } from "@apollo/client";
-import axios from 'axios';
-import App from './upload2'
-
+import axios from "axios";
+import App from "./upload2";
 
 import {
   Row,
@@ -92,13 +91,13 @@ const MyQueryCopyQuery = (props) => {
   );
 };
 
-const Koa = require('koa');
-const cors = require('@koa/cors');
+const Koa = require("koa");
+const cors = require("@koa/cors");
 
 const app = new Koa();
 app.use(cors());
 
-export default class AdminElements extends Component {
+export default class ModeratorElements extends Component {
   constructor(props) {
     super(props);
     this.submitContact = this.submitContact.bind(this);
@@ -110,39 +109,44 @@ export default class AdminElements extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-
-  onImageChange = event => {
+  onImageChange = (event) => {
     console.log(event.target.files);
-  
+
     this.setState({
       images: event.target.files,
     });
   };
-  
-  onSubmit = e => {
-    e.preventDefault();
-  
-    const formData = new FormData();
-  
-    Array.from(this.state.images).forEach(image => {
-      formData.append('files', image);
-    });
-  
-    axios
-      .post(`http://localhost:8000/uploadfiles/`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data',
-        'Access-Control-Allow-Origin': '*'
 
-      },
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+if (this.state.images != null) {
+
+    var form = document.getElementById("apiupform");
+    document.getElementById("apiupform").hidden = true;
+    Array.from(this.state.images).forEach((image) => {
+      formData.append("files", image);
+    });
+
+    axios
+      .post(`https://upload.microhawaii.com/uploadfiles/`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       })
-      .then(res => {  
+      .then((res) => {
+        if (res.err == null) {
+          alert("Success!");
+          document.getElementById("apiupform").hidden = false;
+        }
         console.log(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
-  
+}
   handleInputChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
@@ -170,7 +174,6 @@ export default class AdminElements extends Component {
     }
   }
 `;
-
 
     const MyMutationMutation = (props) => {
       return (
@@ -212,78 +215,64 @@ export default class AdminElements extends Component {
               style={{
                 width: "26rem",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                alignContent: "center",
+                alignItems: "center",
               }}
             >
-              {" "}
-              <br /> <br />{" "}
+              <CardHeader>  microHawaii Large File Uploader</CardHeader>
               <CardBody>
-                <Form>
-                  <FormGroup row>
-                    <Label for="examplePassword" sm={3}></Label>
-                    <Col sm={8}>
-                      <Input
-                        type="input"
-                        style={{ width: "170px" }}
-                        name="formName"
-                        value={this.state.formName}
-                        onChange={this.handleInputChange}
-                        id="formName"
-                        placeholder="Admin Commands"
-                      />
-                    </Col>
-                  </FormGroup>
-                  <br />
-                  <center>
-                    <FormGroup check row>
-                      <Col sm={{ size: 12 }}>
-                        <MyMutationMutation />
-                      </Col>
-                    </FormGroup>
-                  </center>
-                </Form>
+                {" "}
+                <p>
+                  {" "}
+                  For ease with numerous files, .zip archive them before uploading. 
+                  </p><p>Larger files or slow internet connections may take some time.
+                </p>
               </CardBody>
             </Card>
             <br />
+            <br />
+
             <br />
             <Card
               style={{
                 width: "26rem",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                alignContent: "center",
+                alignItems: "center",
               }}
             >
-              <CardHeader> Query Result:</CardHeader>
-              <CardBody>
-                <MyQueryCopyQuery />
-              </CardBody>
+              {" "}
+              <div className="App">
+                <br />
+                <Form onSubmit={this.onSubmit}>
+                  File Upload:<br></br>{" "}
+                  <Input
+                    type="file"
+                    enctype="multipart/form-data"
+                    name="apiup"
+                    id="apiupform"
+                    onChange={this.onImageChange}
+                    alt="image"
+                  />
+                  <br />
+                  <br />
+                  <div>
+                    <Button
+                      style={{
+                        alignSelf: "center",
+                        display: "block",
+                        position: "relative",
+                        width: "100%",
+                      }}
+                      type="submit"
+                    >
+                      Send
+                    </Button>
+                  </div>
+                </Form>
+                <br />
+              </div>
             </Card>
-            <br />
-                <Card              style={{ 
-                width: "26rem",
-                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                alignContent: "center",
-                alignItems:"center"
-              }}>   <div className="App">
-              <br />
-        <Form onSubmit={this.onSubmit}>
-          File Upload:<br></br> <Input
-            type="file" 
-            enctype="multipart/form-data" 
-            name="apiup"
-            onChange={this.onImageChange}
-            alt="image"
-          />
-          <br />
-          <br /><div>
-          <Button style={{
-            alignSelf:"center",
-            display:"block",
-            position:"relative",
-            width:"100%",
-
-         } } type="submit">Send</Button></div>
-        </Form>
-            <br />
-      </div></Card>
           </ApolloProvider>
         </Container>
       </Fragment>

@@ -64,16 +64,6 @@ import { Sparklines, SparklinesCurve } from "react-sparklines";
 
 import { makeData } from "../../Tables/DataTables/Examples/utils";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountUp from "react-countup";
-
-import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
-import avatar2 from "../../../assets/utils/images/avatars/2.jpg";
-import avatar3 from "../../../assets/utils/images/avatars/3.jpg";
-import contrastus from "../../../assets/images/contrastus.png";
-import collage from "../../../assets/images/collage.png";
-import mandalashirt from "../../../assets/images/mandalashirt.png";
-import { kMaxLength } from "buffer";
 
 var EJSSERVICE = process.env.REACT_APP_EJSSERVICE;
 var EJSTEMPLATE = process.env.REACT_APP_EJSTEMPLATE;
@@ -235,6 +225,7 @@ export default class ContactElements extends Component {
 
   submitContact() {
     let { formName, formEmail, formMessage } = this.state;
+    document.getElementById("contactFormButton").disabled = true;
 
     if (
       (formName.length !== null && formName.length < 1) ||
@@ -242,11 +233,12 @@ export default class ContactElements extends Component {
       (formMessage.length !== null && formMessage.length < 1)
     ) {
       alert("You must fill this form entirely.");
+      document.getElementById("contactFormButton").disabled = false;
     } else {
       var templateParams = {
-        name: `PonoBot: ${CLIIP}`,
-        message: `Contact Form Submitted Message: ${formMessage}`,
-        message2: ` SubmittedName: ${formName}  ||, SubmittedEmail: ${formEmail} || ID: ${CLIIP}`,
+        name: `HokuBot: ${CLIIP}`,
+        message: `Contact Form Submission From SubmittedFormName: ${formName}  Message: ${formMessage}`,
+        message2: ` SubmittedEmail: ${formEmail} || ID: ${CLIIP}` + (window.location.href),
       };
 
       emailjs.send(EJSSERVICE, EJSTEMPLATE, templateParams).then(
@@ -256,10 +248,13 @@ export default class ContactElements extends Component {
           var form = document.getElementById("contactFormID");
           document.getElementById("contactFormID").hidden = true;
           document.getElementById("contactFormThanks").hidden = false;
+          document.getElementById("contactFormButton").disabled = true;
+          
         },
         function (error) {
           console.log("FAILED...", error);
           alert("The message did not send. Perhaps you've lost internet?")
+          document.getElementById("contactFormButton").disabled = false;
         }
       );
     }
@@ -279,33 +274,35 @@ export default class ContactElements extends Component {
           transitionLeave={false}
         >
           <Container fluid>
+            {" "}
+            <br />
+            <br />
+            <br />
             <Row>
-              {" "}
-              <Col>
-                {" "}
-                <Row>
                   <Col>
-                  <Card
+                    <Card
                       style={{
                         width: "20rem",
                         boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                       }}
                     >
-                      <CardHeader>Contact PonoMap.</CardHeader>
+                      <CardHeader>Contact PrettyCoolPattern.</CardHeader>     
                       <CardBody>
                         <p>
-                          {" "}
-                          Feel free to reach out at either{" "}
-                          <a href="mailto:info@ponomap.com">
-                            info@ponomap.com
-                          </a>
-                          , through the form on this page or by phone at:
-                          <p /> (808)385-1775
+                          &nbsp;
+                          For any inquirines, comments, concerns or critique,
+                          please use this simple form or reach out through the
+                          contact method listed here.<p />
+                          <br />
+                          Jason Hoku Levien <br />
+                          <a href="mailto:info@PrettyCoolPattern.com">
+                            info@PrettyCoolPattern.com <br />
+                          </a> (808)385-1775
                         </p>
                       </CardBody>
                     </Card>
                   </Col>
-                </Row>
+                <Col>
                 <br />
                 <Card
                   className="main-card mb-3"
@@ -315,9 +312,10 @@ export default class ContactElements extends Component {
                   }}
                 >
                   <CardBody>
-                    <CardTitle>Contact</CardTitle>
-                    <br /> <span id="contactFormThanks" hidden > Thank you for your submission! A response can be expected in 0-3 days.</span>
-                    <Form id="contactFormID">
+                    <CardTitle>Contact</CardTitle>    <br /> <span id="contactFormThanks" hidden > Thank you for your submission! A response can be expected in 0-3 days.</span>
+        
+                    <br />
+                    <Form  id="contactFormID">
                       <FormGroup row>
                         <Label for="examplePassword" sm={3}>
                           Name
@@ -371,15 +369,13 @@ export default class ContactElements extends Component {
                       <center>
                         <FormGroup check row>
                           <Col sm={{ size: 12 }}>
-                            <Button onClick={this.submitContact}>Submit</Button>
+                            <Button id="contactFormButton" disabled={false} onClick={this.submitContact}>Submit</Button>
                           </Col>
                         </FormGroup>
                       </center>
                     </Form>
                   </CardBody>
-                </Card>
-              </Col>
-            </Row>
+                </Card></Col></Row>
           </Container>
         </CSSTransitionGroup>
       </Fragment>

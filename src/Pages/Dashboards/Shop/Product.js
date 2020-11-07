@@ -95,6 +95,7 @@ class Product extends Component {
       
      <div className="product"     style={{
       boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+      height:"400px"
     }}>
         <div className="product-image">    <img style={{ width: "12rem" }}
             src={image}
@@ -115,7 +116,7 @@ class Product extends Component {
           updateQuantity={this.props.updateQuantity}
           resetQuantity={this.resetQuantity}
         /><small><p>
-        In-Stock:</p></small> 
+        In-Stock: 99</p></small> 
           <button
             className={!this.state.isAdded ? "" : "added"}
             type="button"

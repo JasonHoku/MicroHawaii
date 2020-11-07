@@ -254,7 +254,6 @@ export default class ShopPage extends Component {
           <img src="/images/shirtsize.png" height="80" ></img>
       </Card> <p> </p><p> </p><p> </p><br></br>
         <Card  style={{ position: "bottom" , width: "17rem" }}> 
-           <CardHeader><div><p> Official PayPal API tool: </p> </div></CardHeader>
          <Footer
           style={{ width: "13rem" }}
             cartBounce={this.state.cartBounce}
@@ -283,37 +282,6 @@ export default class ShopPage extends Component {
           </Card>
           <p> </p>
           <p> </p>
-          <p> </p>
-          <br></br>
-          <Card style={{ position: "bottom", width: "17rem" }}>
-            <Footer
-              style={{ width: "13rem" }}
-              cartBounce={this.state.cartBounce}
-              total={this.state.totalAmount}
-              totalItems={this.state.totalItems}
-              cartItems={this.state.cart}
-              removeProduct={this.handleRemoveProduct}
-              handleCategory={this.handleCategory}
-              categoryTerm={this.state.category}
-              updateQuantity={this.updateQuantity}
-              productQuantity={this.state.moq}
-            ></Footer>{" "}
-            <CardBody>
-              {" "}
-              <PayPalButton
-                cartBounce={this.state.cartBounce}
-                total={this.state.totalAmount}
-                totalItems={this.state.totalItems}
-                cartItems={this.state.cart}
-                removeProduct={this.handleRemoveProduct}
-                handleCategory={this.handleCategory}
-                categoryTerm={this.state.category}
-                updateQuantity={this.updateQuantity}
-                productQuantity={this.state.moq}
-                style={{ width: "13rem" }}
-              />
-            </CardBody>{" "}
-          </Card>
         </center>{" "}
         <br />
       </Fragment>
