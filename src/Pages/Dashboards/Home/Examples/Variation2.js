@@ -314,11 +314,11 @@ export default class CRMDashboard2 extends Component {
                       For more information on the{" "}
                       <a href="#/dashboards/services"> services </a>
                       provided here please inquire through the{" "}
-                      <a href="#/dashboards/contact"> contact </a> page. or by
+                      <a href="#/dashboards/contact"> contact </a> page or by
                       email at:   
                       <a href="mailto:contact@microhawaii.com">
                         {" "}
-                        Contact@microHawaii.com{" "}
+                        contact@microHawaii.com
                       </a>
                       <br></br>
                       <br></br> <br></br>{" "}
