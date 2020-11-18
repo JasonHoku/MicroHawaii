@@ -60,6 +60,7 @@
     "react-animations": "^1.0.0",
     "react-anime": "^3.0.3",
     "react-apollo": "^3.1.5",
+    "react-app-polyfill": "^2.0.0",
     "react-async-script-loader": "^0.3.0",
     "react-bootstrap-table-next": "^3.2.0",
     "react-bootstrap-table2-filter": "^1.2.0",
@@ -139,14 +140,24 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "defaults",
+      ">0.5%",
+      "dead",
+      "ie 9-11",
+      "op_mini all",
+      "last 1 ie version"
     ],
     "development": [
+      "ie 9-11",
+      "defaults",
+      ">0.5%",
+      "dead",
+      "ie 9-11",
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "op_mini all",
+      "last 1 ie version"
     ]
   },
   "devDependencies": {
