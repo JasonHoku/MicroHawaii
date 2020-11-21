@@ -32,6 +32,7 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
+
 import {
   ResponsiveContainer,
   LineChart,
@@ -383,6 +384,8 @@ export default class ProjectElements extends Component {
                 </CardBody>
               </Card>
             </Col>
+          </Row>
+          <Row>
           </Row>
           <br></br>
         </CSSTransitionGroup>
