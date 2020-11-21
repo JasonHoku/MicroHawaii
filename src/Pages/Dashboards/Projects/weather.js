@@ -18,7 +18,7 @@ class WeatherApp extends Component {
   async componentDidUpdate(prevProps, prevState) {
 
     if (prevState.city !== this.state.city) {
-      const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&APPID=68d74c3ee59d84ff3b7bee2e9c0e5977`;
+      const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&APPID=NULL`;
       const response = await fetch(url);
       const data = await response.json();
       this.setState(() => {
