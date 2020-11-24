@@ -56,14 +56,23 @@ export default class Calendar extends React.Component {
           bgColor: "#FF33FF",
       },
       {
-          id: '2',
-          calendarId: '1',
-          title: 'Web Development',
-          category: 'time',
-          start: '2002-10-29T22:30:00+09:00',
-          end: '2021-10-31T22:30:00+09:00',
-          bgColor: "#3333CC44",
-      }
+        id: '2',
+        calendarId: '1',
+        title: 'Web Development',
+        category: 'time',
+        start: '2002-10-29T22:30:00+09:00',
+        end: '2021-10-31T22:30:00+09:00',
+        bgColor: "#3333CC44",
+    }  ,
+        {
+      id: '3',
+      calendarId: '1',
+      title: 'Testing & Improvements',
+      category: 'time',
+      start: '2020-11-24T22:30:00+09:00',
+      start: '2020-11-24T22:30:00+11:00',
+      bgColor: "#3333CC44",
+  }
   ]);
     this.bindEventHandlers(this.props);
   }

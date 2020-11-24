@@ -15,8 +15,8 @@ import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
 import { Query, ApolloProvider, Mutation } from "react-apollo";
 import { gql, useQuery } from "@apollo/client";
 import axios from "axios";
-import App from "./upload2";
 
+import TextareaAutosize from "react-textarea-autosize";
 import {
   Row,
   Col,
@@ -50,12 +50,15 @@ import {
 } from "reactstrap";
 import { faAlignCenter } from "@fortawesome/free-solid-svg-icons";
 import { relative } from "path";
+import LoginPageElements from "./loginPage";
+import AccountElements from "./account";
+import { resolveModuleName } from "typescript";
 
 // This setup is only needed once per application;
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: "https://api.microHawaii.com/graphql",
+    uri: "https://api.ponomap.com/graphql",
     headers: {
       "content-type": "application/json",
     },
@@ -64,8 +67,12 @@ const apolloClient = new ApolloClient({
 
 const MY_QUERY_COPY_QUERY = gql`
   query MyQueryCopy {
-    microHawaiis {
+    ponoMaps {
       id
+      User
+      data1
+      created_at
+      User
     }
   }
 `;
@@ -91,20 +98,25 @@ const MyQueryCopyQuery = (props) => {
   );
 };
 
-const Koa = require("koa");
-const cors = require("@koa/cors");
-
-const app = new Koa();
-app.use(cors());
-
 export default class ModeratorElements extends Component {
   constructor(props) {
     super(props);
-    this.submitContact = this.submitContact.bind(this);
+    this.setMutation = this.setMutation.bind(this);
     this.state = {
-      formName: "",
+      formName: [],
       formEmail: "",
       formMessage: "",
+      MY_QUERY_COPY_QUERY: gql`
+        query MyQueryCopy {
+          ponoMaps {
+            id
+            User
+            data1
+            created_at
+            User
+          }
+        }
+      `,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -121,45 +133,44 @@ export default class ModeratorElements extends Component {
     e.preventDefault();
 
     const formData = new FormData();
-if (this.state.images != null) {
-
-    var form = document.getElementById("apiupform");
-    document.getElementById("apiupform").hidden = true;
-    Array.from(this.state.images).forEach((image) => {
-      formData.append("files", image);
-    });
-
-    axios
-      .post(`https://upload.microhawaii.com/uploadfiles/`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        if (res.err == null) {
-          alert("Success!");
-          document.getElementById("apiupform").hidden = false;
-        }
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
+    if (this.state.images != null) {
+      var form = document.getElementById("apiupform");
+      document.getElementById("apiupform").hidden = true;
+      Array.from(this.state.images).forEach((image) => {
+        formData.append("files", image);
       });
+
+      axios
+        .post(`https://upload.microhawaii.com/uploadfiles/`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          if (res.err == null) {
+            alert("Success!");
+            document.getElementById("apiupform").hidden = false;
+          }
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
-}
   handleInputChange(event) {
     this.setState({
-      [event.target.name]: event.target.value,
+      formName: event.target.value,
     });
   }
 
-  submitContact() {
+  setMutation() {
     let { formName, formEmail, formMessage } = this.state;
 
-    if (formName.length !== null && formName.length < 1) {
-      alert("You must fill this form entirely.");
+    if (formName.length !== null) {
+      formName = document.getElementById("formName");
     } else {
-      console.log("success");
+      formName = document.getElementById("formName");
     }
   }
 
@@ -168,11 +179,20 @@ if (this.state.images != null) {
     const { data } = this.state;
 
     const MY_MUTATION_MUTATION = gql`
-  mutation MyMutation {
-    insert_microHawaii(objects: {email: "${formName}"}) {
-      affected_rows
+mutation MyMutation {
+  createPonoMap(
+    input: {
+      data: {
+        User: "${formName}"
+      }
+    }
+  ) {
+    ponoMap {
+      id
+      
     }
   }
+}
 `;
 
     const MyMutationMutation = (props) => {
@@ -180,8 +200,10 @@ if (this.state.images != null) {
         <Mutation mutation={MY_MUTATION_MUTATION}>
           {(MyMutation, { loading, error, data }) => {
             if (loading) return <pre>Loading</pre>;
-
-            if (error)
+            if (error) {
+              alert("That username is taken");
+              window.location.reload();
+            } else if (error)
               return (
                 <pre>
                   Error in MY_MUTATION_MUTATION
@@ -194,14 +216,13 @@ if (this.state.images != null) {
             ) : null;
 
             return (
-              <div>
-                <br />
+              <span>
                 {dataEl}
 
-                <button onClick={() => MyMutation(formName)} disabled>
-                  Query
+                <button disabled onClick={() => MyMutation(this.state.formName)}>
+                  Add Data
                 </button>
-              </div>
+              </span>
             );
           }}
         </Mutation>
@@ -211,68 +232,138 @@ if (this.state.images != null) {
       <Fragment>
         <Container fluid>
           <ApolloProvider client={apolloClient}>
-            <Card
-              style={{
-                width: "26rem",
-                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                alignContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CardHeader>  microHawaii Large File Uploader</CardHeader>
-              <CardBody>
+            <Row>
+              <Col width="23rem">
                 {" "}
-                <p>
+                <Card
+                  style={{
+                    width: "26rem",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    alignContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   {" "}
-                  For ease with numerous files, .zip archive them before uploading. 
-                  </p><p>Larger files or slow internet connections may take some time.
-                </p>
-              </CardBody>
-            </Card>
-            <br />
-            <br />
+                  <MyQueryCopyQuery />
+                </Card>
+              </Col>{" "}
+              <Col>
+                {" "}
+                <Card
+                  style={{
+                    width: "26rem",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    alignContent: "center",
+                    height: "100%",
+                    alignItems: "center",
+                  }}
+                >
+                  <br />
+                  <Form onSubmit={this.setMutation()}>
+                    <br />
+                    <Input></Input>
+                    <Button>Approve Data #</Button>
+                    <br />
+                    <br />
+                    <Input></Input>
+                    <Button>Reject Data #</Button>
+                    <br />
+                    <br />
+                    <Input type="textarea"></Input>
+                    <Button>Set HomePage Article Data</Button>
+                    <br />
+                    <br />
+                    <Input type="textarea"></Input>
+                    <Button>Set Page2 Article Data</Button>
+                    <br />
+                    <br />
+                    <Input
+                      value={this.state.formName}
+                      onChange={this.handleInputChange}
+                      type="textarea"
+                    ></Input>
+                    <MyMutationMutation></MyMutationMutation>
+                    <br />
+                    <br />
+                  </Form>{" "}
+                </Card>
+              </Col>
+            </Row>
 
             <br />
-            <Card
-              style={{
-                width: "26rem",
-                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                alignContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <br />
+            <Row style={{ justifyContent: "center" }}>
               {" "}
-              <div className="App">
-                <br />
-                <Form onSubmit={this.onSubmit}>
-                  File Upload:<br></br>{" "}
-                  <Input
-                    type="file"
-                    enctype="multipart/form-data"
-                    name="apiup"
-                    id="apiupform"
-                    onChange={this.onImageChange}
-                    alt="image"
-                  />
-                  <br />
-                  <br />
-                  <div>
-                    <Button
-                      style={{
-                        alignSelf: "center",
-                        display: "block",
-                        position: "relative",
-                        width: "100%",
-                      }}
-                      type="submit"
-                    >
-                      Send
-                    </Button>
+              <Col>
+                {" "}
+                <Card
+                  style={{
+                    width: "26rem",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    alignContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <CardHeader> PonoMap Large File Uploader</CardHeader>
+                  <CardBody>
+                    {" "}
+                    <p>
+                      {" "}
+                      For ease with numerous files, .zip archive them before
+                      uploading.
+                    </p>
+                    <p>
+                      Larger files or slow internet connections may take some
+                      time.
+                    </p>
+                  </CardBody>
+                  <div className="App">
+                    <br />
+                    <Form onSubmit={this.onSubmit}>
+                      File Upload:<br></br>{" "}
+                      <Input
+                        type="file"
+                        enctype="multipart/form-data"
+                        name="apiup"
+                        id="apiupform"
+                        onChange={this.onImageChange}
+                        alt="image"
+                      />
+                      <br />
+                      <br />
+                      <div>
+                        <Button
+                          style={{
+                            alignSelf: "center",
+                            display: "block",
+                            position: "relative",
+                            width: "100%",
+                          }}
+                          type="submit"
+                        >
+                          Send
+                        </Button>
+                      </div>
+                    </Form>
+                    <br />
                   </div>
-                </Form>
-                <br />
-              </div>
-            </Card>
+                </Card>
+              </Col>
+              <Col>
+                {" "}
+                <Card
+                  style={{
+                    alignSelf: "center",
+                    width: "28rem",
+                  }}
+                >
+                  <CardHeader> Registered User View:</CardHeader>
+                  <CardBody>
+                    <AccountElements />
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
           </ApolloProvider>
         </Container>
       </Fragment>
