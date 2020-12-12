@@ -33,20 +33,16 @@ import ModeratorElements from "./moderator";
 import LoginPageElements from "./loginPage";
 //
 
+var CLIIP;
 
-  var CLIIP;
-  
-  const Koa = require('koa');
-  
-  const app = new Koa();
-  
+const Koa = require("koa");
+
+const app = new Koa();
+
 export default class Account extends Component {
-
-
-
   componentDidMount() {
     this.setState({ isLoading: true });
-  
+
     fetch("https://api.ipify.org")
       .then((response) => response.text())
       .then((response) => {
@@ -55,21 +51,19 @@ export default class Account extends Component {
       .then(function (parsedData) {})
       .catch((error) => this.setState({ error, isLoading: false }));
   }
-  
 
   render() {
-    
     let adminCardEle;
-    if (localStorage.getItem("jwt") == null ){
+    if (localStorage.getItem("jwt") == null) {
       {
-       adminCardEle = (
-         <Col>
-           <LoginPageElements />
-         </Col>
-       );
-     }
- }
-    if (localStorage.getItem("jwt") != null ) {
+        adminCardEle = (
+          <Col>
+            <LoginPageElements />
+          </Col>
+        );
+      }
+    }
+    if (localStorage.getItem("jwt") != null) {
       adminCardEle = (
         <Col>
           <AccountElements />
@@ -78,24 +72,25 @@ export default class Account extends Component {
     }
     if (
       localStorage.getItem("jwt") != null &&
-      localStorage.getItem("username") == "jlevien808" 
+      localStorage.getItem("username") == "jlevien808"
     ) {
       adminCardEle = (
         <Col>
           <AdminElements />
         </Col>
       );
-    }     if (
-      localStorage.getItem("jwt") != null &&
-      localStorage.getItem("username") == "jlevien808" ||
-      localStorage.getItem("username") == "bs1725072" 
+    }
+    if (
+      (localStorage.getItem("jwt") != null &&
+        localStorage.getItem("username") == "jlevien808") ||
+      localStorage.getItem("username") == "bs1725072"
     ) {
       adminCardEle = (
         <Col>
           <ModeratorElements />
         </Col>
       );
-    } 
+    }
     return (
       <Fragment>
         <CSSTransitionGroup

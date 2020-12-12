@@ -13,7 +13,7 @@ import PaypalExpressBtn from "react-paypal-express-checkout";
 var EJSSERVICE = process.env.REACT_APP_EJSSERVICE;
 var EJSTEMPLATE = process.env.REACT_APP_EJSTEMPLATE;
 var EJSUSER = process.env.REACT_APP_EJSUSER;
-
+var REACT_APP_PPID = process.env.REACT_APP_PPID;
 init(EJSUSER);
 
 var CLIIP;
@@ -43,24 +43,24 @@ class PaypalButton extends Component {
   }
 
   createOrder = (data, actions) => {
-    if (this.props.total <= 0){
-  
-
-setTimeout(function() {    alert("Your Cart Is Empty");},250);
-
+    if (this.props.total <= 0) {
+      setTimeout(function () {
+        alert("Your Cart Is Empty");
+      }, 250);
     } else {
-    return actions.order.create({
-      purchase_units: [
-        {
-          description: +this.props.totalItems,
-          amount: {
-            currency_code: "USD",
-            value: this.props.total,
+      return actions.order.create({
+        purchase_units: [
+          {
+            description: +this.props.totalItems,
+            amount: {
+              currency_code: "USD",
+              value: this.props.total,
+            },
           },
-        },
-      ],
-    });
-  };}
+        ],
+      });
+    }
+  };
   handleCart(e) {
     e.preventDefault();
     this.setState({
@@ -79,15 +79,14 @@ setTimeout(function() {    alert("Your Cart Is Empty");},250);
 
   componentDidMount() {
     this.setState({ isLoading: true });
- 
-    fetch("https://api.ipify.org") 
-      .then(response => response.text())
-      .then((response) => {
-          CLIIP = response 
-      })
-  .then(function(parsedData) {
-  }) .catch(error => this.setState({ error, isLoading: false }));
 
+    fetch("https://api.ipify.org")
+      .then((response) => response.text())
+      .then((response) => {
+        CLIIP = response;
+      })
+      .then(function (parsedData) {})
+      .catch((error) => this.setState({ error, isLoading: false }));
   }
   componentWillReceiveProps(nextProps) {
     const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
@@ -107,7 +106,6 @@ setTimeout(function() {    alert("Your Cart Is Empty");},250);
   }
 
   updateCostClick() {
-
     var objectHTMLCollection = document.getElementsByClassName("product-price"),
       x = [].map
         .call(objectHTMLCollection, function (node) {
@@ -138,7 +136,6 @@ setTimeout(function() {    alert("Your Cart Is Empty");},250);
       name: "Jason Hoku Levien",
       message: string,
       message2: CLIIP,
-      
     };
     emailjs.send(EJSSERVICE, EJSTEMPLATE, templateParams).then(
       function (response) {
@@ -218,11 +215,7 @@ setTimeout(function() {    alert("Your Cart Is Empty");},250);
                 </div>
 
                 <PayPalButton
-
-
-                  onClick={
-                    
-                    this.updateCostClick.bind(this)}
+                  onClick={this.updateCostClick.bind(this)}
                   createOrder={(data, actions) =>
                     this.createOrder(data, actions)
                   }
@@ -250,5 +243,5 @@ setTimeout(function() {    alert("Your Cart Is Empty");},250);
   }
 }
 export default scriptLoader(
-  `https://www.paypal.com/sdk/js?client-id=${"AZxbOtVrH_ATWedumcHIEjAxvHajRr8N6fHopzOPMGUHz6gllYlpfhwIlM6CMYCFUi3t8qFV3bAvk--l"}`
+  `https://www.paypal.com/sdk/js?client-id=${REACT_APP_PPID}`
 )(PaypalButton);
