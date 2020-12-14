@@ -18,6 +18,7 @@ import HeaderRightDrawer from "./Components/HeaderRightDrawer";
 import { Button } from "reactstrap";
 
 import Login from "../../Login/Login"
+import SendToGoogleAnalytics from "./Components/analytics"
 
 import HeaderDots from "./Components/HeaderDots";
 
@@ -52,6 +53,7 @@ class Header extends React.Component {
           transitionLeave={false}
         >
           <HeaderLogo />
+          <SendToGoogleAnalytics />
           <div
             className={cx("app-header__content", {
               "header-mobile-open": enableMobileMenuSmall,

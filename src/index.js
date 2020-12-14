@@ -18,6 +18,7 @@ import { Provider } from "react-redux";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import LoginRedirect from "./Login/LoginRedirect";
 import { node } from "prop-types";
+import reportWebVitals from "./reportWebVitals";
 
 const store = configureStore();
 const rootElement = document.getElementById("root");
@@ -35,11 +36,6 @@ const renderApp = (Component) => {
 };
 
 renderApp(Main);
-
-if (module.hot) {
-  module.hot.accept("./Pages/Main", () => {
-    const NextApp = require("./Pages/Main").default;
-    renderApp(NextApp);
-  });
-}
 serviceWorker.unregister();
+
+reportWebVitals();

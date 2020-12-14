@@ -249,26 +249,28 @@ export default class CRMDashboard2 extends Component {
                   </div>
                 </CardHeader>
                 <CardBody>
-                  {" "}
-                  <div class="col-md">
-                    <div class="col-md">
-                      microHawaii is a conglomerate of Hawaii based computer
-                      services.
-                      <br></br> <br></br>    This website is a portfolio of
-                      skills and active utilities.
-                      <div class="col-md"> </div>
-                      <br></br> <br></br>{" "}
-                    </div>
-                    Areas of expertise include:
-                    <br></br> <br></br> <li> Website and Application Design</li>{" "}
-                    <li> Custom 3D Modeling/Design Manufacturing</li>
-                    <li> Electronic Hardware Design Manufacturing </li>
-                    <li>Graphic Design &amp; Printing</li>
-                    <li> Business Advertising</li>
-                    <li> Logo Production</li>
-                    <li> E-Commerce Services </li>
-                    <li> Advertising Consultant </li>
-                  </div>
+                  microHawaii is a conglomerate of Hawaii based computer
+                  services.
+                  <br /> <br /> Areas of expertise include:
+                  <br /> <br /> <li> Website and Application Design</li>
+                  <li>Graphic Design &amp; Printing</li>
+                  <li> Powerful Modern Advertising</li>
+                  <li> E-Commerce Services </li>
+                  <br /> <br /> Active microHawaii Clients:
+                  <br /> <br />
+                  <li>
+                    <a href="https://mauiartprints.com/">
+                      https://mauiartprints.com/
+                    </a>
+                  </li>{" "}
+                  <li>
+                    <a href="https://ponomap.com/">https://ponomap.com/</a>
+                  </li>{" "}
+                  <li>
+                    <a href="https://prettycoolpattern.com/">
+                      https://prettycoolpattern.com/
+                    </a>
+                  </li>{" "}
                 </CardBody>
               </Card>
             </Col>
@@ -335,29 +337,19 @@ export default class CRMDashboard2 extends Component {
               <Card className="col-md-6 opacity-9 ">
                 <CardHeader className="card-header-tab">
                   <div className="card text-center card-shadow-focus opacity-9">
-                    Website Design Specialist Experiences:
+                    Website Design Portfolio Highlights:
                   </div>
                 </CardHeader>
                 <CardBody>
                   <div>
                     {" "}
-                    <p>
-                      {" "}
-                      Over a decade of researching and designing websites.{" "}
-                    </p>
+                    <p> 15+ Years Experience</p>
                     <p> </p>
-                    <p> Fluent in 7+ Programming languages</p>
+                    <p> Affordable $30/hr </p>
                     <p></p>
-                    <p> E-Commerce Design</p>
-                    <p> Application Development</p>
-                    <p> Software &amp; Hardware Development</p>
-                    <p> Database Management </p>
-                    <p>
-                      {" "}
-                      Team management & oversight experience for large projects
-                    </p>
-                    <p> Social Media Management</p>
-                    <p> API Development </p>
+                    <p> E-Commerce Sites Starting @ $250</p>
+                    <p> Advertising Expert Of Top Modern Utilities</p>
+                    <p>DevOps Management For Jobs of Any Size</p>
                     <p></p>
                   </div>
                 </CardBody>
@@ -366,7 +358,7 @@ export default class CRMDashboard2 extends Component {
             </Col>
           </Row>
 
-          <Row>
+          <Row style={{ justifyContent: "center" }}>
             <Col sm="12" md="6" xl="4">
               <Card
                 className="card-shadow-primary card-border text-white mb-3"

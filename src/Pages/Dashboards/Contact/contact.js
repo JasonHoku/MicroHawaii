@@ -64,7 +64,6 @@ import { Sparklines, SparklinesCurve } from "react-sparklines";
 
 import { makeData } from "../../Tables/DataTables/Examples/utils";
 
-
 var EJSSERVICE = process.env.REACT_APP_EJSSERVICE;
 var EJSTEMPLATE = process.env.REACT_APP_EJSTEMPLATE;
 var EJSUSER = process.env.REACT_APP_EJSUSER;
@@ -76,103 +75,6 @@ const CLIENT = {
   production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
 };
 
-const data55 = [
-  { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Page B", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Page C", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Page D", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "Page E", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Page F", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Page C", uv: 2000, pv: 6800, amt: 2290 },
-  { name: "Page D", uv: 4780, pv: 7908, amt: 2000 },
-  { name: "Page E", uv: 2890, pv: 9800, amt: 2181 },
-  { name: "Page F", uv: 1390, pv: 3800, amt: 1500 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-];
-
-const data22 = [
-  { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Page B", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Page C", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Page D", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "Page E", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Page F", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Page C", uv: 2000, pv: 6800, amt: 2290 },
-  { name: "Page D", uv: 4780, pv: 7908, amt: 2000 },
-  { name: "Page E", uv: 2890, pv: 9800, amt: 2181 },
-  { name: "Page F", uv: 1390, pv: 3800, amt: 1500 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-];
-
-const data3 = [
-  { name: "Page C", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Page F", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Page D", uv: 4780, pv: 7908, amt: 2000 },
-  { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Page F", uv: 1390, pv: 3800, amt: 1500 },
-  { name: "Page B", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Page E", uv: 2890, pv: 9800, amt: 2181 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Page D", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "Page E", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Page C", uv: 2000, pv: 6800, amt: 2290 },
-];
-
-const data2 = [
-  { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
-  { name: "Page B", uv: 3000, pv: 1398, amt: 2210 },
-  { name: "Page D", uv: 4780, pv: 7908, amt: 2000 },
-  { name: "Page D", uv: 2780, pv: 3908, amt: 2000 },
-  { name: "Page C", uv: 2000, pv: 6800, amt: 2290 },
-  { name: "Page F", uv: 2390, pv: 3800, amt: 2500 },
-  { name: "Page E", uv: 2890, pv: 9800, amt: 2181 },
-  { name: "Page E", uv: 1890, pv: 4800, amt: 2181 },
-  { name: "Page C", uv: 2000, pv: 9800, amt: 2290 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
-  { name: "Page F", uv: 1390, pv: 3800, amt: 1500 },
-];
-
-function boxMullerRandom() {
-  let phase = true,
-    x1,
-    x2,
-    w;
-
-  return (function () {
-    if (phase) {
-      do {
-        x1 = 2.0 * Math.random() - 1.0;
-        x2 = 2.0 * Math.random() - 1.0;
-        w = x1 * x1 + x2 * x2;
-      } while (w >= 1.0);
-
-      w = Math.sqrt((-2.0 * Math.log(w)) / w);
-      return x1 * w;
-    } else {
-      return x2 * w;
-    }
-  })();
-}
-
-function randomData(n = 30) {
-  return Array.apply(0, Array(n)).map(boxMullerRandom);
-}
-
-const sampleData = randomData(10);
-const sampleData2 = randomData(15);
-const sampleData3 = randomData(8);
-const sampleData4 = randomData(12);
-console.info({
-  sampleData,
-  sampleData2,
-  sampleData3,
-  sampleData4,
-});
-
 export default class ContactElements extends Component {
   constructor(props) {
     super(props);
@@ -181,7 +83,6 @@ export default class ContactElements extends Component {
     this.state = {
       activeTab2: "222",
       activeTab1: "11",
-      data: makeData(),
       formName: "",
       formEmail: "",
       formMessage: "",
@@ -238,7 +139,9 @@ export default class ContactElements extends Component {
       var templateParams = {
         name: `HokuBot: ${CLIIP}`,
         message: `Contact Form Submission From SubmittedFormName: ${formName}  Message: ${formMessage}`,
-        message2: ` SubmittedEmail: ${formEmail} || ID: ${CLIIP}` + (window.location.href),
+        message2:
+          ` SubmittedEmail: ${formEmail} || ID: ${CLIIP}` +
+          window.location.href,
       };
 
       emailjs.send(EJSSERVICE, EJSTEMPLATE, templateParams).then(
@@ -249,11 +152,10 @@ export default class ContactElements extends Component {
           document.getElementById("contactFormID").hidden = true;
           document.getElementById("contactFormThanks").hidden = false;
           document.getElementById("contactFormButton").disabled = true;
-          
         },
         function (error) {
           console.log("FAILED...", error);
-          alert("The message did not send. Perhaps you've lost internet?")
+          alert("The message did not send. Perhaps you've lost internet?");
           document.getElementById("contactFormButton").disabled = false;
         }
       );
@@ -274,108 +176,101 @@ export default class ContactElements extends Component {
           transitionLeave={false}
         >
           <Container fluid>
-            {" "}
-            <br />
-            <br />
-            <br />
-            <Row>
-                  <Col>
-                    <Card
-                      style={{
-                        width: "20rem",
-                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                      }}
-                    >
-                      <CardHeader>Contact PrettyCoolPattern.</CardHeader>     
-                      <CardBody>
-                        <p>
-                          &nbsp;
-                          For any inquirines, comments, concerns or critique,
-                          please use this simple form or reach out through the
-                          contact method listed here.<p />
-                          <br />
-                          Jason Hoku Levien <br />
-                          <a href="mailto:info@PrettyCoolPattern.com">
-                            info@PrettyCoolPattern.com <br />
-                          </a> (808)385-1775
-                        </p>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                <Col>
-                <br />
-                <Card
-                  className="main-card mb-3"
-                  style={{
-                    width: "26rem",
-                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  }}
-                >
-                  <CardBody>
-                    <CardTitle>Contact</CardTitle>    <br /> <span id="contactFormThanks" hidden > Thank you for your submission! A response can be expected in 0-3 days.</span>
-        
+            <Row
+              style={{
+                justifyContent: "center",
+              }}
+            >
+              <Card
+                style={{
+                  width: "23rem",
+                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                }}
+              >
+                <CardHeader>Contact microHawaii.</CardHeader>
+                <CardBody>
+                  <p>
+                    &nbsp; For inquiries, comments, concerns or critique,
+                    please use this form or reach out or through any of the contact
+                    methods listed below.
+                    <p />
                     <br />
-                    <Form  id="contactFormID">
-                      <FormGroup row>
-                        <Label for="examplePassword" sm={3}>
-                          Name
-                        </Label>
-                        <Col sm={8}>
-                          <Input
-                            type="input"
-                            style={{ width: "270px" }}
-                            name="formName"
-                            value={this.state.formName}
-                            onChange={this.handleInputChange}
-                            id="formName"
-                            placeholder="Who'se inquiring?"
-                          />
-                        </Col>
-                      </FormGroup>
-                      <br />{" "}
-                      <FormGroup row>
-                        <Label for="exampleEmail" sm={3}>
-                          Email
-                        </Label>
-                        <Col sm={8}>
-                          <Input
-                            style={{ width: "270px" }}
-                            type="formEmail"
-                            name="formEmail"
-                            value={this.state.formEmail}
-                            onChange={this.handleInputChange}
-                            id="formEmail"
-                            placeholder="How to best reach you?"
-                          />
-                        </Col>
-                      </FormGroup>
+                    Jason Hoku Levien <br />
+                    <a href="mailto:info@PrettyCoolPattern.com">
+                      info@PrettyCoolPattern.com <br />
+                    </a>{" "}
+                    (808)385-1775
+                  </p>
+                  <span id="contactFormThanks" hidden>
+                    {" "}
+                    Thank you for your submission! A response can be expected in
+                    0-3 days.
+                  </span>
+                  <br />
+                  <Form id="contactFormID">
+                    <FormGroup row>
+                      <Label for="examplePassword" sm={3}>
+                        Name
+                      </Label>
                       <br />
-                      <FormGroup row height="1005px">
-                        <Label for="formMessage" sm={3}>
-                          Text Area
-                        </Label>
-                        <Col sm={8}>
-                          <Input
-                            type="textarea"
-                            name="formMessage"
-                            value={this.state.formMessage}
-                            onChange={this.handleInputChange}
-                            id="formMessage"
-                            style={{ width: "270px", height: "170px" }}
-                          />
+                      <Input
+                        type="input"
+                        style={{ width: "270px" }}
+                        name="formName"
+                        value={this.state.formName}
+                        onChange={this.handleInputChange}
+                        id="formName"
+                        placeholder="Who's inquiring?"
+                      />
+                    </FormGroup>
+                    <br />{" "}
+                    <FormGroup row>
+                      <Label for="exampleEmail" sm={3}>
+                        Email
+                      </Label>
+                      <Input
+                        style={{ width: "270px" }}
+                        type="formEmail"
+                        name="formEmail"
+                        value={this.state.formEmail}
+                        onChange={this.handleInputChange}
+                        id="formEmail"
+                        placeholder="How to best reach you?"
+                      />
+                    </FormGroup>
+                    <br />
+                    <FormGroup row height="605px">
+                      <Label for="formMessage" sm={3}>
+                        Text Area
+                      </Label>
+                      <Input
+                        type="textarea"
+                        name="formMessage"
+                        value={this.state.formMessage}
+                        onChange={this.handleInputChange}
+                        id="formMessage"
+                        style={{ width: "270px", height: "120px" }}
+                      />
+                    </FormGroup>
+                    <br />
+                    <center>
+                      <FormGroup check row>
+                        <Col sm={{ size: 12 }}>
+                          <Button
+                            style={{ height: "75px", width: "150px" }}
+                            id="contactFormButton"
+                            disabled={false}
+                            onClick={this.submitContact}
+                          >
+                            Submit
+                          </Button>
                         </Col>
                       </FormGroup>
-                      <br />
-                      <center>
-                        <FormGroup check row>
-                          <Col sm={{ size: 12 }}>
-                            <Button id="contactFormButton" disabled={false} onClick={this.submitContact}>Submit</Button>
-                          </Col>
-                        </FormGroup>
-                      </center>
-                    </Form>
-                  </CardBody>
-                </Card></Col></Row>
+                    </center>
+                  </Form>
+                </CardBody>
+              </Card>
+            </Row>
           </Container>
         </CSSTransitionGroup>
       </Fragment>

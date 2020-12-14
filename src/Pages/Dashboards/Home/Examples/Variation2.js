@@ -108,8 +108,48 @@ export default class CRMDashboard2 extends Component {
           transitionEnter={false}
           transitionLeave={false}
         >
-          <center><meta name="description" content="microHawaii.com, software development, e-commerce, education and services."/>
-            <Row>
+          <center>
+            <meta
+              name="description"
+              content="microHawaii.com, software development, e-commerce, education and services."
+            />
+            <Row> <Col mx-auto className=" opacity-9" style={{ width: "31rem" }}>
+                <Card
+                  className="mb-3 main-card"
+                  style={{
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                  }}
+                >
+                  <CardHeader className="main-card dark card-header-tab">
+                    <div className="card-header-title">
+                      <i className=" lnr-rocket icon-gradient opacity-9"> </i>
+                      12/14/20 Announcement
+                    </div>
+                  </CardHeader>{" "}
+                  <CardBody>
+                    {" "}
+                    <div>
+                         microHawaii is celebrating 15 years of service. 🍰
+                      <br></br> <br></br>
+                      For more information on the{" "}
+                      <a href="#/dashboards/services"> services </a>
+                      provided here please inquire through the{" "}
+                      <a href="#/dashboards/contact"> contact </a> page or by
+                      email at:   
+                      <a href="mailto:contact@microhawaii.com">
+                        {" "}
+                        contact@microHawaii.com
+                      </a>
+                      <br></br>
+                      <br></br> <br></br>{" "}
+                      <center>
+                        {" "}
+                        <img src={logo} width="75"></img>
+                      </center>
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
               <Col mx-auto className=" opacity-9" style={{ width: "12rem" }}>
                 <Card
                   mx-auto
@@ -120,7 +160,6 @@ export default class CRMDashboard2 extends Component {
                 >
                   <a href="#/dashboards/services">
                     {" "}
-                    <Route path="#/dashboards/services" />
                     <CardHeader className="card-header-tab">
                       <div className="card text-center card-shadow-focus opacity-9">
                         Services
@@ -140,38 +179,9 @@ export default class CRMDashboard2 extends Component {
                   </a>
                 </Card>
                 <br></br>
-                <a href="#/dashboards/gallery">
-                  <Card
-                    mx-auto
-                    style={{
-                      width: "11rem",
-                      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                    }}
-                  >
-                    <CardHeader className="card-header-tab">
-                      <div className="card text-center card-shadow-focus opacity-9">
-                        Visual Art Gallery
-                      </div>
-                    </CardHeader>
-                    <CardBody>
-                      <div>
-                        <img
-                          width={140}
-                          className=" text-center"
-                          src={visualpic}
-                          alt=""
-                        />
-                      </div>
-                      <center>Visual Gallery</center>
-                    </CardBody>
-                  </Card>
-                </a>{" "}
-                <br></br>
               </Col>
               <Col mx-auto className=" opacity-9">
                 <a href="#/dashboards/shop">
-                  <Route path="#/dashboards/shop" />
-
                   <Card
                     mx-auto
                     style={{
@@ -197,35 +207,6 @@ export default class CRMDashboard2 extends Component {
                     </CardBody>
                   </Card>
                 </a>
-                <br></br>
-                <a href="#/dashboards/writing">
-                  <Card
-                    md="auto"
-                    className="main-card mb-3"
-                    style={{
-                      width: "11rem",
-                      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                    }}
-                  >
-                    <CardHeader className="card-header-tab">
-                      <div className="card text-center card-shadow-focus opacity-9">
-                        Written Publishing
-                      </div>{" "}
-                      <div> </div>
-                    </CardHeader>
-                    <CardBody>
-                      <div>
-                        <img
-                          width={140}
-                          className=" text-center"
-                          src={publishingpic}
-                          alt=""
-                        />
-                      </div>
-                      <center>Non Fiction</center>
-                    </CardBody>
-                  </Card>
-                </a>{" "}
                 <br></br>
               </Col>
               <Col mx-auto className=" opacity-9">
@@ -259,78 +240,6 @@ export default class CRMDashboard2 extends Component {
                   <br></br>
                 </a>{" "}
               </Col>
-
-              <Col mx-auto className=" opacity-9">
-                {" "}
-                <a href="#/dashboards/music">
-                  <Card
-                    mx-auto
-                    className="main-card mb-3"
-                    style={{
-                      width: "11rem",
-                      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                    }}
-                  >
-                    <CardHeader className="card-header-tab">
-                      <div className="card text-center card-shadow-focus opacity-9">
-                        Audio Art Gallery
-                      </div>{" "}
-                      <div> </div>
-                    </CardHeader>
-                    <CardBody>
-                      <div>
-                        <img
-                          width={140}
-                          className=" text-center"
-                          src={audiopic}
-                          alt=""
-                        />
-                        <br></br>
-                      </div>
-                      <center>Music Production.</center>
-                    </CardBody>
-                  </Card>
-                </a>
-              </Col>
-              <Col mx-auto className=" opacity-9" style={{ width: "31rem" }}>
-                <Card
-                  className="mb-3 main-card"
-                  style={{
-                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  }}
-                >
-                  <CardHeader className="main-card dark card-header-tab">
-                    <div className="card-header-title">
-                      <i className=" lnr-rocket icon-gradient opacity-9"> </i>
-                      10/17/20 Announcement
-                    </div>
-                  </CardHeader>{" "}
-                  <CardBody>
-                    {" "}
-                    <div>
-                         microHawaii is fully functional and currently accepting
-                      client and consult requests.
-                      <br></br> <br></br>
-                      For more information on the{" "}
-                      <a href="#/dashboards/services"> services </a>
-                      provided here please inquire through the{" "}
-                      <a href="#/dashboards/contact"> contact </a> page or by
-                      email at:   
-                      <a href="mailto:contact@microhawaii.com">
-                        {" "}
-                        contact@microHawaii.com
-                      </a>
-                      <br></br>
-                      <br></br> <br></br>{" "}
-                      <center>
-                        {" "}
-                        <img src={logo} width="100"></img>
-                      </center>
-                      <br></br>
-                    </div>
-                  </CardBody>
-                </Card>
-              </Col>
             </Row>
           </center>
           <Row></Row>
@@ -347,7 +256,7 @@ export default class CRMDashboard2 extends Component {
                     <i className="header-icon lnr-dice mr-3 text-muted opacity-6">
                       {" "}
                     </i>
-                    Update: 8/17/20
+                    microHawaii Web Development: 8/17/20
                   </div>{" "}
                   <div>
                     {" "}
@@ -357,91 +266,41 @@ export default class CRMDashboard2 extends Component {
                   </div>
                 </CardHeader>
                 <CardBody>
-                     I'd like to thank everyone who'se shown support through the
-                  goals and work, wouldn't have gotten here without you.
+                    microHawaii is specializing in custom, self-hosted
+                  E-Commerce Softwares, bringing powerful, low-cost tools to
+                  businesses of all shapes and sizes.
                   <br></br> <br></br>
-                    The site is being transfered to modern templature, utilizing
-                  the React frameworks as the primary language. Improvements to
-                  speed, aestetics and new features will be rolling out over the
-                  coming weeks.
-                  <br></br>
-                  <br></br>   Please report any issues and commentary through
-                  the contact page and thank you so much for stopping by.
+                   This website is an{" "}
+                  <a href="https://github.com/JasonHoku/MicroHawaii">
+                    {" "}
+                    open-source{" "}
+                  </a>
+                  , custom,{" "}
+                  <a href="https://create-react-app.dev/">"React App"</a>,
+                  written in the NodeJS environment. Visit the about page to
+                  learn more, report issues and make contact.
                   <br></br>
                   <br></br> <br></br>{" "}
                   <center>
                     {" "}
-                    <img src={logo} width="100"></img>
+                    <img src={logo} width="50"></img>
                   </center>
-                  <br></br>
-                  <br></br>
                 </CardBody>
               </Card>
             </Col>
           </Row>
 
-          <Card
-            className="main-card mb-3"
-            style={{
-              boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-            }}
-          >
-            <CardHeader className="card-header-tab">
-              <div className="card-header-title font-size-lg font-weight-normal">
-                <i className="header-icon lnr-dice mr-3 text-muted opacity-6">
-                  {" "}
-                </i>
-                Update: 7/17/20
-              </div>{" "}
-              <div> </div>
-            </CardHeader>
-            <CardBody>
-              Site updates are live! (Improved services page, upgraded layout,
-              added spunk)
-              <br></br>
-              <br></br>
-              Find out what microHawaii is working on, get involved and learn
-              more, by visiting the new
-              <a href="#/dashboards/projects"> Projects Page</a>.<br></br>
-              <br></br>
-            </CardBody>
-          </Card>
 
           <Row></Row>
 
-          <Card
-            className="main-card mb-3"
-            style={{
-              boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-            }}
-          >
-            <CardHeader className="card-header-tab">
-              <div className="card-header-title font-size-lg font-weight-normal">
-                <i className="header-icon lnr-dice mr-3 text-muted opacity-6">
-                  {" "}
-                </i>
-                Update: 6/15/20
-              </div>{" "}
-              <div> </div>
-            </CardHeader>
-            <CardBody>
-              The microHawaii 3D Web-Game development is kicking off! Pre-Alpha
-              0.2 is now available
-              <a href="../3D/"> here </a>.<br></br>
-              <br></br>
-            </CardBody>
-          </Card>
-
-          <Row></Row>
-
-          <Row>
-            <Col sm="12" md="6" xl="4">
-              <Card
+          <Row  style={{justifyContent:"center"}}>
+            <Col sm="12" md="6" xl="4" style={{justifyContent:"center"}}>
+              <Card  style={{justifyContent:"center"}}
                 className="card-shadow-primary card-border text-white mb-3"
                 color="primary"
               >
-                <div className="dropdown-menu-header">
-                  <div className="dropdown-menu-header-inner bg-primary">
+                <div className="dropdown-menu-header"  style={{justifyContent:"center"}}>
+                  <div className="dropdown-menu-header-inner bg-primary"  style={{justifyContent:"center"}}>
                     <div className="menu-header-content">
                       <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                         <div className="avatar-icon">
@@ -460,7 +319,7 @@ export default class CRMDashboard2 extends Component {
                 <CardFooter className="text-center d-block">
                   <a href="#/dashboards/contact">
                     <Button className="btn-shadow-dark btn-wider" color="dark">
-                      Send Message
+                      Contact
                     </Button>
                   </a>
                 </CardFooter>

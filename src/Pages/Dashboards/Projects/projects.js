@@ -32,7 +32,6 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-
 import {
   ResponsiveContainer,
   LineChart,
@@ -198,7 +197,9 @@ export default class ProjectElements extends Component {
     this.setState({});
   }
   timerReset() {
-    if ( toInteger(document.getElementById("timerText").value) === 0) {document.getElementById("timerText").value = 333 }
+    if (toInteger(document.getElementById("timerText").value) === 0) {
+      document.getElementById("timerText").value = 333;
+    }
 
     this.state.timerVar = toInteger(document.getElementById("timerText").value);
     this.setState({});
@@ -228,7 +229,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  Welcome to microHawaii projects blog!
+                  Welcome to microHawaii projects blog.
                   <br></br>
                 </CardBody>
               </Card>
@@ -246,8 +247,9 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  A variety of articles and projects will become more available
-                  here over the coming weeks.
+                  With 15+ years of software development experience, Jason Hoku
+                  Levien along-side the microHawaii team and affiliates are
+                  dedicated to a variety of educations and skillsets
                   <br /> <br />
                   <li>
                     Website Development: Follow on
@@ -260,14 +262,8 @@ export default class ProjectElements extends Component {
                   <li>
                     <a href="/3D/">Game Development </a>
                   </li>
-                  <li>DIY Home Projects (Coming Soon)</li>
-                  <br></br>{" "}
-                  <li>
-                    <a href="/#/dashboards/projects" onClick={this.timerLoader}>
-                      ⏱Timer Script (for Ani)
-                    </a>
-                  </li>
-                  <br></br>
+                  <li><a href="https://www.youtube.com/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG">Web Tutorials </a></li>
+                  <br></br> <br></br>
                 </CardBody>
               </Card>
               <Row
@@ -378,15 +374,14 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  For now you can find more on the{" "}
-                  <a href="#/dashboards/services">about</a> page.
+                  For now you can find more about microHawaii skillsets on the{" "}
+                  <a href="#/dashboards/services">services</a> page.
                   <br></br>
                 </CardBody>
               </Card>
             </Col>
           </Row>
-          <Row>
-          </Row>
+          <Row></Row>
           <br></br>
         </CSSTransitionGroup>
       </Fragment>
