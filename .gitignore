@@ -25,6 +25,12 @@
 .env.test.local
 .env.production.local
 
+#localCacheBuild
+.eslintcache
+.eslintcache/
+/.eslintcache
+.eslintcache*
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
