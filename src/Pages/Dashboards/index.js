@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
 
+import ReactGA from "react-ga";
 // Pages
 
 import HomeDashboard from "./Home/";
@@ -21,7 +22,6 @@ import AppFooter from "../../Layout/AppFooter/";
 
 // Theme Options
 import ThemeOptions from "../../Layout/ThemeOptions/";
-
 const Dashboards = ({ match }) => (
   <Fragment>
     <ThemeOptions />

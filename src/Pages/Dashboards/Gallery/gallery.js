@@ -143,14 +143,14 @@ export default class GalleryElements extends Component {
 
 
             <Col xs="4" sm="4" md="4" xl="5">
-            <a href="#/dashboard/contact">
+            <a href="#/dashboards/contact">
             <Card><CardHeader>
               Contact
             </CardHeader>
   <CardBody>
     MicroHawaii eagerly responds to all persons within 1-2 days.
     <br></br>
-     For commission inquiries, suggestions or commentary reach out through the <a href="#/dashboard/contact"> contact page.</a>
+     For commission inquiries, suggestions or commentary reach out through the <a href="#/dashboards/contact"> contact page.</a>
   </CardBody>
 </Card></a>
             </Col>
