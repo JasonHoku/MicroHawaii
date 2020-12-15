@@ -80,7 +80,7 @@ export default class ShopPage extends Component {
     });
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getProducts();
   }
 

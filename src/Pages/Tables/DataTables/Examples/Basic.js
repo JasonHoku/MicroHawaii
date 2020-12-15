@@ -12,7 +12,6 @@ export default class DataTableBasic extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: makeData(),
     };
   }
 

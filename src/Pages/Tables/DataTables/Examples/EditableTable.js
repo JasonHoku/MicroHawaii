@@ -12,7 +12,6 @@ export default class DataTableEditable extends Component {
   constructor() {
     super();
     this.state = {
-      data: makeData(),
     };
     this.renderEditable = this.renderEditable.bind(this);
   }

@@ -52,7 +52,6 @@ export default class DataTableCustomComps extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: makeData(),
     };
   }
 

@@ -48,8 +48,6 @@ import {
 
 import { Sparklines, SparklinesCurve } from "react-sparklines";
 
-import { makeData } from "../../../Tables/DataTables/Examples/utils";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CountUp from "react-countup";
 
