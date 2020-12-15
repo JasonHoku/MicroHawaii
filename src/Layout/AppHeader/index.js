@@ -33,12 +33,14 @@ class Header extends React.Component {
 
   componentDidMount() {
     document.addEventListener("click", this.onClickGA.bind(this), false);
+    ReactGA.initialize("UA-102481694-7");
   }
   componentDidUnmount() {
     document.removeEventListener("click", this.onClickGA.bind(this), false);
   }
 
   onClickGA(event) {
+    ReactGA.pageview(window.location.href + window.location);
     const domNode = findDOMNode(event.target);
     ReactGA.outboundLink(
       {
@@ -46,7 +48,6 @@ class Header extends React.Component {
       },
       function () {
         try {
-          console.log(domNode.outerHTML);
         } catch (error) {}
       }
     );
