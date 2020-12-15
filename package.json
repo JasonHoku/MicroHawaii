@@ -188,5 +188,8 @@
       "op_mini all",
       "last 1 ie version"
     ]
+  },
+  "devDependencies": {
+    "pe7-icon": "^1.0.4"
   }
 }
