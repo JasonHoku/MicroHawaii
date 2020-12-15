@@ -114,7 +114,6 @@ export default class CRMDashboard2 extends Component {
               content="microHawaii.com, software development, e-commerce, education and services."
             />
             <Row>
-              {" "}
               <Col
                 mx-auto="true"
                 className=" opacity-9"
