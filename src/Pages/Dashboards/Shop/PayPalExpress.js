@@ -88,7 +88,7 @@ class PaypalButton extends Component {
       .then(function (parsedData) {})
       .catch((error) => this.setState({ error, isLoading: false }));
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
 
     const scriptJustLoaded =
