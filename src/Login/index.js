@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <Router>
       <Switch>    
-          <Route path="*" component={LoginAct} />
+          <Route key="LoginAct" path="*" component={LoginAct} />
       </Switch>
     </Router>
   );

@@ -113,7 +113,13 @@ export default class CRMDashboard2 extends Component {
               name="description"
               content="microHawaii.com, software development, e-commerce, education and services."
             />
-            <Row> <Col mx-auto className=" opacity-9" style={{ width: "31rem" }}>
+            <Row>
+              {" "}
+              <Col
+                mx-auto="true"
+                className=" opacity-9"
+                style={{ width: "31rem" }}
+              >
                 <Card
                   className="mb-3 main-card"
                   style={{
@@ -122,8 +128,10 @@ export default class CRMDashboard2 extends Component {
                 >
                   <CardHeader className="main-card dark card-header-tab">
                     <div className="card-header-title">
-                      <i className=" lnr-rocket icon-gradient opacity-9"> </i>
-                      12/14/20 Announcement
+                      <i size="large" className="pe-7s-rocket opacity-9">
+                        {" "}
+                        12/14/20 Announcement{" "}
+                      </i>
                     </div>
                   </CardHeader>{" "}
                   <CardBody>
@@ -150,9 +158,13 @@ export default class CRMDashboard2 extends Component {
                   </CardBody>
                 </Card>
               </Col>
-              <Col mx-auto className=" opacity-9" style={{ width: "12rem" }}>
+              <Col
+                mx-auto="true"
+                className=" opacity-9"
+                style={{ width: "12rem" }}
+              >
                 <Card
-                  mx-auto
+                  mx-auto="true"
                   style={{
                     width: "11rem",
                     boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
@@ -180,10 +192,10 @@ export default class CRMDashboard2 extends Component {
                 </Card>
                 <br></br>
               </Col>
-              <Col mx-auto className=" opacity-9">
+              <Col mx-auto="true" className=" opacity-9">
                 <a href="#/dashboards/shop">
                   <Card
-                    mx-auto
+                    mx-auto="true"
                     style={{
                       width: "11rem",
                       boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
@@ -209,11 +221,11 @@ export default class CRMDashboard2 extends Component {
                 </a>
                 <br></br>
               </Col>
-              <Col mx-auto className=" opacity-9">
+              <Col mx-auto="true" className=" opacity-9">
                 <a href="#/dashboards/services">
                   <Route path="#/dashboards/services" />
                   <Card
-                    mx-auto
+                    mx-auto="true"
                     style={{
                       width: "11rem",
                       boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
@@ -253,7 +265,7 @@ export default class CRMDashboard2 extends Component {
               >
                 <CardHeader className="card-header-tab" color="light">
                   <div className="card-header-title font-size-lg font-weight-normal">
-                    <i className="header-icon lnr-dice mr-3 text-muted opacity-6">
+                    <i className="header-icon pe-7s-news-paper text-muted opacity-6">
                       {" "}
                     </i>
                     microHawaii Web Development: 8/17/20
@@ -290,17 +302,23 @@ export default class CRMDashboard2 extends Component {
             </Col>
           </Row>
 
-
           <Row></Row>
 
-          <Row  style={{justifyContent:"center"}}>
-            <Col sm="12" md="6" xl="4" style={{justifyContent:"center"}}>
-              <Card  style={{justifyContent:"center"}}
+          <Row style={{ justifyContent: "center" }}>
+            <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
+              <Card
+                style={{ justifyContent: "center" }}
                 className="card-shadow-primary card-border text-white mb-3"
                 color="primary"
               >
-                <div className="dropdown-menu-header"  style={{justifyContent:"center"}}>
-                  <div className="dropdown-menu-header-inner bg-primary"  style={{justifyContent:"center"}}>
+                <div
+                  className="dropdown-menu-header"
+                  style={{ justifyContent: "center" }}
+                >
+                  <div
+                    className="dropdown-menu-header-inner bg-primary"
+                    style={{ justifyContent: "center" }}
+                  >
                     <div className="menu-header-content">
                       <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                         <div className="avatar-icon">

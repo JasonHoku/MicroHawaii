@@ -32,16 +32,16 @@ class Main extends React.Component {
         handleWidth
         render={({ width }) => (
           <Fragment>
-            <div         style={{  
-               backgroundColor:"transparent",
-position:'sticky',
-margin: 0,
-padding: 0,
-width: "100%",
-height: "100vh",
-          
-        }}
-              className={cx( 
+            <div
+              style={{
+                backgroundColor: "transparent",
+                position: "sticky",
+                margin: 0,
+                padding: 0,
+                width: "100%",
+                height: "100vh",
+              }}
+              className={cx(
                 "app-container app-theme-" + colorScheme,
                 { "fixed-header": enableFixedHeader },
                 { "fixed-sidebar": enableFixedSidebar || width < 1250 },
@@ -52,7 +52,8 @@ height: "100vh",
                 },
                 { "sidebar-mobile-open": enableMobileMenu },
                 { "body-tabs-shadow-btn": enablePageTabsAlt }
-              )}>
+              )}
+            >
               <AppMain />
             </div>
           </Fragment>

@@ -64,20 +64,20 @@ const LoginAct = (props) => {
       
       
       
-      `Welcome ${localStorage.getItem("username")}, you are connected!` + " "
+      `Welcome ${localStorage.getItem("username")}, you are connected! ${" "}`
   
   
   
   ];
 
-    if (isLogged && localStorage.getItem("username") == "jlevien808") {
+    if (isLogged && localStorage.getItem("username") === "jlevien808") {
 
       text = `Sup ${localStorage.getItem("username")}, you are connected! `;
     }
   } else {
     text = [
 
-        <a href={`${backendUrl}/connect/google`}>
+        <a key="BackEnd" href={`${backendUrl}/connect/google`}>
           <Button
             className="btn-icon-horizontal btn-transition app-header-right"
             outline

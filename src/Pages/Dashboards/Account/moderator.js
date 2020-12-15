@@ -48,11 +48,7 @@ import {
   CardFooter,
   ButtonGroup,
 } from "reactstrap";
-import { faAlignCenter } from "@fortawesome/free-solid-svg-icons";
-import { relative } from "path";
-import LoginPageElements from "./loginPage";
 import AccountElements from "./account";
-import { resolveModuleName } from "typescript";
 
 // This setup is only needed once per application;
 const apolloClient = new ApolloClient({

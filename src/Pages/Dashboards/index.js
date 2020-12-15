@@ -6,13 +6,13 @@ import { Route } from "react-router-dom";
 import HomeDashboard from "./Home/";
 import Services from "./Services/";
 import ShopPage from "./Shop/";
-import GalleryPage from "./Gallery/"; 
-import Writing from "./Writing/"; 
-import Music from "./Music/"; 
-import Contact from "./Contact/"; 
-import Projects from "./Projects/"; 
-import CalendarPage from "./Calendar/"; 
-import Account from "./Account/"; 
+import GalleryPage from "./Gallery/";
+import Writing from "./Writing/";
+import Music from "./Music/";
+import Contact from "./Contact/";
+import Projects from "./Projects/";
+import CalendarPage from "./Calendar/";
+import Account from "./Account/";
 // Layout
 
 import AppHeader from "../../Layout/AppHeader/";
@@ -21,7 +21,6 @@ import AppFooter from "../../Layout/AppFooter/";
 
 // Theme Options
 import ThemeOptions from "../../Layout/ThemeOptions/";
-
 
 const Dashboards = ({ match }) => (
   <Fragment>

@@ -110,31 +110,57 @@ class FooterDots extends React.Component {
     return (
       <Fragment>
         <div className="footer-dots">
-          <a href="https://colorlib.com/" onClick={this.toggle1} className="dot-btn-wrapper" id="PopoverFooter-1">
+          <a
+            href="https://colorlib.com/"
+            onClick={this.toggle1}
+            className="dot-btn-wrapper"
+            id="PopoverFooter-1"
+          >
             <i className="dot-btn-icon lnr-bullhorn icon-gradient bg-mean-fruit" />
             <div className="badge badge-dot badge-abs badge-dot-sm badge-danger">
               Notifications
             </div>
           </a>
           <div className="dots-separator" />
-          <a href="https://colorlib.com/" onClick={this.toggle2} className="dot-btn-wrapper" id="PopoverFooter-2">
+          <a
+            href="https://colorlib.com/"
+            onClick={this.toggle2}
+            className="dot-btn-wrapper"
+            id="PopoverFooter-2"
+          >
             <i className="dot-btn-icon lnr-earth icon-gradient bg-happy-itmeo" />
           </a>
           <div className="dots-separator" />
-          <a href="https://colorlib.com/" onClick={this.toggle3} className="dot-btn-wrapper" id="PopoverFooter-3">
+          <a
+            href="https://colorlib.com/"
+            onClick={this.toggle3}
+            className="dot-btn-wrapper"
+            id="PopoverFooter-3"
+          >
             <i className="dot-btn-icon lnr-pie-chart icon-gradient bg-love-kiss" />
             <div className="badge badge-dot badge-abs badge-dot-sm badge-warning">
               Notifications
             </div>
           </a>
-          <Popover className="popover-custom popover-custom-xl" container=".app-container" hideArrow fade={false}
-            trigger="legacy" placement="top-start" isOpen={this.state.popoverOpen1} target="PopoverFooter-1" toggle={this.toggle1}>
+          <Popover
+            className="popover-custom popover-custom-xl"
+            container=".app-container"
+            hideArrow
+            fade={false}
+            trigger="legacy"
+            placement="top-start"
+            isOpen={this.state.popoverOpen1}
+            target="PopoverFooter-1"
+            toggle={this.toggle1}
+          >
             <div className="dropdown-menu-header mb-0">
               <div className="dropdown-menu-header-inner bg-strong-bliss">
-                <div className="menu-header-image opacity-1"
+                <div
+                  className="menu-header-image opacity-1"
                   style={{
                     backgroundImage: "url(" + city2 + ")",
-                  }}/>
+                  }}
+                />
                 <div className="menu-header-content text-white">
                   <h5 className="menu-header-title">Notifications</h5>
                   <h6 className="menu-header-subtitle">
@@ -145,7 +171,12 @@ class FooterDots extends React.Component {
               </div>
             </div>
             <div className="card-tabs-animated card-tabs-animated-inner">
-              <Tabs tabsWrapperClass="body-tabs body-tabs-alt" transform={false} showInkBar={true} items={getTabs()}/>
+              <Tabs
+                tabsWrapperClass="body-tabs body-tabs-alt"
+                transform={false}
+                showInkBar={true}
+                items={getTabs()}
+              />
             </div>
             <Nav vertical>
               <NavItem className="nav-item-btn text-center pt-4 pb-3">
@@ -158,14 +189,24 @@ class FooterDots extends React.Component {
               </NavItem>
             </Nav>
           </Popover>
-          <Popover className="popover-custom popover-custom-sm" trigger="legacy" hideArrow fade={false}
-            placement="top" isOpen={this.state.popoverOpen2} target="PopoverFooter-2" toggle={this.toggle2}>
+          <Popover
+            className="popover-custom popover-custom-sm"
+            trigger="legacy"
+            hideArrow
+            fade={false}
+            placement="top"
+            isOpen={this.state.popoverOpen2}
+            target="PopoverFooter-2"
+            toggle={this.toggle2}
+          >
             <div className="dropdown-menu-header">
               <div className="dropdown-menu-header-inner pt-4 pb-4 bg-dark">
-                <div className="menu-header-image opacity-1"
+                <div
+                  className="menu-header-image opacity-1"
                   style={{
                     backgroundImage: "url(" + city3 + ")",
-                  }}/>
+                  }}
+                />
                 <div className="menu-header-content text-center text-white">
                   <h6 className="menu-header-subtitle mt-0">Choose Language</h6>
                 </div>
@@ -174,14 +215,14 @@ class FooterDots extends React.Component {
             <div className="dropdown-menu-rounded">
               <DropdownItem className="pt-0" header>
                 Selected
-              </DropdownItem> <DropdownItem active>
+              </DropdownItem>{" "}
+              <DropdownItem active>
                 <Flag className="mr-3 opacity-8" country="US" />
                 USA
               </DropdownItem>
               <DropdownItem divider />
               <DropdownItem header>Popular Languages</DropdownItem>
-             
-              <DropdownItem >
+              <DropdownItem>
                 <Flag className="mr-3 opacity-8" country="DE" />
                 Germany
               </DropdownItem>
@@ -199,14 +240,24 @@ class FooterDots extends React.Component {
               </DropdownItem>
             </div>
           </Popover>
-          <Popover className="popover-custom popover-custom-lg" fade={false} hideArrow trigger="legacy"
-            placement="top" isOpen={this.state.popoverOpen3} target="PopoverFooter-3" toggle={this.toggle3}>
+          <Popover
+            className="popover-custom popover-custom-lg"
+            fade={false}
+            hideArrow
+            trigger="legacy"
+            placement="top"
+            isOpen={this.state.popoverOpen3}
+            target="PopoverFooter-3"
+            toggle={this.toggle3}
+          >
             <div className="dropdown-menu-header">
               <div className="dropdown-menu-header-inner bg-malibu-beach">
-                <div className="menu-header-image opacity-2"
+                <div
+                  className="menu-header-image opacity-2"
                   style={{
                     backgroundImage: "url(" + city2 + ")",
-                  }}/>
+                  }}
+                />
                 <div className="menu-header-content text-white">
                   <div className="avatar-icon-wrapper btn-hover-shine mb-3 avatar-icon-xl">
                     <div className="avatar-icon rounded">
@@ -237,8 +288,15 @@ class FooterDots extends React.Component {
                               <span className="opacity-10 text-success pr-2">
                                 <FontAwesomeIcon icon={faAngleUp} />
                               </span>
-                              <CountUp start={10} end={78} separator="" decimals={0}
-                                decimal="" prefix="" duration="10"/>
+                              <CountUp
+                                start={10}
+                                end={78}
+                                separator=""
+                                decimals={0}
+                                decimal=""
+                                prefix=""
+                                duration="10"
+                              />
                               <small className="opacity-5 pl-1">%</small>
                             </div>
                             <div className="widget-title font-size-lg font-weight-normal text-muted">
@@ -249,15 +307,23 @@ class FooterDots extends React.Component {
                       </div>
                       <div className="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
                         <ResponsiveContainer height="100%">
-                          <AreaChart data={data55}
+                          <AreaChart
+                            data={data55}
                             margin={{
                               top: -15,
                               right: 0,
                               left: 0,
                               bottom: 0,
-                            }}>
-                            <Area type="monotoneX" dataKey="uv" stroke="var(--success)" strokeWidth="4"
-                              fill="var(--success)" fillOpacity=".1"/>
+                            }}
+                          >
+                            <Area
+                              type="monotoneX"
+                              dataKey="uv"
+                              stroke="var(--success)"
+                              strokeWidth="4"
+                              fill="var(--success)"
+                              fillOpacity=".1"
+                            />
                           </AreaChart>
                         </ResponsiveContainer>
                       </div>
@@ -289,15 +355,23 @@ class FooterDots extends React.Component {
                       </div>
                       <div className="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
                         <ResponsiveContainer height="100%">
-                          <AreaChart data={data55}
+                          <AreaChart
+                            data={data55}
                             margin={{
                               top: -15,
                               right: 0,
                               left: 0,
                               bottom: 0,
-                            }}>
-                            <Area type="monotoneX" dataKey="uv" stroke="var(--warning)" strokeWidth="4"
-                              fill="var(--warning)" fillOpacity=".1"/>
+                            }}
+                          >
+                            <Area
+                              type="monotoneX"
+                              dataKey="uv"
+                              stroke="var(--warning)"
+                              strokeWidth="4"
+                              fill="var(--warning)"
+                              fillOpacity=".1"
+                            />
                           </AreaChart>
                         </ResponsiveContainer>
                       </div>
@@ -324,15 +398,23 @@ class FooterDots extends React.Component {
                       </div>
                       <div className="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
                         <ResponsiveContainer height="100%">
-                          <AreaChart data={data55}
+                          <AreaChart
+                            data={data55}
                             margin={{
                               top: -15,
                               right: 0,
                               left: 0,
                               bottom: 0,
-                            }}>
-                            <Area type="monotoneX" dataKey="uv" stroke="var(--danger)"
-                              strokeWidth="4" fill="var(--danger)" fillOpacity=".1"/>
+                            }}
+                          >
+                            <Area
+                              type="monotoneX"
+                              dataKey="uv"
+                              stroke="var(--danger)"
+                              strokeWidth="4"
+                              fill="var(--danger)"
+                              fillOpacity=".1"
+                            />
                           </AreaChart>
                         </ResponsiveContainer>
                       </div>

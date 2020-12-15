@@ -15,27 +15,22 @@ import "./App.js";
 import Main from "./Pages/Main";
 import configureStore from "./config/configureStore";
 import { Provider } from "react-redux";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import LoginRedirect from "./Login/LoginRedirect";
-import { node } from "prop-types";
 import reportWebVitals from "./reportWebVitals";
 
 const store = configureStore();
 const rootElement = document.getElementById("root");
 
-const renderApp = (Component) => {
   ReactDOM.render(
     <Provider store={store}>
       <HashRouter>
-        <Component />
+        <Main />
         <Route path="/connect/google/redirect" component={LoginRedirect} />
       </HashRouter>
     </Provider>,
     rootElement
   );
-};
 
-renderApp(Main);
 serviceWorker.unregister();
 
 reportWebVitals();
