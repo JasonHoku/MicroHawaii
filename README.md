@@ -1,6 +1,11 @@
 # microHawaii.com OpenSource [ReactJS](https://reactjs.org/) E-commerce Web MultiTool
-====
-Custom Auth, UI, Paypal, EmailJS, CodeQL, ESLint, Analytics, Strapi, GraphQL, Upload, Admin Panels & WYSIWYG Design Tools.
+
+Custom Auth & UI,
+
+
+[![PayPal Badge](https://img.shields.io/badge/PayPal-Integrated-brightgreen)]
+
+EmailJS, CodeQL, ESLint, Analytics, Strapi, GraphQL, Upload, Admin Panels & WYSIWYG Design Tools.
 ====
 
 # [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
