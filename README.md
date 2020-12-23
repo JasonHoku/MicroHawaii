@@ -1,22 +1,30 @@
-# microHawaii.com: [React](https://reactjs.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/facebook/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
+# microHawaii.com OpenSource[ReactJS](https://reactjs.org/) E-commerce Web MultiTool
 
 ====
 
+# [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
+
+[![Visits Badge](https://badges.pufler.dev/visits/JasonHoku/MicroHawaii)](https://badges.pufler.dev)
+[![Created Badge](https://badges.pufler.dev/created/JasonHoku/MicroHawaii)](https://badges.pufler.dev)
+[![Commits Badge](https://badges.pufler.dev/commits/monthly/JasonHoku)](https://badges.pufler.dev)
+![Discord](https://img.shields.io/discord/364993358789345283?style=for-the-badge)
+
+====
 
 ## Documentation
 
-You can find the React documentation [on the website](https://reactjs.org/docs).  
+You can find the React documentation [on the website](https://reactjs.org/docs).
 
 Check out the [Getting Started](https://reactjs.org/docs/getting-started.html) page for a quick overview.
 
 The documentation is divided into several sections:
 
-* [Tutorial](https://reactjs.org/tutorial/tutorial.html)
-* [Main Concepts](https://reactjs.org/docs/hello-world.html)
-* [Advanced Guides](https://reactjs.org/docs/jsx-in-depth.html)
-* [API Reference](https://reactjs.org/docs/react-api.html)
-* [Where to Get Support](https://reactjs.org/community/support.html)
-* [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
+- [Tutorial](https://reactjs.org/tutorial/tutorial.html)
+- [Main Concepts](https://reactjs.org/docs/hello-world.html)
+- [Advanced Guides](https://reactjs.org/docs/jsx-in-depth.html)
+- [API Reference](https://reactjs.org/docs/react-api.html)
+- [Where to Get Support](https://reactjs.org/community/support.html)
+- [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
 
 # Setup, Step 1.
 
@@ -47,7 +55,6 @@ git push
 
 Find example.env in your project root directory and rename it to .env
 This file is set to be auto excluded in sharing and will be your passwords and keys file.
-
 
 ## Available Scripts
 
