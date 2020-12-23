@@ -1,6 +1,6 @@
-# microHawaii.com OpenSource [ReactJS](https://reactjs.org/) E-commerce Web MultiTool
+# OpenSource [ReactJS](https://reactjs.org/) E-Commerce MultiTool
 
-Custom Auth & UI,
+Custom Auth & UI
 
 ![PayPal Badge](https://img.shields.io/badge/PayPal-✔-brightgreen)
 ![EmailJS Badge](https://img.shields.io/badge/EmailJS-✔-brightgreen)
