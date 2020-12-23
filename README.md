@@ -2,10 +2,16 @@
 
 Custom Auth & UI,
 
-
-[![PayPal Badge](https://img.shields.io/badge/PayPal-Integrated-brightgreen)]
-
-EmailJS, CodeQL, ESLint, Analytics, Strapi, GraphQL, Upload, Admin Panels & WYSIWYG Design Tools.
+![PayPal Badge](https://img.shields.io/badge/PayPal-Integrated-brightgreen)
+![EmailJS Badge](https://img.shields.io/badge/EmailJS-Integrated-brightgreen)
+![CodeQL Badge](https://img.shields.io/badge/CodeQL-Integrated-brightgreen)
+![ESLint Badge](https://img.shields.io/badge/ESLint-Integrated-brightgreen)
+![Analytics Badge](https://img.shields.io/badge/Analytics-Integrated-brightgreen)
+![Strapi Badge](https://img.shields.io/badge/Strapi-Integrated-brightgreen)
+![GraphQL Badge](https://img.shields.io/badge/GraphQL-Integrated-brightgreen)
+![Upload Badge](https://img.shields.io/badge/GraphQL-Integrated-brightgreen)
+![Admin Panels Badge](https://img.shields.io/badge/GraphQL-Integrated-brightgreen)
+![ WYSIWYG Design Tools Badge](https://img.shields.io/badge/WYSIWYG-Integrated-brightgreen)
 ====
 
 # [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
