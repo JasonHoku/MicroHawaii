@@ -21,9 +21,7 @@ Custom Auth & UI,
 [![Commits Badge](https://badges.pufler.dev/commits/monthly/JasonHoku)](https://badges.pufler.dev)
 ![Discord](https://img.shields.io/discord/364993358789345283?style=for-the-badge)
 
-====
-The ultimate freelance & indie web dev bundle tool.
-====
+# The Ultimate Freelance & Indie, Web Dev AIO Utility.
 
 ## Documentation
 
