@@ -38,14 +38,15 @@ The documentation is divided into several sections:
 - [Where to Get Support](https://reactjs.org/community/support.html)
 - [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
 
-# Setup, Step 1.
+# Setup
 
 Install Prerequisites:
 
 NodeJS: https://nodejs.org/en/
+
 git: https://git-scm.com/downloads
 
-# Download Source Files For Web App & Set Up Project Workspace.
+## Download Source Files For Web App & Set Up Project Workspace.
 
 ## A) Get files with git:
 
@@ -64,6 +65,8 @@ git commit -m "your message about changes here"
 git push
 
 ## The Private Personal Passwords File
+
+This section is for integrating your own: PayPal, EmailJS, UA & Backend.
 
 Find example.env in your project root directory and rename it to .env
 This file is set to be auto excluded in sharing and will be your passwords and keys file.
@@ -96,3 +99,6 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+
+# Accepting PRs, questions, comments and concerns. Thank you!
