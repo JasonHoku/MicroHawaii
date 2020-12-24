@@ -23,7 +23,7 @@ class SearchBox extends React.Component {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://duckduckgo.com/?q=site%3AMicroHawaii.com&t=hw&ia=web"
+              href="https://www.google.com/search?sxsrf=ALeKk00y6wanXe9Uja28ODHluomUP_KdfQ%3A1608846432873&ei=YAzlX_bXNJbd-gTqhZqIAg&q=site%3Amicrohawaii.com&oq=site%3Amicrohawaii.com&gs_lcp=CgZwc3ktYWIQA1CKVVjRV2CxWGgBcAB4AIABd4gB0AKSAQMwLjOYAQCgAQGqAQdnd3Mtd2l6wAEB&sclient=psy-ab&ved=0ahUKEwj2h4SBzOftAhWWrp4KHeqCBiEQ4dUDCA0&uact=5"
             >
               <input
                 type="text"

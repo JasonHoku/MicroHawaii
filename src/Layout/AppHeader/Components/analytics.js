@@ -2,7 +2,8 @@ import { getCLS, getFID, getLCP } from "web-vitals";
 import React, { Fragment } from "react";
 import ReactGA from "react-ga";
 
-ReactGA.initialize("UA-102481694-7");
+var REACT_APP_UAANALYTICS = process.env.REACT_APP_UAANALYTICS;
+ReactGA.initialize(REACT_APP_UAANALYTICS);
 ReactGA.pageview(window.location + window.location.search);
 function sendToGoogleAnalytics({ name, delta, id }) {
   // Assumes the global `ga()` function exists, see:

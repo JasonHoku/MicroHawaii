@@ -97,8 +97,7 @@ const LoginAct = (props) => {
       alignContent: "center",
       
     }}
-  >
-      {text} 
+  >    
       {buttons}
     </div>
   );

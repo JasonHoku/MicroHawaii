@@ -22,6 +22,8 @@ import HeaderDots from "./Components/HeaderDots";
 
 import LoginRedirect from "../../Login/LoginRedirect";
 
+var REACT_APP_UAANALYTICS = process.env.REACT_APP_UAANALYTICS;
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ class Header extends React.Component {
 
   componentDidMount() {
     document.addEventListener("click", this.onClickGA.bind(this), false);
-    ReactGA.initialize("UA-102481694-7");
+    ReactGA.initialize(REACT_APP_UAANALYTICS);
   }
   componentDidUnmount() {
     document.removeEventListener("click", this.onClickGA.bind(this), false);
