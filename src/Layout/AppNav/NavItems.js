@@ -1,22 +1,22 @@
 export const MainNav = [
   {
     icon: "pe-7s-rocket",
-    label: "Home",
+    label: "Homepage",
     to: "#/dashboards/home",
   },
   {
     icon: "pe-7s-date",
-    label: "Events",
+    label: "Schedule",
     to: "#/dashboards/calendar",
   },
   {
     icon: "pe-7s-photo",
-    label: "Visual Arts",
+    label: "Artwork",
     to: "#/dashboards/gallery",
   },
   {
     icon: "pe-7s-shopbag",
-    label: "Shop",
+    label: "E-Shop",
     to: "./#/dashboards/shop",
   },
 ];
@@ -41,7 +41,7 @@ export const AboutNav = [
 export const AdminNav = [
   {
     icon: "pe-7s-tools",
-    label: "Tools",
+    label: "Login",
     to: "#/dashboards/account",
   },
 ];

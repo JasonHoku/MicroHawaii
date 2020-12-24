@@ -67,7 +67,7 @@ const apolloClient = new ApolloClient({
 
 const MY_QUERY_COPY_QUERY = gql`
   query MyQueryCopy {
-    microHawaiis {
+    MicroHawaiis {
       id
     }
   }
@@ -187,7 +187,7 @@ export default class AdminElements extends Component {
 
     const MY_MUTATION_MUTATION = gql`
   mutation MyMutation {
-    insert_microHawaii(objects: {email: "${formName}"}) {
+    insert_MicroHawaii(objects: {email: "${formName}"}) {
       affected_rows
     }
   }

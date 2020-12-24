@@ -15,8 +15,8 @@
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   padding: 16px;
-  max-width: 960px;
   margin: 0 auto;
+  justify-content: center;
   @media (max-width: 768px) {
     padding: 10px;
   }

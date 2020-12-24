@@ -106,7 +106,7 @@ export default class MusicElements extends Component {
           <Row>
             <Col xs="4" sm="4" md="4" xl="3">
               <Card>
-                <CardBody> Over 40 microHawaii musical publishingings can be found on either YouTube or SoundCloud:
+                <CardBody> Over 40 MicroHawaii musical publishingings can be found on either YouTube or SoundCloud:
     <br></br>  </CardBody>
               </Card>  </Col>
 

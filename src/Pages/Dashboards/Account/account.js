@@ -80,7 +80,7 @@ const MyQueryCopyQuery = (props) => {
           );
 
         if (data) {
-          return <pre>{JSON.stringify(data.microHawaii, null, 2)}</pre>;
+          return <pre>{JSON.stringify(data.MicroHawaii, null, 2)}</pre>;
         }
       }}
     </Query>
@@ -121,7 +121,7 @@ export default class AccountElements extends Component {
 
     const MY_MUTATION_MUTATION = gql`
   mutation MyMutation {
-    insert_microHawaii(objects: {email: "${formName}"}) {
+    insert_MicroHawaii(objects: {email: "${formName}"}) {
       affected_rows
     }
   }
@@ -163,21 +163,27 @@ export default class AccountElements extends Component {
       <Fragment>
         <Container fluid>
           <ApolloProvider client={apolloClient}>
-                    <Card
-                      style={{
-                        width: "26rem",
-                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                      }}
-                    >
-                      <CardHeader> Succseffully Signed-In as {localStorage.getItem("username")}</CardHeader>
-                      {" "}
-                      <CardBody>
-                      Please request authentication from administration.
-                      </CardBody>
-                    </Card>
-                          <br />
-                          <br />
-              
+            <Card
+              style={{
+                width: "26rem",
+                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+              }}
+            >
+              <CardHeader>
+                {" "}
+                Succseffully Signed-In as {localStorage.getItem("username")}
+              </CardHeader>
+              <CardBody>
+                <p>Additional features coming soon.</p>
+                <p>
+                  <small>For moderators:</small>
+                  <br />
+                  Please request authentication from administration.
+                </p>
+              </CardBody>
+            </Card>
+            <br />
+            <br />
           </ApolloProvider>
         </Container>
       </Fragment>

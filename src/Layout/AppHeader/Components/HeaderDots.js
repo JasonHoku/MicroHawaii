@@ -107,7 +107,7 @@ class HeaderDots extends React.Component {
                   <div className="menu-header-content text-white">
                     <h5 className="menu-header-title">Reach Count</h5>
                     <h6 className="menu-header-subtitle">
-                      microHawaii Users.
+                      MicroHawaii Users.
                     </h6>
                   </div>
                 </div>
@@ -123,7 +123,7 @@ class HeaderDots extends React.Component {
                       prefix="" useEasing={false} suffix= "m" duration="3"/>
                   </div>
                   <div className="widget-subheading pt-2">
-                    Accumilated reach of microHawaii.
+                    Accumilated reach of MicroHawaii.
                   </div>
                   <div className="widget-description text-white">
                     <span className="pr-1">

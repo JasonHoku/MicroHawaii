@@ -55,6 +55,11 @@ class QuickView extends Component {
               />
             </div>
             <div className="quick-view-details">
+              <a href="/#/dashboards/contact">
+                Contact MicroHawaii Today for Additonal Information.
+              </a>
+            </div>
+            <div className="quick-view-details">
               <span className="product-name">{this.props.product.name}</span>
               <span className="product-price">{this.props.product.price}</span>
             </div>

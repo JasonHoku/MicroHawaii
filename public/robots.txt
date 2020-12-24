@@ -6,4 +6,4 @@ Allow: /#/dashboards/home
 Allow: /#/dashboards/services
 Allow: /#/dashboards/shop
 Allow: /#/dashboards/gallery
-Sitemap: https://www.microHawaii.com/sitemap.xml
+Sitemap: https://www.MicroHawaii.com/sitemap.xml

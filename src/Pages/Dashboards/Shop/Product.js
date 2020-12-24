@@ -30,7 +30,7 @@ class Product extends Component {
     this.state = {
       selectedProduct: {},
       quickViewProduct: {},
-      isAdded: false
+      isAdded: false,
     };
   }
   addToCart(image, name, price, id, quantity) {
@@ -41,25 +41,23 @@ class Product extends Component {
           name: name,
           price: price,
           id: id,
-          quantity: quantity
-        }
+          quantity: quantity,
+        },
       },
-      function() {
+      function () {
         this.props.addToCart(this.state.selectedProduct);
       }
     );
 
-    
-
     this.setState(
       {
-        isAdded: true
+        isAdded: true,
       },
-      function() {
+      function () {
         setTimeout(() => {
           this.setState({
             isAdded: false,
-            selectedProduct: {}
+            selectedProduct: {},
           });
         }, 3500);
       }
@@ -72,15 +70,14 @@ class Product extends Component {
           image: image,
           name: name,
           price: price,
-          id: id
-        }
+          id: id,
+        },
       },
-      function() {
+      function () {
         this.props.openModal(this.state.quickViewProduct);
       }
     );
   }
-  
 
   render() {
     let image = this.props.image;
@@ -88,50 +85,60 @@ class Product extends Component {
     let price = this.props.price;
     let id = this.props.id;
     let quantity = this.props.productQuantity;
-    return (     <div  style={{ width: "13rem" }}                
-> 
-          <p>
-     <center>
-      
-     <div className="product"     style={{
-      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-      height:"400px"
-    }}>
-        <div className="product-image">    <img style={{ width: "12rem" }}
-            src={image}
-            alt={this.props.name}
-            onClick={this.quickView.bind(
-              this,
-              image,
-              name,
-              price,
-              id,
-              quantity
-            )}
-          /></div>
-        <h4 className="product-name">{this.props.name}</h4>
-        <p className="product-price">{this.props.price}</p>
-        <Counter
-          productQuantity={quantity}
-          updateQuantity={this.props.updateQuantity}
-          resetQuantity={this.resetQuantity}
-        /><small><p>
-        In-Stock: 99</p></small> 
-          <button
-            className={!this.state.isAdded ? "" : "added"}
-            type="button"
-            onClick={this.addToCart.bind(
-              this,
-              image,
-              name,
-              price,
-              id,
-              quantity
-            )}
-          >
-            {!this.state.isAdded ? "ADD TO CART" : "✔ ADDED"}
-          </button>  </div>
-          &nbsp; </center> </p> </div>
+    return (
+      <div style={{ width: "13rem", marginRight: "20px" }}>
+        <p>
+          <center>
+            <div
+              className="product"
+              style={{
+                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                height: "400px",
+              }}
+            >
+              <div className="product-image">
+                {" "}
+                <img
+                  style={{ width: "12rem" }}
+                  src={image}
+                  alt={this.props.name}
+                  onClick={this.quickView.bind(
+                    this,
+                    image,
+                    name,
+                    price,
+                    id,
+                    quantity
+                  )}
+                />
+              </div>
+              <h4 className="product-name">{this.props.name}</h4>
+              <p className="product-price">{this.props.price}</p>
+              <Counter
+                productQuantity={quantity}
+                updateQuantity={this.props.updateQuantity}
+                resetQuantity={this.resetQuantity}
+              />
+              <br />
+              <button
+                className={!this.state.isAdded ? "" : "added"}
+                type="button"
+                onClick={this.addToCart.bind(
+                  this,
+                  image,
+                  name,
+                  price,
+                  id,
+                  quantity
+                )}
+              >
+                {!this.state.isAdded ? "ADD TO CART" : "✔ ADDED"}
+              </button>{" "}
+            </div>
+            &nbsp;{" "}
+          </center>{" "}
+        </p>{" "}
+      </div>
     );
   }
 }

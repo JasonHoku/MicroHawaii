@@ -152,14 +152,14 @@ export default class CRMDashboard2 extends Component {
                   </div>
                 </CardHeader>
                 <CardBody>
-                  microHawaii is a conglomerate of Hawaii based computer
+                  MicroHawaii is a conglomerate of Hawaii based computer
                   services.
                   <br /> <br /> Areas of expertise include:
                   <br /> <br /> <li> Website and Application Design</li>
                   <li>Graphic Design &amp; Printing</li>
                   <li> Powerful Modern Advertising</li>
                   <li> E-Commerce Services </li>
-                  <br /> <br /> Active microHawaii Clients:
+                  <br /> <br /> Active MicroHawaii Clients:
                   <br /> <br />
                   <li>
                     <a href="https://mauiartprints.com/">

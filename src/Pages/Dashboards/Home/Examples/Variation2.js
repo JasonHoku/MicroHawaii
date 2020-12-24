@@ -109,7 +109,7 @@ export default class CRMDashboard2 extends Component {
           <center>
             <meta
               name="description"
-              content="microHawaii.com, software development, e-commerce, education and services."
+              content="MicroHawaii.com, software development, e-commerce, education and services."
             />
             <Row>
               <Col
@@ -132,29 +132,32 @@ export default class CRMDashboard2 extends Component {
                     </div>
                   </CardHeader>{" "}
                   <CardBody>
-                    {" "}
                     <div>
-                         microHawaii is celebrating 15 years of service. 🍰
+                         
+                      <h1>
+                        MicroHawaii is celebrating 15 years of web development.
+                        🍰
+                      </h1>
                       <br></br> <br></br>
                       For more information on the{" "}
                       <a href="#/dashboards/services"> services </a>
                       provided here please inquire through the{" "}
                       <a href="#/dashboards/contact"> contact </a> page or by
-                      email at:   
+                      email at: 
                       <a href="mailto:contact@microhawaii.com">
-                        {" "}
-                        contact@microHawaii.com
+                        contact@MicroHawaii.com
                       </a>
                       <br></br>
-                      <br></br> <br></br>{" "}
+                      <br></br> <br></br>
                       <center>
-                        {" "}
                         <img src={logo} width="75"></img>
                       </center>
                     </div>
                   </CardBody>
                 </Card>
-              </Col>
+              </Col>{" "}
+            </Row>{" "}
+            <Row>
               <Col
                 mx-auto="true"
                 className=" opacity-9"
@@ -265,7 +268,7 @@ export default class CRMDashboard2 extends Component {
                     <i className="header-icon pe-7s-news-paper text-muted opacity-6">
                       {" "}
                     </i>
-                    microHawaii Web Development: 8/17/20
+                    MicroHawaii Web Development: 8/17/20
                   </div>{" "}
                   <div>
                     {" "}
@@ -275,7 +278,7 @@ export default class CRMDashboard2 extends Component {
                   </div>
                 </CardHeader>
                 <CardBody>
-                    microHawaii is specializing in custom, self-hosted
+                    MicroHawaii is specializing in custom, self-hosted
                   E-Commerce Softwares, bringing powerful, low-cost tools to
                   businesses of all shapes and sizes.
                   <br></br> <br></br>

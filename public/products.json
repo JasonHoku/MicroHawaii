@@ -1,4 +1,25 @@
 [
+  {
+    "id": 8,
+    "name": "Custom Websites",
+    "price": 100,
+    "image": "./images/8.png",
+    "category": "services"
+  },
+    {
+      "id": 7,
+      "name": "Consultation & Education",
+      "price": 50,
+      "image": "./images/7.png",
+      "category": "services"
+    },
+    {
+      "id": 6,
+      "name": "SEO & Advertising",
+      "price": 100,
+      "image": "./images/6.png",
+      "category": "services"
+    },
     {
       "id": 1,
       "name": "SupraCollage",
@@ -25,34 +46,6 @@
       "name": "Whaledelia",
       "price": 29,
       "image": "./images/4.png",
-      "category": "services"
-    },
-    {
-      "id": 5,
-      "name": "Duogeochromatic",
-      "price": 29,
-      "image": "./images/5.png",
-      "category": "services"
-    },
-    {
-      "id": 6,
-      "name": "SEO & Advertising",
-      "price": 100,
-      "image": "./images/6.png",
-      "category": "services"
-    },
-    {
-      "id": 7,
-      "name": "Consultation & Education",
-      "price": 50,
-      "image": "./images/7.png",
-      "category": "services"
-    },
-    {
-      "id": 8,
-      "name": "E-Commerce Websites,",
-      "price": 100,
-      "image": "./images/8.png",
       "category": "services"
     }
   ]

@@ -31,7 +31,7 @@ class Nav extends Component {
         <MetisMenu content={AboutNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
           className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
 
-        <h5 className="app-sidebar__heading">Admin</h5>
+        <h5 className="app-sidebar__heading">Account</h5>
         <MetisMenu content={AdminNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
           className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
 {/* 

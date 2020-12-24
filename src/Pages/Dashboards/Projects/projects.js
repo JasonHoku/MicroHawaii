@@ -132,7 +132,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  Welcome to microHawaii projects blog.
+                  Welcome to MicroHawaii projects blog.
                   <br></br>
                 </CardBody>
               </Card>
@@ -151,7 +151,7 @@ export default class ProjectElements extends Component {
               <Card>
                 <CardBody>
                   With 15+ years of software development experience, Jason Hoku
-                  Levien along-side the microHawaii team and affiliates are
+                  Levien along-side the MicroHawaii team and affiliates are
                   dedicated to a variety of educations and skillsets
                   <br /> <br />
                   <li>
@@ -277,7 +277,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  For now you can find more about microHawaii skillsets on the{" "}
+                  For now you can find more about MicroHawaii skillsets on the{" "}
                   <a href="#/dashboards/services">services</a> page.
                   <br></br>
                 </CardBody>

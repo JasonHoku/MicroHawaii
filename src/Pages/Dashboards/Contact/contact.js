@@ -183,39 +183,42 @@ export default class ContactElements extends Component {
             >
               <Card
                 style={{
-                  width: "23rem",
+                  width: "26rem",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                 }}
               >
-                <CardHeader>Contact microHawaii.</CardHeader>
-                <CardBody>
+                <CardHeader>Contact</CardHeader>
+                <CardBody
+                  style={{
+                    textAlign: "center",
+                  }}
+                >
                   <p>
-                    &nbsp; For inquiries, comments, concerns or critique,
-                    please use this form or reach out or through any of the contact
-                    methods listed below.
-                    <p />
-                    <br />
-                    Jason Hoku Levien <br />
-                    <a href="mailto:info@PrettyCoolPattern.com">
-                      info@PrettyCoolPattern.com <br />
-                    </a>{" "}
-                    (808)385-1775
+                    &nbsp; For all inquiries, comments or concerns, please use
+                    this form or reach out or through the methods listed below.
                   </p>
+                  Jason Hoku Levien <br />
+                  <a href="mailto:info@MicroHawaii.com">
+                    info@MicroHawaii.com <br />
+                  </a>
+                  (808)385-1775
                   <span id="contactFormThanks" hidden>
                     {" "}
                     Thank you for your submission! A response can be expected in
                     0-3 days.
                   </span>
-                  <br />
                   <Form id="contactFormID">
-                    <FormGroup row>
+                    <br />
+                    <FormGroup>
                       <Label for="examplePassword" sm={3}>
-                        Name
+                        <CardTitle>
+                          <b>Name</b>
+                        </CardTitle>
                       </Label>
                       <br />
                       <Input
                         type="input"
-                        style={{ width: "270px" }}
+                        style={{ width: "200px" }}
                         name="formName"
                         value={this.state.formName}
                         onChange={this.handleInputChange}
@@ -224,12 +227,15 @@ export default class ContactElements extends Component {
                       />
                     </FormGroup>
                     <br />{" "}
-                    <FormGroup row>
+                    <FormGroup>
                       <Label for="exampleEmail" sm={3}>
-                        Email
+                        <CardTitle>
+                          <b>Email</b>
+                        </CardTitle>
                       </Label>
+                      <br />
                       <Input
-                        style={{ width: "270px" }}
+                        style={{ width: "200px" }}
                         type="formEmail"
                         name="formEmail"
                         value={this.state.formEmail}
@@ -239,10 +245,13 @@ export default class ContactElements extends Component {
                       />
                     </FormGroup>
                     <br />
-                    <FormGroup row height="605px">
+                    <FormGroup height="605px">
                       <Label for="formMessage" sm={3}>
-                        Text Area
+                        <CardTitle>
+                          <b>Text</b>
+                        </CardTitle>
                       </Label>
+                      <br />
                       <Input
                         type="textarea"
                         name="formMessage"
@@ -250,6 +259,7 @@ export default class ContactElements extends Component {
                         onChange={this.handleInputChange}
                         id="formMessage"
                         style={{ width: "270px", height: "120px" }}
+                        placeholder="What's Up?"
                       />
                     </FormGroup>
                     <br />
