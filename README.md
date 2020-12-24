@@ -1,7 +1,5 @@
 # OpenSource [ReactJS](https://reactjs.org/) E-Commerce MultiTool
 
-Custom Auth & UI
-
 ![PayPal Badge](https://img.shields.io/badge/PayPal-✔-brightgreen)
 ![EmailJS Badge](https://img.shields.io/badge/EmailJS-✔-brightgreen)
 ![CodeQL Badge](https://img.shields.io/badge/CodeQL-✔-brightgreen)
@@ -9,8 +7,8 @@ Custom Auth & UI
 ![Analytics Badge](https://img.shields.io/badge/Analytics-✔-brightgreen)
 ![Strapi Badge](https://img.shields.io/badge/Strapi-✔-brightgreen)
 ![GraphQL Badge](https://img.shields.io/badge/GraphQL-✔-brightgreen)
-![Upload Badge](https://img.shields.io/badge/GraphQL-✔-brightgreen)
-![Admin Panels Badge](https://img.shields.io/badge/GraphQL-✔-brightgreen)
+![Upload Badge](https://img.shields.io/badge/FileUpload-✔-brightgreen)
+![Admin Panels Badge](https://img.shields.io/badge/CustomControls-✔-brightgreen)
 ![ WYSIWYG Design Tools Badge](https://img.shields.io/badge/WYSIWYG-✔-brightgreen)
 ====
 
