@@ -43,7 +43,7 @@ const AppMain = () => {
           <div className="loader-container">
             <div className="loader-container-inner">
               <div className="text-center">
-                <Loader type="ball-grid-cy" />
+                <Loader type="line-scale-party" />
               </div>
               <h6 className="mt-3">
                 Loading Dashboard Tools
