@@ -1,10 +1,9 @@
 import React, { Component, Fragment, useState } from "react";
 import scriptLoader from "react-async-script-loader";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import classnames from "classnames";
-import ReactTable from "react-table";
-import { Route } from "react-router-dom";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { ImInstagram, ImYoutube, ImFacebook, ImTwitter } from "react-icons/im";
+import { FaDiscord, FaLinkedin, FaGithub } from "react-icons/fa";
 
 import {
   Row,
@@ -32,39 +31,12 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  Tooltip,
-} from "recharts";
-
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-import {
-  faAngleUp,
-  faDotCircle,
-  faAngleDown,
-  faStrikethrough,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { Sparklines, SparklinesCurve } from "react-sparklines";
-
-import { makeData } from "../../Tables/DataTables/Examples/utils";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountUp from "react-countup";
-
 import { toInteger } from "lodash";
-import { relative } from "path";
 
 const CLIENT = {
   sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
   production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
 };
-
 
 export default class ProjectElements extends Component {
   constructor(props) {
@@ -132,8 +104,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  Welcome to MicroHawaii projects blog.
-                  <br></br>
+                  <h1>Welcome to MicroHawaii blogs.</h1>
                 </CardBody>
               </Card>
             </Col>
@@ -150,23 +121,100 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  With 15+ years of software development experience, Jason Hoku
-                  Levien along-side the MicroHawaii team and affiliates are
-                  dedicated to a variety of educations and skillsets
+                  <h3>
+                    With over fifteen years of software development experience,
+                    Jason Hoku, along-side the MicroHawaii team are dedicated to
+                    a variety of powerful skillsets and networks.
+                  </h3>
                   <br /> <br />
                   <li>
-                    Website Development: Follow on
+                    OpenSource on &nbsp;
                     <a href="https://github.com/JasonHoku">
-                      {" "}
                       GitHub
                       <br></br>
                     </a>
-                  </li>{" "}
-                  <li>
-                    <a href="/3D/">Game Development </a>
                   </li>
-                  <li><a href="https://www.youtube.com/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG">Web Tutorials </a></li>
-                  <br></br> <br></br>
+                  <li>
+                    Website Tutorials on &nbsp;
+                    <a href="https://www.youtube.com/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG">
+                      Youtube
+                    </a>
+                  </li>
+                  <br></br>
+                  <Row
+                    style={{
+                      width: "100%",
+                      alignContent: "center",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      textDecorationLine: "none",
+                    }}
+                  >
+                    <a
+                      style={{
+                        textDecorationLine: "none",
+                      }}
+                      href="https://www.facebook.com/microHawaii"
+                    >
+                      {<ImFacebook size="50px" />}
+                    </a>
+                    2k &nbsp; &nbsp;&nbsp;
+                    <a
+                      style={{
+                        textDecorationLine: "none",
+                      }}
+                      href="https://www.instagram.com/jasonlevien/"
+                    >
+                      {<ImInstagram size="50px" />}
+                    </a>
+                    14k &nbsp; &nbsp;&nbsp;
+                    <a
+                      style={{
+                        textDecorationLine: "none",
+                      }}
+                      href="https://www.youtube.com/JasonLevien808"
+                    >
+                      {<ImYoutube size="50px" />}
+                    </a>
+                    170 &nbsp; &nbsp;&nbsp;
+                    <a
+                      style={{
+                        textDecorationLine: "none",
+                      }}
+                      href="https://twitter.com/JasonHoku"
+                    >
+                      {<ImTwitter size="50px" />}
+                    </a>
+                    6k &nbsp; &nbsp;&nbsp;
+                    <a
+                      style={{
+                        textDecorationLine: "none",
+                      }}
+                      href="https://discord.gg/fjV4yg7TWd"
+                    >
+                      {<FaDiscord size="50px" />}
+                    </a>
+                    200&nbsp;&nbsp;&nbsp;
+                    <a
+                      style={{
+                        textDecorationLine: "none",
+                      }}
+                      href="https://www.linkedin.com/in/jasonlevien/"
+                    >
+                      {<FaLinkedin size="50px" />}
+                    </a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a
+                      style={{
+                        textDecorationLine: "none",
+                      }}
+                      href="https://github.com/JasonHoku"
+                    >
+                      {<FaGithub size="50px" />}
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                  </Row>
+                  <br></br>
                 </CardBody>
               </Card>
               <Row

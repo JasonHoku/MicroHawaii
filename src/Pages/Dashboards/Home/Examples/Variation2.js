@@ -248,9 +248,9 @@ export default class CRMDashboard2 extends Component {
                       </div>
                       <center> Learn More</center>
                     </CardBody>
-                  </Card>{" "}
+                  </Card>
                   <br></br>
-                </a>{" "}
+                </a>
               </Col>
             </Row>
           </center>
@@ -265,22 +265,19 @@ export default class CRMDashboard2 extends Component {
               >
                 <CardHeader className="card-header-tab" color="light">
                   <div className="card-header-title font-size-lg font-weight-normal">
-                    <i className="header-icon pe-7s-news-paper text-muted opacity-6">
-                      {" "}
-                    </i>
-                    MicroHawaii Web Development: 8/17/20
-                  </div>{" "}
+                    <i className="header-icon pe-7s-news-paper text-muted opacity-6"></i>
+                    Web Architecture
+                  </div>
                   <div>
-                    {" "}
                     <br></br>
                     <br></br>
                     <br></br>
                   </div>
                 </CardHeader>
                 <CardBody>
-                    MicroHawaii is specializing in custom, self-hosted
-                  E-Commerce Softwares, bringing powerful, low-cost tools to
-                  businesses of all shapes and sizes.
+                    MicroHawaii is specializing in custom, self-hosted,
+                  E-Commerce ready softwares, which bring powerful, low-cost
+                  tools to businesses of all shapes and sizes.
                   <br></br> <br></br>
                    This website is an{" "}
                   <a href="https://github.com/JasonHoku/MicroHawaii">

@@ -148,24 +148,6 @@ class ThemeOptions extends Component {
 
     return (
       <div className={"ui-theme-settings " + (showing ? "settings-open" : "")}>
-        <Button
-          className="btn-open-options"
-          disabled
-          id="TooltipDemo"
-          color="transparent"
-          onClick={() => this.setState({ showing: !showing })}
-        >
-          <FontAwesomeIcon
-            icon={faCog}
-            spin
-            color="#573a04"
-            fixedWidth={false}
-            size="2x"
-          />
-        </Button>
-        <UncontrolledTooltip placement="left" target={"TooltipDemo"}>
-          Open Layout Configurator
-        </UncontrolledTooltip>
         <div className="theme-settings__inner">
           <PerfectScrollbar>
             <div className="theme-settings__options-wrapper">
