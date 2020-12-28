@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM, { unmountComponentAtNode } from "react-dom";
 import scriptLoader from "react-async-script-loader";
-import EmptyCart from "./empty-states/EmptyCart";
 import { Card } from "reactstrap";
-import { toNumber } from "lodash";
 
 import emailjs from "emailjs-com";
 import { init } from "emailjs-com";
@@ -83,11 +81,11 @@ class PaypalButton extends Component {
       .catch((error) => this.setState({ error, isLoading: false }));
   }
 
-  componentWillUnmount(){
-    DESTRUCTION
+  componentWillUnmount() {
+   DESTRUCTION;
   }
 
-  componentDidUpdate(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
 
     const scriptJustLoaded =
