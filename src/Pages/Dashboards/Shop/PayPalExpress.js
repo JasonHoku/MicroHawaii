@@ -8,7 +8,7 @@ import { toNumber } from "lodash";
 import emailjs from "emailjs-com";
 import { init } from "emailjs-com";
 
-import PaypalExpressBtn from "react-paypal-express-checkout";
+import { DESTRUCTION } from "dns";
 
 var EJSSERVICE = process.env.REACT_APP_EJSSERVICE;
 var EJSTEMPLATE = process.env.REACT_APP_EJSTEMPLATE;
@@ -17,12 +17,6 @@ var REACT_APP_PPID = process.env.REACT_APP_PPID;
 init(EJSUSER);
 
 var CLIIP;
-const client = {
-  sandbox:
-    "AZxbOtVrH_ATWedumcHIEjAxvHajRr8N6fHopzOPMGUHz6gllYlpfhwIlM6CMYCFUi3t8qFV3bAvk--l",
-  production:
-    "AZxbOtVrH_ATWedumcHIEjAxvHajRr8N6fHopzOPMGUHz6gllYlpfhwIlM6CMYCFUi3t8qFV3bAvk--l",
-};
 
 let PayPalButton;
 
@@ -88,7 +82,12 @@ class PaypalButton extends Component {
       .then(function (parsedData) {})
       .catch((error) => this.setState({ error, isLoading: false }));
   }
-  UNSAFE_componentWillReceiveProps(nextProps) {
+
+  componentWillUnmount(){
+    DESTRUCTION
+  }
+
+  componentDidUpdate(nextProps) {
     const { isScriptLoaded, isScriptLoadSucceed } = nextProps;
 
     const scriptJustLoaded =
