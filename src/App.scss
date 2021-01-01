@@ -133,15 +133,36 @@ div.card {
   font-family: "Courier New", Courier, monospace;
   display: flex;
   flex-direction: column;
+  -webkit-animation: myfirst 5s; /* Chrome, Safari, Opera */
+  animation: myfirst 5s;
   align-items: center;
   padding-left: 15px;
+  opacity: 1;
+  transition: opacity 1s;
   padding-right: 15px;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   background-color: black;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-  animation: rodal-zoom-enter both cubic-bezier(0.4, 0, 0, 1.5);
+/* Standard syntax */
+@keyframes myfirst {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 div.card {
