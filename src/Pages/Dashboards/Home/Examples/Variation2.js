@@ -123,22 +123,13 @@ export default class CRMDashboard2 extends Component {
                     boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                   }}
                 >
-                  <CardHeader className="main-card dark card-header-tab">
-                    <div className="card-header-title">
-                      <i size="large" className="pe-7s-rocket opacity-9">
-                        {" "}
-                        12/14/20 Announcement{" "}
-                      </i>
-                    </div>
-                  </CardHeader>{" "}
                   <CardBody>
                     <div>
-                         
                       <h1>
                         MicroHawaii is celebrating 15 years of web development.
                         🍰
                       </h1>
-                      <br></br> <br></br>
+                      <br></br>
                       For more information on the{" "}
                       <a href="#/dashboards/services"> services </a>
                       provided here please inquire through the{" "}
@@ -148,7 +139,7 @@ export default class CRMDashboard2 extends Component {
                         contact@MicroHawaii.com
                       </a>
                       <br></br>
-                      <br></br> <br></br>
+                      <br></br> 
                       <center>
                         <img src={logo} width="75"></img>
                       </center>

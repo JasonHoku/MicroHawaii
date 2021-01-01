@@ -21,15 +21,15 @@ import reportWebVitals from "./reportWebVitals";
 const store = configureStore();
 const rootElement = document.getElementById("root");
 
-  ReactDOM.render(
-    <Provider store={store}>
-      <HashRouter>
-        <Main />
-        <Route path="/connect/google/redirect" component={LoginRedirect} />
-      </HashRouter>
-    </Provider>,
-    rootElement
-  );
+ReactDOM.render(
+  <Provider store={store}>
+    <HashRouter>
+      <Main />
+      <Route path="/connect/google/redirect" component={LoginRedirect} />
+    </HashRouter>
+  </Provider>,
+  rootElement
+);
 
 serviceWorker.unregister();
 
