@@ -43,13 +43,21 @@ const AppMain = () => {
         fallback={
           <div className="loader-container">
             <div className="loader-container-inner">
-              <div className="text-center">
-                <Loader type="line-scale-party" />
+              <div className="text-center loader">
+                <Loader
+                  style={{
+                    transform: "scale(5.5)",
+                    top: "-100px",
+                    position: "relative",
+                    display: "center",
+                  }}
+                  type="ball-clip-rotate-multiple"
+                />
               </div>
-              <h6 className="mt-3">
-                Loading Dashboard Tools
-                <small>Welcome to MicroHawaii</small>
-              </h6>
+              <h2 className="mt-3" style={{ color: "white" }}>
+                Loading...
+                <small style={{ color: "white" }}>Welcome to MicroHawaii</small>
+              </h2>
             </div>
           </div>
         }
