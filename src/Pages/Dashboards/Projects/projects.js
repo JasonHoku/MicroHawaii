@@ -104,7 +104,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  <h1>Welcome to MicroHawaii blogs.</h1>
+                  <h1>MicroHawaii Blogs</h1>
                 </CardBody>
               </Card>
             </Col>
@@ -121,21 +121,18 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  <h3>
-                    With over fifteen years of software development experience,
-                    Jason Hoku, along-side the MicroHawaii team are dedicated to
-                    a variety of powerful skillsets and networks.
-                  </h3>
+                  <h4>
+                    &nbsp; With over fifteen years of software development
+                    experience, Jason Hoku, along-side the MicroHawaii team are
+                    dedicated to a variety of powerful skillsets and networks.
+                  </h4>
                   <br /> <br />
                   <li>
-                    OpenSource on &nbsp;
-                    <a href="https://github.com/JasonHoku">
-                      GitHub
-                      <br></br>
-                    </a>
+                    WebTools Source Code on {""}
+                    <a href="https://github.com/JasonHoku">GitHub</a>
                   </li>
                   <li>
-                    Website Tutorials on &nbsp;
+                    Website Tutorials on {""}
                     <a href="https://www.youtube.com/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG">
                       Youtube
                     </a>
@@ -309,7 +306,7 @@ export default class ProjectElements extends Component {
             <CardHeader>
               {" "}
               <a href="https://github.com/JasonHoku">
-                Jason Hoku, GitHub Contribution Activity:
+                Open-Source Contribution Activity:
               </a>
             </CardHeader>
             <CardBody>

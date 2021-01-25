@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Counter from "./Counter";
+import { FcIdea, FcFeedback, FcUndo, FcLock } from "react-icons/fc";
 import {
   Row,
   Col,
@@ -86,20 +87,56 @@ class Product extends Component {
     let id = this.props.id;
     let quantity = this.props.productQuantity;
     return (
-      <div style={{ width: "13rem", marginRight: "20px" }}>
+      <div style={{ width: "15rem", marginRight: "30px", marginLeft: "10px" }}>
         <p>
           <center>
             <div
               className="product"
               style={{
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                height: "400px",
+                height: "475px",
               }}
             >
+              <span
+                style={{ marginTop: "10px", paddingBottom: "10px" }}
+                className="product-name"
+              >
+                <Button
+                  onClick={this.quickView.bind(
+                    this,
+                    image,
+                    name,
+                    price,
+                    id,
+                    quantity
+                  )}
+                  size="large"
+                  style={{
+                    fontSize: "110%",
+                    marginTop: "5px",
+                    marginBottom: "2px",
+                  }}
+                >
+                  <div
+                    style={{
+                      position: "relative",
+                      left: "-5px",
+                      top: "-3px",
+                    }}
+                  >
+                    <FcIdea style={{ position: "relative", top: "-5px" }} />{" "}
+                    <span style={{ position: "relative", top: "-2px" }}>
+                      {this.props.name}
+                    </span>
+                  </div>
+                </Button>
+              </span>
               <div className="product-image">
-                {" "}
                 <img
-                  style={{ width: "12rem" }}
+                  style={{
+                    width: "14rem",
+                    position: "relative",
+                  }}
                   src={image}
                   alt={this.props.name}
                   onClick={this.quickView.bind(
@@ -112,7 +149,6 @@ class Product extends Component {
                   )}
                 />
               </div>
-              <h4 className="product-name">{this.props.name}</h4>
               <p className="product-price">{this.props.price}</p>
               <Counter
                 productQuantity={quantity}
@@ -121,6 +157,7 @@ class Product extends Component {
               />
               <br />
               <button
+                style={{ borderRadius: "10px" }}
                 className={!this.state.isAdded ? "" : "added"}
                 type="button"
                 onClick={this.addToCart.bind(
@@ -133,11 +170,10 @@ class Product extends Component {
                 )}
               >
                 {!this.state.isAdded ? "ADD TO CART" : "✔ ADDED"}
-              </button>{" "}
+              </button>
             </div>
-            &nbsp;{" "}
-          </center>{" "}
-        </p>{" "}
+          </center>
+        </p>
       </div>
     );
   }

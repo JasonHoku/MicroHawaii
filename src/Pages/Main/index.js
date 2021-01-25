@@ -14,7 +14,19 @@ class Main extends React.Component {
       closedSmallerSidebar: false,
     };
   }
+  componentDidMount() {
+    window.addEventListener("hashchange", this.toggle1, false);
+  }
 
+  componentDidUnmount() {
+    document.removeEventListener("hashchange", this.toggle1.bind(this), false);
+  }
+  toggle1() {
+    if (String(window.location.hash).includes("#/dashboards/mediums")) {
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
   render() {
     let {
       colorScheme,

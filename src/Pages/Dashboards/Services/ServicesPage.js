@@ -148,31 +148,29 @@ export default class CRMDashboard2 extends Component {
               <Card className="col-md- opacity-9 ">
                 <CardHeader className="card-header-tab">
                   <div className="card text-center card-shadow-focus opacity-9">
-                    MicroHawaii Services{" "}
+                    <h4> MicroHawaii Services </h4>
                   </div>
                 </CardHeader>
                 <CardBody>
                   MicroHawaii is a conglomerate of Hawaii based computer
                   services.
-                  <br /> <br /> Areas of expertise include:
-                  <br /> <br /> <li> Website and Application Design</li>
-                  <li>Graphic Design &amp; Printing</li>
-                  <li> Powerful Modern Advertising</li>
-                  <li> E-Commerce Services </li>
-                  <br /> <br /> Active MicroHawaii Clients:
+                  <br /> <br /> Main Services:
+                  <br /> <br /> <li> Complete Web and App Design</li> <br />
+                  <li> Powerful Modern Advertising</li> <br />
+                  <li> Ultimate SEO Utilities </li> <br />
+                  <br /> <br />
+                  MicroHawaii Websites:
                   <br /> <br />
                   <li>
-                    <a href="https://mauiartprints.com/">
-                      https://mauiartprints.com/
-                    </a>
-                  </li>{" "}
-                  <li>
-                    <a href="https://ponomap.com/">https://ponomap.com/</a>
-                  </li>{" "}
-                  <li>
                     <a href="https://prettycoolpattern.com/">
-                      https://prettycoolpattern.com/
+                      PrettyCoolPattern
                     </a>
+                  </li>
+                  <li>
+                    <a href="https://mauiartprints.com/">MauiArtPrints</a>
+                  </li>{" "}
+                  <li>
+                    <a href="https://ponomap.com/">PonoMap</a>
                   </li>{" "}
                 </CardBody>
               </Card>
@@ -181,16 +179,20 @@ export default class CRMDashboard2 extends Component {
             <Col>
               <Row>
                 <Col>
-                  <Card className="row-md-6 opacity-9 ">
+                  <Card className="row-md-6 opacity-9 zoom ">
                     <a
                       href="#/dashboards/contact"
                       to="#/dashboards/contact"
                       activeLinkFromLocation
                     >
-                      <CardHeader className="card-header-tab">
-                        <div className="card text-center card-shadow-focus opacity-9">
-                          <i className="pe-7s-mail">Contact</i>
-                        </div>
+                      <CardHeader
+                        style={{ textAlign: "center" }}
+                        className="card-header-tab"
+                      >
+                        <center>
+                          {" "}
+                          <h4>Contact</h4>
+                        </center>
                       </CardHeader>
                       <CardBody>
                         <div></div>
@@ -205,27 +207,20 @@ export default class CRMDashboard2 extends Component {
                       <Card className=" opacity-9 ">
                         <CardHeader className="card-header-tab">
                           <div className="card text-center card-shadow-focus opacity-9">
-                            Maui, Hawaii Based
+                            <h4> Maui, Hawaii Based</h4>
                           </div>
                         </CardHeader>
                         <CardBody>
-                          <CardImg src={maui}></CardImg>
+                          <center>
+                            <CardImg
+                              style={{ maxWidth: "350px" }}
+                              src={maui}
+                            ></CardImg>
+                          </center>
                         </CardBody>
                       </Card>
                     </Col>
                   </Row>
-                </Col>
-                <Col>
-                  <Card className="opacity-9 ">
-                    <CardHeader className="card-header-tab">
-                      <div className="card text-center card-shadow-focus opacity-9">
-                        E-Commerce + Design
-                      </div>
-                    </CardHeader>
-                    <CardBody>
-                      <CardImg src={illumexample}></CardImg>
-                    </CardBody>
-                  </Card>
                 </Col>
               </Row>
             </Col>
@@ -234,29 +229,28 @@ export default class CRMDashboard2 extends Component {
           <br></br>
 
           <Row>
-            {" "}
             <Col>
-              {" "}
-              <Card className="col-md-6 opacity-9 ">
-                <CardHeader className="card-header-tab">
-                  <div className="card text-center card-shadow-focus opacity-9">
-                    Website Design Portfolio Highlights:
-                  </div>
-                </CardHeader>
-                <CardBody>
-                  <div>
-                    {" "}
-                    <p> 15+ Years Experience</p>
-                    <p> </p>
-                    <p> Affordable $30/hr </p>
-                    <p></p>
-                    <p> E-Commerce Sites Starting @ $250</p>
-                    <p> Advertising Expert Of Top Modern Utilities</p>
-                    <p>DevOps Management For Jobs of Any Size</p>
-                    <p></p>
-                  </div>
-                </CardBody>
-              </Card>{" "}
+              <a href="#/dashboards/contact" to="#/dashboards/contact">
+                <Card className="col-md-6 opacity-9 zoom">
+                  <CardHeader className="card-header-tab">
+                    <div className="card text-center card-shadow-focus opacity-9"></div>
+                    <h4>Make Contact</h4>
+                  </CardHeader>
+                  <CardBody>
+                    <div>
+                      <p> 15+ Years Experience</p>
+                      <p></p>
+                      <p> E-Commerce Sites Starting At $250</p>
+                      <p> Analytics, Advertising &amp; Easy Management Tools.</p>
+                      <p>
+                        Powerful Advertising Plans: Get Your Website Noticed By
+                        The Right Audience.
+                      </p>
+                      <p> Reach out and begin your online adventure, today!</p>
+                    </div>
+                  </CardBody>
+                </Card>{" "}
+              </a>
               <br></br>
             </Col>
           </Row>

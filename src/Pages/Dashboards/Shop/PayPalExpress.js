@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM, { unmountComponentAtNode } from "react-dom";
 import scriptLoader from "react-async-script-loader";
-import { Card } from "reactstrap";
+import { Card, CardHeader, CardImg } from "reactstrap";
 
 import emailjs from "emailjs-com";
 import { init } from "emailjs-com";
@@ -82,7 +82,7 @@ class PaypalButton extends Component {
   }
 
   componentWillUnmount() {
-   DESTRUCTION;
+    DESTRUCTION;
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -192,6 +192,34 @@ class PaypalButton extends Component {
     return (
       <center>
         <Card style={{ width: "13rem" }}>
+          <p> </p>
+          <strong>Orders:{(Pro1 = this.props.totalItems)}</strong> &nbsp;
+          <strong> Total: ${(Pro2 = this.props.total)}</strong>
+          <p></p>
+          {this.state.cart.map((product) => {
+            return (
+              <div style={{ boxShadow: "0px 0px 0px 5px" }} width="100%">
+                <br />
+                <button
+                  style={{ float: "right" }}
+                  onClick={this.props.removeProduct.bind(this, product.id)}
+                >
+                  Remove
+                </button>{" "}
+                <br />
+                <br />
+                <div>{product.name}</div> <br />
+                <img
+                  width="75px"
+                  className="product-image"
+                  src={product.image}
+                />
+                <br />
+                <br />
+              </div>
+            );
+          })}
+          <br />
           <div className="main" style={{ width: "13rem" }}>
             {loading}
 
@@ -199,16 +227,7 @@ class PaypalButton extends Component {
               <div>
                 <div>
                   {" "}
-                  <div className="cart-info">
-                    {" "}
-                    <p> </p>
-                    <strong>
-                      Orders:{(Pro1 = this.props.totalItems)}
-                    </strong>{" "}
-                    &nbsp;
-                    <strong> Total: ${(Pro2 = this.props.total)}</strong>
-                    <p></p>
-                  </div>{" "}
+                  <div className="cart-info"> </div>{" "}
                 </div>
 
                 <PayPalButton

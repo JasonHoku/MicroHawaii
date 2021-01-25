@@ -15,13 +15,13 @@ class Products extends Component {
     let x;
 
     function searchingFor(term) {
-      return function(x) {
+      return function (x) {
         return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
       };
     }
     productsData = this.props.productsList
       .filter(searchingFor(term))
-      .map(product => {
+      .map((product) => {
         return (
           <Product
             key={product.id}
@@ -52,9 +52,7 @@ class Products extends Component {
           component="div"
           className="products"
         >
-           
-               {productsData}
-                
+          {productsData}
         </CSSTransitionGroup>
       );
     }

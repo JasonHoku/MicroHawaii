@@ -28,12 +28,17 @@
     }
 
     .metismenu-link {
-      transition: transform .2s, height 300ms, color 300ms, background-color 300ms;
+      transition: transform 0.2s, height 300ms, color 300ms,
+        background-color 300ms;
       display: block;
       line-height: 2.5rem;
       height: 2.5rem;
       padding: 0 $layout-spacer-x 0 45px;
       position: relative;
+      font-size: large;
+      font-weight: 500;
+      font-family: "Courier New", Courier, monospace, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
       @include border-radius($border-radius);
       color: $gray-800;
       white-space: nowrap;
@@ -44,7 +49,7 @@
         //transform: scale(1.02);
 
         i.metismenu-icon {
-          opacity: .6;
+          opacity: 0.9;
         }
 
         i.metismenu-state-icon {
@@ -73,8 +78,8 @@
       left: 5px;
       top: 50%;
       margin-top: -17px;
-      font-size: 1.5rem;
-      opacity: .3;
+      font-size: 1.8rem;
+      opacity: 0.8;
       transition: color 300ms;
     }
 
@@ -92,10 +97,10 @@
       transition: padding 300ms;
 
       &.visible {
-        padding: .5em 0 0 2rem;
+        padding: 0.5em 0 0 2rem;
 
         &:before {
-          content: '';
+          content: "";
           height: 100%;
           opacity: 1;
           width: 3px;

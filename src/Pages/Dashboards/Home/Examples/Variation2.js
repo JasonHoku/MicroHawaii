@@ -65,6 +65,12 @@ import Main from "../../../Main";
 import CenterMode from "../../../Components/Carousel/Examples/Slideshow/CenterMode";
 import { setBackgroundImage } from "../../../../reducers/ThemeOptions";
 
+import fireAd1 from "../../../../images/ads/FirePricing3.png";
+import fireAd2 from "../../../../images/ads/FirePricing2.png";
+import fireAd3 from "../../../../images/ads/FirePricing1.png";
+
+import Slideshow from "./HomeSlideshow";
+
 export default class CRMDashboard2 extends Component {
   constructor(props) {
     super(props);
@@ -124,34 +130,37 @@ export default class CRMDashboard2 extends Component {
                   }}
                 >
                   <CardBody>
-                    <div>
-                      <h1>
-                        MicroHawaii is celebrating 15 years of web development.
-                        🍰
-                      </h1>
-                      <br></br>
-                      For more information on the{" "}
-                      <a href="#/dashboards/services"> services </a>
-                      provided here please inquire through the{" "}
-                      <a href="#/dashboards/contact"> contact </a> page or by
-                      email at: 
-                      <a href="mailto:contact@microhawaii.com">
-                        contact@MicroHawaii.com
-                      </a>
-                      <br></br>
-                      <br></br> 
-                      <center>
-                        <img src={logo} width="75"></img>
-                      </center>
-                    </div>
+                    <h2>
+                      MicroHawaii brings expert web developers to modern
+                      toolsets and training to fit the needs of any online
+                      experience.
+                    </h2>
                   </CardBody>
+                  <CardHeader>
+                    <h5>
+                      {" "}
+                      To request
+                      <a href="#/dashboards/services">
+                        {" "}
+                        MicroHawaii's services
+                      </a>{" "}
+                      reach out through the{" "}
+                      <a href="#/dashboards/contact"> contact </a> page.
+                    </h5>
+                  </CardHeader>
+                  <center>
+                    <span className="zoom">
+                      {" "}
+                      <Slideshow />
+                    </span>
+                  </center>
                 </Card>
               </Col>{" "}
             </Row>{" "}
             <Row>
               <Col
                 mx-auto="true"
-                className=" opacity-9"
+                className=" opacity-9 zoom"
                 style={{ width: "12rem" }}
               >
                 <Card
@@ -183,7 +192,7 @@ export default class CRMDashboard2 extends Component {
                 </Card>
                 <br></br>
               </Col>
-              <Col mx-auto="true" className=" opacity-9">
+              <Col mx-auto="true" className=" opacity-9  zoom">
                 <a href="#/dashboards/shop">
                   <Card
                     mx-auto="true"
@@ -194,7 +203,7 @@ export default class CRMDashboard2 extends Component {
                   >
                     <CardHeader className="card-header-tab">
                       <div className="card text-center card-shadow-focus opacity-9">
-                        Shoppe
+                        Shop
                       </div>
                     </CardHeader>
                     <CardBody>
@@ -212,9 +221,9 @@ export default class CRMDashboard2 extends Component {
                 </a>
                 <br></br>
               </Col>
-              <Col mx-auto="true" className=" opacity-9">
-                <a href="#/dashboards/services">
-                  <Route path="#/dashboards/services" />
+              <Col mx-auto="true" className=" opacity-9  zoom">
+                <a href="#/dashboards/projects">
+                  <Route path="#/dashboards/projects" />
                   <Card
                     mx-auto="true"
                     style={{
@@ -257,34 +266,59 @@ export default class CRMDashboard2 extends Component {
                 <CardHeader className="card-header-tab" color="light">
                   <div className="card-header-title font-size-lg font-weight-normal">
                     <i className="header-icon pe-7s-news-paper text-muted opacity-6"></i>
-                    Web Architecture
-                  </div>
-                  <div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
+                    Web Architecture w/ MicroHawaii
                   </div>
                 </CardHeader>
                 <CardBody>
-                    MicroHawaii is specializing in custom, self-hosted,
-                  E-Commerce ready softwares, which bring powerful, low-cost
-                  tools to businesses of all shapes and sizes.
+                    MicroHawaii is a local tech startup, specializing in
+                  providing web focused technologies, strategy, and solutions to
+                  businesses of all shapes and sizes.
                   <br></br> <br></br>
                    This website is an{" "}
                   <a href="https://github.com/JasonHoku/MicroHawaii">
                     {" "}
                     open-source{" "}
                   </a>
-                  , custom,{" "}
-                  <a href="https://create-react-app.dev/">"React App"</a>,
-                  written in the NodeJS environment. Visit the about page to
-                  learn more, report issues and make contact.
+                  cross platform application that services authentication
+                  alongside Google's powerful and generous
+                  <a href="https://firebase.google.com/"> FireBase</a>{" "}
+                  technologies to accomidate the needs of any online experience.{" "}
+                  <br />
                   <br></br>
-                  <br></br> <br></br>{" "}
                   <center>
-                    {" "}
-                    <img src={logo} width="50"></img>
+                    <img
+                      style={{
+                        maxWidth: "275px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                        margin: "5px",
+                      }}
+                      width="100%"
+                      src={fireAd1}
+                    ></img>
+                    <img
+                      style={{
+                        maxWidth: "275px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                        margin: "5px",
+                      }}
+                      width="100%"
+                      src={fireAd2}
+                    ></img>
+                    <img
+                      style={{
+                        maxWidth: "275px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                        margin: "5px",
+                      }}
+                      width="100%"
+                      src={fireAd3}
+                    ></img>
                   </center>
+                  <br />
+                  <a href="#/dashboards/services">
+                    Gain ultimate control and expert assistance through
+                    MicroHawaii today.{" "}
+                  </a>
                 </CardBody>
               </Card>
             </Col>

@@ -8,7 +8,7 @@
   },
     {
       "id": 7,
-      "name": "Consultation & Education",
+      "name": "Consultation",
       "price": 50,
       "image": "./images/7.png",
       "category": "services"

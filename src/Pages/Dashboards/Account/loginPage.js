@@ -234,15 +234,7 @@ export default class LoginPageElements extends Component {
                     value={this.state.signFormPass}
                     onChange={this.handleInputChange}
                     type="password"
-                  ></Input>
-                  <br />
-                  <br />
-                  <a href="https://api.microhawaii.com/connect/google/redirect">
-                    Or Sign-In with Google:{" "}
-                    <img src="\assets\images\btn_google_dark_normal_ios.svg"></img>
-                  </a>
-                  <br />
-                </span>
+                  ></Input> </span>
               </CardBody>
               <CardBody
                 style={{

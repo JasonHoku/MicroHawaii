@@ -11,7 +11,6 @@ import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 import PayPalButton from "./PayPalExpress";
 import Popup from "react-popup";
 import emailNotify from "./Emailer";
-import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
 import PayPalForwarder from "./PayPalForwarder";
 import CheckoutHelper from "./Checkout";
 
@@ -28,6 +27,7 @@ import {
   ListGroup,
   ListGroupItem,
   Card,
+  CardTitle,
   CardBody,
   CardHeader,
   NavLink,
@@ -81,7 +81,7 @@ export default class ShopPage extends Component {
     });
   }
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     this.getProducts();
   }
 
@@ -105,7 +105,7 @@ export default class ShopPage extends Component {
     let productQty = selectedProducts.quantity;
     if (this.checkProduct(productID)) {
       console.log("hi");
-      let index = cartItem.findIndex((x) => x.id == productID);
+      let index = cartItem.findIndex((x) => x.id === productID);
       cartItem[index].quantity =
         Number(cartItem[index].quantity) + Number(productQty);
       this.setState({
@@ -134,7 +134,7 @@ export default class ShopPage extends Component {
   }
   handleRemoveProduct(id, e) {
     let cart = this.state.cart;
-    let index = cart.findIndex((x) => x.id == id);
+    let index = cart.findIndex((x) => x.id === id);
     cart.splice(index, 1);
     this.setState({
       cart: cart,
@@ -193,35 +193,57 @@ export default class ShopPage extends Component {
     document.getElementById("popupContainer");
     return (
       <Fragment>
+        <Row
+          style={{
+            alignContent: "center",
+            justifyContent: "center",
+            marginTop: "-15px",
+            marginBottom: "-15px",
+
+            textAlign: "center",
+          }}
+          width="100%"
+        >
+          <CardTitle
+            style={{
+              textAlign: "center",
+              borderRadius: "25px",
+              backgroundColor: "#240077BB",
+              paddingRight: "10px",
+              paddingLeft: "10px",
+              fontWeight: "900",
+              color: "whitesmoke",
+              fontSize: "36px",
+            }}
+          >
+            Shop
+          </CardTitle>
+        </Row>
         <div>
           <center>
+            {" "}
             <br />
             <Card
               style={{
-                width: "26rem",
+                width: "19rem",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                borderRadius: "35px",
               }}
             >
-              <CardHeader>
-                {" "}
-                <strong>MicroHawaii E-Shop</strong>
-              </CardHeader>
-              <CardBody>
-                {" "}
-                <p> </p>
-                <p>
+              <CardTitle>
+                <div width="100%">
+                  <strong style={{ fontSize: "130%" }}></strong>{" "}
+                </div>
+                <br />
+                <br />
+                <span style={{ fontFamily: "monospace", fontSize: "150%" }}>
+                  {" "}
                   Here you can find an array of focuses MicroHawaii has to
                   offer.
-                  <br></br>
-                </p>
-                <p> </p>
-                <p>
-                  More information about the services offered here can be found
-                  at the
-                  <a href="#/dashboards/services"> services</a> page.
-                </p>
-                <br></br>
-              </CardBody>
+                </span>
+                <br />
+                <br /> <a href="/#/dashboards/contact">Questions?</a>
+              </CardTitle>
             </Card>
           </center>
           <Products
@@ -239,15 +261,50 @@ export default class ShopPage extends Component {
           />{" "}
         </div>
         <center>
-          <Card style={{ justifyContent: "center", width: "26rem" }}>
-            <CardHeader>Shirt Size Chart:</CardHeader>
+          <Card
+            style={{
+              position: "bottom",
+              width: "24rem",
+              boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+            }}
+          >
+            {" "}
+            <CardHeader>
+              {" "}
+              <strong>Shirt Sizes:</strong>
+            </CardHeader>
             <img src="/images/shirtsize.png" height="80"></img>
           </Card>{" "}
+          <br></br>
+          <Card
+            style={{
+              width: "22rem",
+              boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+            }}
+          >
+            <CardBody style={{ textAlign: "left", fontSize: "120%" }}>
+              <li>
+                If you have any questions please use the{" "}
+                <a href="#/dashboards/contact"> contact form.</a>
+              </li>{" "}
+              <br />
+              <li>
+                <a href="#/dashboards/services">The services page</a> has more
+                information about skillsets.
+              </li>
+            </CardBody>
+          </Card>
           <p> </p>
           <p> </p>
           <p> </p>
           <br></br>
-          <Card style={{ position: "bottom", width: "17rem" }}>
+          <Card
+            style={{
+              position: "bottom",
+              boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+              width: "17rem",
+            }}
+          >
             <Footer
               style={{ width: "13rem" }}
               cartBounce={this.state.cartBounce}
@@ -261,7 +318,7 @@ export default class ShopPage extends Component {
               productQuantity={this.state.moq}
             ></Footer>{" "}
             <CardBody>
-              <CardHeader>Quick CheckOut:</CardHeader>
+              {" "}
               <PayPalButton
                 cartBounce={this.state.cartBounce}
                 total={this.state.totalAmount}
@@ -274,51 +331,10 @@ export default class ShopPage extends Component {
                 productQuantity={this.state.moq}
                 style={{ width: "13rem" }}
               />
-            </CardBody>
+            </CardBody>{" "}
           </Card>
-          <p> </p>
-          <p> </p>
         </center>{" "}
         <br />
-        <Row style={{ justifyContent: "center" }}>
-          <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
-            <Card
-              style={{ justifyContent: "center" }}
-              className="card-shadow-primary card-border text-white mb-3"
-              color="primary"
-            >
-              <CardHeader>Any Questions?</CardHeader>
-              <div
-                className="dropdown-menu-header"
-                style={{ justifyContent: "center" }}
-              >
-                <div
-                  className="dropdown-menu-header-inner bg-primary"
-                  style={{ justifyContent: "center" }}
-                >
-                  <div className="menu-header-content">
-                    <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
-                      <div className="avatar-icon">
-                        <img src={avatar1} alt="Avatar 5" />
-                      </div>
-                    </div>
-                    <div>
-                      <h5 className="menu-header-title">Jason Hoku Levien</h5>
-                      <h6 className="menu-header-subtitle">Founder / Owner</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <CardFooter className="text-center d-block">
-                <a href="#/dashboards/contact">
-                  <Button className="btn-shadow-dark btn-wider" color="dark">
-                    Contact
-                  </Button>
-                </a>
-              </CardFooter>
-            </Card>
-          </Col>
-        </Row>
       </Fragment>
     );
   }
