@@ -29,7 +29,11 @@ import {
 
 const Slideshow = () => {
   return (
-    <div style={{ width: window.innerWidth * 0.8 }}>
+    <div
+      style={{
+        maxWidth: "775px",
+      }}
+    >
       <Slide easing="ease">
         <Container fluid>
           <br />
@@ -43,9 +47,11 @@ const Slideshow = () => {
               style={{
                 justifyContent: "center",
                 float: "center",
-                maxWidth: window.innerWidth * 0.8,
+                maxWidth: "750px",
+                width: "90%",
                 alignContent: "center",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                textAlign:"center"
               }}
             >
               <span style={{ textAlign: "center" }}>
@@ -54,7 +60,10 @@ const Slideshow = () => {
               <img
                 src="/images/Analytics1.png"
                 style={{
-                  width: window.innerWidth * 0.7,
+                  maxWidth: "750px",
+                  width: "90%",
+                  justifySelf:"center",
+                  alignSelf:"center",
                 }}
               ></img>
             </Card>
@@ -74,7 +83,8 @@ const Slideshow = () => {
               style={{
                 justifyContent: "center",
                 float: "center",
-                maxWidth: window.innerWidth * 0.8,
+                width: "90%",
+                maxWidth: "750px",
                 alignContent: "center",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
               }}
@@ -85,7 +95,10 @@ const Slideshow = () => {
               <img
                 src="/images/Analytics2.png"
                 style={{
-                  width: window.innerWidth * 0.7,
+                  maxWidth: "750px",
+                  width: "90%",
+                  justifySelf:"center",
+                  alignSelf:"center",
                   zIndex: 9,
                 }}
               ></img>
@@ -105,7 +118,8 @@ const Slideshow = () => {
               style={{
                 justifyContent: "center",
                 float: "center",
-                maxWidth: window.innerWidth * 0.8,
+                maxWidth: "750px",
+                width: "90%",
                 alignContent: "center",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
               }}
@@ -116,7 +130,10 @@ const Slideshow = () => {
               <img
                 src="/images/Analytics3.png"
                 style={{
-                  width: window.innerWidth * 0.7,
+                  justifySelf:"center",
+                  alignSelf:"center",
+                  maxWidth: "750px",
+                  width: "90%",
                 }}
               ></img>
             </Card>

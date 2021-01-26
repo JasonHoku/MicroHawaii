@@ -134,22 +134,42 @@ div.card {
   font-family: "Courier New", Courier, monospace;
   display: flex;
   flex-direction: column;
-  -webkit-animation: myfirst 3s; /* Chrome, Safari, Opera */
-  animation: myfirst 5s;
   align-items: center;
   padding-left: 15px;
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 5s;
   padding-right: 15px;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   background-color: black;
+  -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 5s; /* Firefox < 16 */
+      -ms-animation: fadein 5s; /* Internet Explorer */
+       -o-animation: fadein 5s; /* Opera < 12.1 */
+          animation: fadein 5s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 /* Chrome, Safari, Opera */
-@-webkit-keyframes myfirst {
+@-webkit-keyframes landingAnimation {
   from {
-    opacity: 0.2;
+    opacity: 0;
   }
   to {
     opacity: 1;
@@ -157,7 +177,7 @@ div.card {
 }
 
 /* Standard syntax */
-@keyframes myfirst {
+@keyframes landingAnimation {
   from {
     opacity: 0.2;
   }
@@ -175,4 +195,8 @@ div.card {
 
 .zoom:hover {
   transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.calendarVar button {
+  color: "black";
+  background-color: "black";
 }
