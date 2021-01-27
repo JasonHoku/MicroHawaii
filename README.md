@@ -1,13 +1,14 @@
-# OpenSource [ReactJS](https://reactjs.org/) E-Commerce MultiTool
+# OpenSource E-Commerce & Web Management Tool
 
+## Strapped with Googles Firebase for Free 10GB App Developments
+
+![Firebase Badge](https://img.shields.io/badge/Firebase-✔-brightgreen)
 ![PayPal Badge](https://img.shields.io/badge/PayPal-✔-brightgreen)
 ![EmailJS Badge](https://img.shields.io/badge/EmailJS-✔-brightgreen)
 ![CodeQL Badge](https://img.shields.io/badge/CodeQL-✔-brightgreen)
 ![ESLint Badge](https://img.shields.io/badge/ESLint-✔-brightgreen)
 ![Analytics Badge](https://img.shields.io/badge/Analytics-✔-brightgreen)
-![Strapi Badge](https://img.shields.io/badge/Strapi-✔-brightgreen)
-![GraphQL Badge](https://img.shields.io/badge/GraphQL-✔-brightgreen)
-![Upload Badge](https://img.shields.io/badge/FileUpload-✔-brightgreen)
+![Image Upload Badge](https://img.shields.io/badge/ImageUpload-✔-brightgreen)
 ![Admin Panels Badge](https://img.shields.io/badge/CustomControls-✔-brightgreen)
 ![ WYSIWYG Design Tools Badge](https://img.shields.io/badge/WYSIWYG-✔-brightgreen)
 ====
@@ -19,24 +20,40 @@
 [![Commits Badge](https://badges.pufler.dev/commits/monthly/JasonHoku)](https://badges.pufler.dev)
 ![Discord](https://img.shields.io/discord/364993358789345283?style=for-the-badge)
 
-# The Ultimate Freelance & Indie, Web Dev AIO Utility.
+# The Expertly Crafted Web Dev Utility
 
-## Documentation
+![image](https://user-images.githubusercontent.com/6715569/105939604-a2f10080-5ffd-11eb-9903-9618dcd360a7.png)
+
+# A.) Documentation
+
+
+## Index: 
+
+## A.) Documentation
+===
+
+## B.) Setup
+
+### B4.) For More Info On React Apps
+===
+
+
+## C.) Going Live
+
+### C1.) Firebase
+
+### C2.) PayPal
+
+### C3.) EmailJS
+
+### C4.) Google Analytics
+===
 
 You can find the React documentation [on the website](https://reactjs.org/docs).
 
 Check out the [Getting Started](https://reactjs.org/docs/getting-started.html) page for a quick overview.
 
-The documentation is divided into several sections:
-
-- [Tutorial](https://reactjs.org/tutorial/tutorial.html)
-- [Main Concepts](https://reactjs.org/docs/hello-world.html)
-- [Advanced Guides](https://reactjs.org/docs/jsx-in-depth.html)
-- [API Reference](https://reactjs.org/docs/react-api.html)
-- [Where to Get Support](https://reactjs.org/community/support.html)
-- [Contributing Guide](https://reactjs.org/docs/how-to-contribute.html)
-
-# Setup
+# B.)Setup
 
 Install Prerequisites:
 
@@ -44,57 +61,69 @@ NodeJS: https://nodejs.org/en/
 
 git: https://git-scm.com/downloads
 
-## Download Source Files For Web App & Set Up Project Workspace.
+## B2.)Download Source Files & Initialise Workspace.
 
-## A) Get files with git:
+## B3.) Download source with git:
 
 Type into git bash in the desired setup directory (git install prequisite):
 
-git clone https://github.com/JasonHoku/MicroHawaii
+`git clone https://github.com/JasonHoku/MicroHawaii`
 
-Now you have the source code and may edit and run it as a React app.
+Now you have the source code and may edit and run it as a React app with:
 
-## B) After making changes, upload changes to the group git repo by running the following git commands:
+`npm i`
+`npm start`
 
-\*note, change "your message about changes here" to a description of the update
+## B4.) For More Info On React Apps:
 
-git add .
-git commit -m "your message about changes here"
-git push
+You can find the React documentation [on the website](https://reactjs.org/docs).
 
-## The Private Personal Passwords File
+Check out the [Getting Started](https://reactjs.org/docs/getting-started.html) page for a quick overview.
 
-This section is for integrating your own: PayPal, EmailJS, UA & Backend.
+# C.) Going Live
+
+This section is for integrating your own: PayPal, Email Notifier, Google Analytics and Firebase App.
 
 Find example.env in your project root directory and rename it to .env
 This file is set to be auto excluded in sharing and will be your passwords and keys file.
 
-## Available Scripts
+None of these tools are required to run the app locally or from your choice of computer.
 
-In the project directory, you can run:
+### Put API Keys into example.env slot and rename example.env to .env (then restart app)
 
-### `npm start`
+## C1.) Firebase
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Used For Hosting Your App
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Free .firebaseapp.com AND .web.app domain suffixes.
+- Free 10GB of Hosting (15,000 HD Images)
+- Free 10,000 Database Writes Per Day (Best In Industry Quota)
 
-### `npm test`
+Again, not necessary but very useful for launching your application quickly, easily and affordably (Free) to the world wide web.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* https://firebase.google.com/official/site
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Signup and get API keys from Settings --> Config
 
 
-## Accepting PRs, questions, comments and concerns.
+## C2.) PayPal
+
+https://developer.paypal.com/
+
+Create a Live Production API Key (Important that it's a Live key)
+
+## C3.) EmailJS
+
+Email Notification Tool 
+
+Signup and get API keys from Settings
+
+## C4.) Google Analytics
+
+This app is strapped to send details on every click to Google Analytics. Amazingly powerful for disovering how users are utilizing your web app.
+
+https://analytics.google.com/
+
+Get UA-APIKEYHERE from projects --> settings
+
+### Accepting PRs, questions, comments and concerns.
