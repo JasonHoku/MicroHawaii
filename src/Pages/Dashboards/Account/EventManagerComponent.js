@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useState } from "react";
+import React, { Component, Fragment, useState, useEffect } from "react";
 import { compose, graphql } from "react-apollo";
 import { gql, useQuery } from "@apollo/client";
 import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
@@ -51,24 +51,35 @@ import {
   IfFirebaseAuthedAnd,
 } from "@react-firebase/auth";
 
-var firebaseConfig = {
-  apiKey: "AIzaSyDnQ9BZMl5OChhJS1oqxPfq_oj16oREAGs",
-  authDomain: "microhawaii-5f97b.firebaseapp.com",
-  projectId: "microhawaii-5f97b",
-  storageBucket: "microhawaii-5f97b.appspot.com",
-  messagingSenderId: "775965301611",
-  appId: "1:775965301611:web:5858ed50ba444371e74a2e",
-  measurementId: "G-H00S7BSD3H",
-};
+var firebaseConfig = process.env.REACT_APP_FIREBASE;
 
 function EventManagerComponent() {
   const [textVar, settextVar] = useState("");
-  const [setDate, setsetDate] = useState(String(new Date().toISOString()));
+  const [setDate, setsetDate] = useState(
+    String(
+      new Date().toLocaleTimeString([], {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    )
+  );
   const [eventsFormDescription, seteventsFormDescription] = useState("");
 
-  function handleInputChange(event) {
-    seteventsFormDescription(event.target.value);
+  function handleInputChange(e) {
+    seteventsFormDescription(e.target.value);
   }
+
+  useEffect(() => {
+    setsetDate(document.getElementById("eventsFormDate").value);
+    seteventsFormDescription(
+      document.getElementById("eventsFormDescription").value
+    );
+    console.log(eventsFormDescription);
+  });
+
   return (
     <Fragment>
       <Card style={{ width: "100%" }}>
@@ -83,17 +94,30 @@ function EventManagerComponent() {
             fontSize: "16px",
           }}
         >
-          <h4>
-            {" "}
-            <b>Dates Are UTC</b>
-          </h4>
           <center>
-            <Calendar className="calendarVar" onChange={(e) => setsetDate(e)} />
+            <b>Hawaiian Time Zone</b>
+            <Calendar
+              className="calendarVar"
+              onChange={(e) =>
+                setsetDate(
+                  new Date(e).toLocaleTimeString([], {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })
+                )
+              }
+            />
           </center>
           <div style={{ textAlign: "left" }}>
-            <div>Selected Date In UTC</div>
+            <div>
+              <b>Selected Date:</b>
+            </div>
             <input
               style={{ width: "50%" }}
+              id="eventsFormDate"
               onChange={(e) => setsetDate(e.target.value)}
               value={setDate}
             ></input>
@@ -106,13 +130,12 @@ function EventManagerComponent() {
               name="eventsFormDescription"
               id="eventsFormDescription"
               value={eventsFormDescription}
-              onChange={handleInputChange}
+              onChange={(e) => handleInputChange(e)}
               style={{ width: "100%", position: "relative" }}
               type="textarea"
             ></Input>{" "}
-            &nbsp; <br />
+            &nbsp;
           </div>
-          <br />
           <FirestoreProvider {...firebaseConfig} firebase={firebase}>
             <FirestoreMutation type="add" merge={true} path={`/events/`}>
               {({ runMutation }) => {
@@ -132,24 +155,25 @@ function EventManagerComponent() {
                         e.preventDefault();
                         runMutation(
                           {
-                            EventTitle: eventsFormDescription,
+                            EventTitle: document.getElementById(
+                              "eventsFormDescription"
+                            ).value,
                             EventEZID: localStorage.getItem("eventCounter"),
-                            EventDate: String(new Date(setDate).toISOString()),
+                            EventDate: document.getElementById("eventsFormDate")
+                              .value,
                           },
                           { merge: true }
                         ).then((res) => {
                           console.log("Ran mutation ", res);
                         });
-                        seteventsFormDescription("");
                       }}
                     >
                       <span
                         style={{
                           position: "relative",
-                          top: "-4px",
                         }}
                       >
-                        Add Event To Day
+                        Add Event To MicroHawaii's Schedule
                       </span>
                     </button>
                   </div>
@@ -158,7 +182,9 @@ function EventManagerComponent() {
             </FirestoreMutation>
           </FirestoreProvider>
           <br />
-          <b>Calendar Listings:</b>
+          <h5>
+            <b>Events Within 24h of Selected Day:</b>
+          </h5>
           <FirestoreProvider {...firebaseConfig} firebase={firebase}>
             <FirestoreCollection path={`/events/`}>
               {(d) => {
@@ -171,13 +197,9 @@ function EventManagerComponent() {
                       let are24hFrom0 = new Date(new Date(setDate));
                       are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
                       var are24hFrom1 = new Date(setDate);
-                      are24hFrom1.setDate(are24hFrom1.getDate(setDate));
-                      console.log("X :" + are24hFrom0);
-                      console.log("Y :" + are24hFrom1);
+                      are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
                       if (gotDate >= are24hFrom0) {
-                        if (gotDate < are24hFrom1) {
-                          console.log(new Date(d.value[i].EventDate));
-                          console.log(new Date(new Date(setDate)));
+                        if (gotDate <= are24hFrom1) {
                           concData = concData.concat(
                             `Event ID#` +
                               JSON.stringify(d.value[i].EventEZID) +
@@ -193,6 +215,9 @@ function EventManagerComponent() {
                         }
                       }
                     }
+                    if (concData === "") {
+                      concData = "No Events Found In Selected Period";
+                    }
                     return (
                       <div
                         style={{ whiteSpace: "pre-line", textAlign: "left" }}
@@ -207,7 +232,6 @@ function EventManagerComponent() {
           </FirestoreProvider>
         </CardBody>
       </Card>
-      <br />
     </Fragment>
   );
 }

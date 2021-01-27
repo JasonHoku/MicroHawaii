@@ -577,10 +577,13 @@ function ModeratorElements() {
                   <h4>Highlight Metrics:</h4>
                 </CardTitle>
                 <h4>
-                  Users: {userMetric}
+                  Users: {userMetric} 7
                   <br />
                   <span id="id002"></span>
-                  Open Issues: {issuesMetric}
+                  Open Issues: {issuesMetric} 0 <br />
+                  New Comments: {userMetric} 0 <br />
+                  Event Requests: {userMetric} 0
+                  <br />
                 </h4>
               </Card>
             </TabPane>
