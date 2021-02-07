@@ -14,6 +14,7 @@ import {
   DropdownItem,
   Nav,
   NavItem,
+  CardTitle,
   ListGroup,
   ListGroupItem,
   Card,
@@ -60,7 +61,6 @@ import publishingpic from "../../../../assets/images/thumbs/publishing.png";
 import shoppic from "../../../../assets/images/thumbs/shop.png";
 import audiopic from "../../../../assets/images/thumbs/audio.png";
 import visualpic from "../../../../assets/images/thumbs/visual.jpg";
-import logo from "../../../../assets/images/logoani.gif";
 import Main from "../../../Main";
 import CenterMode from "../../../Components/Carousel/Examples/Slideshow/CenterMode";
 import { setBackgroundImage } from "../../../../reducers/ThemeOptions";
@@ -134,29 +134,76 @@ export default class CRMDashboard2 extends Component {
                       MicroHawaii brings expert web developers to modern
                       toolsets and training to fit the needs of any online
                       experience.
-                    </h2>
+                    </h2>{" "}
+                    <center>
+                      <CardHeader style={{ justifyContent: "center" }}>
+                        <h5>
+                          {" "}
+                          To request
+                          <a href="#/dashboards/services">
+                            {" "}
+                            MicroHawaii's services
+                          </a>{" "}
+                          reach out through the{" "}
+                          <a href="#/dashboards/contact"> contact </a> page.
+                        </h5>{" "}
+                      </CardHeader>
+                    </center>
                   </CardBody>
-                  <CardHeader>
-                    <h5>
-                      {" "}
-                      To request
-                      <a href="#/dashboards/services">
-                        {" "}
-                        MicroHawaii's services
-                      </a>{" "}
-                      reach out through the{" "}
-                      <a href="#/dashboards/contact"> contact </a> page.
-                    </h5>
-                  </CardHeader>
-                  <center>
-                    <span className="zoom">
-                      {" "}
-                      <Slideshow />
-                    </span>
-                  </center>
                 </Card>
               </Col>{" "}
-            </Row>{" "}
+            </Row>
+            <Row style={{ justifyContent: "center" }}>
+              <Col style={{ justifyContent: "center" }}>
+                <Card
+                  style={{
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    justifyContent: "center",
+                  }}
+                >
+                  <CardBody
+                    style={{
+                      width: "95%",
+                    }}
+                  >
+                    <CardTitle>
+                      <h3> Web App Training For All Levels Of Experience</h3>
+                    </CardTitle>
+                    <center>
+                      <br />
+                      <div
+                        style={{
+                          width: "80%",
+                          height: "100%",
+                          maxWidth: "600px",
+                        }}
+                      >
+                        <iframe
+                          style={{
+                            boxShadow: "0px 0px 0px 9px rgba(50,50,50, .9)",
+                          }}
+                          width="100%"
+                          height="100%"
+                          src="https://www.youtube.com/embed/utbXOhL903s"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen
+                        ></iframe>
+                      </div>
+                      <br />
+                      <CardTitle>
+                        <h3> Custom Designed SEO Strategies</h3>
+                      </CardTitle>
+                      <span className="zoom">
+                        {" "}
+                        <Slideshow />
+                      </span>
+                    </center>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+            <br />
             <Row>
               <Col
                 mx-auto="true"
@@ -323,9 +370,150 @@ export default class CRMDashboard2 extends Component {
               </Card>
             </Col>
           </Row>
-
-          <Row></Row>
-
+          <Row style={{ width: "100%", justifyContent: "center" }}>
+            <center>
+              <Col className=" opacity-9  zoom">
+                <a href="#/dashboards/projects">
+                  <Card>
+                    <CardHeader className="card-header-tab">
+                      <div className="card text-center card-shadow-focus opacity-9">
+                        Join The MicroHawaii Network
+                      </div>{" "}
+                      <div> </div>
+                    </CardHeader>
+                    <CardBody>
+                      <center>Learn More &amp; Reach Out, Today</center>
+                    </CardBody>
+                  </Card>
+                </a>
+              </Col>
+            </center>
+          </Row>
+          <br />
+          <Row style={{ justifyContent: "center" }}>
+            {" "}
+            <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
+              <Card
+                style={{ justifyContent: "center" }}
+                className="card-shadow-primary card-border text-white mb-3"
+                color="primary"
+              >
+                <div
+                  className="dropdown-menu-header"
+                  style={{ justifyContent: "center" }}
+                >
+                  <div
+                    className="dropdown-menu-header-inner bg-primary"
+                    style={{ justifyContent: "center" }}
+                  >
+                    <div className="menu-header-content">
+                      <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
+                        <div className="avatar-icon">
+                          <img src="./images/logo2.png" alt="Avatar 5" />
+                        </div>
+                      </div>
+                      <div>
+                        <h5 className="menu-header-title">PrettyCoolPattern</h5>
+                        <h6 className="menu-header-subtitle">
+                          Arts &amp; Entertainment
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <CardFooter className="text-center d-block">
+                  <a href="https://PrettyCoolPattern.com">
+                    <Button className="btn-shadow-dark btn-wider" color="dark">
+                      Visit Website
+                    </Button>
+                  </a>
+                </CardFooter>
+              </Card>
+            </Col>{" "}
+            <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
+              <Card
+                style={{ justifyContent: "center" }}
+                className="card-shadow-primary card-border text-white mb-3"
+                color="primary"
+              >
+                <div
+                  className="dropdown-menu-header"
+                  style={{ justifyContent: "center" }}
+                >
+                  <div
+                    className="dropdown-menu-header-inner bg-primary"
+                    style={{ justifyContent: "center" }}
+                  >
+                    <div className="menu-header-content">
+                      <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
+                        <div className="avatar-icon">
+                          <img
+                            style={{ position: "relative", top: "-1px" }}
+                            src="./images/ponologo.png"
+                            alt="Avatar 5"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <h5 className="menu-header-title">PonoMap.com</h5>
+                        <h6 className="menu-header-subtitle">
+                          Generating Sustainable Data for Hawaii
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <CardFooter className="text-center d-block">
+                  <a href="https://PonoMap.com">
+                    <Button className="btn-shadow-dark btn-wider" color="dark">
+                      Visit Website
+                    </Button>
+                  </a>
+                </CardFooter>
+              </Card>
+            </Col>
+            <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
+              <Card
+                style={{ justifyContent: "center" }}
+                className="card-shadow-primary card-border text-white mb-3"
+                color="primary"
+              >
+                <div
+                  className="dropdown-menu-header"
+                  style={{ justifyContent: "center" }}
+                >
+                  <div
+                    className="dropdown-menu-header-inner bg-primary"
+                    style={{ justifyContent: "center" }}
+                  >
+                    <div className="menu-header-content">
+                      <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
+                        <div className="avatar-icon">
+                          <img
+                            src="./images/mauiartprintslogo.jpg"
+                            alt="Avatar 5"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <h5 className="menu-header-title">MauiArtPrints</h5>
+                        <h6 className="menu-header-subtitle">
+                          Hawaiian Arts Gallery
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <CardFooter className="text-center d-block">
+                  <a href="https://MauiArtPrints.com">
+                    <Button className="btn-shadow-dark btn-wider" color="dark">
+                      Visit Website
+                    </Button>
+                  </a>
+                </CardFooter>
+              </Card>
+            </Col>
+          </Row>
           <Row style={{ justifyContent: "center" }}>
             <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
               <Card

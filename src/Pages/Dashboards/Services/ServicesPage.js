@@ -61,7 +61,6 @@ import publishingpic from "../../../assets/images/thumbs/publishing.png";
 import shoppic from "../../../assets/images/thumbs/shop.png";
 import audiopic from "../../../assets/images/thumbs/audio.png";
 import visualpic from "../../../assets/images/thumbs/visual.jpg";
-import logo from "../../../assets/images/logoani.gif";
 import maui from "../../../assets/images/maui.png";
 import illumexample from "../../../assets/images/thumbs/illumexample.png";
 
@@ -213,7 +212,7 @@ export default class CRMDashboard2 extends Component {
                         <CardBody>
                           <center>
                             <CardImg
-                              style={{ maxWidth: "350px" }}
+                              style={{ maxWidth: "350px", borderRadius:"50px" }}
                               src={maui}
                             ></CardImg>
                           </center>
@@ -241,7 +240,10 @@ export default class CRMDashboard2 extends Component {
                       <p> 15+ Years Experience</p>
                       <p></p>
                       <p> E-Commerce Sites Starting At $250</p>
-                      <p> Analytics, Advertising &amp; Easy Management Tools.</p>
+                      <p>
+                        {" "}
+                        Analytics, Advertising &amp; Easy Management Tools.
+                      </p>
                       <p>
                         Powerful Advertising Plans: Get Your Website Noticed By
                         The Right Audience.

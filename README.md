@@ -27,15 +27,15 @@
 # A.) Documentation
 
 
-## Index: 
+## Index Of The Following Readme: 
 
 ## A.) Documentation
-===
+====
 
 ## B.) Setup
 
 ### B4.) For More Info On React Apps
-===
+====
 
 
 ## C.) Going Live
@@ -47,7 +47,7 @@
 ### C3.) EmailJS
 
 ### C4.) Google Analytics
-===
+====
 
 You can find the React documentation [on the website](https://reactjs.org/docs).
 
@@ -97,7 +97,7 @@ Used For Hosting Your App
 
 - Free .firebaseapp.com AND .web.app domain suffixes.
 - Free 10GB of Hosting (15,000 HD Images)
-- Free 10,000 Database Writes Per Day (Best In Industry Quota)
+- Free 50,000 Database Writes Per Day (Best In Industry Quota)
 
 Again, not necessary but very useful for launching your application quickly, easily and affordably (Free) to the world wide web.
 
