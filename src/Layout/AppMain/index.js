@@ -5,16 +5,8 @@ import Loader from "react-loaders";
 import LandingPage from "../../Pages/home";
 import { ToastContainer } from "react-toastify";
 
-const UserPages = lazy(() => import("../../Pages/UserPages"));
 const Applications = lazy(() => import("../../Pages/Applications"));
 const Dashboards = lazy(() => import("../../Pages/Dashboards"));
-// const Dashboards = lazy(() => import("../../Pages/Dashboards"));
-
-const Widgets = lazy(() => import("../../Pages/Widgets"));
-const Elements = lazy(() => import("../../Pages/Elements"));
-const Components = lazy(() => import("../../Pages/Components"));
-const Forms = lazy(() => import("../../Pages/Forms"));
-const Tables = lazy(() => import("../../Pages/Tables"));
 
 const AppMain = () => {
   return (

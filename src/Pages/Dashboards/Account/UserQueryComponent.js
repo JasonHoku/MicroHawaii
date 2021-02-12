@@ -39,8 +39,6 @@ import {
 } from "@react-firebase/firestore";
 
 
-var firebaseConfig = process.env.REACT_APP_FIREBASE;
-
 class UserQueryComponent extends Component {
   constructor(props) {
     super(props);

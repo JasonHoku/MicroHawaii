@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useEffect, useState, useRef } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
 import {
@@ -21,73 +21,86 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
+import AccountElements from "./account";
+import ModeratorElements from "./moderator";
+//
+var CLIIP;
+
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/storage";
 import "firebase/firestore";
-import {
-  FirestoreProvider,
-  FirestoreCollection,
-  FirestoreDocument,
-  FirestoreMutation,
-} from "@react-firebase/firestore";
 
-import {
-  FirebaseAuthProvider,
-  FirebaseAuthConsumer,
-  IfFirebaseAuthed,
-  IfFirebaseAuthedAnd,
-} from "@react-firebase/auth";
+var firebaseui = require("firebaseui");
 
-var firebaseConfig = {
-  apiKey: "AIzaSyDnQ9BZMl5OChhJS1oqxPfq_oj16oREAGs",
-  authDomain: "microhawaii-5f97b.firebaseapp.com",
-  projectId: "microhawaii-5f97b",
-  storageBucket: "microhawaii-5f97b.appspot.com",
-  messagingSenderId: "775965301611",
-  appId: "1:775965301611:web:5858ed50ba444371e74a2e",
-  measurementId: "G-H00S7BSD3H",
-};
-import Tabs, { TabPane } from "rc-tabs";
-import TabContent from "rc-tabs/lib/SwipeableTabContent";
-import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
+function Account() {
+  const [elementAuth, setelementAuth] = useState(null);
+  const [loadStage, setloadStage] = useState("1");
+  const [loadElements, setloadElements] = useState(null);
 
-// Examples
-
-import AccountElements from "./account";
-import AdminElements from "./admin";
-import ModeratorElements from "./moderator";
-import LoginPageElements from "./loginPage";
-//
-
-var CLIIP;
-
-export default class Account extends Component {
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    fetch("https://api.ipify.org")
-      .then((response) => response.text())
-      .then((response) => {
-        CLIIP = response;
-      })
-      .then(function (parsedData) {})
-      .catch((error) => this.setState({ error, isLoading: false }));
+  function decideUserLoad() {
+    return <div>{loadElements}</div>;
   }
+  var uiConfig = {
+    callbacks: {
+      signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+        if (authResult.user.uid === "zlnmlPv5KfeSEitHQhtd6UReWhF3") {
+          setloadElements(
+            <span><ModeratorElements />
+            </span>
+          );
+        } else setloadElements(<AccountElements />);
+        return false;
+      },
+    },
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    signInFlow: "popup",
+    signInSuccessUrl: "/#/dashboards/account",
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+    ],
+    // Terms of service url.
+    tosUrl: "<your-tos-url>",
+    // Privacy policy url.
+    privacyPolicyUrl: "<your-privacy-policy-url>",
+  };
 
-  render() {
-    let adminCardEle;
-    {
-      adminCardEle = (
-        <Row
-          style={{
-            justifyContent: "center",
-            alignContent: "center",
-            alignItems: "center",
-            height: "min-content",
-          }}
-        >
-          <FirebaseAuthProvider {...firebaseConfig} firebase={firebase}>
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    console.log(loadStage);
+    if (loadStage === "1") {
+      if (firebaseui.auth.AuthUI.getInstance()) {
+        const ui = firebaseui.auth.AuthUI.getInstance();
+        ui.start("#firebaseui-auth-container", uiConfig);
+      } else {
+        const ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start("#firebaseui-auth-container", uiConfig);
+      }
+
+      setloadStage("2");
+    }
+    if (loadStage === "2") {
+      isInitialMount.current = false;
+    } else if (loadStage === "3") {
+      try {
+        firebase.initializeApp(firebaseConfig);
+        setelementAuth(ui.start("#firebaseui-auth-container", uiConfig, {}));
+        console.log(firebase);
+      } catch (e) {
+        console.log(e);
+      }
+      sethasLoaded("4");
+    }
+  });
+
+  /*  <FirebaseAuthProvider {...firebaseConfig} firebase={firebase}>
             <FirebaseAuthConsumer>
               {({ isSignedIn, user, providerId }) => {
                 if (isSignedIn === false) {
@@ -288,11 +301,51 @@ export default class Account extends Component {
                 }
               }}
             </FirebaseAuthConsumer>
-          </FirebaseAuthProvider>
+            </FirebaseAuthProvider> */
+  return (
+    <Fragment>
+      <CSSTransitionGroup
+        component="div"
+        transitionName="TabsAnimation"
+        transitionAppear={true}
+        transitionAppearTimeout={0}
+        transitionEnter={false}
+        transitionLeave={false}
+      >
+        <Row
+          style={{
+            width: "100%",
+            justifyContent: "center",
+            alignContent: "center",
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <Card
+            style={{
+              width: "100%",
+              backgroundColor: "#CCCCCCC",
+              justifyContent: "center",
+              marginRight: "-25px",
+              justifySelf: "center",
+              borderRadius: "25px",
+              background:
+                "linear-gradient(0.25turn, #30CCCCDD, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #30CCCCDD)",
+            }}
+          >
+            <CardBody
+              style={{
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <h1>Welcome</h1>
+              <div id="firebaseui-auth-container">{decideUserLoad()}</div>
+            </CardBody>
+          </Card>
         </Row>
-      );
-    }
-
-    return <Fragment>{adminCardEle}</Fragment>;
-  }
+      </CSSTransitionGroup>
+    </Fragment>
+  );
 }
+export default Account;

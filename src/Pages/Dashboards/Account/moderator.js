@@ -761,7 +761,6 @@ function ModeratorElements() {
                   alignItems: "center",
                 }}
               >
-                <UserQueryComponent />
               </Card>
             </Row>
           </TabPane>

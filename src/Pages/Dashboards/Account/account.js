@@ -1,20 +1,5 @@
-/* This is an example snippet - you should consider tailoring it
-to your service.
-*/
-/*
-  Add these to your `package.json`:
-    "apollo-boost": "^0.3.1",
-    "graphql": "^14.2.1",
-    "graphql-tag": "^2.10.0",
-    "react-apollo": "^2.5.5"
-*/
 
-import gql from "graphql-tag";
 import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
-
 import {
   Row,
   Col,
@@ -47,7 +32,6 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-// This setup is only needed once per application;
 export default class AccountElements extends Component {
   constructor(props) {
     super(props);
