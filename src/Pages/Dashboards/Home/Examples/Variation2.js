@@ -106,9 +106,10 @@ export default class CRMDashboard2 extends Component {
       <Fragment>
         <CSSTransitionGroup
           component="div"
-          transitionName="TabsAnimation"
+          transitionName="MainAnimation"
           transitionAppear={true}
-          transitionAppearTimeout={0}
+          transitionAppearTimeout={1000}
+          transitionEnterTimeout={1000}
           transitionEnter={false}
           transitionLeave={false}
         >
@@ -134,74 +135,81 @@ export default class CRMDashboard2 extends Component {
                       MicroHawaii brings expert web developers to modern
                       toolsets and training to fit the needs of any online
                       experience.
-                    </h2>{" "}
-                    <center>
-                      <CardHeader style={{ justifyContent: "center" }}>
-                        <h5>
-                          {" "}
-                          To request
-                          <a href="#/dashboards/services">
-                            {" "}
-                            MicroHawaii's services
-                          </a>{" "}
-                          reach out through the{" "}
-                          <a href="#/dashboards/contact"> contact </a> page.
-                        </h5>{" "}
-                      </CardHeader>
-                    </center>
-                  </CardBody>
-                </Card>
-              </Col>{" "}
-            </Row>
-            <Row style={{ justifyContent: "center" }}>
-              <Col style={{ justifyContent: "center" }}>
-                <Card
-                  style={{
-                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                    justifyContent: "center",
-                  }}
-                >
-                  <CardBody
-                    style={{
-                      width: "95%",
-                    }}
-                  >
-                    <CardTitle>
-                      <h3> Web App Training For All Levels Of Experience</h3>
-                    </CardTitle>
-                    <center>
-                      <br />
-                      <div
-                        style={{
-                          width: "80%",
-                          height: "100%",
-                          maxWidth: "600px",
-                        }}
-                      >
-                        <iframe
-                          style={{
-                            boxShadow: "0px 0px 0px 9px rgba(50,50,50, .9)",
-                          }}
-                          width="100%"
-                          height="100%"
-                          src="https://www.youtube.com/embed/utbXOhL903s"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen
-                        ></iframe>
-                      </div>
-                      <br />
-                      <CardTitle>
-                        <h3> Custom Designed SEO Strategies</h3>
-                      </CardTitle>
-                      <span className="zoom">
-                        {" "}
-                        <Slideshow />
-                      </span>
-                    </center>
+                    </h2>
                   </CardBody>
                 </Card>
               </Col>
+            </Row>
+            <Row style={{ justifyContent: "center" }}>
+              <Card
+                style={{
+                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                  justifyContent: "center",
+                  width: "80%",
+                }}
+              >
+                <CardBody
+                  style={{
+                    width: "100%",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    justifyContent: "center",
+                    background:
+                      "linear-gradient(0.25turn, #1030DDDD, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #1030DDDD)",
+                  }}
+                >
+                  <CardTitle>
+                    <h4>Web Tools Training</h4>
+                  </CardTitle>
+                  <center>
+                    <br />
+                    <div
+                      className="videoDivide"
+                      style={{ width: "80%", maxWidth: "600px" }}
+                    >
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG"
+    
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        style={{
+                          boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                        }}
+                      ></iframe>
+                    </div>
+                  </center>
+                </CardBody>
+              </Card>
+            </Row>
+            <br />
+            <Row style={{ justifyContent: "center" }}>
+              <Card
+                style={{
+                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                  justifyContent: "center",
+                  borderRadius: "50px",
+                  width: "95%",
+                }}
+              >
+                <CardBody
+                  style={{
+                    width: "100%",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    justifyContent: "center",
+                    borderRadius: "50px",
+                  }}
+                >
+                  <center>
+                    <CardTitle>
+                      <h3> Custom Designed SEO Strategies</h3>
+                    </CardTitle>
+                    <span className="zoom">
+                      {" "}
+                      <Slideshow />
+                    </span>
+                  </center>
+                </CardBody>
+              </Card>
             </Row>
             <br />
             <Row>
@@ -382,7 +390,7 @@ export default class CRMDashboard2 extends Component {
                       <div> </div>
                     </CardHeader>
                     <CardBody>
-                      <center>Learn More &amp; Reach Out, Today</center>
+                      <center>Learn More &amp; Get Connected</center>
                     </CardBody>
                   </Card>
                 </a>

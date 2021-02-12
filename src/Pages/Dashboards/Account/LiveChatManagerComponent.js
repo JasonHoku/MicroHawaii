@@ -26,7 +26,6 @@ import {
 } from "reactstrap";
 import axios from "axios";
 import { toInteger } from "lodash";
-import { JsxEmit } from "typescript";
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({

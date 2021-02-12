@@ -144,27 +144,39 @@ div.card {
   color: white;
   background-color: black;
   -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadein 5s; /* Firefox < 16 */
-      -ms-animation: fadein 5s; /* Internet Explorer */
-       -o-animation: fadein 5s; /* Opera < 12.1 */
-          animation: fadein 5s;
+  -moz-animation: fadein 5s; /* Firefox < 16 */
+  -ms-animation: fadein 5s; /* Internet Explorer */
+  -o-animation: fadein 5s; /* Opera < 12.1 */
+  animation: fadein 5s;
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /* Chrome, Safari, Opera */
 @-webkit-keyframes landingAnimation {
@@ -190,13 +202,39 @@ div.card {
   font-size: larger;
 }
 .zoom {
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
 }
 
 .zoom:hover {
-  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(
+    1.05
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 .calendarVar button {
   color: "black";
   background-color: "black";
+}
+
+@media screen and (max-width: 600px) {
+  .videoDivide {
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .videoDivide {
+    height: 400px;
+  }
+}
+#root
+  > div
+  > div.app-header.header-shadow
+  > div.app-header__content
+  > div.app-header-right
+  > div.header-btn-lg.pr-0
+  > div
+  > div
+  > div:nth-child(1) {
+  position: relative;
+  top: -4px;
 }

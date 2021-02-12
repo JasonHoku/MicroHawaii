@@ -22,6 +22,10 @@ import HeaderDots from "./Components/HeaderDots";
 
 import LoginRedirect from "../../Login/LoginRedirect";
 
+import {
+  setEnableMobileMenu,
+  setEnableMobileMenuSmall,
+} from "../../reducers/ThemeOptions";
 var REACT_APP_UAANALYTICS = process.env.REACT_APP_UAANALYTICS;
 
 class Header extends React.Component {
@@ -34,10 +38,20 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    document.addEventListener(
+      "click",
+      this.closePopupOnClick.bind(this),
+      false
+    );
     document.addEventListener("click", this.onClickGA.bind(this), false);
     ReactGA.initialize(REACT_APP_UAANALYTICS);
   }
-  componentDidUnmount() {
+  componentWillUnmount() {
+    document.removeEventListener(
+      "click",
+      this.closePopupOnClick.bind(this),
+      false
+    );
     document.removeEventListener("click", this.onClickGA.bind(this), false);
   }
 
@@ -55,6 +69,36 @@ class Header extends React.Component {
     );
   }
 
+  closePopupOnClick(event) {
+    let { enableMobileMenuSmall, setEnableMobileMenuSmall } = this.props;
+    if (enableMobileMenuSmall) {
+      if (this.state.mobileActive === true) {
+        console.log(String(event.target.id));
+        if (
+          String(event.target.id) === "[object SVGAnimatedString]" ||
+          String(event.target.id) === "MobileMenuID" ||
+          String(event.target.id) === "btn-icon-wrapper" ||
+          String(event.target.id) === "MobileMenuID" ||
+          String(event.target.id) === "MobileMenuIcon"
+        ) {
+          console.log("Yes");
+        } else {
+          console.log(String(event.target.id));
+          this.toggleMobileSmall();
+        }
+      } else {
+        this.setState({ mobileActive: false });
+      }
+      this.setState({ mobileActive: true });
+    } else {
+    }
+  }
+
+  toggleMobileSmall() {
+    let { enableMobileMenuSmall, setEnableMobileMenuSmall } = this.props;
+    setEnableMobileMenuSmall(!enableMobileMenuSmall);
+    this.setState({ mobileActive: false });
+  }
   render() {
     let {
       headerBackgroundColor,
@@ -86,21 +130,17 @@ class Header extends React.Component {
               <MegaMenu />
             </div>
             <div className="app-header-right">
-              <span>
-                {" "}
-                <Router>
-                  <Switch>
-                    <Route
-                      path="/#/dashboards/home/connect/google/redirect"
-                      component={LoginRedirect}
-                    />
-                    <Route exact path="/" component={Login} />
-                    <Login />
-                  </Switch>
-                </Router>
-                &nbsp; &nbsp;
-              </span>
-
+              <Router>
+                <Switch>
+                  <Route
+                    path="/#/dashboards/home/connect/google/redirect"
+                    component={LoginRedirect}
+                  />
+                  <Route path="/" component={Login} />
+                  <Login />
+                </Switch>
+              </Router>
+              &nbsp; &nbsp;
               <UserBox />
               <HeaderRightDrawer />
             </div>
@@ -118,6 +158,10 @@ const mapStateToProps = (state) => ({
   enableMobileMenuSmall: state.ThemeOptions.enableMobileMenuSmall,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  setEnableMobileMenu: (enable) => dispatch(setEnableMobileMenu(enable)),
+  setEnableMobileMenuSmall: (enable) =>
+    dispatch(setEnableMobileMenuSmall(enable)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

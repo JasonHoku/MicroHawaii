@@ -18,7 +18,7 @@ class Main extends React.Component {
     window.addEventListener("hashchange", this.toggle1, false);
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     document.removeEventListener("hashchange", this.toggle1.bind(this), false);
   }
   toggle1() {

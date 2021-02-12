@@ -57,24 +57,36 @@ class UserBox extends React.Component {
               <div className="widget-content-left">
                 <UncontrolledButtonDropdown>
                   <DropdownToggle color="link" className="p-0">
-                    <img width={42} className="rounded-circle" src={avatar1} alt=""/>
-                    <FontAwesomeIcon
-                      className="ml-2"
-                      icon={faAngleDown}
+                    <img
+                      width={42}
+                      className="rounded-circle"
+                      src={avatar1}
+                      alt=""
                     />
+                    <FontAwesomeIcon className="ml-2" icon={faAngleDown} />
                   </DropdownToggle>
                   <DropdownMenu right className="rm-pointers dropdown-menu-lg">
                     <div className="dropdown-menu-header">
                       <div className="dropdown-menu-header-inner bg-info">
-                        <div className="menu-header-image opacity-2"
+                        <div
+                          className="menu-header-image opacity-2"
                           style={{
                             backgroundImage: "url(" + city3 + ")",
-                          }}/>
+                          }}
+                        />
                         <div className="menu-header-content text-left">
                           <div className="widget-content p-0">
                             <div className="widget-content-wrapper">
-                              <div className="widget-content-left mr-3">
-                                <img width={42} className="rounded-circle" src={avatar1} alt=""/>
+                              <div
+                                className="widget-content-left"
+                                style={{ position: "relative", top: "-13px" }}
+                              >
+                                <img
+                                  width={42}
+                                  className="rounded-circle"
+                                  src={avatar1}
+                                  alt=""
+                                />
                               </div>
                               <div className="widget-content-left">
                                 <div className="widget-heading">
@@ -84,24 +96,23 @@ class UserBox extends React.Component {
                                   Software Developer, Hawaii
                                 </div>
                               </div>
-                          
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className="scroll-area-xs"
+                    <div
+                      className="scroll-area-xs"
                       style={{
                         height: "150px",
-                      }}>
+                      }}
+                    >
                       <PerfectScrollbar>
                         <Nav vertical>
                           <NavItem>
-                            <NavLink href=".#">
-                              Site Home
-                            </NavLink>
+                            <NavLink href=".#">Site Home</NavLink>
                           </NavItem>
-                       
+
                           <NavItem>
                             <NavLink href="#/dashboards/services">
                               About
@@ -112,15 +123,21 @@ class UserBox extends React.Component {
                               Projects
                             </NavLink>
                           </NavItem>
-                          <Nav vertical> 
-                      <NavItem className="nav-item-btn text-center">
-                        <Button size="sm" className="btn-wide" color="primary" href="./#/dashboards/contact">
-                          Contact
-                        </Button>
-                      </NavItem></Nav> 
-                      </Nav> 
-                        </PerfectScrollbar>
-                        </div>
+                          <Nav vertical>
+                            <NavItem className="nav-item-btn text-center">
+                              <Button
+                                size="sm"
+                                className="btn-wide"
+                                color="primary"
+                                href="./#/dashboards/contact"
+                              >
+                                Contact
+                              </Button>
+                            </NavItem>
+                          </Nav>
+                        </Nav>
+                      </PerfectScrollbar>
+                    </div>
                   </DropdownMenu>
                 </UncontrolledButtonDropdown>
               </div>
@@ -128,9 +145,7 @@ class UserBox extends React.Component {
                 <div className="widget-heading">Jason Hoku Levien</div>
                 <div className="widget-subheading">Founder, Developer</div>
               </div>
-              <div className="widget-content-right header-user-info ml-3">
-              
-              </div>
+              <div className="widget-content-right header-user-info ml-3"></div>
             </div>
           </div>
         </div>

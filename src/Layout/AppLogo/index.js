@@ -21,6 +21,30 @@ class HeaderLogo extends React.Component {
     };
   }
 
+  handleClickOutside(event) {
+    if (String(event.target.className).includes("Burger")) {
+    } else {
+      if (this.state.active === true) {
+        this.toggleEnableClosedSidebar();
+      }
+    }
+    this.setState({ active: false });
+  }
+
+  componentDidMount() {
+    document.addEventListener(
+      "click",
+      this.handleClickOutside.bind(this),
+      true
+    );
+  }
+  componentWillUnmount() {
+    document.removeEventListener(
+      "click",
+      this.handleClickOutside.bind(this),
+      false
+    );
+  }
   toggleEnableClosedSidebar = () => {
     let { enableClosedSidebar, setEnableClosedSidebar } = this.props;
     setEnableClosedSidebar(!enableClosedSidebar);
@@ -39,11 +63,17 @@ class HeaderLogo extends React.Component {
     return (
       <Fragment>
         <div className="app-header__logo">
-          <div className="logo-src" />
+         <a href="/"> <div className="logo-src" /> </a> 
           <div className="header__pane ml-auto">
             <div onClick={this.toggleEnableClosedSidebar}>
-              <Slider width={26} lineHeight={2} lineSpacing={5} color="#6c757d"
-                active={this.state.active} onClick={() => this.setState({ active: !this.state.active })}/>
+              <Slider
+                width={26}
+                lineHeight={2}
+                lineSpacing={5}
+                color="#6c757d"
+                active={this.state.active}
+                onClick={() => this.setState({ active: !this.state.active })}
+              />
             </div>
           </div>
         </div>

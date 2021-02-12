@@ -31,6 +31,6 @@ ReactDOM.render(
   rootElement
 );
 
-serviceWorker.unregister();
+serviceWorker.register();
 
 reportWebVitals();
