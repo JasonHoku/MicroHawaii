@@ -14,6 +14,8 @@ import Contact from "./Contact/";
 import Projects from "./Projects/";
 import CalendarPage from "./Calendar/";
 import Account from "./Account/";
+import Privacy from "./PrivacyPolicy/";
+import Terms from "./TermsOfService/";
 // Layout
 
 import AppHeader from "../../Layout/AppHeader/";
@@ -38,6 +40,8 @@ const Dashboards = ({ match }) => (
           <Route path={`${match.url}/music`} component={Music} />
           <Route path={`${match.url}/contact`} component={Contact} />
           <Route path={`${match.url}/projects`} component={Projects} />
+          <Route path={`${match.url}/privacy`} component={Privacy} />
+          <Route path={`${match.url}/termsofservice`} component={Terms} />
           <Route path={`${match.url}/calendar`} component={CalendarPage} />
           <Route path={`${match.url}/account`} component={Account} />
         </div>

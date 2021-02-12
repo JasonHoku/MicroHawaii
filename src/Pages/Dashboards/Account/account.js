@@ -1,4 +1,3 @@
-
 import React, { Component, Fragment } from "react";
 import {
   Row,
@@ -64,26 +63,24 @@ export default class AccountElements extends Component {
     return (
       <Fragment>
         <Container fluid>
-            <Card
-              style={{
-                width: "26rem",
-                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-              }}
-            >
-              <CardHeader>
-                {" "}
-                Succseffully Signed-In as {localStorage.getItem("username")}
-              </CardHeader>
-              <CardBody>
-                <p>Additional features coming soon.</p>
-                <p>
-                  <small>For moderators:</small>
-                  <br />
-                  Please request authentication from administration.
-                </p>
-              </CardBody>
-            </Card>
-            <br />
+          <Card
+            style={{
+              boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+            }}
+          >
+            <CardHeader>
+              Succseffully Signed-In as {localStorage.getItem("username")}
+            </CardHeader>
+            <CardBody>
+              <p>Additional features coming soon.</p>
+              <p>
+                <small>For moderators:</small>
+                <br />
+                Please request authentication from administration.
+              </p>
+            </CardBody>
+          </Card>
+          <br />
         </Container>
       </Fragment>
     );

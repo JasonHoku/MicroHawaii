@@ -25,7 +25,10 @@ class Main extends React.Component {
     };
   }
   componentDidMount() {
-    firebase.initializeApp(firebaseConfig);
+    
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+}
     window.addEventListener("hashchange", this.toggle1, false);
   }
 

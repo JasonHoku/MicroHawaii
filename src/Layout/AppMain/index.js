@@ -41,7 +41,8 @@ const AppMain = () => {
                     transform: "scale(5.5)",
                     top: "-100px",
                     position: "relative",
-                    display: "center",
+                    left: "10px",
+                    float: "center",
                   }}
                   type="ball-clip-rotate-multiple"
                 />

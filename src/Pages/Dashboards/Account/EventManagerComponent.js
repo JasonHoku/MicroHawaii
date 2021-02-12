@@ -1,9 +1,4 @@
-import React, { Component, Fragment, useState, useEffect } from "react";
-import { compose, graphql } from "react-apollo";
-import { gql, useQuery } from "@apollo/client";
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
-import { toInteger } from "lodash";
+import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 
 import {
   Row,
@@ -37,23 +32,14 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/storage";
 import "firebase/firestore";
-import {
-  FirestoreProvider,
-  FirestoreCollection,
-  FirestoreDocument,
-  FirestoreMutation,
-} from "@react-firebase/firestore";
-
-import {
-  FirebaseAuthProvider,
-  FirebaseAuthConsumer,
-  IfFirebaseAuthed,
-  IfFirebaseAuthedAnd,
-} from "@react-firebase/auth";
 
 var firebaseConfig = process.env.REACT_APP_FIREBASE;
 
 function EventManagerComponent() {
+  const [loadStage, setloadStage] = useState("1");
+  const [loadElements, setloadElements] = useState(null);
+  const [loadedEvents, setloadedEvents] = useState([]);
+
   const [textVar, settextVar] = useState("");
   const [setDate, setsetDate] = useState(
     String(
@@ -71,13 +57,61 @@ function EventManagerComponent() {
   function handleInputChange(e) {
     seteventsFormDescription(e.target.value);
   }
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    setsetDate(document.getElementById("eventsFormDate").value);
-    seteventsFormDescription(
-      document.getElementById("eventsFormDescription").value
-    );
-    console.log(eventsFormDescription);
+    let concData = [];
+    console.log(loadStage);
+    if (loadStage === "1") {
+      const loadsnapshot = async () => {
+        const snapshot = await firebase.firestore().collection("events").get();
+        snapshot.forEach((doc) => {
+          concData = concData.concat({ [doc.id]: [doc.data()] });
+          setloadedEvents(concData);
+        });
+      };
+
+      console.log(
+        loadsnapshot().then(async (res) => {
+          console.log(res) & 
+          setloadStage("2");
+          if (res.exists) {
+
+          }
+        })
+      );
+    }
+    if (loadStage === "2") {
+      for (var i = 0; i < loadedEvents; i++) {
+        console.log(loadedEvents);
+        localStorage.setItem("eventCounter", loadedEvents.value.length);
+        let gotDate = new Date(d.value[i].EventDate);
+        let are24hFrom0 = new Date(new Date(setDate));
+        are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
+        var are24hFrom1 = new Date(setDate);
+        are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
+        if (gotDate >= are24hFrom0) {
+          if (gotDate <= are24hFrom1) {
+            concData = concData.concat(
+              `Event ID#` +
+                JSON.stringify(d.value[i].EventEZID) +
+                `\n Title:` +
+                JSON.stringify(d.value[i].EventTitle) +
+                `\n Date:` +
+                JSON.stringify(d.value[i].EventDate).replace(/(Z|T)/gm, "  ") +
+                `\n \n `
+            );
+          }
+        }
+      }
+      isInitialMount.current = false;
+    } else if (loadStage === "3") {
+      try {
+      } catch (e) {
+        console.log(e);
+      }
+      sethasLoaded("4");
+    }
   });
 
   return (
@@ -136,7 +170,7 @@ function EventManagerComponent() {
             ></Input>{" "}
             &nbsp;
           </div>
-          <FirestoreProvider {...firebaseConfig} firebase={firebase}>
+          {/*   <FirestoreProvider {...firebaseConfig} firebase={firebase}>
             <FirestoreMutation type="add" merge={true} path={`/events/`}>
               {({ runMutation }) => {
                 return (
@@ -180,12 +214,12 @@ function EventManagerComponent() {
                 );
               }}
             </FirestoreMutation>
-          </FirestoreProvider>
+            </FirestoreProvider> */}
           <br />
           <h5>
             <b>Events Within 24h of Selected Day:</b>
           </h5>
-          <FirestoreProvider {...firebaseConfig} firebase={firebase}>
+          {/*  <FirestoreProvider {...firebaseConfig} firebase={firebase}>
             <FirestoreCollection path={`/events/`}>
               {(d) => {
                 if (d) {
@@ -229,7 +263,7 @@ function EventManagerComponent() {
                 }
               }}
             </FirestoreCollection>
-          </FirestoreProvider>
+            </FirestoreProvider> */}
         </CardBody>
       </Card>
     </Fragment>

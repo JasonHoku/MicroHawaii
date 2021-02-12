@@ -52,6 +52,7 @@
     "feed": "^2.0.2",
     "file-loader": "^1.1.11",
     "firebase": "^8.2.7",
+    "firebase-admin": "^9.5.0",
     "firebaseui": "^4.7.3",
     "font-awesome": "^4.7.0",
     "google-map-react": "^2.1.9",

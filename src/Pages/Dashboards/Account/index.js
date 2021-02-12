@@ -44,9 +44,12 @@ function Account() {
   var uiConfig = {
     callbacks: {
       signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+        console.log(authResult);
+        localStorage.setItem("username", authResult.user.name);
         if (authResult.user.uid === "zlnmlPv5KfeSEitHQhtd6UReWhF3") {
           setloadElements(
-            <span><ModeratorElements />
+            <span>
+              <ModeratorElements />
             </span>
           );
         } else setloadElements(<AccountElements />);
@@ -60,15 +63,14 @@ function Account() {
       // Leave the lines as is for the providers you want to offer your users.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
       firebase.auth.PhoneAuthProvider.PROVIDER_ID,
     ],
     // Terms of service url.
-    tosUrl: "<your-tos-url>",
+    tosUrl: "/#/dashboards/termsofservice",
     // Privacy policy url.
-    privacyPolicyUrl: "<your-privacy-policy-url>",
+    privacyPolicyUrl: "/#/dashboards/privacy",
   };
 
   const isInitialMount = useRef(true);
