@@ -1,21 +1,21 @@
-import React, { Fragment } from "react";
+import React, { Fragment, lazy } from "react";
 import { Route } from "react-router-dom";
 
-import ReactGA from "react-ga";
 // Pages
 
-import HomeDashboard from "./Home/";
-import Services from "./Services/";
-import ShopPage from "./Shop/";
-import GalleryPage from "./Gallery/";
-import Writing from "./Writing/";
-import Music from "./Music/";
-import Contact from "./Contact/";
-import Projects from "./Projects/";
-import CalendarPage from "./Calendar/";
-import Account from "./Account/";
-import Privacy from "./PrivacyPolicy/";
-import Terms from "./TermsOfService/";
+const HomeDashboard = lazy(() => import("./Home/"));
+const ShopPage = lazy(() => import("./Shop/"));
+const GalleryPage = lazy(() => import("./Gallery/"));
+const Music = lazy(() => import("./Music/"));
+const Contact = lazy(() => import("./Contact/"));
+const Account = lazy(() => import("./Account/"));
+const Writing = lazy(() => import("./Writing/"));
+const CalendarPage = lazy(() => import("./Calendar/"));
+const Privacy = lazy(() => import("./PrivacyPolicy/"));
+const Services = lazy(() => import("./Services/"));
+const Terms = lazy(() => import("./TermsOfService/"));
+const Projects = lazy(() => import("./Projects/"));
+// Layout
 // Layout
 
 import AppHeader from "../../Layout/AppHeader/";

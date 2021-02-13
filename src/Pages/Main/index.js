@@ -12,7 +12,7 @@ import "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey:procedd.env.REACT_APP_FIREBASE,
+  apiKey:process.env.REACT_APP_FIREBASE,
   authDomain: "microhawaii-5f97b.firebaseapp.com",
   databaseURL: "https://microhawaii-5f97b-default-rtdb.firebaseio.com",
   projectId: "microhawaii-5f97b",

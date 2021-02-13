@@ -1,36 +1,16 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Suspense, lazy, Fragment } from "react";
 import Loader from "react-loaders";
 
 import LandingPage from "../../Pages/home";
 import { ToastContainer } from "react-toastify";
 
-const Applications = lazy(() => import("../../Pages/Applications"));
 const Dashboards = lazy(() => import("../../Pages/Dashboards"));
 
 const AppMain = () => {
   return (
     <Fragment>
-      <Suspense
-        fallback={
-          <div className="loader-container">
-            <div className="loader-container-inner">
-              <div className="text-center">
-                <Loader type="ball-pulse" />
-              </div>
-              <h6 className="mt-3">
-                Loading Application Tools
-                <small>Welcome to MicroHawaii</small>{" "}
-              </h6>
-            </div>
-          </div>
-        }
-      >
-        <Route path="/apps" component={Applications} />
-      </Suspense>
-
-      {/* Dashboards */}
-
+     
       <Suspense
         fallback={
           <div className="loader-container">
