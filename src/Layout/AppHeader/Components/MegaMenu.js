@@ -14,12 +14,7 @@ import {
   UncontrolledButtonDropdown,
   Button,
 } from "reactstrap";
-
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-import bg2 from "../../../assets/utils/images/dropdown-header/abstract2.jpg";
-import bg10 from "../../../assets/utils/images/dropdown-header/abstract10.jpg";
-import 'font-awesome/css/font-awesome.min.css';
+import "font-awesome/css/font-awesome.min.css";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -46,7 +41,8 @@ class MegaMenu extends React.Component {
 
   render() {
     return (
-      <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;
+      <Fragment>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <Nav className="header-megamenu">
           <NavItem>
             <NavLink href="#" onClick={this.toggle} id="PopoverMegaMenu">
@@ -55,14 +51,23 @@ class MegaMenu extends React.Component {
               <FontAwesomeIcon className="ml-2 opacity-5" icon={faAngleDown} />
             </NavLink>
           </NavItem>
-          <Popover className="rm-max-width" placement="bottom-start" fade={false} trigger="legacy"
-            isOpen={this.state.popoverOpen} target="PopoverMegaMenu" toggle={this.toggle}>
+          <Popover
+            className="rm-max-width"
+            placement="bottom-start"
+            fade={false}
+            trigger="legacy"
+            isOpen={this.state.popoverOpen}
+            target="PopoverMegaMenu"
+            toggle={this.toggle}
+          >
             <div className="dropdown-mega-menu">
               <div className="grid-menu grid-menu-3col">
                 <Row className="no-gutters">
                   <Col xl="4" sm="6">
                     <Nav vertical>
-                      <NavItem className="nav-item-header">Main Portals</NavItem>
+                      <NavItem className="nav-item-header">
+                        Main Portals
+                      </NavItem>
                       <NavItem>
                         <NavLink href="./#/dashboards/home/">
                           <i className="nav-link-icon  fa fa-home"> </i>
@@ -71,11 +76,11 @@ class MegaMenu extends React.Component {
                       </NavItem>
                       <NavItem>
                         <NavLink href="./#/dashboards/services/">
-                          <i className="nav-link-icon fa fa-question-circle-o"> </i>
+                          <i className="nav-link-icon fa fa-question-circle-o">
+                            {" "}
+                          </i>
                           <span>About</span>
-                          <div className="ml-auto">
-                            
-                          </div>
+                          <div className="ml-auto"></div>
                         </NavLink>
                       </NavItem>
                       <NavItem>
@@ -96,19 +101,32 @@ class MegaMenu extends React.Component {
                     <Nav vertical>
                       <NavItem className="nav-item-header">Favorites</NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/gallery/"><i className="nav-link-icon fa fa-picture-o"> </i>Visual Arts</NavLink>
+                        <NavLink href="./#/dashboards/gallery/">
+                          <i className="nav-link-icon fa fa-picture-o"> </i>
+                          Visual Arts
+                        </NavLink>
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/music/"><i className="nav-link-icon fa fa-music"> </i>
+                        <NavLink href="./#/dashboards/music/">
+                          <i className="nav-link-icon fa fa-music"> </i>
                           Audio Arts
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/writing/"> <i className="nav-link-icon fa fa-pencil"> </i>Writing</NavLink>
+                        <NavLink href="./#/dashboards/writing/">
+                          {" "}
+                          <i className="nav-link-icon fa fa-pencil"> </i>Writing
+                        </NavLink>
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/projects/"> <i className="nav-link-icon fa fa-code"> </i>Game Development
-                          <div className="ml-auto badge badge-success">New</div>    </NavLink>
+                        <NavLink href="./#/dashboards/projects/">
+                          {" "}
+                          <i className="nav-link-icon fa fa-code"> </i>Game
+                          Development
+                          <div className="ml-auto badge badge-success">
+                            New
+                          </div>{" "}
+                        </NavLink>
                       </NavItem>
                     </Nav>
                   </Col>
@@ -118,18 +136,31 @@ class MegaMenu extends React.Component {
                         Services &amp; Information
                       </NavItem>
                       <NavItem>
-                      <NavLink href="./#/dashboards/services/"><i className="nav-link-icon fa fa-magic"> </i>Professional Services </NavLink>
-                      </NavItem>
-                      <NavItem>
-                      <NavLink href="./#/dashboards/projects/"> <i className="nav-link-icon fa fa-users"> </i>Projects</NavLink>
-                      </NavItem>
-                      <NavItem>
-                      <NavLink href="https://github.com/JasonHoku">
-                        <i className="nav-link-icon fa fa-database"> </i>GitHub
+                        <NavLink href="./#/dashboards/services/">
+                          <i className="nav-link-icon fa fa-magic"> </i>
+                          Professional Services{" "}
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href="https://www.paypal.com/paypalme/JasonLevien" target="_blank"> <i className="nav-link-icon fa fa-star"> </i>Donate</NavLink>
+                        <NavLink href="./#/dashboards/projects/">
+                          {" "}
+                          <i className="nav-link-icon fa fa-users"> </i>Projects
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink href="https://github.com/JasonHoku">
+                          <i className="nav-link-icon fa fa-database"> </i>
+                          GitHub
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink
+                          href="https://www.paypal.com/paypalme/JasonLevien"
+                          target="_blank"
+                        >
+                          {" "}
+                          <i className="nav-link-icon fa fa-star"> </i>Donate
+                        </NavLink>
                       </NavItem>
                     </Nav>
                   </Col>
@@ -137,12 +168,16 @@ class MegaMenu extends React.Component {
               </div>
             </div>
           </Popover>
-        
-    
-        </Nav>&nbsp;&nbsp;&nbsp;&nbsp;
+        </Nav>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <div></div>
-       <div>
-   MicroHawaii <small> <br></br>Services &amp; Provisions</small> </div>
+        <div>
+             MicroHawaii{" "}
+          <small>
+            {" "}
+            <br></br>Services &amp; Provisions
+          </small>{" "}
+        </div>
       </Fragment>
     );
   }

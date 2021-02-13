@@ -5,7 +5,7 @@ import "./polyfills";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { Router, Switch, Route } from "react-router-dom";
+import {  Route } from "react-router-dom";
 
 import * as serviceWorker from "./serviceWorker";
 

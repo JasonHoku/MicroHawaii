@@ -43,7 +43,7 @@ function Account() {
   }
   var uiConfig = {
     callbacks: {
-      signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+      signInSuccessWithAuthResult: function (authResult) {
         console.log(authResult);
         localStorage.setItem("username", authResult.user.name);
         if (authResult.user.uid === "zlnmlPv5KfeSEitHQhtd6UReWhF3") {
@@ -58,7 +58,6 @@ function Account() {
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: "popup",
-    signInSuccessUrl: "/#/dashboards/account",
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -77,28 +76,29 @@ function Account() {
 
   useEffect(() => {
     console.log(loadStage);
-    if (loadStage === "1") {
-      if (firebaseui.auth.AuthUI.getInstance()) {
-        const ui = firebaseui.auth.AuthUI.getInstance();
-        ui.start("#firebaseui-auth-container", uiConfig);
-      } else {
-        const ui = new firebaseui.auth.AuthUI(firebase.auth());
-        ui.start("#firebaseui-auth-container", uiConfig);
-      }
+    console.log(firebase.auth());
+    if (isInitialMount.current === true) {
+      if (loadStage === "1") {
+        if (firebaseui.auth.AuthUI.getInstance()) {
+          const ui = firebaseui.auth.AuthUI.getInstance();
+          ui.start("#firebaseui-auth-container", uiConfig);
+        } else {
+          const ui = new firebaseui.auth.AuthUI(firebase.auth());
+          ui.start("#firebaseui-auth-container", uiConfig);
+        }
 
-      setloadStage("2");
-    }
-    if (loadStage === "2") {
-      isInitialMount.current = false;
-    } else if (loadStage === "3") {
-      try {
-        firebase.initializeApp(firebaseConfig);
-        setelementAuth(ui.start("#firebaseui-auth-container", uiConfig, {}));
-        console.log(firebase);
-      } catch (e) {
-        console.log(e);
+        setloadStage("2");
       }
-      sethasLoaded("4");
+      if (loadStage === "2") {
+        isInitialMount.current = false;
+      } else if (loadStage === "3") {
+        try {
+          console.log(firebase);
+        } catch (e) {
+          console.log(e);
+        }
+        sethasLoaded("4");
+      }
     }
   });
 

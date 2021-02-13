@@ -33,12 +33,11 @@ import "firebase/auth";
 import "firebase/storage";
 import "firebase/firestore";
 
-var firebaseConfig = process.env.REACT_APP_FIREBASE;
-
 function EventManagerComponent() {
   const [loadStage, setloadStage] = useState("1");
   const [loadElements, setloadElements] = useState(null);
   const [loadedEvents, setloadedEvents] = useState([]);
+  const [loadedEventIDs, setloadedEventIDs] = useState([]);
 
   const [textVar, settextVar] = useState("");
   const [setDate, setsetDate] = useState(
@@ -61,56 +60,64 @@ function EventManagerComponent() {
 
   useEffect(() => {
     let concData = [];
-    console.log(loadStage);
-    if (loadStage === "1") {
-      const loadsnapshot = async () => {
-        const snapshot = await firebase.firestore().collection("events").get();
-        snapshot.forEach((doc) => {
-          concData = concData.concat({ [doc.id]: [doc.data()] });
+    let concData2 = [];
+    let concData3 = [];
+
+    if (isInitialMount.current === true) {
+      console.log(loadStage);
+      if (loadStage === "1") {
+        const loadsnapshot = async () => {
+          const snapshot = await firebase
+            .firestore()
+            .collection("events")
+            .get();
+          snapshot.forEach((doc) => {
+            concData = concData.concat({
+              [doc.id]: [doc.data()],
+            });
+
+            concData2 = concData2.concat(doc.id);
+          });
+
           setloadedEvents(concData);
-        });
-      };
+          setloadedEventIDs(concData2);
+        };
 
-      console.log(
-        loadsnapshot().then(async (res) => {
-          console.log(res) & 
-          setloadStage("2");
-          if (res.exists) {
+        console.log(
+          loadsnapshot().then(async () => {
+            setloadStage("2");
+          })
+        );
+      }
+      if (loadStage === "2") {
+        for (var i = 0; i < loadedEvents.length; i++) {
+          console.log(loadedEvents[i][loadedEventIDs[i]][0]);
 
-          }
-        })
-      );
-    }
-    if (loadStage === "2") {
-      for (var i = 0; i < loadedEvents; i++) {
-        console.log(loadedEvents);
-        localStorage.setItem("eventCounter", loadedEvents.value.length);
-        let gotDate = new Date(d.value[i].EventDate);
-        let are24hFrom0 = new Date(new Date(setDate));
-        are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
-        var are24hFrom1 = new Date(setDate);
-        are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
-        if (gotDate >= are24hFrom0) {
-          if (gotDate <= are24hFrom1) {
-            concData = concData.concat(
-              `Event ID#` +
-                JSON.stringify(d.value[i].EventEZID) +
-                `\n Title:` +
-                JSON.stringify(d.value[i].EventTitle) +
-                `\n Date:` +
-                JSON.stringify(d.value[i].EventDate).replace(/(Z|T)/gm, "  ") +
-                `\n \n `
-            );
+          localStorage.setItem("eventCounter", loadedEvents.length);
+          let gotDate = new Date(
+            loadedEvents[i][loadedEventIDs[i]][0].EventDate
+          );
+          let are24hFrom0 = new Date(new Date(setDate));
+          are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
+          var are24hFrom1 = new Date(setDate);
+          are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
+          if (gotDate >= are24hFrom0) {
+            if (gotDate <= are24hFrom1) {
+              concData3 = concData3.concat(
+                "\n" + loadedEvents[i][loadedEventIDs[i]][0].EventTitle
+              );
+              settextVar(
+                String(concData3)
+                  .split("\n")
+                  .map((str, index) => <h5 key={index}>{str}</h5>)
+              );
+              setloadStage("3");
+            }
           }
         }
       }
-      isInitialMount.current = false;
-    } else if (loadStage === "3") {
-      try {
-      } catch (e) {
-        console.log(e);
+      if (loadStage === "3") {
       }
-      sethasLoaded("4");
     }
   });
 
@@ -141,7 +148,7 @@ function EventManagerComponent() {
                     hour: "2-digit",
                     minute: "2-digit",
                   })
-                )
+                ) & setloadStage("2")
               }
             />
           </center>
@@ -218,7 +225,8 @@ function EventManagerComponent() {
           <br />
           <h5>
             <b>Events Within 24h of Selected Day:</b>
-          </h5>
+          </h5>{" "}
+          <br /> {textVar}
           {/*  <FirestoreProvider {...firebaseConfig} firebase={firebase}>
             <FirestoreCollection path={`/events/`}>
               {(d) => {

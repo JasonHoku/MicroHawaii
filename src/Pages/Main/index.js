@@ -6,9 +6,13 @@ import { withRouter } from "react-router-dom";
 import ResizeDetector from "react-resize-detector";
 
 import AppMain from "../../Layout/AppMain";
+
 import firebase from "firebase/app";
+import "firebase/auth";
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDnQ9BZMl5OChhJS1oqxPfq_oj16oREAGs",
+  apiKey:procedd.env.REACT_APP_FIREBASE,
   authDomain: "microhawaii-5f97b.firebaseapp.com",
   databaseURL: "https://microhawaii-5f97b-default-rtdb.firebaseio.com",
   projectId: "microhawaii-5f97b",
@@ -25,10 +29,9 @@ class Main extends React.Component {
     };
   }
   componentDidMount() {
-    
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
-}
+    }
     window.addEventListener("hashchange", this.toggle1, false);
   }
 
