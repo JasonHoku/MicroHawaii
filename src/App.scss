@@ -238,3 +238,6 @@ div.card {
   position: relative;
   top: -4px;
 }
+#root > div > div.app-main > div.app-sidebar.sidebar-shadow > div.app-header__logo {
+display: none;
+}
