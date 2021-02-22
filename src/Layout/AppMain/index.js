@@ -5,12 +5,14 @@ import Loader from "react-loaders";
 import LandingPage from "../../Pages/home";
 import { ToastContainer } from "react-toastify";
 
+import App from "../../Pages/Dashboards/Home/Examples/backgroundeffect";
+
 const Dashboards = lazy(() => import("../../Pages/Dashboards"));
 
 const AppMain = () => {
   return (
     <Fragment>
-     
+    <App />
       <Suspense
         fallback={
           <div className="loader-container">

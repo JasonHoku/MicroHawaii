@@ -183,7 +183,6 @@ export default class ContactElements extends Component {
             >
               <Card
                 style={{
-                  width: "26rem",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                 }}
               >
@@ -194,8 +193,12 @@ export default class ContactElements extends Component {
                   }}
                 >
                   <p>
-                    &nbsp; For all inquiries, comments or concerns, please use
-                    this form or reach out or through the methods listed below.
+                    <h3>
+                      {" "}
+                      &nbsp; For all inquiries, comments or concerns, please use
+                      this form or reach out or through the methods listed
+                      below.
+                    </h3>{" "}
                   </p>
                   Jason Hoku Levien <br />
                   <a href="mailto:info@MicroHawaii.com">
@@ -207,7 +210,9 @@ export default class ContactElements extends Component {
                     Thank you for your submission! A response can be expected in
                     0-3 days.
                   </span>
-                  <Form id="contactFormID">
+                  <br />
+                  <br />
+                  <Form style={{ textAlign: "left" }} id="contactFormID">
                     <br />
                     <FormGroup>
                       <Label for="examplePassword" sm={3}>
@@ -215,7 +220,6 @@ export default class ContactElements extends Component {
                           <b>Name</b>
                         </CardTitle>
                       </Label>
-                      <br />
                       <Input
                         type="input"
                         style={{ width: "200px" }}
@@ -226,14 +230,12 @@ export default class ContactElements extends Component {
                         placeholder="Who's inquiring?"
                       />
                     </FormGroup>
-                    <br />{" "}
                     <FormGroup>
                       <Label for="exampleEmail" sm={3}>
                         <CardTitle>
                           <b>Email</b>
                         </CardTitle>
                       </Label>
-                      <br />
                       <Input
                         style={{ width: "200px" }}
                         type="formEmail"
@@ -244,14 +246,19 @@ export default class ContactElements extends Component {
                         placeholder="How to best reach you?"
                       />
                     </FormGroup>
-                    <br />
                     <FormGroup height="605px">
                       <Label for="formMessage" sm={3}>
-                        <CardTitle>
-                          <b>Text</b>
+                        <CardTitle
+                          style={{
+                            marginRight: "-15px",
+                            marginLeft: "-15px",
+                            position: "absolute",
+                            top: "-55px",
+                          }}
+                        >
+                          <b>Message</b>
                         </CardTitle>
                       </Label>
-                      <br />
                       <Input
                         type="textarea"
                         name="formMessage"
@@ -267,12 +274,13 @@ export default class ContactElements extends Component {
                       <FormGroup check row>
                         <Col sm={{ size: 12 }}>
                           <Button
+                          color="success"
                             style={{ height: "75px", width: "150px" }}
                             id="contactFormButton"
                             disabled={false}
                             onClick={this.submitContact}
                           >
-                            Submit
+                            Send
                           </Button>
                         </Col>
                       </FormGroup>

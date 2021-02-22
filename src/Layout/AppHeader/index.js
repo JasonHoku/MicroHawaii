@@ -26,6 +26,7 @@ import {
   setEnableMobileMenu,
   setEnableMobileMenuSmall,
 } from "../../reducers/ThemeOptions";
+
 var REACT_APP_UAANALYTICS = process.env.REACT_APP_UAANALYTICS;
 
 class Header extends React.Component {

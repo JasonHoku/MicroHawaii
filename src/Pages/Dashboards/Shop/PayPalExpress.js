@@ -189,73 +189,143 @@ class PaypalButton extends Component {
         </li>
       );
     });
-    return (
-      <center>
-        <Card style={{ width: "13rem" }}>
-          <p> </p>
-          <strong>Orders:{(Pro1 = this.props.totalItems)}</strong> &nbsp;
-          <strong> Total: ${(Pro2 = this.props.total)}</strong>
-          <p></p>
-          {this.state.cart.map((product) => {
-            return (
-              <div style={{ boxShadow: "0px 0px 0px 5px" }} width="100%">
-                <br />
-                <button
-                  style={{ float: "right" }}
-                  onClick={this.props.removeProduct.bind(this, product.id)}
-                >
-                  Remove
-                </button>{" "}
-                <br />
-                <br />
-                <div>{product.name}</div> <br />
-                <img
-                  width="75px"
-                  className="product-image"
-                  src={product.image}
-                />
-                <br />
-                <br />
-              </div>
-            );
-          })}
-          <br />
-          <div className="main" style={{ width: "13rem" }}>
-            {loading}
+    if (window.location.hash === "#/dashboards/account") {
+      return (
+        <center>
+          <Card style={{ width: "13rem" }}>
+            <p> </p>
+            <strong>{(Pro1 = this.props.totalItems)}</strong> &nbsp;
+            <strong> Total: ${(Pro2 = this.props.total)}</strong>
+            <p></p>
+            {this.state.cart.map((product) => {
+              if (window.location.hash === "#/dashboards/account") {
+                return null;
+              } else {
+                return (
+                  <div style={{ boxShadow: "0px 0px 0px 5px" }} width="100%">
+                    <br />
+                    <button
+                      style={{ float: "right" }}
+                      onClick={this.props.removeProduct.bind(this, product.id)}
+                    >
+                      Remove
+                    </button>{" "}
+                    <br />
+                    <br />
+                    <div>{product.name}</div> <br />
+                    <img
+                      width="75px"
+                      className="product-image"
+                      src={product.image}
+                    />
+                    <br />
+                    <br />
+                  </div>
+                );
+              }
+            })}
+            <br />
+            <div className="main" style={{ width: "13rem" }}>
+              {loading}
 
-            {showButtons && (
-              <div>
+              {showButtons && (
                 <div>
-                  {" "}
-                  <div className="cart-info"> </div>{" "}
-                </div>
-
-                <PayPalButton
-                  onClick={this.updateCostClick.bind(this)}
-                  createOrder={(data, actions) =>
-                    this.createOrder(data, actions)
-                  }
-                  onApprove={(data, actions) => this.onApprove(data, actions)}
-                />
-              </div>
-            )}
-
-            {paid && (
-              <div className="main">
-                <img alt="Order Processed!" />
-                <h2>
-                  Your order has been received!{" "}
-                  <span role="img" aria-label="emoji">
+                  <div>
                     {" "}
-                    🌞
-                  </span>
-                </h2>
-              </div>
-            )}
-          </div>
-        </Card>
-      </center>
-    );
+                    <div className="cart-info"> </div>{" "}
+                  </div>
+
+                  <PayPalButton
+                    onClick={this.updateCostClick.bind(this)}
+                    createOrder={(data, actions) =>
+                      this.createOrder(data, actions)
+                    }
+                    onApprove={(data, actions) => this.onApprove(data, actions)}
+                  />
+                </div>
+              )}
+
+              {paid && (
+                <div className="main">
+                  <h2>
+                    Your Order Has Been Received!{" "}
+                    <span role="img" aria-label="emoji"></span>
+                  </h2>
+                </div>
+              )}
+            </div>
+          </Card>
+        </center>
+      );
+    } else {
+      return (
+        <center>
+          <Card style={{ width: "13rem" }}>
+            <p> </p>
+            <strong>Orders:{(Pro1 = this.props.totalItems)}</strong> &nbsp;
+            <strong> Total: ${(Pro2 = this.props.total)}</strong>
+            <p></p>
+            {this.state.cart.map((product) => {
+              if (window.location.hash === "#/dashboards/account") {
+                return null;
+              } else {
+                return (
+                  <div style={{ boxShadow: "0px 0px 0px 5px" }} width="100%">
+                    <br />
+                    <button
+                      style={{ float: "right" }}
+                      onClick={this.props.removeProduct.bind(this, product.id)}
+                    >
+                      Remove
+                    </button>{" "}
+                    <br />
+                    <br />
+                    <div>{product.name}</div> <br />
+                    <img
+                      width="75px"
+                      className="product-image"
+                      src={product.image}
+                    />
+                    <br />
+                    <br />
+                  </div>
+                );
+              }
+            })}
+            <br />
+            <div className="main" style={{ width: "13rem" }}>
+              {loading}
+
+              {showButtons && (
+                <div>
+                  <div>
+                    {" "}
+                    <div className="cart-info"> </div>{" "}
+                  </div>
+
+                  <PayPalButton
+                    onClick={this.updateCostClick.bind(this)}
+                    createOrder={(data, actions) =>
+                      this.createOrder(data, actions)
+                    }
+                    onApprove={(data, actions) => this.onApprove(data, actions)}
+                  />
+                </div>
+              )}
+
+              {paid && (
+                <div className="main">
+                  <h2>
+                    Your Order Has Been Received!{" "}
+                    <span role="img" aria-label="emoji"></span>
+                  </h2>
+                </div>
+              )}
+            </div>
+          </Card>
+        </center>
+      );
+    }
   }
 }
 export default scriptLoader(

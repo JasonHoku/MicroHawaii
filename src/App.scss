@@ -238,6 +238,18 @@ div.card {
   position: relative;
   top: -4px;
 }
-#root > div > div.app-main > div.app-sidebar.sidebar-shadow > div.app-header__logo {
-display: none;
+#root
+  > div
+  > div.app-main
+  > div.app-sidebar.sidebar-shadow
+  > div.app-header__logo {
+  display: none;
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition-duration: 1s;
+  transition: opacity 2s;
 }

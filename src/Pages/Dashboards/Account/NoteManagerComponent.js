@@ -1,7 +1,4 @@
-import React, { Component, Fragment, useEffect } from "react";
-import { gql, useQuery } from "@apollo/client";
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
+import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 
 import {
   Row,
@@ -24,211 +21,286 @@ import {
   TabContent,
   TabPane,
 } from "reactstrap";
-import axios from "axios";
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://api.microhawaii.com/graphql",
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
-  }),
-});
 
-class NoteManagerComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      noteVar: "",
-      deleteIDVar: "26",
-    };
-  }
+import firebase from "firebase/app";
 
+import "firebase/auth";
+import "firebase/storage";
+import "firebase/firestore";
 
-  componentWillUnmount() {
-    clearInterval(this.state.intervalId);
-  }
-  getData() {
-    try {
-      this.state.authVar = axios
-        .get(`https://api.microHawaii.com/notes`, {
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-          },
-        })
-        .then((res) => {
-          if (res.err == null) {
-            this.setState({ textvar: JSON.stringify(res) });
-          }
-          let concData = "";
-          for (
-            var i = 0;
-            i < JSON.parse(JSON.stringify(res.data)).length;
-            i++
-          ) {
-            concData =
-              concData +
-              "\r\n ID#" +
-              JSON.stringify(JSON.parse(JSON.stringify(res.data))[i].id) +
-              " : " +
-              JSON.stringify(JSON.parse(JSON.stringify(res.data))[i].Note);
+import { reverse, toInteger } from "lodash";
 
-            this.state.textVar = concData
-              .split("\n")
-              .map((str, index) => <h5 key={index}>{str}</h5>);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (error) {
-      console.log(error);
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+
+import "./chat.css";
+
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE,
+  authDomain: "microhawaii-5f97b.firebaseapp.com",
+  databaseURL: "https://microhawaii-5f97b-default-rtdb.firebaseio.com",
+  projectId: "microhawaii-5f97b",
+  storageBucket: "microhawaii-5f97b.appspot.com",
+  messagingSenderId: "775965301611",
+  appId: "1:775965301611:web:5858ed50ba444371e74a2e",
+  measurementId: "G-H00S7BSD3H",
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+function NoteManagerComponent() {
+  const [url, setURL] = useState("");
+  const [noteVar, setnoteVar] = useState("");
+  const [textVar2, settextVar2] = useState("Select an Instance To Begin");
+  const [textVar, settextVar] = useState("Select an Instance To Begin");
+  const [statusVar, setstatusVar] = useState("Loading..");
+  const [onlineButton, setonlineButton] = useState("Go Online");
+  const [purgeButton, setpurgeButton] = useState("Clear Old Instances");
+  const [selectByIDVar, setselectByIDVar] = useState("0");
+  const [loadedImgURL, setloadedImgURL] = useState("");
+  const [loadedDescription, setloadedDescription] = useState("");
+  const [editedDescription, seteditedDescription] = useState("");
+  const [loadedLocationData, setloadedLocationData] = useState("");
+  const [getDataEZID, setgetDataEZID] = useState("");
+  const [ChangeImageURLVar, setChangeImageURLVar] = useState("");
+  const [loadedCreatorData, setloadedCreatorData] = useState("");
+  const [loadedGMapCoords, setloadedGMapCoords] = useState("");
+  const [loadedCategory, setloadedCategory] = useState("");
+  const [loadedPublic, setloadedPublic] = useState("");
+  const [loadedIDData, setloadedIDData] = useState("");
+  const [loadStage, setloadStage] = useState("1");
+  const [loadedTitleData, setloadedTitleData] = useState("");
+  const [sendReadyCreator, setsendReadyCreator] = useState("");
+  const [sendReadyCategory, setsendReadyCategory] = useState("");
+  const [sendReadyDescription, setsendReadyDescription] = useState("");
+  const [sendReadyGMapCoords, setsendReadyGMapCoords] = useState("");
+  const [sendReadyLocation, setsendReadyLocation] = useState("");
+  const [sendReadyID, setsendReadyID] = useState("");
+  const [sendReadyPublic, setsendReadyPublic] = useState("");
+  const [sendReadyTitle, setsendReadyTitle] = useState("");
+  const [loadedEzID, setloadedEzID] = useState("1");
+  const [loadedTotalIDs, setloadedTotalIDs] = useState("1");
+  const [loadedAnswerData, setloadedAnswerData] = useState("");
+  const [loadedQuestionData, setloadedQuestionData] = useState("");
+  const [loadedFlowData, setloadedFlowData] = useState("");
+
+  const [isLoadedOnce, setisLoadedOnce] = useState("1");
+  const [hasReceivedImgURL, sethasReceivedImgURL] = useState(false);
+  const [loadedSnapshotData, setloadedSnapshotData] = useState("");
+  const [loadedSnapshotDataIDs, setloadedSnapshotDataIDs] = useState("");
+
+  const isInitialMount = useRef(true);
+
+  const [file, setFile] = useState(null);
+
+  const [gotDownloadURL, setgotDownloadURL] = useState("Upload An Image");
+
+  useEffect(() => {
+    let concData = [];
+    let concData2 = [];
+    let concData3 = [];
+
+    console.log(isInitialMount);
+    console.log("Load X: " + loadStage);
+    console.log("Updating, Stage: " + loadStage);
+    if (loadStage === "1") {
+      setloadStage("2") & setisLoadedOnce("1");
     }
-  }
+    if (loadStage === "2") {
+      if (isLoadedOnce === "1") {
+        const loadsnapshot = async () => {
+          let concData = [];
+          let concData2 = [];
+          const snapshot = await firebase.firestore().collection("Notes").get();
 
-  handleInputChange(event) {
-    this.setState({
-      noteVar: event.target.value,
-    });
-  }
-  handleInputChange2(event) {
-    this.setState({
-      deleteIDVar: event.target.value,
-    });
-  }
-
-  onSubmit = () => {
-    const formData = new FormData();
-    formData.Note = this.state.noteVar;
-    console.log(formData);
-
-    axios
-      .post(`https://api.microhawaii.com/notes`, JSON.stringify(formData), {
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-      .then((res) => {
-        if (res.err == null) {
-          document.getElementById("apiupform").hidden = false;
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  onSubmitDelete = () => {
-    const formData = new FormData();
-    formData.Note = this.state.noteVar;
-    formData.id = 21;
-    console.log(formData);
-
-    axios
-      .post(`https://api.microhawaii.com/notes`, JSON.stringify(formData), {
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-      .then((res) => {
-        if (res.err == null) {
-          alert("Success!");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  onImageChange = (event) => {
-    console.log(event.target.files);
-
-    this.setState({
-      images: event.target.files,
-    });
-  };
-
-  render() {
-    let { formName, formDesc, formEmail, formMessage } = this.state;
-    const { data } = this.state;
-
-    const MY_MUTATION_MUTATION = gql`
-      mutation DeleteNote {
-        deleteNote(input: { where: { id: ${this.state.deleteIDVar} } }) {
-          note {
-            id
-          }
+          snapshot.forEach(async function (doc) {
+            concData = concData.concat(doc.data());
+          });
+          setloadedSnapshotData(concData);
+        };
+        loadsnapshot().then(async () => {
+          setisLoadedOnce("2");
+        });
+      }
+      setloadStage("3");
+    }
+    if (loadStage === "3") {
+      if (loadedSnapshotData != "") {
+        if (isLoadedOnce === "1") {
+          console.log(loadedSnapshotData) & setisLoadedOnce("2");
         }
       }
-    `;
+    }
+  });
 
-    const MyMutationMutation = (props) => {
-      try {
-        return (
-          <Mutation mutation={MY_MUTATION_MUTATION}>
-            {(MyMutation, { loading, error, data }) => {
-              try {
-                if (loading) return <pre>Loading</pre>;
-
-                if (error) {
-                }
-              } catch (error) {}
-              const dataEl = data ? (
-                <pre>{JSON.stringify(data, null, 2)}</pre>
-              ) : null;
-
-              return (
-                <button
-                  onClick={() =>
-                    MyMutation(formName + formDesc, Date().toString())
-                  }
-                >
-                  Delete Note#
-                </button>
-              );
-            }}
-          </Mutation>
-        );
-      } catch (error) {}
-    };
-
-    return (
-      <Fragment>
-        <CardHeader> PCP Private Note Manager</CardHeader>
-        <CardBody>
-          <div
-            style={{
-              boxShadow: "0px 0px 0px 2px rgba(50,50,50, .8)",
-            }}
-          >
-            <span>{this.state.textVar}</span>
-          </div>
+  return (
+    <Fragment>
+      <Card>
+        <CardBody
+          style={{
+            justifyContent: "center",
+            justifyItems: "center",
+            textAlign: "center",
+            marginLeft: "-10px",
+            marginRight: "-10px",
+          }}
+        >
+          <h4 style={{ width: "100%", textAlign: "left" }}>
+            <b>&nbsp;Notes</b>
+          </h4>{" "}
+          ID #: &nbsp;
           <input
-            type="number"
-            onChange={() => this.handleInputChange2(event)}
-            style={{ width: "50px" }}
-          ></input>{" "}
+            onChange={(e) =>
+              setloadedEzID(e.target.value) & setloadStage("1") & formResetter()
+            }
+            value={loadedEzID}
+            name="loadedEzID"
+            style={{ width: "45px" }}
+          ></input>
+          &nbsp; &nbsp;
+          <Button
+            style={{ marginBottom: "5px" }}
+            style={{ marginBottom: "5px" }}
+            color="primary"
+            onClick={() =>
+              setloadedEzID(toInteger(loadedEzID) - 1) & setloadStage("1")
+            }
+          >
+            ←
+          </Button>{" "}
           &nbsp;
-          
+          <Button
+            style={{ marginBottom: "5px" }}
+            color="primary"
+            onClick={() =>
+              setloadedEzID(toInteger(loadedEzID) + 1) & setloadStage("1")
+            }
+          >
+            →
+          </Button>{" "}
+          &nbsp;
+          <Button
+            style={{ marginBottom: "5px" }}
+            color="success"
+            onClick={() => runSendData() & setloadStage("1")}
+          >
+            Save
+          </Button>{" "}
+          &nbsp;
+          <Button
+            style={{ marginBottom: "5px" }}
+            color="secondary"
+            onClick={() =>
+              setloadedEzID(toInteger(loadedTotalIDs) + 1) &
+              setloadStage("2") &
+              seteditedDescription("") &
+              setloadedDescription("")
+            }
+          >
+            New
+          </Button>{" "}
+          &nbsp;
+          <Button
+            style={{ marginBottom: "5px" }}
+            color="danger"
+            onClick={() =>
+              runDeleteData() & setloadedEzID(1) & setloadStage("2")
+            }
+          >
+            Delete
+          </Button>
           <br />
-          <Input
-            value={this.state.noteVar}
-            name="NoteVar"
-            id="NoteVar"
-            onChange={() => this.handleInputChange(event)}
-            style={{ top: "15px", position: "relative" }}
-            type="textarea"
-          ></Input>{" "}
-          &nbsp;
-          <button onClick={() => this.onSubmit()}> Send</button> <br />
+          <br />
+          <section>{<ChatRoom />}</section>
         </CardBody>
-        <br />
-      </Fragment>
-    );
-  }
+      </Card>
+      <br />
+    </Fragment>
+  );
+}
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
+function handleInputChangeEvent(event) {
+  setState({
+    [event.target.name]: event.target.value,
+  });
+}
+
+function ChatRoom() {
+  const dummy = useRef();
+  const messagesRef = firestore.collection("Notes");
+  const query = messagesRef.orderBy("createdAt").limit(25);
+
+  const [messages] = useCollectionData(query, { idField: "id" });
+
+  const [formValue, setFormValue] = useState("");
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+
+    const { uid, photoURL } = auth.currentUser;
+
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid,
+      photoURL,
+    });
+
+    setFormValue("");
+    dummy.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <>
+      <main>
+        {messages &&
+          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+
+        <span ref={dummy}></span>
+      </main>
+
+      <span style={{ width: "100%", textAlign: "center" }}>
+        <form className="formchat" onSubmit={sendMessage}>
+          <Input
+            style={{
+              textAlign: "center",
+            }}
+            className="inputchat"
+            value={formValue}
+            type="textarea"
+            onChange={(e) => setFormValue(e.target.value)}
+            placeholder="Add a note"
+          />
+          <button
+            className="buttonchat"
+            type="submit"
+            disabled={!formValue}
+          >
+            🕊️
+          </button>
+        </form>
+      </span>
+    </>
+  );
+}
+function ChatMessage(props) {
+  const { text, uid, photoURL } = props.message;
+
+  const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
+
+  return (
+    <>
+      <div className={`message ${messageClass}`}>
+        <img
+          className="imgchat"
+          src={photoURL || "./images/smallsquare3.png"}
+        />
+        <p className="pchat">{text}</p>
+      </div>
+    </>
+  );
 }
 export default NoteManagerComponent;

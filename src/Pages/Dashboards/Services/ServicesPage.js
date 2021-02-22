@@ -179,7 +179,7 @@ export default class CRMDashboard2 extends Component {
               <Row>
                 <Col>
                   <Card className="row-md-6 opacity-9 zoom ">
-                    <a
+                    <a style={{textDecoration:"none"}}
                       href="#/dashboards/contact"
                       to="#/dashboards/contact"
                       activeLinkFromLocation
@@ -194,7 +194,12 @@ export default class CRMDashboard2 extends Component {
                         </center>
                       </CardHeader>
                       <CardBody>
-                        <div></div>
+                        <div style={{ textAlign: "center" }}>
+                          Jason Hoku Levien <br />
+                          info@MicroHawaii.com <br />
+                          (808)385-1775
+                        </div>{" "}
+                        <br />
                         <center> Click here to send a direct message.</center>
                       </CardBody>
                     </a>
@@ -212,7 +217,10 @@ export default class CRMDashboard2 extends Component {
                         <CardBody>
                           <center>
                             <CardImg
-                              style={{ maxWidth: "350px", borderRadius:"50px" }}
+                              style={{
+                                maxWidth: "350px",
+                                borderRadius: "50px",
+                              }}
                               src={maui}
                             ></CardImg>
                           </center>

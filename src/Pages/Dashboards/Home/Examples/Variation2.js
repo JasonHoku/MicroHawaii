@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, lazy } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import classnames from "classnames";
-import ReactTable from "react-table";
+
 import { Route } from "react-router-dom";
 
 import {
@@ -28,43 +27,11 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  Tooltip,
-} from "recharts";
-
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-import {
-  faAngleUp,
-  faDotCircle,
-  faAngleDown,
-  faStrikethrough,
-  faAlignCenter,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { Sparklines, SparklinesCurve } from "react-sparklines";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountUp from "react-countup";
 
 import avatar1 from "../../../../assets/utils/images/avatars/1.jpg";
-import avatar2 from "../../../../assets/utils/images/avatars/2.jpg";
-import avatar3 from "../../../../assets/utils/images/avatars/3.jpg";
 import servicespic from "../../../../assets/images/thumbs/services.png";
 import aboutpic from "../../../../assets/images/thumbs/about.png";
-import publishingpic from "../../../../assets/images/thumbs/publishing.png";
 import shoppic from "../../../../assets/images/thumbs/shop.png";
-import audiopic from "../../../../assets/images/thumbs/audio.png";
-import visualpic from "../../../../assets/images/thumbs/visual.jpg";
-import Main from "../../../Main";
-import CenterMode from "../../../Components/Carousel/Examples/Slideshow/CenterMode";
-import { setBackgroundImage } from "../../../../reducers/ThemeOptions";
-
 import fireAd1 from "../../../../images/ads/FirePricing3.png";
 import fireAd2 from "../../../../images/ads/FirePricing2.png";
 import fireAd3 from "../../../../images/ads/FirePricing1.png";
@@ -170,7 +137,6 @@ export default class CRMDashboard2 extends Component {
                         width="100%"
                         height="100%"
                         src="https://www.youtube.com/embed/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG"
-    
                         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         style={{
                           boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",

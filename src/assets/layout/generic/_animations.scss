@@ -74,3 +74,12 @@
     transition: all 3s linear;
   }
 }
+
+.MainAnimation5-appear {
+  opacity: 0;
+
+  &.MainAnimation5-appear-active {
+    opacity: 1;
+    transition: all 1s linear;
+  }
+}

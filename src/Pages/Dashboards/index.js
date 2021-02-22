@@ -3,18 +3,20 @@ import { Route } from "react-router-dom";
 
 // Pages
 
-const HomeDashboard = lazy(() => import("./Home/"));
-const ShopPage = lazy(() => import("./Shop/"));
-const GalleryPage = lazy(() => import("./Gallery/"));
-const Music = lazy(() => import("./Music/"));
-const Contact = lazy(() => import("./Contact/"));
+import Contact from "./Contact/";
+import ShopPage from "./Shop/";
+import GalleryPage from "./Gallery/";
+import Music from "./Music/";
+import Writing from "./Writing/";
+import Projects from "./Projects/";
+import HomeDashboard from "./Home/";
+import Services from "./Services/";
+import CalendarPage from "./Calendar/";
+
 const Account = lazy(() => import("./Account/"));
-const Writing = lazy(() => import("./Writing/"));
-const CalendarPage = lazy(() => import("./Calendar/"));
 const Privacy = lazy(() => import("./PrivacyPolicy/"));
-const Services = lazy(() => import("./Services/"));
 const Terms = lazy(() => import("./TermsOfService/"));
-const Projects = lazy(() => import("./Projects/"));
+
 // Layout
 // Layout
 
