@@ -76,10 +76,11 @@ class Header extends React.Component {
       if (this.state.mobileActive === true) {
         console.log(String(event.target.id));
         if (
-          String(event.target.id) === "[object SVGAnimatedString]" ||
+          String(event.target.className) === "[object SVGAnimatedString]" ||
           String(event.target.id) === "MobileMenuID" ||
           String(event.target.id) === "btn-icon-wrapper" ||
           String(event.target.id) === "MobileMenuID" ||
+          String(event.target.className) === "MobileMenuID" ||
           String(event.target.id) === "MobileMenuIcon"
         ) {
           console.log("Yes");

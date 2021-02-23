@@ -7,7 +7,9 @@ import cx from "classnames";
 
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FiMoreVertical } from "react-icons/fi";
+
+import { IconContext } from "react-icons";
 
 import { Button } from "reactstrap";
 
@@ -123,9 +125,18 @@ class AppMobileMenu extends React.Component {
                 })
               }
             >
-              <div className="btn-icon-wrapper">
-                <FontAwesomeIcon 
-              id="MobileMenuIcon" icon={faEllipsisV} />
+              <div id="MobileMenuID" className="btn-icon-wrapper">
+                <IconContext.Provider
+                  value={{ color: "white", className: "MobileMenuID" }}
+                >
+                  <FiMoreVertical
+                    style={{
+                      transform: "scale(2)",
+                      position: "relative",
+                      top: "-2px",
+                    }}
+                  />
+                </IconContext.Provider>{" "}
               </div>
             </Button>
           </span>
