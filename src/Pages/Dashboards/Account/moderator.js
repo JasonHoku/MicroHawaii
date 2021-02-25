@@ -744,14 +744,13 @@ function ModeratorElements() {
                     Site Visits: <GetDocData2 /> <br /> Users:{" "}
                     <GetCollectionLength />
                     <br />
+                    <span id="id002"></span>
+                    Open Issues: {issuesMetric} <br />
+                    New Comments: x <br />
+                    Event Requests: x
+                    <br />
                     Site Version: <GetDocData />
                   </FirebaseAppProvider>
-                  <br />
-                  <span id="id002"></span>
-                  Open Issues: {issuesMetric} <br />
-                  New Comments: x <br />
-                  Event Requests: x
-                  <br />
                 </h4>
               </Card>
             </TabPane>

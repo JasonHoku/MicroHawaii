@@ -27,9 +27,8 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-
 import avatar1 from "../../../../assets/utils/images/avatars/1.jpg";
-import servicespic from "../../../../assets/images/thumbs/services.png";
+import servicespic from "../../../../assets/images/thumbs/services.webp";
 import aboutpic from "../../../../assets/images/thumbs/about.png";
 import shoppic from "../../../../assets/images/thumbs/shop.png";
 import fireAd1 from "../../../../images/ads/FirePricing3.png";

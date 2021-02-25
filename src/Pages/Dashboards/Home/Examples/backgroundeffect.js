@@ -14,10 +14,10 @@ export default function App(init) {
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 380,
+          value: 55,
           density: {
             enable: true,
-            value_area: 800,
+            value_area: 200,
           },
         },
         color: {
@@ -30,7 +30,7 @@ export default function App(init) {
             color: "#000000",
           },
           polygon: {
-            nb_sides: 5,
+            nb_sides: 3,
           },
           image: {
             src: "img/github.svg",
@@ -39,7 +39,7 @@ export default function App(init) {
           },
         },
         opacity: {
-          value: 0.5,
+          value: 0.8,
           random: false,
           anim: {
             enable: false,
@@ -53,7 +53,7 @@ export default function App(init) {
           random: true,
           anim: {
             enable: false,
-            speed: 40,
+            speed: 25,
             size_min: 0.1,
             sync: false,
           },
@@ -95,13 +95,13 @@ export default function App(init) {
         },
         modes: {
           grab: {
-            distance: 140,
+            distance: 50,
             line_linked: {
               opacity: 1,
             },
           },
           bubble: {
-            distance: 400,
+            distance: 150,
             size: 40,
             duration: 2,
             opacity: 8,
@@ -122,7 +122,6 @@ export default function App(init) {
       retina_detect: true,
     });
 
-    /* ---- stats.js config ---- */
   }
 
   const loadedOnce = useRef(true);

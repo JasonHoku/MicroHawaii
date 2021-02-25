@@ -1,8 +1,5 @@
 import React, { Component, Fragment } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import classnames from "classnames";
-import ReactTable from "react-table";
-import { Route } from "react-router-dom";
 
 import {
   Row,
@@ -28,41 +25,7 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  Tooltip,
-} from "recharts";
-
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-import {
-  faAngleUp,
-  faDotCircle,
-  faAngleDown,
-  faStrikethrough,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { Sparklines, SparklinesCurve } from "react-sparklines";
-
-import { makeData } from "../../Tables/DataTables/Examples/utils";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountUp from "react-countup";
-
 import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
-import avatar2 from "../../../assets/utils/images/avatars/2.jpg";
-import avatar3 from "../../../assets/utils/images/avatars/3.jpg";
-import aboutpic from "../../../assets/images/thumbs/about.png";
-import publishingpic from "../../../assets/images/thumbs/publishing.png";
-import shoppic from "../../../assets/images/thumbs/shop.png";
-import audiopic from "../../../assets/images/thumbs/audio.png";
-import visualpic from "../../../assets/images/thumbs/visual.jpg";
-import maui from "../../../assets/images/maui.png";
-import illumexample from "../../../assets/images/thumbs/illumexample.png";
 
 export default class CRMDashboard2 extends Component {
   constructor(props) {

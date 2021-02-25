@@ -27,43 +27,6 @@ import {
   CardTitle,
 } from "reactstrap";
 
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  Tooltip,
-} from "recharts";
-
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-import {
-  faAngleUp,
-  faDotCircle,
-  faAngleDown,
-  faStrikethrough,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { Sparklines, SparklinesCurve } from "react-sparklines";
-
-import { makeData } from "../../Tables/DataTables/Examples/utils";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountUp from "react-countup";
-
-import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
-import avatar2 from "../../../assets/utils/images/avatars/2.jpg";
-import avatar3 from "../../../assets/utils/images/avatars/3.jpg";
-import contrastus from "../../../assets/images/contrastus.png";
-import collage from "../../../assets/images/collage.png";
-import mandalashirt from "../../../assets/images/mandalashirt.png";
-
-const CLIENT = {
-  sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
-  production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
-};
-
 export default class PrivacyPolicy extends Component {
   constructor(props) {
     super(props);
