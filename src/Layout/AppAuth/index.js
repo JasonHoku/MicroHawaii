@@ -193,7 +193,7 @@ function AppAuth() {
     if (user.loggedIn) {
       if (
         user.uid === "zlnmlPv5KfeSEitHQhtd6UReWhF3" ||
-        user.uid === "zlnmlPv5KfeSEitHQhtd6UReWhF3"
+        user.uid === "lhMwE8j0pyZlmkCLT6Uy6pQpDLA3"
       ) {
         return (
           <span>

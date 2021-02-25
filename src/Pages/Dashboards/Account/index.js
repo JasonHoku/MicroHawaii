@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
+import { unregister } from "../../../serviceWorker";
 import AppAuth from "../../../Layout/AppAuth/index.js";
 
 import "firebase/auth";
@@ -35,6 +36,8 @@ import {
 } from "reactstrap";
 import firebase from "firebase/app";
 import "firebase/auth";
+
+import { toast } from "react-toastify";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
@@ -70,51 +73,6 @@ function AccountPage() {
   const [loadedSnapshotData, setloadedSnapshotData] = useState("");
   const [loadedSnapshotDataIDs, setloadedSnapshotDataIDs] = useState("");
   const [loadedOnce, setloadedOnce] = useState(1);
-
-  useEffect(() => {
-    let concData = [];
-    let concData2 = [];
-    if (loadStage === "1") {
-      setloadStage("2");
-    }
-    if (loadStage === "2") {
-      if (loadedOnce === 1) {
-        const firebaseConfig = {
-          apiKey: process.env.REACT_APP_FIREBASE,
-          authDomain: "ponomap-c8faa.firebaseapp.com",
-          projectId: "ponomap-c8faa",
-          storageBucket: "ponomap-c8faa.appspot.com",
-          messagingSenderId: "913918067006",
-          appId: "1:913918067006:web:e94012e765578331cbec6f",
-          measurementId: "G-E2P5QYL5V1",
-        };
-        if (!firebase.apps.length) {
-          firebase.initializeApp(firebaseConfig);
-        }
-
-        const loadsnapshot = async () => {
-          let concData = [];
-          let concData2 = [];
-          const snapshot = await firebase
-            .firestore()
-            .collection("version")
-            .get();
-
-          snapshot.forEach(async function (doc) {
-            concData = doc.data();
-          });
-        };
-        loadsnapshot().then(async () => {
-          setloadedOnce(2);
-          setloadStage("3");
-        });
-      }
-      if (loadStage === "3") {
-        setloadedOnce(1);
-      }
-    }
-  });
-
 
   function toggle(tab) {
     if (this.state.activeTab !== tab) {
@@ -265,6 +223,43 @@ function handleInputChangeEvent(event) {
   });
 }
 
+function showNotification() {
+  navigator.serviceWorker.register("sw2.js");
+  Notification.requestPermission(function (result) {
+    if (result === "granted") {
+      navigator.serviceWorker.ready.then(function (registration) {
+        var options = {
+          body:
+            "A new version of this website is available, please reload after saving any work to load new website content.",
+          icon: "logo.png",
+          vibrate: [100, 50, 100],
+          data: {
+            dateOfArrival: Date.now(),
+            primaryKey: 1,
+          },
+        };
+        registration.showNotification("Site Update", options);
+      });
+    }
+  });
+}
+
+function showNotification2(e) {
+  toast(
+    "A new version of this website is available, please reload after saving any work to load new website content.",
+    {
+      position: "top-right",
+      autoClose: false,
+      containerId: 1,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      onClose: () => unregister,
+      draggable: true,
+    }
+  );
+}
+
 function VersionCheck() {
   const dummy = useRef();
   const messagesRef = firestore.collection("version");
@@ -276,14 +271,13 @@ function VersionCheck() {
     if (!localStorage.getItem("appVersion")) {
       localStorage.setItem("appVersion", concData);
     } else if (localStorage.getItem("appVersion") != concData) {
+      showNotification();
+      showNotification2();
       if (caches) {
         caches.keys().then(function (names) {
           for (let name of names) caches.delete(name);
         });
         localStorage.setItem("appVersion", concData);
-        alert(
-          "A new version of this website is available, please reload after saving any work to load new website content."
-        );
       }
     }
   }

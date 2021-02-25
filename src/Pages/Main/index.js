@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import cx from "classnames";
 import { withRouter } from "react-router-dom";
 
+import { unregister } from "../../serviceWorker";
+
 import CheckVersions from "./checkVersions";
 
 import ResizeDetector from "react-resize-detector";
@@ -18,6 +20,7 @@ import firebase from "firebase/app";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import CounterComponent from "../../Pages/Main/counter";
 
 var appVersion = packageJson.version;
 
@@ -30,19 +33,8 @@ class Main extends React.Component {
     };
   }
 
-  decideVersionCheck() {
-    if (this.state.hasLoaded === 1) {
-      return (<CheckVersions />), this.setState({ hasLoaded: 2 });
-    } else {
-      return null;
-    }
-  }
-
   componentDidMount() {
     window.addEventListener("hashchange", this.toggle1, false);
-    {
-      this.decideVersionCheck();
-    }
   }
 
   componentWillUnmount() {
@@ -50,6 +42,21 @@ class Main extends React.Component {
   }
 
   async toggle1() {
+    // Initialize document
+    const cityRef = firebase.firestore().collection("totalHits").doc("value");
+
+    try {
+      await firebase.firestore().runTransaction(async (t) => {
+        const doc = await t.get(cityRef);
+
+        const newPopulation = doc.data().population + 1;
+        t.update(cityRef, { population: newPopulation });
+      });
+
+      console.log("Transaction success!");
+    } catch (e) {
+      console.log("Transaction failure:", e);
+    }
     let concData = [];
     let concData2 = [];
     let concData3 = [];
@@ -83,6 +90,7 @@ class Main extends React.Component {
               });
               localStorage.setItem("appVersion", concData.version);
             }
+            unregister();
             window.location.reload(true);
           }
         }

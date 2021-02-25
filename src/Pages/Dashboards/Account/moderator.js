@@ -13,6 +13,15 @@ import axios from "axios";
 import firebase from "firebase/app";
 import "firebase/auth";
 
+import {
+  FirebaseAppProvider,
+  useFirestoreDocData,
+  useFirestore,
+  useFirebaseApp,
+  useFirestoreCollectionData,
+  useFirestoreCollection,
+} from "reactfire";
+
 import FormQueryComponent from "./FormQueryComponent.js";
 import UserQueryComponent from "./UserQueryComponent.js";
 import { toInteger } from "lodash";
@@ -62,9 +71,23 @@ import { relative } from "path";
 import LoginPageElements from "./loginPage";
 import AccountElements from "./account";
 
+import { toast } from "react-toastify";
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE,
+  authDomain: "microhawaii-5f97b.firebaseapp.com",
+  databaseURL: "https://microhawaii-5f97b-default-rtdb.firebaseio.com",
+  projectId: "microhawaii-5f97b",
+  storageBucket: "microhawaii-5f97b.appspot.com",
+  messagingSenderId: "775965301611",
+  appId: "1:775965301611:web:5858ed50ba444371e74a2e",
+  measurementId: "G-H00S7BSD3H",
+};
+
 function ModeratorElements() {
   const [activeTab, setactiveTab] = useState("1");
-  const [userMetric, setuserMetric] = useState("");
+  const [userMetric, setuserMetric] = useState(
+    parseInt(localStorage.getItem("users")) || 0
+  );
   const [loadedSnapshotData, setloadedSnapshotData] = useState("");
   const [loadedSnapshotData2, setloadedSnapshotData2] = useState("");
   const [isLoadedOnce, setisLoadedOnce] = useState("1");
@@ -72,45 +95,91 @@ function ModeratorElements() {
   const [loadStage, setloadStage] = useState("1");
   const isInitialMount = useRef(true);
 
-  useEffect(() => {
-    let concData = [];
-    let concData2 = [];
-    let concData3 = [];
-
-    console.log(isInitialMount);
-    console.log("Load X: " + loadStage);
-    console.log("Updating, Stage: " + loadStage);
-    if (loadStage === "1") {
-      setloadStage("2") & setisLoadedOnce("1");
-    }
-    if (loadStage === "2") {
-      if (isLoadedOnce === "1") {
-        const loadsnapshot = async () => {
-          let concData = [];
-          let concData2 = [];
-          const snapshot = await firebase.firestore().collection("Notes").get();
-
-          snapshot.forEach(async function (doc) {
-            concData = concData.concat(doc.data());
-          });
-          setloadedSnapshotData(concData);
-        };
-        loadsnapshot().then(async () => {
-          setisLoadedOnce("2");
+  function showNotification(e) {
+    console.log(userMetric, localStorage.getItem("users"));
+    navigator.serviceWorker.register("sw.js");
+    Notification.requestPermission(function (result) {
+      if (result === "granted") {
+        navigator.serviceWorker.ready.then(function (registration) {
+          var options = {
+            body: "A new user has joined MicroHawaii",
+            icon: "logo.png",
+            vibrate: [100, 50, 100],
+            data: {
+              dateOfArrival: Date.now(),
+              primaryKey: 1,
+            },
+          };
+          registration.showNotification("New User", options);
         });
       }
-      setloadStage("3");
-    }
-    if (loadStage === "3") {
-      if (loadedSnapshotData != "") {
-        if (isLoadedOnce === "1") {
-          console.log(loadedSnapshotData) &
-            setisLoadedOnce("2") &
-            setuserMetric(loadedSnapshotData.length);
-        }
-      }
-    }
-  });
+    });
+  }
+
+  function showNotification2(e) {
+    toast("A new user has joined MicroHawaii", {
+      position: "top-right",
+      autoClose: false,
+      containerId: 1,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      onClose: () => setloadStage("1"),
+      draggable: true,
+    });
+  }
+
+  function GetCollectionLength(e) {
+    // easily access the Firestore library
+    const firebaseApp = useFirebaseApp();
+
+    const collectionRef = firebaseApp.firestore().collection("Users");
+
+    const items = useFirestoreCollectionData(collectionRef);
+
+    // easily check the loading status
+    if (items.data) {
+      if (items.data.length === userMetric) {
+        return items.data.length;
+      } else console.log("YYY");
+      showNotification(e);
+      showNotification2(e);
+      localStorage.setItem("users", parseInt(items.data.length)) &
+        setuserMetric(items.data.length);
+      return items.data.length;
+    } else return "Fetching...";
+  }
+
+  function GetDocData2(e) {
+    // easily access the Firestore library
+    const firebaseApp = useFirebaseApp();
+
+    const docRef = useFirestore().collection("totalHits").doc("value");
+
+    // subscribe to a document for realtime updates. just one line!
+    const { status, data } = useFirestoreDocData(docRef);
+
+    // easily check the loading status
+    if (data) {
+      return data.population;
+    } else return "Fetching...";
+  }
+
+  function GetDocData(e) {
+    // easily access the Firestore library
+    const firebaseApp = useFirebaseApp();
+
+    const docRef = useFirestore().collection("version").doc("0");
+
+    // subscribe to a document for realtime updates. just one line!
+    const { status, data } = useFirestoreDocData(docRef);
+
+    // easily check the loading status
+    if (data) {
+      return data.version;
+    } else return "Fetching...";
+  }
+
   function loadProducts() {
     if (activeTab === "Products") {
       return <ProductManagerComponent />;
@@ -156,7 +225,7 @@ function ModeratorElements() {
   }
 
   function loadLiveChatManager() {
-    if (activeTab === "Live Chat") {
+    if (activeTab === "Site Chat") {
       return <SiteChatManagerComponent />;
     }
   }
@@ -604,11 +673,11 @@ function ModeratorElements() {
                           }),
                         100
                       );
-                      toggle("Live Chat");
+                      toggle("Site Chat");
                     }}
                   >
                     {" "}
-                    Live Chat{" "}
+                    Site Chat{" "}
                   </button>
                   &nbsp;
                   <button
@@ -671,7 +740,12 @@ function ModeratorElements() {
                   <h4>Highlight Metrics:</h4>
                 </CardTitle>
                 <h4>
-                  Users: {userMetric}
+                  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+                    Site Visits: <GetDocData2 /> <br /> Users:{" "}
+                    <GetCollectionLength />
+                    <br />
+                    Site Version: <GetDocData />
+                  </FirebaseAppProvider>
                   <br />
                   <span id="id002"></span>
                   Open Issues: {issuesMetric} <br />
@@ -714,7 +788,7 @@ function ModeratorElements() {
           </TabPane>
           <TabPane tabId="Notes">{loadNoteManagerComponent()}</TabPane>
           <TabPane tabId="Products">{loadProducts()}</TabPane>
-          <TabPane tabId="Live Chat">{loadLiveChatManager()}</TabPane>
+          <TabPane tabId="Site Chat">{loadLiveChatManager()}</TabPane>
           <TabPane tabId="Documentation">{documentationPageLoader()}</TabPane>
           <TabPane tabId="Video"></TabPane>
           <TabPane tabId="Users">{loadUserQueryComponent()}</TabPane>

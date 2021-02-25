@@ -105,7 +105,7 @@ class ContentManagerComponent extends Component {
               boxShadow: "0px 0px 0px 2px rgba(50,50,50, .8)",
             }}
           >
-            [Load DataType Array Here]
+          Upgrade Website
           </div>
           <br />
           &nbsp;

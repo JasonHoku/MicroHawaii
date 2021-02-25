@@ -12,7 +12,7 @@ const Dashboards = lazy(() => import("../../Pages/Dashboards"));
 const AppMain = () => {
   return (
     <Fragment>
-    <App />
+      <App />
       <Suspense
         fallback={
           <div className="loader-container">

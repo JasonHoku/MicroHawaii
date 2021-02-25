@@ -1,25 +1,14 @@
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 
+import ReactDOM from "react-dom";
 import {
   Row,
-  Col,
-  Button,
   ListGroupItem,
   Card,
   CardBody,
-  Form,
-  FormGroup,
-  Label,
   Container,
   Input,
   FormText,
-  CardHeader,
-  CardTitle,
-  CardLink,
-  CardImg,
-  NavLink,
-  TabContent,
-  TabPane,
 } from "reactstrap";
 
 import firebase from "firebase/app";
@@ -32,6 +21,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 import "./chat.css";
+
+import { toast } from "react-toastify";
+
+import RatingComponent from "./RatingComponent";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE,
@@ -46,10 +39,45 @@ const firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
+
 function SiteChatManagerComponent() {
-  const [url, setURL] = useState("");
-  const [file, setFile] = useState(null);
-  const [user] = useAuthState(auth);
+  const [loadStage, setloadStage] = useState("1");
+
+  function showNotification() {
+    navigator.serviceWorker.register("sw.js");
+    Notification.requestPermission(function (result) {
+      if (result === "granted") {
+        navigator.serviceWorker.ready.then(function (registration) {
+          var options = {
+            body: "Here is a notification body!",
+            icon: "logo.png",
+            vibrate: [100, 50, 100],
+            data: {
+              dateOfArrival: Date.now(),
+              primaryKey: 1,
+            },
+          };
+          registration.showNotification("Success!", options);
+        });
+      }
+    });
+    event.preventDefault();
+  }
+
+  function showNotification2() {
+    if (loadStage === "1") {
+      toast("Awaiting Close Notification", {
+        position: "top-right",
+        autoClose: false,
+        containerId: 1,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        onClose: () => setloadStage("1"),
+        draggable: true,
+      }) & setloadStage("2");
+    }
+  }
 
   return (
     <Fragment>
@@ -63,6 +91,10 @@ function SiteChatManagerComponent() {
             marginRight: "-10px",
           }}
         >
+          <button onClick={() => showNotification()}>Desktop Notify Me!</button>{" "}
+          &nbsp;
+          <button onClick={() => showNotification2()}>Screen Notify Me!</button>
+          <br /> {<RatingComponent />} <br />
           <h4 style={{ width: "100%", textAlign: "left" }}>
             <b>&nbsp;SiteChat</b>
           </h4>

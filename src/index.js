@@ -16,6 +16,9 @@ import configureStore from "./config/configureStore";
 import { Provider } from "react-redux";
 import LoginRedirect from "./Login/LoginRedirect";
 import reportWebVitals from "./reportWebVitals";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+import CheckVersions from "./Pages/Main/checkVersions";
 
 const store = configureStore();
 const rootElement = document.getElementById("root");
@@ -24,6 +27,7 @@ ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
       <Main />
+      <CheckVersions />
       <Route path="/connect/google/redirect" component={LoginRedirect} />
     </HashRouter>
   </Provider>,
