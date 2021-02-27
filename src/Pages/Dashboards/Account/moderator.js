@@ -165,6 +165,21 @@ function ModeratorElements() {
     } else return "Fetching...";
   }
 
+  function GetDocData3(e) {
+    // easily access the Firestore library
+    const firebaseApp = useFirebaseApp();
+
+    const docRef = useFirestore().collection("totalClicks").doc("value");
+
+    // subscribe to a document for realtime updates. just one line!
+    const { status, data } = useFirestoreDocData(docRef);
+
+    // easily check the loading status
+    if (data) {
+      return data.population;
+    } else return "...";
+  }
+
   function GetDocData(e) {
     // easily access the Firestore library
     const firebaseApp = useFirebaseApp();
@@ -735,23 +750,64 @@ function ModeratorElements() {
                   style={{
                     justifyContent: "center",
                     alignSelf: "center",
+                    margin: "5px",
                   }}
                 >
-                  <h4>Highlight Metrics:</h4>
+                  <h3>Highlight Metrics:</h3>
                 </CardTitle>
-                <h4>
+                <h5>
                   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-                    Site Visits: <GetDocData2 /> <br /> Users:{" "}
-                    <GetCollectionLength />
-                    <br />
-                    <span id="id002"></span>
-                    Open Issues: {issuesMetric} <br />
-                    New Comments: x <br />
-                    Event Requests: x
-                    <br />
-                    Site Version: <GetDocData />
-                  </FirebaseAppProvider>
-                </h4>
+                    <Row
+                      style={{
+                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                        marginBottom: "2px",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      <Col style={{ width: "100%" }}>Clicks: </Col>
+                      <Col style={{ textAlign: "right" }}>
+                        <GetDocData3 />
+                      </Col>
+                    </Row>{" "}
+                    <Row
+                      style={{
+                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                        marginBottom: "2px",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      <Col> PageLoads: </Col>
+                      <Col style={{ textAlign: "right" }}>
+                        <GetDocData2 />
+                      </Col>
+                    </Row>{" "}
+                    <Row
+                      style={{
+                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                        marginBottom: "2px",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      <Col>Users: </Col>
+                      <Col style={{ textAlign: "right" }}>
+                        <GetCollectionLength />
+                        <span id="id002"></span>
+                      </Col>
+                    </Row>{" "}
+                    <Row
+                      style={{
+                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                        marginBottom: "2px",
+                        paddingBottom: "2px",
+                      }}
+                    >
+                      <Col>SiteVersion: </Col>
+                      <Col style={{ textAlign: "right" }}>
+                        <GetDocData />
+                      </Col>
+                    </Row>
+                  </FirebaseAppProvider>{" "}
+                </h5>
               </Card>
             </TabPane>
           </Row>

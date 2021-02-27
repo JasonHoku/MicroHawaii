@@ -231,7 +231,7 @@ export default class ProjectElements extends Component {
                       <p>
                         <a
                           onClick={this.timerReset}
-                          href="/#/dashboards/projects"
+                          href="/dashboards/projects"
                         >
                           <i className="pe-7s-plus"></i>
                         </a>
@@ -323,7 +323,7 @@ export default class ProjectElements extends Component {
               <Card>
                 <CardBody>
                   For now you can find more about MicroHawaii skillsets on the{" "}
-                  <a href="#/dashboards/services">services</a> page.
+                  <a href="/dashboards/services">services</a> page.
                   <br></br>
                 </CardBody>
               </Card>

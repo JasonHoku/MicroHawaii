@@ -135,7 +135,7 @@ class Header extends React.Component {
               <Router>
                 <Switch>
                   <Route
-                    path="/#/dashboards/home/connect/google/redirect"
+                    path="//dashboards/home/connect/google/redirect"
                     component={LoginRedirect}
                   />
                   <Route path="/" component={Login} />

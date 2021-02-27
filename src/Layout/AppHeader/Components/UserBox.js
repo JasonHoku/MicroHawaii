@@ -114,12 +114,12 @@ class UserBox extends React.Component {
                           </NavItem>
 
                           <NavItem>
-                            <NavLink href="#/dashboards/services">
+                            <NavLink href="/dashboards/services">
                               About
                             </NavLink>
                           </NavItem>
                           <NavItem>
-                            <NavLink href="#/dashboards/projects">
+                            <NavLink href="/dashboards/projects">
                               Projects
                             </NavLink>
                           </NavItem>
@@ -129,7 +129,7 @@ class UserBox extends React.Component {
                                 size="sm"
                                 className="btn-wide"
                                 color="primary"
-                                href="./#/dashboards/contact"
+                                href=".//dashboards/contact"
                               >
                                 Contact
                               </Button>

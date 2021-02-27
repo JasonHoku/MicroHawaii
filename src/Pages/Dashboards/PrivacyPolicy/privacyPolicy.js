@@ -677,11 +677,11 @@ export default class PrivacyPolicy extends Component {
                       <p>
                         By visiting this page on our website:{" "}
                         <a
-                          href="https://MicroHawaii.com/#/dashboards/contact"
+                          href="https://MicroHawaii.com/dashboards/contact"
                           rel="external nofollow noopener"
                           target="_blank"
                         >
-                          https://MicroHawaii.com/#/dashboards/contact
+                          https://MicroHawaii.com/dashboards/contact
                         </a>
                       </p>
                     </li>

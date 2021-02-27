@@ -12,7 +12,7 @@ class NavDummy extends Component {
     return (
       <Fragment>
         <h5 className="app-sidebar__heading">Menu</h5>
-        <MetisMenu content={MainNav} activeLinkFromLocation
+        <MetisMenu onClick={(e) => {e.preventDefault}} content={MainNav} activeLinkFromLocation
           className="vertical-nav-menu" classNameStateIcon="pe-7s-angle-down"/>
       </Fragment>
     );

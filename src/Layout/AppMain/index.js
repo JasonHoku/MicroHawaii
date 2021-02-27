@@ -2,6 +2,12 @@ import { Route } from "react-router-dom";
 import React, { Suspense, lazy, Fragment } from "react";
 import Loader from "react-loaders";
 
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/storage";
+import "firebase/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+
 import LandingPage from "../../Pages/home";
 import { ToastContainer } from "react-toastify";
 
@@ -10,6 +16,7 @@ import App from "../../Pages/Dashboards/Home/Examples/backgroundeffect";
 const Dashboards = lazy(() => import("../../Pages/Dashboards"));
 
 const AppMain = () => {
+
   return (
     <Fragment>
       <App />
@@ -35,12 +42,14 @@ const AppMain = () => {
               </h2>
             </div>
           </div>
-        }
+       }
       >
         <Route path="/dashboards" component={Dashboards} />
       </Suspense>
 
       <Route exact path="/" component={LandingPage} />
+      <Route exact path="/dashboards/acc" component={LandingPage} />
+
       <ToastContainer />
     </Fragment>
   );

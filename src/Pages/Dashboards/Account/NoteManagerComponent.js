@@ -49,89 +49,14 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 function NoteManagerComponent() {
-  const [url, setURL] = useState("");
-  const [noteVar, setnoteVar] = useState("");
-  const [textVar2, settextVar2] = useState("Select an Instance To Begin");
-  const [textVar, settextVar] = useState("Select an Instance To Begin");
-  const [statusVar, setstatusVar] = useState("Loading..");
-  const [onlineButton, setonlineButton] = useState("Go Online");
-  const [purgeButton, setpurgeButton] = useState("Clear Old Instances");
-  const [selectByIDVar, setselectByIDVar] = useState("0");
-  const [loadedImgURL, setloadedImgURL] = useState("");
   const [loadedDescription, setloadedDescription] = useState("");
   const [editedDescription, seteditedDescription] = useState("");
-  const [loadedLocationData, setloadedLocationData] = useState("");
-  const [getDataEZID, setgetDataEZID] = useState("");
-  const [ChangeImageURLVar, setChangeImageURLVar] = useState("");
-  const [loadedCreatorData, setloadedCreatorData] = useState("");
-  const [loadedGMapCoords, setloadedGMapCoords] = useState("");
-  const [loadedCategory, setloadedCategory] = useState("");
-  const [loadedPublic, setloadedPublic] = useState("");
-  const [loadedIDData, setloadedIDData] = useState("");
-  const [loadStage, setloadStage] = useState("1");
-  const [loadedTitleData, setloadedTitleData] = useState("");
-  const [sendReadyCreator, setsendReadyCreator] = useState("");
-  const [sendReadyCategory, setsendReadyCategory] = useState("");
-  const [sendReadyDescription, setsendReadyDescription] = useState("");
-  const [sendReadyGMapCoords, setsendReadyGMapCoords] = useState("");
-  const [sendReadyLocation, setsendReadyLocation] = useState("");
-  const [sendReadyID, setsendReadyID] = useState("");
-  const [sendReadyPublic, setsendReadyPublic] = useState("");
-  const [sendReadyTitle, setsendReadyTitle] = useState("");
   const [loadedEzID, setloadedEzID] = useState("1");
-  const [loadedTotalIDs, setloadedTotalIDs] = useState("1");
-  const [loadedAnswerData, setloadedAnswerData] = useState("");
-  const [loadedQuestionData, setloadedQuestionData] = useState("");
-  const [loadedFlowData, setloadedFlowData] = useState("");
-
-  const [isLoadedOnce, setisLoadedOnce] = useState("1");
-  const [hasReceivedImgURL, sethasReceivedImgURL] = useState(false);
-  const [loadedSnapshotData, setloadedSnapshotData] = useState("");
-  const [loadedSnapshotDataIDs, setloadedSnapshotDataIDs] = useState("");
 
   const isInitialMount = useRef(true);
 
   const [file, setFile] = useState(null);
 
-  const [gotDownloadURL, setgotDownloadURL] = useState("Upload An Image");
-
-  useEffect(() => {
-    let concData = [];
-    let concData2 = [];
-    let concData3 = [];
-
-    console.log(isInitialMount);
-    console.log("Load X: " + loadStage);
-    console.log("Updating, Stage: " + loadStage);
-    if (loadStage === "1") {
-      setloadStage("2") & setisLoadedOnce("1");
-    }
-    if (loadStage === "2") {
-      if (isLoadedOnce === "1") {
-        const loadsnapshot = async () => {
-          let concData = [];
-          let concData2 = [];
-          const snapshot = await firebase.firestore().collection("Notes").get();
-
-          snapshot.forEach(async function (doc) {
-            concData = concData.concat(doc.data());
-          });
-          setloadedSnapshotData(concData);
-        };
-        loadsnapshot().then(async () => {
-          setisLoadedOnce("2");
-        });
-      }
-      setloadStage("3");
-    }
-    if (loadStage === "3") {
-      if (loadedSnapshotData != "") {
-        if (isLoadedOnce === "1") {
-          console.log(loadedSnapshotData) & setisLoadedOnce("2");
-        }
-      }
-    }
-  });
 
   return (
     <Fragment>

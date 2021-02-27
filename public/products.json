@@ -3,49 +3,49 @@
     "id": 8,
     "name": "Custom Websites",
     "price": 100,
-    "image": "./images/8.png",
+    "image": "/images/8.png",
     "category": "services"
   },
     {
       "id": 7,
       "name": "Consultation",
       "price": 50,
-      "image": "./images/7.png",
+      "image": "/images/7.png",
       "category": "services"
     },
     {
       "id": 6,
       "name": "SEO & Advertising",
       "price": 100,
-      "image": "./images/6.png",
+      "image": "/images/6.png",
       "category": "services"
     },
     {
       "id": 1,
       "name": "SupraCollage",
       "price": 29,
-      "image": "./images/1.png",
+      "image": "/images/1.png",
       "category": "services"
     },
     {
       "id": 2,
       "name": "Mandalas Trichromus",
       "price": 29,
-      "image": "./images/2.png",
+      "image": "/images/2.png",
       "category": "services"
     },
     {
       "id": 3,
       "name": "Spiralus Contrastus",
       "price": 29,
-      "image": "./images/3.png",
+      "image": "/images/3.png",
       "category": "services"
     },
     {
       "id": 4,
       "name": "Whaledelia",
       "price": 29,
-      "image": "./images/4.png",
+      "image": "/images/4.png",
       "category": "services"
     }
   ]

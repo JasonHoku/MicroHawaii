@@ -66,7 +66,7 @@ class HeaderLogo extends React.Component {
          <a href="/"> <div className="logo-src" /> </a> 
           <div className="header__pane ml-auto">
             <div onClick={this.toggleEnableClosedSidebar}>
-              <Slider
+              <Slider className="slider"
                 width={26}
                 lineHeight={2}
                 lineSpacing={5}

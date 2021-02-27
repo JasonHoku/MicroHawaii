@@ -1,15 +1,20 @@
-import React, { Fragment, lazy, useState } from "react";
+import React, { Fragment, lazy, useState, useRef } from "react";
 import { connect } from "react-redux";
 import cx from "classnames";
 import { withRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { Suspense } from "react";
+import Loader from "react-loaders";
 
+const Dashboards = lazy(() => import("../../Pages/Dashboards"));
+
+import LandingPage from "../../Pages/home";
+import { ToastContainer } from "react-toastify";
+
+import App from "../../Pages/Dashboards/Home/Examples/backgroundeffect";
 import { unregister } from "../../serviceWorker";
 
-import CheckVersions from "./checkVersions";
-
 import ResizeDetector from "react-resize-detector";
-
-import AppMain from "../../Layout/AppMain";
 
 import packageJson from "../../meta.json";
 
@@ -18,23 +23,54 @@ import "firebase/firestore";
 
 import firebase from "firebase/app";
 
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import CounterComponent from "../../Pages/Main/counter";
-
 var appVersion = packageJson.version;
-
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       closedSmallerSidebar: false,
       hasLoaded: 1,
+      loadedData: "XX123",
+      loadedDataArray: ["XX123", "st"],
     };
   }
 
   componentDidMount() {
+    let concData = [];
+    const loadsnapshot = async () => {
+      const snapshot = await firebase.firestore().collection("linkTest").get();
+      snapshot.forEach((doc) => {
+        concData = concData.concat([doc.data()]);
+      });
+    };
+
+    console.log(
+      loadsnapshot().then(async () => {
+        console.log(concData);
+
+        this.setState({ loadedDataArray: concData });
+      })
+    );
+
     window.addEventListener("hashchange", this.toggle1, false);
+
+    document.body.addEventListener("click", async function (e) {
+      const cityRef = firebase
+        .firestore()
+        .collection("totalClicks")
+        .doc("value");
+
+      try {
+        await firebase.firestore().runTransaction(async (t) => {
+          const doc = await t.get(cityRef);
+
+          const newPopulation = doc.data().population + 1;
+          t.update(cityRef, { population: newPopulation });
+        });
+      } catch (e) {
+        console.log("Transaction failure:", e);
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -52,8 +88,6 @@ class Main extends React.Component {
         const newPopulation = doc.data().population + 1;
         t.update(cityRef, { population: newPopulation });
       });
-
-      console.log("Transaction success!");
     } catch (e) {
       console.log("Transaction failure:", e);
     }
@@ -75,6 +109,7 @@ class Main extends React.Component {
       if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
       }
+
       const snapshot = await firebase.firestore().collection("version").get();
 
       snapshot.forEach(async function (doc) {
@@ -142,7 +177,51 @@ class Main extends React.Component {
                 { "body-tabs-shadow-btn": enablePageTabsAlt }
               )}
             >
-              <AppMain />
+              <Fragment>
+                <App />
+                <Suspense
+                  fallback={
+                    <div className="loader-container">
+                      <div className="loader-container-inner">
+                        <div className="text-center loader">
+                          <Loader
+                            style={{
+                              transform: "scale(5.5)",
+                              top: "-100px",
+                              position: "relative",
+                              left: "10px",
+                              float: "center",
+                            }}
+                            type="ball-clip-rotate-multiple"
+                          />
+                        </div>
+                        <h2 className="mt-3" style={{ color: "white" }}>
+                          Loading...
+                          <small style={{ color: "white" }}>
+                            Welcome to MicroHawaii
+                          </small>
+                        </h2>
+                      </div>
+                    </div>
+                  }
+                >
+                  <Route path="/dashboards" component={Dashboards} />
+                </Suspense>
+
+                <Route exact path="/" component={LandingPage} />
+
+                <Route exact path="/dashboards/acc" component={LandingPage} />
+
+                {
+                  //Load URLS from Database
+                }
+
+                {this.state.loadedDataArray.map((tag) => (
+                  <Route exact path={"/" + tag.title} component={LandingPage} />
+                ))}
+
+                <ToastContainer />
+              </Fragment>
             </div>
           </Fragment>
         )}

@@ -7,10 +7,10 @@ import React, {
 } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
+import "./particles.min.js";
+
 export default function App(init) {
   async function init() {
-    /* ---- particles.js config ---- */
-
     particlesJS("particles-js", {
       particles: {
         number: {
@@ -121,7 +121,6 @@ export default function App(init) {
       },
       retina_detect: true,
     });
-
   }
 
   const loadedOnce = useRef(true);

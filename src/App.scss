@@ -136,7 +136,7 @@ div.card {
   flex-direction: column;
   align-items: center;
   padding-left: 15px;
-  opacity: 1;
+  opacity: 0.95;
   transition: opacity 5s;
   padding-right: 15px;
   justify-content: center;
@@ -178,23 +178,31 @@ div.card {
     opacity: 1;
   }
 }
-/* Chrome, Safari, Opera */
-@-webkit-keyframes landingAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
-/* Standard syntax */
-@keyframes landingAnimation {
-  from {
-    opacity: 0.2;
-  }
-  to {
+@keyframes fadeOut {
+  0% {
     opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -268,4 +276,51 @@ div.card {
   > div {
   z-index: 99999;
   position: absolute;
+}
+
+.gradientBtn {
+  border-radius: 10px;
+  transition: 1s;
+  background: transparent;
+  color: black;
+  text-align: left;
+}
+.spin {
+  animation: roto 10s linear infinite;
+}
+
+.button {
+  text-decoration: none;
+}
+#root
+  > div
+  > div.app-header.header-shadow
+  > div.app-header__mobile-menu
+  > div
+  > button {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+@keyframes roto {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-0%) rotate(360deg);
+  }
+}
+.gradientBtn:hover {
+  transition: 1s;
+  background-image: linear-gradient(
+    to right,
+    #00d2ff 100%,
+    #3a7bd5 51%,
+    #00d2ff 0%
+  );
+  background-position: right center;
+}
+
+.sidebarLinks {
+  font-family: "Courier New", Courier, monospace;
 }

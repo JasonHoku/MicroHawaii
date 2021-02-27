@@ -26,6 +26,7 @@ import {
 } from "reactstrap";
 
 import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
+import maui from "../../../assets/images/maui.png";
 
 export default class CRMDashboard2 extends Component {
   constructor(props) {

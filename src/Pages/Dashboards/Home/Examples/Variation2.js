@@ -190,7 +190,7 @@ export default class CRMDashboard2 extends Component {
                     boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                   }}
                 >
-                  <a href="#/dashboards/services">
+                  <a href="/dashboards/services">
                     {" "}
                     <CardHeader className="card-header-tab">
                       <div className="card text-center card-shadow-focus opacity-9">
@@ -213,7 +213,7 @@ export default class CRMDashboard2 extends Component {
                 <br></br>
               </Col>
               <Col mx-auto="true" className=" opacity-9  zoom">
-                <a href="#/dashboards/shop">
+                <a href="/dashboards/shop">
                   <Card
                     mx-auto="true"
                     style={{
@@ -242,8 +242,8 @@ export default class CRMDashboard2 extends Component {
                 <br></br>
               </Col>
               <Col mx-auto="true" className=" opacity-9  zoom">
-                <a href="#/dashboards/projects">
-                  <Route path="#/dashboards/projects" />
+                <a href="/dashboards/projects">
+                  <Route path="/dashboards/projects" />
                   <Card
                     mx-auto="true"
                     style={{
@@ -335,7 +335,7 @@ export default class CRMDashboard2 extends Component {
                     ></img>
                   </center>
                   <br />
-                  <a href="#/dashboards/services">
+                  <a href="/dashboards/services">
                     Gain ultimate control and expert assistance through
                     MicroHawaii today.{" "}
                   </a>
@@ -346,7 +346,7 @@ export default class CRMDashboard2 extends Component {
           <Row style={{ width: "100%", justifyContent: "center" }}>
             <center>
               <Col className=" opacity-9  zoom">
-                <a href="#/dashboards/projects">
+                <a href="/dashboards/projects">
                   <Card>
                     <CardHeader className="card-header-tab">
                       <div className="card text-center card-shadow-focus opacity-9">
@@ -382,7 +382,7 @@ export default class CRMDashboard2 extends Component {
                     <div className="menu-header-content">
                       <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                         <div className="avatar-icon">
-                          <img src="./images/logo2.png" alt="Avatar 5" />
+                          <img src="/images/logo2.png" alt="Avatar 5" />
                         </div>
                       </div>
                       <div>
@@ -422,7 +422,7 @@ export default class CRMDashboard2 extends Component {
                         <div className="avatar-icon">
                           <img
                             style={{ position: "relative", top: "-1px" }}
-                            src="./images/ponologo.png"
+                            src="/images/ponologo.png"
                             alt="Avatar 5"
                           />
                         </div>
@@ -463,7 +463,7 @@ export default class CRMDashboard2 extends Component {
                       <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                         <div className="avatar-icon">
                           <img
-                            src="./images/mauiartprintslogo.jpg"
+                            src="/images/mauiartprintslogo.jpg"
                             alt="Avatar 5"
                           />
                         </div>
@@ -518,7 +518,7 @@ export default class CRMDashboard2 extends Component {
                   </div>
                 </div>
                 <CardFooter className="text-center d-block">
-                  <a href="#/dashboards/contact">
+                  <a href="/dashboards/contact">
                     <Button className="btn-shadow-dark btn-wider" color="dark">
                       Contact
                     </Button>

@@ -3,14 +3,21 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import MetisMenu from "react-metismenu";
 import { setEnableMobileMenu } from "../../reducers/ThemeOptions";
-import {
-  MainNav,
-  AboutNav,
-  ComponentsNav,
-  FormsNav,
-  AdminNav,
-  ChartsNav,
-} from "./NavItems";
+import { MainNav, AboutNav, AdminNav } from "./NavItems";
+
+import { IoIosInformationCircleOutline, IoIosCog } from "react-icons/io";
+
+import { GiAtom } from "react-icons/gi";
+
+import { GoMailRead } from "react-icons/go";
+
+import { SiGooglecalendar, SiShopify } from "react-icons/si";
+
+import { GiPaintBrush } from "react-icons/gi";
+
+import { Link } from "react-router-dom";
+
+import { VscAccount } from "react-icons/vsc";
 
 class Nav extends Component {
   state = {};
@@ -23,18 +30,166 @@ class Nav extends Component {
   render() {
     return (
       <Fragment>
-        <h5 className="app-sidebar__heading">Navi</h5>
-        <MetisMenu content={MainNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
-          className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
-
-        <h5 className="app-sidebar__heading">About</h5>
-        <MetisMenu content={AboutNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
-          className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
-
-        <h5 className="app-sidebar__heading">Account</h5>
-        <MetisMenu content={AdminNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
-          className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
-{/* 
+        <h5 className="app-sidebar__heading">Index</h5>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/home">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="metismenu-item"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <svg className="spin" height="25px" width="25px">
+                  <GiAtom />
+                </svg>
+                &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                Homepage
+              </span>
+            </button>
+          </h4>
+        </Link>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/calendar">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="metismenu-item"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <SiGooglecalendar />
+                &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                Schedule
+              </span>
+            </button>
+          </h4>
+        </Link>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/gallery">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="metismenu-item"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <GiPaintBrush />
+                &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                Artwork
+              </span>
+            </button>
+          </h4>
+        </Link>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/shop">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="spin"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <SiShopify />
+                &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                E-Shop
+              </span>
+            </button>
+          </h4>
+        </Link>
+        <br />
+        <h3 className="app-sidebar__heading">Info</h3>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/services">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="metismenu-item"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <svg className="spin" height="25px" width="25px">
+                  <IoIosCog />
+                </svg>
+                &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                Services
+              </span>
+            </button>
+          </h4>
+        </Link>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/projects">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="metismenu-item"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <IoIosInformationCircleOutline />
+                &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                About
+              </span>
+            </button>
+          </h4>
+        </Link>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/contact">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="metismenu-item"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <GoMailRead /> &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                Contact
+              </span>
+            </button>
+          </h4>
+        </Link>{" "}
+        <br /> <h5 className="app-sidebar__heading">Account</h5>
+        <Link onClick={this.toggleMobileSidebar} to="/dashboards/account">
+          <h4>
+            <button className="gradientBtn" style={{ width: "100%" }}>
+              <span
+                className="metismenu-item"
+                style={{ position: "relative", top: "-3px" }}
+              >
+                <VscAccount />
+                &nbsp;
+              </span>
+              <span
+                className="sidebarLinks"
+                style={{ position: "relative", top: "1px" }}
+              >
+                Login
+              </span>
+            </button>
+          </h4>
+        </Link>
+        {/* 
         <h5 className="app-sidebar__heading">Forms</h5>
         <MetisMenu content={FormsNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
           className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
@@ -42,7 +197,8 @@ class Nav extends Component {
         <h5 className="app-sidebar__heading">Charts</h5>
         <MetisMenu content={ChartsNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
           className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
-   */}   </Fragment>
+   */}{" "}
+      </Fragment>
     );
   }
 

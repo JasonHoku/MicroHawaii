@@ -73,7 +73,7 @@ export default class ShopPage extends Component {
   }
   // Fetch Initial Set of Products from external API
   getProducts() {
-    let url = "./products.json";
+    let url = "/products.json";
     axios.get(url).then((response) => {
       this.setState({
         products: response.data,
@@ -242,7 +242,7 @@ export default class ShopPage extends Component {
                   offer.
                 </span>
                 <br />
-                <br /> <a href="/#/dashboards/contact">Questions?</a>
+                <br /> <a href="/dashboards/contact">Questions?</a>
               </CardTitle>
             </Card>
           </center>
@@ -285,11 +285,11 @@ export default class ShopPage extends Component {
             <CardBody style={{ textAlign: "left", fontSize: "120%" }}>
               <li>
                 If you have any questions please use the{" "}
-                <a href="#/dashboards/contact"> contact form.</a>
+                <a href="/dashboards/contact"> contact form.</a>
               </li>{" "}
               <br />
               <li>
-                <a href="#/dashboards/services">The services page</a> has more
+                <a href="/dashboards/services">The services page</a> has more
                 information about skillsets.
               </li>
             </CardBody>

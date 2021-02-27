@@ -9,7 +9,9 @@ import { Route } from "react-router-dom";
 
 import * as serviceWorker from "./serviceWorker";
 
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
+
 import "./App.scss";
 import Main from "./Pages/Main";
 import configureStore from "./config/configureStore";
@@ -25,11 +27,10 @@ const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
+    <Router>
       <Main />
       <CheckVersions />
-      <Route path="/connect/google/redirect" component={LoginRedirect} />
-    </HashRouter>
+    </Router>
   </Provider>,
   rootElement
 );

@@ -189,7 +189,7 @@ class PaypalButton extends Component {
         </li>
       );
     });
-    if (window.location.hash === "#/dashboards/account") {
+    if (window.location.hash === "/dashboards/account") {
       return (
         <center>
           <Card style={{ width: "13rem" }}>
@@ -198,7 +198,7 @@ class PaypalButton extends Component {
             <strong> Total: ${(Pro2 = this.props.total)}</strong>
             <p></p>
             {this.state.cart.map((product) => {
-              if (window.location.hash === "#/dashboards/account") {
+              if (window.location.hash === "/dashboards/account") {
                 return null;
               } else {
                 return (
@@ -266,7 +266,7 @@ class PaypalButton extends Component {
             <strong> Total: ${(Pro2 = this.props.total)}</strong>
             <p></p>
             {this.state.cart.map((product) => {
-              if (window.location.hash === "#/dashboards/account") {
+              if (window.location.hash === "/dashboards/account") {
                 return null;
               } else {
                 return (

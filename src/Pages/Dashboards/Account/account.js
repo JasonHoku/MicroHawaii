@@ -427,7 +427,7 @@ function AccountElements() {
                   <Button
                     onClick={(e) => {
                       window.location.href =
-                        "https://MicroHawaii.com/#/dashboards/contact";
+                        "https://MicroHawaii.com/dashboards/contact";
                     }}
                   >
                     {" "}
@@ -437,7 +437,7 @@ function AccountElements() {
                   <Button
                     onClick={(e) => {
                       window.location.href =
-                        "https://MicroHawaii.com/#/dashboards/services";
+                        "https://MicroHawaii.com/dashboards/services";
                     }}
                   >
                     {" "}

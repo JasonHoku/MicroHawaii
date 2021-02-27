@@ -2,8 +2,8 @@
 User-agent: *
 Disallow: /3D/
 Disallow: /assets/
-Allow: /#/dashboards/home
-Allow: /#/dashboards/services
-Allow: /#/dashboards/shop
-Allow: /#/dashboards/gallery
+Allow: /dashboards/home
+Allow: /dashboards/services
+Allow: /dashboards/shop
+Allow: /dashboards/gallery
 Sitemap: https://www.MicroHawaii.com/sitemap.xml

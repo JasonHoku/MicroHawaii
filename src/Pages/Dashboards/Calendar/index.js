@@ -53,7 +53,7 @@ export default class CalendarPage extends Component {
                 >
                   <p>
                     Reach out through the{" "}
-                    <a href="/#/dashboards/contact">contact page</a> to reserve
+                    <a href="/dashboards/contact">contact page</a> to reserve
                     a meeting.
                   </p>
                 </CardBody>
