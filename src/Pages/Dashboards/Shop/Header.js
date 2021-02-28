@@ -118,7 +118,7 @@ class Header extends Component {
           <div className="brand">
             <img
               className="logo"
-              src="./images/logo.png"
+              src="/images/logo.png"
               alt="Veggy Brand Logo"
             />
           </div>
@@ -195,7 +195,7 @@ class Header extends Component {
             >
               <img
                 className={this.props.cartBounce ? "tada" : " "}
-                src="./images/cart.png"
+                src="/images/cart.png"
                 alt="Cart"
               />
               {this.props.totalItems ? (
@@ -214,7 +214,7 @@ class Header extends Component {
               <div className="action-block" >
                 <form action="#">
                   <button onClick={this.handleClick.bind(this)} type="button">
-                 <strong  style={{ color: "black" }}> CHECKOUT </strong><small> powered by </small><img src="./images/paylogo.svg" width="20"></img> <img src="./images/paypal.svg" width="80"></img>   </button>
+                 <strong  style={{ color: "black" }}> CHECKOUT </strong><small> powered by </small><img src="/images/paylogo.svg" width="20"></img> <img src="/images/paypal.svg" width="80"></img>   </button>
                 </form>
               </div>
             </div>

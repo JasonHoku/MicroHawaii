@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
-import scriptLoader from 'react-async-script-loader';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import scriptLoader from "react-async-script-loader";
+import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import classnames from "classnames";
 import ReactTable from "react-table";
-import { Route } from 'react-router-dom';
- 
+import { Route } from "react-router-dom";
+
 import {
   Row,
   Col,
@@ -52,12 +52,10 @@ import { Sparklines, SparklinesCurve } from "react-sparklines";
 
 import { makeData } from "../../Tables/DataTables/Examples/utils";
 
-
 const CLIENT = {
   sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
   production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
 };
-
 
 export default class WritingElements extends Component {
   constructor(props) {
@@ -87,21 +85,24 @@ export default class WritingElements extends Component {
   }
 
   render() {
-
-
     const { data } = this.state;
 
     return (
-
-
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation"
-          transitionAppear={true} transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
-
-         <iframe width="700" height="800" src="./IndividualIntelligence.html"></iframe>
-  
+        <CSSTransitionGroup
+          component="div"
+          transitionName="TabsAnimation"
+          transitionAppear={true}
+          transitionAppearTimeout={0}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
+          <iframe
+            width="700"
+            height="800"
+            src="/IndividualIntelligence.html"
+          ></iframe>
         </CSSTransitionGroup>
-        
       </Fragment>
     );
   }

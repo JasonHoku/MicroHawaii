@@ -69,13 +69,13 @@ class MegaMenu extends React.Component {
                         Main Portals
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/home/">
+                        <NavLink href="/dashboards/home/">
                           <i className="nav-link-icon  fa fa-home"> </i>
                           <span>Home</span>
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/services/">
+                        <NavLink href="/dashboards/services/">
                           <i className="nav-link-icon fa fa-question-circle-o">
                             {" "}
                           </i>
@@ -84,13 +84,13 @@ class MegaMenu extends React.Component {
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/shop/">
+                        <NavLink href="/dashboards/shop/">
                           <i className="nav-link-icon fa fa-shopping-cart"> </i>
                           <span>Shop</span>
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/contact/">
+                        <NavLink href="/dashboards/contact/">
                           <i className="nav-link-icon fa fa-envelope"> </i>
                           <span>Contact</span>
                         </NavLink>
@@ -101,25 +101,25 @@ class MegaMenu extends React.Component {
                     <Nav vertical>
                       <NavItem className="nav-item-header">Favorites</NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/gallery/">
+                        <NavLink href="/dashboards/gallery/">
                           <i className="nav-link-icon fa fa-picture-o"> </i>
                           Visual Arts
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/music/">
+                        <NavLink href="/dashboards/music/">
                           <i className="nav-link-icon fa fa-music"> </i>
                           Audio Arts
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/writing/">
+                        <NavLink href="/dashboards/writing/">
                           {" "}
                           <i className="nav-link-icon fa fa-pencil"> </i>Writing
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/projects/">
+                        <NavLink href="/dashboards/projects/">
                           {" "}
                           <i className="nav-link-icon fa fa-code"> </i>Game
                           Development
@@ -136,13 +136,13 @@ class MegaMenu extends React.Component {
                         Services &amp; Information
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/services/">
+                        <NavLink href="/dashboards/services/">
                           <i className="nav-link-icon fa fa-magic"> </i>
                           Professional Services{" "}
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href=".//dashboards/projects/">
+                        <NavLink href="/dashboards/projects/">
                           {" "}
                           <i className="nav-link-icon fa fa-users"> </i>Projects
                         </NavLink>

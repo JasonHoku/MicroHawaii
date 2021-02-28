@@ -186,7 +186,7 @@ strong {
 #showcase {
   text-align: center; }
   #showcase .container {
-    background: url(../images/background-paralax.jpg) #1a1a1a;
+    background: url(./images/background-paralax.jpg) #1a1a1a;
     background-position: top center;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -94,7 +94,7 @@ class LandingPage extends React.Component {
           >
             <div>
               <h1>
-                <a style={{ color: "white" }} href="./dashboards/home">
+                <a style={{ color: "white" }} href="/dashboards/home">
                   MicroHawaii.com
                 </a>
               </h1>

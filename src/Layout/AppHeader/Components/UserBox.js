@@ -129,7 +129,7 @@ class UserBox extends React.Component {
                                 size="sm"
                                 className="btn-wide"
                                 color="primary"
-                                href=".//dashboards/contact"
+                                href="/dashboards/contact"
                               >
                                 Contact
                               </Button>
