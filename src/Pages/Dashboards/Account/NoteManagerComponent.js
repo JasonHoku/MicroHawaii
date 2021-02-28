@@ -57,7 +57,6 @@ function NoteManagerComponent() {
 
   const [file, setFile] = useState(null);
 
-
   return (
     <Fragment>
       <Card>
@@ -200,6 +199,7 @@ function ChatRoom() {
             placeholder="Add a note"
           />
           <button
+            style={{ height: "100%" }}
             className="buttonchat"
             type="submit"
             disabled={!formValue}
@@ -214,15 +214,12 @@ function ChatRoom() {
 function ChatMessage(props) {
   const { text, uid, photoURL } = props.message;
 
-  const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
+  const messageClass = uid === auth.currentUser.uid ? "sent" : "sent";
 
   return (
     <>
       <div className={`message ${messageClass}`}>
-        <img
-          className="imgchat"
-          src={photoURL || "./images/smallsquare3.png"}
-        />
+        <img className="imgchat" src={photoURL || "/logo.png"} />
         <p className="pchat">{text}</p>
       </div>
     </>

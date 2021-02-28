@@ -1,5 +1,5 @@
 import React, { Component, Fragment, useEffect } from "react";
-import { gql, useQuery } from "@apollo/client";
+
 import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
 import { Query, ApolloProvider, Mutation } from "react-apollo";
 

@@ -1,13 +1,4 @@
-/* This is an example snippet - you should consider tailoring it
-to your service.
-*/
-/*
-  Add these to your `package.json`:
-    "apollo-boost": "^0.3.1",
-    "graphql": "^14.2.1",
-    "graphql-tag": "^2.10.0",
-    "react-apollo": "^2.5.5"
-*/
+
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import firebase from "firebase/app";
