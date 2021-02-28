@@ -37,6 +37,7 @@ main::-webkit-scrollbar-thumb {
   width: 100%;
   max-width: 728px;
   display: inline-block;
+  border-radius: 25px;
   font-size: 1.5rem;
 }
 
@@ -54,15 +55,12 @@ main::-webkit-scrollbar-thumb {
 }
 
 .buttonchat {
-  background-color: #13460c; /* Green */
   border: none;
   color: white;
-  display: inline-block;
   position: relative;
   bottom: 25px;
   cursor: pointer;
   font-size: 1.25rem;
-  height: "110%";
   width: 20%;
   background-color: rgb(56, 56, 143);
 }
