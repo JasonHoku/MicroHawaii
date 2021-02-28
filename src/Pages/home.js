@@ -6,6 +6,7 @@ import "../Layout/AppHeader/Components/analytics";
 import "firebase/storage";
 import "firebase/firestore";
 import firebase from "firebase/app";
+import {Helmet} from "react-helmet";
 
 class LandingPage extends React.Component {
   constructor(props) {

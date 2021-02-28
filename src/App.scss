@@ -136,7 +136,7 @@ div.card {
   flex-direction: column;
   align-items: center;
   padding-left: 15px;
-  opacity: 0.95;
+  opacity: 0.9;
   transition: opacity 5s;
   padding-right: 15px;
   justify-content: center;
@@ -149,13 +149,12 @@ div.card {
   -o-animation: fadein 5s; /* Opera < 12.1 */
   animation: fadein 5s;
 }
-
 @keyframes fadein {
   from {
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
@@ -165,7 +164,7 @@ div.card {
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
@@ -175,7 +174,7 @@ div.card {
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
@@ -190,7 +189,7 @@ div.card {
 
 @-webkit-keyframes fadeOut {
   0% {
-    opacity: 1;
+    opacity: 0.9;
   }
   100% {
     opacity: 0;
@@ -199,7 +198,7 @@ div.card {
 
 @keyframes fadeOut {
   0% {
-    opacity: 1;
+    opacity: 0.9;
   }
   100% {
     opacity: 0;
@@ -280,6 +279,8 @@ div.card {
 
 .gradientBtn {
   border-radius: 10px;
+  display: inline-block;
+  white-space: nowrap;
   transition: 1s;
   background: transparent;
   color: black;

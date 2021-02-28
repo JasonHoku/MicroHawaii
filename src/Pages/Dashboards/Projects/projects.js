@@ -150,51 +150,63 @@ export default class ProjectElements extends Component {
                     <a
                       style={{
                         textDecorationLine: "none",
+                        marginTop: "5px",
                       }}
-                      href="https://www.facebook.com/microHawaii"
+                      href="https://www.facebook.com/PrettyCoolPattern"
                     >
                       {<ImFacebook size="50px" />}
+                      2k
                     </a>
-                    2k &nbsp; &nbsp;&nbsp;
+                    &nbsp; &nbsp;&nbsp;
                     <a
                       style={{
                         textDecorationLine: "none",
+                        marginTop: "5px",
                       }}
                       href="https://www.instagram.com/jasonlevien/"
                     >
                       {<ImInstagram size="50px" />}
+                      14k{" "}
                     </a>
-                    14k &nbsp; &nbsp;&nbsp;
+                    &nbsp; &nbsp;&nbsp;
                     <a
                       style={{
                         textDecorationLine: "none",
+                        marginTop: "5px",
                       }}
                       href="https://www.youtube.com/JasonLevien808"
                     >
                       {<ImYoutube size="50px" />}
+                      170{" "}
                     </a>
-                    170 &nbsp; &nbsp;&nbsp;
+                    &nbsp; &nbsp;&nbsp;
                     <a
                       style={{
                         textDecorationLine: "none",
+                        marginTop: "5px",
                       }}
                       href="https://twitter.com/JasonHoku"
                     >
                       {<ImTwitter size="50px" />}
+                      6k{" "}
                     </a>
-                    6k &nbsp; &nbsp;&nbsp;
+                    &nbsp; &nbsp;&nbsp;
                     <a
                       style={{
                         textDecorationLine: "none",
+                        marginTop: "5px",
                       }}
                       href="https://discord.gg/fjV4yg7TWd"
                     >
                       {<FaDiscord size="50px" />}
+                      200
                     </a>
-                    200&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <a
                       style={{
                         textDecorationLine: "none",
+                        marginTop: "5px",
+                        marginTop: "5px",
                       }}
                       href="https://www.linkedin.com/in/jasonlevien/"
                     >
@@ -204,6 +216,7 @@ export default class ProjectElements extends Component {
                     <a
                       style={{
                         textDecorationLine: "none",
+                        marginTop: "5px",
                       }}
                       href="https://github.com/JasonHoku"
                     >
@@ -297,7 +310,7 @@ export default class ProjectElements extends Component {
           <Card
             alignContent="center"
             style={{
-              width: "60%",
+              width: "100%",
               alignContent: "center",
               alignItems: "center",
               justifyContent: "center",
@@ -306,7 +319,7 @@ export default class ProjectElements extends Component {
             <CardHeader>
               {" "}
               <a href="https://github.com/JasonHoku">
-                Open-Source Contribution Activity:
+                GitHub Contribution Activity:
               </a>
             </CardHeader>
             <CardBody>
@@ -318,16 +331,14 @@ export default class ProjectElements extends Component {
           </Card>
           <br />
 
-          <Row>
-            <Col xs="auto" sm="auto" md="auto" xl="auto">
-              <Card>
-                <CardBody>
-                  For now you can find more about MicroHawaii skillsets on the{" "}
-                  <a href="/dashboards/services">services</a> page.
-                  <br></br>
-                </CardBody>
-              </Card>
-            </Col>
+          <Row style={{ justifyContent: "center" }}>
+            <Card>
+              <CardBody>
+                For now you can find more about MicroHawaii skillsets on the{" "}
+                <a href="/dashboards/services">services</a> page.
+                <br></br>
+              </CardBody>
+            </Card>
           </Row>
           <Row></Row>
           <br></br>

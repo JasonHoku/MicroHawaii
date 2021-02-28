@@ -36,12 +36,12 @@ class Nav extends Component {
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="metismenu-item"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
                 <svg className="spin" height="25px" width="25px">
                   <GiAtom />
                 </svg>
-                &nbsp;
+                &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"
@@ -57,10 +57,10 @@ class Nav extends Component {
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="metismenu-item"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
                 <SiGooglecalendar />
-                &nbsp;
+                &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"
@@ -76,10 +76,10 @@ class Nav extends Component {
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="metismenu-item"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
                 <GiPaintBrush />
-                &nbsp;
+                &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"
@@ -95,10 +95,10 @@ class Nav extends Component {
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="spin"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
                 <SiShopify />
-                &nbsp;
+                &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"
@@ -109,19 +109,18 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>
-        <br />
         <h3 className="app-sidebar__heading">Info</h3>
         <Link onClick={this.toggleMobileSidebar} to="/dashboards/services">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="metismenu-item"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
                 <svg className="spin" height="25px" width="25px">
                   <IoIosCog />
                 </svg>
-                &nbsp;
+                &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"
@@ -137,10 +136,10 @@ class Nav extends Component {
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="metismenu-item"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
                 <IoIosInformationCircleOutline />
-                &nbsp;
+                &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"
@@ -156,9 +155,9 @@ class Nav extends Component {
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="metismenu-item"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
-                <GoMailRead /> &nbsp;
+                <GoMailRead /> &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"
@@ -169,16 +168,16 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>{" "}
-        <br /> <h5 className="app-sidebar__heading">Account</h5>
+        <h5 className="app-sidebar__heading">Account</h5>
         <Link onClick={this.toggleMobileSidebar} to="/dashboards/account">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
                 className="metismenu-item"
-                style={{ position: "relative", top: "-3px" }}
+                style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
                 <VscAccount />
-                &nbsp;
+                &nbsp;&nbsp;&nbsp;
               </span>
               <span
                 className="sidebarLinks"

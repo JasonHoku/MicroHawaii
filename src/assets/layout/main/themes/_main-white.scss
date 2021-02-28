@@ -2,23 +2,21 @@
 
 // Variables
 
-$app-container-bg:  rgb(251, 251, 251);
+$app-container-bg: rgb(251, 251, 251);
 $app-sidebar-bg: rgb(255, 255, 255);
-$app-header-bg:  rgba(255, 255, 255, 0.993);
+$app-header-bg: rgba(255, 255, 255, 0.993);
 $app-header-logo-bg: rgba(251, 251, 251, 0.966);
 
 // Content
 
 .app-theme-white {
-
   &.app-container {
     background: $app-container-bg;
- 
   }
 
   .app-sidebar {
     background: $app-sidebar-bg;
-    opacity: 0.9
+    opacity: 0.98;
   }
 
   .app-page-title {
@@ -28,13 +26,14 @@ $app-header-logo-bg: rgba(251, 251, 251, 0.966);
 
   .app-footer .app-footer__inner,
   .app-header {
-    background: $app-header-bg;opacity: 0.95;
+    background: $app-header-bg;
+    opacity: 0.99;
   }
 
   &.fixed-header {
     .app-header__logo {
-      background: rgba($app-header-bg, .1);opacity: 0.95;
+      background: rgba($app-header-bg, 0.1);
+      opacity: 0.95;
     }
   }
-
 }
