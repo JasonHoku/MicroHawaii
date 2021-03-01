@@ -241,11 +241,25 @@ div.card {
   }
 }
 
-@media screen and (max-width: 500px) and (min-width: 400px) {
+@media screen and (max-width: 452px) and (min-width: 400px) {
   .ModeratorBackground {
-    width: 105%;
+    width: 107%;
     position: relative;
-    left: -15px;
+    left: -14px;
+  }
+}
+@media screen and (max-width: 475px) and (min-width: 452px) {
+  .ModeratorBackground {
+    width: 107%;
+    position: relative;
+    left: -14px;
+  }
+}
+@media screen and (max-width: 492px) and (min-width: 475px) {
+  .ModeratorBackground {
+    width: 106%;
+    position: relative;
+    left: -14px;
   }
 }
 

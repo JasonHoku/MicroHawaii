@@ -79,7 +79,7 @@ export default class GalleryElements extends Component {
               rel="canonical"
               href="https://microhawaii.com/dashboards/home"
             />
-            </Helmet>
+          </Helmet>
           <Row
             style={{
               alignContent: "center",
@@ -110,13 +110,11 @@ export default class GalleryElements extends Component {
             <Col width="100%" style={{ maxWidth: "750px" }}>
               <Card>
                 <CardBody>
-                  <p>
-                    <h4>
-                      {" "}
-                      An image is said to contain a thousand words, but how
-                      should one contain a thousand images?
-                    </h4>
-                  </p>{" "}
+                  <h4>
+                    {" "}
+                    An image is said to contain a thousand words, but how should
+                    one contain a thousand images?
+                  </h4>
                   <center>
                     <CarouselBSExample />
                   </center>
@@ -125,12 +123,10 @@ export default class GalleryElements extends Component {
                     <br /> 100 Random Selects <br />
                     <br />
                   </center>
-                  <p>
-                    <h5>
-                      MicroHawaii has produced over 1,200 logos, icons,
-                      textures, and graphics.
-                    </h5>
-                  </p>{" "}
+                  <h5>
+                    MicroHawaii has produced over 1,200 logos, icons, textures,
+                    and graphics.
+                  </h5>
                   <p>Here rests a collection of some, growing over time.</p>{" "}
                 </CardBody>
               </Card>
@@ -170,16 +166,15 @@ export default class GalleryElements extends Component {
             </Col>
 
             <Col style={{ marginTop: "15px" }} xs="7" sm="4" md="4" xl="5">
-              <a href="/dashboard/contact">
+              <CardLink href="/dashboards/contact">
                 <Card>
                   <CardHeader>Contact</CardHeader>
                   <CardBody>
                     For commission inquiries, suggestions or commentary reach
-                    out through the{" "}
-                    <a href="/dashboard/contact"> contact page.</a>
+                    out through the contact page.
                   </CardBody>
                 </Card>
-              </a>
+              </CardLink>
             </Col>
           </Row>
           <br></br>

@@ -237,12 +237,14 @@ export default class ContactElements extends Component {
                     &nbsp; For any inquirines, comments, concerns or critique,
                     please use this simple form or reach out through the contact
                     method listed here.
-                    <p />
-                    <br />
+                  </p>
+                  <br />
+                  <p style={{ textAlign: "center" }}>
                     Jason Hoku Levien <br />
                     <a href="mailto:admin@MicroHawaii.com">
-                      admin@MicroHawaii.com <br />
+                      admin@MicroHawaii.com
                     </a>
+                    <br />
                     (808)385-1775
                   </p>
                   <span id="contactFormThanks" hidden>

@@ -399,11 +399,9 @@ function ModeratorElements() {
             <br />
             <br />
             <Row style={{ justifyContent: "center" }}>
-              <Row>
-                {" "}
+              
                 <Card
                   style={{
-                    width: "auto",
                     boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                     alignContent: "center",
                     height: "100%",
@@ -411,6 +409,7 @@ function ModeratorElements() {
                     marginBottom: "-10px",
                     marginLeft: "25px",
                     marginRight: "25px",
+                    padding: 0,
                     alignItems: "center",
                   }}
                 >
@@ -419,6 +418,7 @@ function ModeratorElements() {
                       justifyContent: "center",
                       alignSelf: "center",
                       marginBottom: "-15px",
+                      padding: "0",
                     }}
                   >
                     <h4>Main Website Tools:</h4>
@@ -716,7 +716,6 @@ function ModeratorElements() {
                     <br />
                   </span>
                 </Card>
-              </Row>
               <TabPane
                 className="ponoTitle"
                 tabId="1"
