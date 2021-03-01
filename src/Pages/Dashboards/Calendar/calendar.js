@@ -38,6 +38,7 @@ export default class Calendar extends React.Component {
     const { schedules = [], view } = this.props;
 
     this.calendarInst = new TuiCalendar(this.rootEl.current, {
+      usageStatistics: false,
       ...this.props,
       defaultView: view,
     });
@@ -142,6 +143,10 @@ export default class Calendar extends React.Component {
   }
 
   bindEventHandlers = (props) => {
+    this.calendarInst.on('clickSchedule', function(event) {
+    console.log(event.event.target)
+    });
+
     const eventHandlerNames = Object.keys(props).filter((key) =>
       /^on[A-Z][a-zA-Z]+/.test(key)
     );

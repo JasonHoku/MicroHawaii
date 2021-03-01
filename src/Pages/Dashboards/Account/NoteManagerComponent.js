@@ -218,7 +218,7 @@ function NoteManagerComponent() {
             type="textarea"
             onChange={(e) => setFormValue(e.target.value)}
             placeholder="Add a note"
-          />
+          />&nbsp;
           <Button
             color="primary"
             style={{ height: "100%", minWidth: "75px" }}
