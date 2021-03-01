@@ -9,6 +9,7 @@ import emailjs from "emailjs-com";
 import { init } from "emailjs-com";
 
 import PaypalExpressBtn from "react-paypal-express-checkout";
+import { Helmet } from "react-helmet";
 
 import {
   Row,
@@ -83,6 +84,7 @@ export default class ContactElements extends Component {
     this.state = {
       activeTab2: "222",
       activeTab1: "11",
+      infoCLI: [],
       formName: "",
       formEmail: "",
       formMessage: "",
@@ -113,6 +115,39 @@ export default class ContactElements extends Component {
   }
 
   componentDidMount() {
+    let latitude;
+    let longitude;
+    const location = window.navigator && window.navigator.geolocation;
+
+    if (location) {
+      location.getCurrentPosition((position) => {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+      });
+    }
+
+    this.state.infoCLI = JSON.stringify({
+      timeOpened: new Date(),
+      timezone: new Date().getTimezoneOffset() / 60,
+      pageon: window.location.pathname,
+      referrer: document.referrer,
+      previousSites: window.history.length,
+      browserName: window.navigator.appName,
+      browserEngine: window.navigator.product,
+      browserVersion1a: window.navigator.appVersion,
+      browserVersion1b: navigator.userAgent,
+      browserLanguage: navigator.language,
+      browserOnline: navigator.onLine,
+      browserPlatform: navigator.platform,
+      sizeScreenW: window.screen.width,
+      sizeScreenH: window.screen.height,
+      sizeInW: window.innerWidth,
+      sizeInH: window.innerHeight,
+      sizeAvailW: window.screen.availWidth,
+      sizeAvailH: window.screen.availHeight,
+      latitude,
+      longitude,
+    });
     this.setState({ isLoading: true });
 
     fetch("https://api.ipify.org")
@@ -137,13 +172,10 @@ export default class ContactElements extends Component {
       document.getElementById("contactFormButton").disabled = false;
     } else {
       var templateParams = {
-        name: `HokuBot: ${CLIIP}`,
-        message: `Contact Form Submission From SubmittedFormName: ${formName}  Message: ${formMessage}`,
-        message2:
-          ` SubmittedEmail: ${formEmail} || ID: ${CLIIP}` +
-          window.location.href,
+        name: `MicroHawaii | Contact From: ${CLIIP}`,
+        message: `FormName: ${formName} FormEmail: ${formEmail} +  Message: ${formMessage}`,
+        message2: `ClientInfo: ${CLIIP} :: ${this.state.infoCLI}`,
       };
-
       emailjs.send(EJSSERVICE, EJSTEMPLATE, templateParams).then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
@@ -167,6 +199,18 @@ export default class ContactElements extends Component {
 
     return (
       <Fragment>
+        <Helmet>
+          <title>MicroHawaii.com Contact Tool</title>
+          <meta
+            name="description"
+            content="Easily make contact with MicroHawaii administration."
+          />
+          <meta name="theme-color" content="#008f68" />
+          <link
+            rel="canonical"
+            href="https://microhawaii.com/dashboards/contact"
+          />
+        </Helmet>
         <CSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
@@ -183,104 +227,89 @@ export default class ContactElements extends Component {
             >
               <Card
                 style={{
+                  width: "24rem",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                 }}
               >
-                <CardHeader>Contact</CardHeader>
-                <CardBody
-                  style={{
-                    textAlign: "center",
-                  }}
-                >
+                <CardHeader>Contact MicroHawaii.</CardHeader>
+                <CardBody>
                   <p>
-                    <h3>
-                      {" "}
-                      &nbsp; For all inquiries, comments or concerns, please use
-                      this form or reach out or through the methods listed
-                      below.
-                    </h3>{" "}
+                    &nbsp; For any inquirines, comments, concerns or critique,
+                    please use this simple form or reach out through the contact
+                    method listed here.
+                    <p />
+                    <br />
+                    Jason Hoku Levien <br />
+                    <a href="mailto:admin@MicroHawaii.com">
+                      admin@MicroHawaii.com <br />
+                    </a>
+                    (808)385-1775
                   </p>
-                  Jason Hoku Levien <br />
-                  <a href="mailto:info@MicroHawaii.com">
-                    info@MicroHawaii.com <br />
-                  </a>
-                  (808)385-1775
                   <span id="contactFormThanks" hidden>
-                    {" "}
                     Thank you for your submission! A response can be expected in
                     0-3 days.
                   </span>
                   <br />
-                  <br />
-                  <Form style={{ textAlign: "left" }} id="contactFormID">
-                    <br />
-                    <FormGroup>
+                  <Form id="contactFormID">
+                    <FormGroup row>
                       <Label for="examplePassword" sm={3}>
-                        <CardTitle>
-                          <b>Name</b>
-                        </CardTitle>
+                        Name
                       </Label>
-                      <Input
-                        type="input"
-                        style={{ width: "200px" }}
-                        name="formName"
-                        value={this.state.formName}
-                        onChange={this.handleInputChange}
-                        id="formName"
-                        placeholder="Who's inquiring?"
-                      />
+                      <Col sm={8}>
+                        <Input
+                          type="input"
+                          style={{ width: "265px" }}
+                          name="formName"
+                          value={this.state.formName}
+                          onChange={this.handleInputChange}
+                          id="formName"
+                          placeholder="Who's inquiring?"
+                        />
+                      </Col>
                     </FormGroup>
-                    <FormGroup>
+                    <br />{" "}
+                    <FormGroup row>
                       <Label for="exampleEmail" sm={3}>
-                        <CardTitle>
-                          <b>Email</b>
-                        </CardTitle>
+                        Email
                       </Label>
-                      <Input
-                        style={{ width: "200px" }}
-                        type="formEmail"
-                        name="formEmail"
-                        value={this.state.formEmail}
-                        onChange={this.handleInputChange}
-                        id="formEmail"
-                        placeholder="How to best reach you?"
-                      />
+                      <Col sm={8}>
+                        <Input
+                          style={{ width: "265px" }}
+                          type="formEmail"
+                          name="formEmail"
+                          value={this.state.formEmail}
+                          onChange={this.handleInputChange}
+                          id="formEmail"
+                          placeholder="How to best reach you?"
+                        />
+                      </Col>
                     </FormGroup>
-                    <FormGroup height="605px">
+                    <br />
+                    <FormGroup row height="1005px">
                       <Label for="formMessage" sm={3}>
-                        <CardTitle
-                          style={{
-                            marginRight: "-15px",
-                            marginLeft: "-15px",
-                            position: "absolute",
-                            top: "-55px",
-                          }}
-                        >
-                          <b>Message</b>
-                        </CardTitle>
+                        Info:
                       </Label>
-                      <Input
-                        type="textarea"
-                        name="formMessage"
-                        value={this.state.formMessage}
-                        onChange={this.handleInputChange}
-                        id="formMessage"
-                        style={{ width: "270px", height: "120px" }}
-                        placeholder="What's Up?"
-                      />
+                      <Col sm={8}>
+                        <Input
+                          type="textarea"
+                          name="formMessage"
+                          value={this.state.formMessage}
+                          onChange={this.handleInputChange}
+                          id="formMessage"
+                          style={{ width: "265px", height: "170px" }}
+                        />
+                      </Col>
                     </FormGroup>
                     <br />
                     <center>
                       <FormGroup check row>
                         <Col sm={{ size: 12 }}>
                           <Button
-                          color="success"
-                            style={{ height: "75px", width: "150px" }}
                             id="contactFormButton"
                             disabled={false}
                             onClick={this.submitContact}
                           >
-                            Send
+                            Submit
                           </Button>
                         </Col>
                       </FormGroup>

@@ -1,8 +1,6 @@
 import React, { Fragment, lazy } from "react";
 import { Route } from "react-router-dom";
 
-// Pages
-
 import Contact from "./Contact/";
 import ShopPage from "./Shop/";
 import GalleryPage from "./Gallery/";

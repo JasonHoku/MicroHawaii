@@ -4,6 +4,7 @@ import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { ImInstagram, ImYoutube, ImFacebook, ImTwitter } from "react-icons/im";
 import { FaDiscord, FaLinkedin, FaGithub } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 import {
   Row,
@@ -86,6 +87,18 @@ export default class ProjectElements extends Component {
 
     return (
       <Fragment>
+      <Helmet>
+        <title>MicroHawaii.com Networks</title>
+        <meta
+          name="description"
+          content="Find MicroHawaii's activity on various networks."
+        />
+        <meta name="theme-color" content="#008f68" />
+        <link
+          rel="canonical"
+          href="https://microhawaii.com/dashboards/projects"
+        />
+      </Helmet>
         <CSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
@@ -334,7 +347,7 @@ export default class ProjectElements extends Component {
           <Row style={{ justifyContent: "center" }}>
             <Card>
               <CardBody>
-                For now you can find more about MicroHawaii skillsets on the{" "}
+                Find more about MicroHawaii's provisions on the{" "}
                 <a href="/dashboards/services">services</a> page.
                 <br></br>
               </CardBody>

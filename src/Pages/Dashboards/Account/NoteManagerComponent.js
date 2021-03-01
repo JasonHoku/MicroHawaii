@@ -220,7 +220,7 @@ function NoteManagerComponent() {
           />
           <Button
             color="primary"
-            style={{ height: "100%" }}
+            style={{ height: "100%", minWidth: "75px" }}
             className="buttonchat"
             type="submit"
             disabled={!formValue}

@@ -6,7 +6,7 @@ import "../Layout/AppHeader/Components/analytics";
 import "firebase/storage";
 import "firebase/firestore";
 import firebase from "firebase/app";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -71,6 +71,11 @@ class LandingPage extends React.Component {
   render() {
     return (
       <Fragment>
+        <Helmet>
+          <title>MicroHawaii.com Home Page</title>
+          <meta name="description" content="Welcome to MicroHawaii." />
+          <link rel="canonical" href="https://microhawaii.com" />
+        </Helmet>
         <div
           id="fadeIn"
           className="landingContent "

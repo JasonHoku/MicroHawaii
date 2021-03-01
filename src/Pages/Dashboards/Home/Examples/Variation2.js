@@ -30,12 +30,14 @@ import {
 import avatar1 from "../../../../assets/utils/images/avatars/1.jpg";
 import servicespic from "../../../../assets/images/thumbs/services.webp";
 import aboutpic from "../../../../assets/images/thumbs/about.png";
-import shoppic from "../../../../assets/images/thumbs/shop.png";
+import shoppic from "../../../../assets/images/thumbs/shop.webp";
 import fireAd1 from "../../../../images/ads/FirePricing3.png";
 import fireAd2 from "../../../../images/ads/FirePricing2.png";
 import fireAd3 from "../../../../images/ads/FirePricing1.png";
 
 import Slideshow from "./HomeSlideshow";
+
+import { Helmet } from "react-helmet";
 
 export default class CRMDashboard2 extends Component {
   constructor(props) {
@@ -80,10 +82,18 @@ export default class CRMDashboard2 extends Component {
           transitionLeave={false}
         >
           <center>
-            <meta
-              name="description"
-              content="MicroHawaii.com, software development, e-commerce, education and services."
-            />
+            <Helmet>
+              <title>MicroHawaii.com Dashboard: Unleash Your Web</title>
+              <meta
+                name="description"
+                content="Software development, e-commerce, education, training, tools and services."
+              />
+              <meta name="theme-color" content="#008f68" />
+              <link
+                rel="canonical"
+                href="https://microhawaii.com/dashboards/home"
+              />
+            </Helmet>
             <Row>
               <Col
                 mx-auto="true"
@@ -382,7 +392,7 @@ export default class CRMDashboard2 extends Component {
                     <div className="menu-header-content">
                       <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                         <div className="avatar-icon">
-                          <img src="/images/logo2.png" alt="Avatar 5" />
+                          <img src="/logo192.png" alt="Avatar 5" />
                         </div>
                       </div>
                       <div>
@@ -463,7 +473,7 @@ export default class CRMDashboard2 extends Component {
                       <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                         <div className="avatar-icon">
                           <img
-                            src="/images/mauiartprintslogo.jpg"
+                            src="/images/mauiartprintslogo.webp"
                             alt="Avatar 5"
                           />
                         </div>

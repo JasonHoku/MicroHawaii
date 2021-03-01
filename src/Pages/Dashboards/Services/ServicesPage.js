@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+import { Helmet } from "react-helmet";
 
 import {
   Row,
@@ -107,6 +108,17 @@ export default class CRMDashboard2 extends Component {
                     */}
 
           <Row>
+            <Helmet>
+              <title>MicroHawaii.com Services Page</title>
+              <meta
+                name="description"
+                content="Discover and inquire about services and provisions from MicroHawaii."
+              />
+              <link
+                rel="canonical"
+                href="https://microhawaii.com/dashboards/services"
+              />
+            </Helmet>
             <Col>
               <Card className="col-md- opacity-9 ">
                 <CardHeader className="card-header-tab">
@@ -143,9 +155,10 @@ export default class CRMDashboard2 extends Component {
               <Row>
                 <Col>
                   <Card className="row-md-6 opacity-9 zoom ">
-                    <a style={{textDecoration:"none"}}
-                      href="#/dashboards/contact"
-                      to="#/dashboards/contact"
+                    <a
+                      style={{ textDecoration: "none" }}
+                      href="/dashboards/contact"
+                      to="/dashboards/contact"
                       activeLinkFromLocation
                     >
                       <CardHeader
@@ -201,7 +214,7 @@ export default class CRMDashboard2 extends Component {
 
           <Row>
             <Col>
-              <a href="#/dashboards/contact" to="#/dashboards/contact">
+              <a href="/dashboards/contact" to="/dashboards/contact">
                 <Card className="col-md-6 opacity-9 zoom">
                   <CardHeader className="card-header-tab">
                     <div className="card text-center card-shadow-focus opacity-9"></div>
@@ -212,10 +225,7 @@ export default class CRMDashboard2 extends Component {
                       <p> 15+ Years Experience</p>
                       <p></p>
                       <p> E-Commerce Sites Starting At $250</p>
-                      <p>
-                        {" "}
-                        Analytics, Advertising &amp; Easy Management Tools.
-                      </p>
+                      <p>Analytics, Advertising &amp; Easy Management Tools.</p>
                       <p>
                         Powerful Advertising Plans: Get Your Website Noticed By
                         The Right Audience.

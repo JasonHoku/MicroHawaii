@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "../../../../node_modules/react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import CarouselBSExample from "./Carousel";
+import { Helmet } from "react-helmet";
 
 import {
   Row,
@@ -68,6 +69,17 @@ export default class GalleryElements extends Component {
           transitionEnter={false}
           transitionLeave={false}
         >
+          <Helmet>
+            <title>MicroHawaii.com Artwork Gallery</title>
+            <meta
+              name="description"
+              content="Discover arts produced by MicroHawaii."
+            />
+            <link
+              rel="canonical"
+              href="https://microhawaii.com/dashboards/home"
+            />
+            </Helmet>
           <Row
             style={{
               alignContent: "center",
@@ -95,8 +107,8 @@ export default class GalleryElements extends Component {
             </CardTitle>
           </Row>
           <Row style={{ justifyContent: "center" }}>
-          <Col width="100%" style={{ maxWidth: "750px" }}>
-                  <Card>
+            <Col width="100%" style={{ maxWidth: "750px" }}>
+              <Card>
                 <CardBody>
                   <p>
                     <h4>
@@ -105,27 +117,26 @@ export default class GalleryElements extends Component {
                       should one contain a thousand images?
                     </h4>
                   </p>{" "}
-                <center>
-                  <CarouselBSExample />
-                </center>
-                <center>← Slides →
-                  <br /> 100 Random Selects <br /><br />
-                </center>
+                  <center>
+                    <CarouselBSExample />
+                  </center>
+                  <center>
+                    ← Slides →
+                    <br /> 100 Random Selects <br />
+                    <br />
+                  </center>
                   <p>
                     <h5>
-                      MicroHawaii has produced over 1,200 logos, icons, textures, and
-                      graphics.
+                      MicroHawaii has produced over 1,200 logos, icons,
+                      textures, and graphics.
                     </h5>
                   </p>{" "}
-                  <p>
-                    Here rests a collection of some, growing over time.
-                  </p>{" "}
+                  <p>Here rests a collection of some, growing over time.</p>{" "}
                 </CardBody>
               </Card>
             </Col>
           </Row>
           <br></br>
-
           <Row>
             <Col xs="6" sm="4" md="4" xl="3">
               <Card>
@@ -133,9 +144,7 @@ export default class GalleryElements extends Component {
                   {" "}
                   Instagram Gallery:
                   <br></br>
-                  <a href="http://instagram.com/jasonlevien">
-                    @jasonlevien{" "}
-                  </a>
+                  <a href="http://instagram.com/jasonlevien">@jasonlevien </a>
                 </CardBody>
               </Card>{" "}
             </Col>
@@ -161,13 +170,13 @@ export default class GalleryElements extends Component {
             </Col>
 
             <Col style={{ marginTop: "15px" }} xs="7" sm="4" md="4" xl="5">
-              <a href="#/dashboard/contact">
+              <a href="/dashboard/contact">
                 <Card>
                   <CardHeader>Contact</CardHeader>
                   <CardBody>
                     For commission inquiries, suggestions or commentary reach
                     out through the{" "}
-                    <a href="#/dashboard/contact"> contact page.</a>
+                    <a href="/dashboard/contact"> contact page.</a>
                   </CardBody>
                 </Card>
               </a>

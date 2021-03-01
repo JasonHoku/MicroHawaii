@@ -8,6 +8,7 @@ import TabContent from "rc-tabs/lib/SwipeableTabContent";
 import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 
 // Examples
+import { Helmet } from "react-helmet";
 
 import CalendarElements from "./calendar";
 
@@ -17,6 +18,18 @@ export default class CalendarPage extends Component {
   render() {
     return (
       <Fragment>
+        <Helmet>
+          <title>MicroHawaii.com Events</title>
+          <meta
+            name="description"
+            content="Discover and get involved with events."
+          />
+          <meta name="theme-color" content="#008f68" />
+          <link
+            rel="canonical"
+            href="https://microhawaii.com/dashboards/calendar"
+          />
+        </Helmet>
         <CSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
@@ -53,8 +66,8 @@ export default class CalendarPage extends Component {
                 >
                   <p>
                     Reach out through the{" "}
-                    <a href="/dashboards/contact">contact page</a> to reserve
-                    a meeting.
+                    <a href="/dashboards/contact">contact page</a> to reserve a
+                    meeting.
                   </p>
                 </CardBody>
               </Col>

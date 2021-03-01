@@ -7,6 +7,7 @@ import React, {
   useRef,
 } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+import { Helmet } from "react-helmet";
 
 import { unregister } from "../../../serviceWorker";
 import AppAuth from "../../../Layout/AppAuth/index.js";
@@ -93,98 +94,27 @@ function AccountPage() {
       .catch((error) => this.setState({ error, isLoading: false }));
   }
 
-  let adminCardEle;
-
-  adminCardEle = (
-    <Card
-      style={{
-        backgroundColor: "#CCCCCCC",
-        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .9)",
-        borderRadius: "10px",
-        opacity: 100,
-        justifyContent: "center",
-        marginLeft: "-5px",
-        marginRight: "-5px",
-        color: "black",
-        background:
-          "linear-gradient(0.25turn, #103066FF, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #103066FF)",
-      }}
-    >
-      <CardBody>
-        <CardTitle
-          style={{
-            borderRadius: "25px",
-            backgroundColor: "transparent",
-            textAlign: "left",
-            justifyContent: "center",
-            border: "none",
-            alignSelf: "left",
-            opacity: 100,
-            justifySelf: "left",
-          }}
-        >
-          <h2
-            style={{
-              color: "black",
-              paddingLeft: "5px",
-              marginTop: "-25px",
-              marginBottom: "-10px",
-            }}
-          >
-            <br />
-            <center>PonoMap&nbsp;Tools</center>
-          </h2>
-        </CardTitle>
-        <div
-          id="NotLoggedInElement"
-          style={{
-            paddingLeft: "15px",
-            paddingRight: "25px",
-          }}
-        >
-          <h3
-            style={{
-              color: "black",
-            }}
-          >
-            <b> An account with PonoMap is required to:</b>
-          </h3>
-          <br />
-          <div style={{ textAlign: "left" }}>
-            <h4
-              style={{
-                color: "black",
-                textAlign: "left",
-              }}
-            >
-              <li>Add &amp; Manage Listings</li> <br />
-              <li>Subscribe to Updates</li>
-              <br />
-              <li>Get Help Creating Your Listing</li>
-              <br />
-              <li>Chat Amongst the Community</li>
-              <br />
-            </h4>
-          </div>
-        </div>
-        <AppAuth />
-      </CardBody>
-      <br />
-    </Card>
-  );
-
   return (
     <Fragment>
+      <Helmet>
+        <title>MicroHawaii.com Account Tools</title>
+        <meta
+          name="description"
+          content="Authenticated section for chat, admin and tools."
+        />
+        <meta name="theme-color" content="#008f68" />
+        <link
+          rel="canonical"
+          href="https://microhawaii.com/dashboards/account"
+        />
+      </Helmet>
       <Card
+        classname="AccountBackground"
         style={{
-          width: "100%",
-          justifyContent: "center",
-          marginRight: "-35px",
-          paddingRight: "-55px",
-          paddingLeft: "-55px",
-          justifySelf: "center",
           justifyContent: "center",
           textAlign: "center",
+          width: "102%",
+          marginLeft: "-10px",
           borderRadius: "35px",
           background:
             "linear-gradient(0.25turn, #10306655, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #10306655)",

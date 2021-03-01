@@ -75,12 +75,20 @@ class Header extends React.Component {
     if (enableMobileMenuSmall) {
       if (this.state.mobileActive === true) {
         console.log(String(event.target.id));
+        console.log(String(event.target.className));
         if (
           String(event.target.className) === "[object SVGAnimatedString]" ||
           String(event.target.id) === "MobileMenuID" ||
           String(event.target.id) === "btn-icon-wrapper" ||
           String(event.target.id) === "MobileMenuID" ||
           String(event.target.className) === "MobileMenuID" ||
+          String(event.target.className) === "rounded-circle" ||
+          String(event.target.className) === "app-header-left" ||
+          String(event.target.className) === "app-header-right" ||
+          String(event.target.className) === "p-0 btn btn-link" ||
+          String(event.target.className) ===
+            "app-header__content header-mobile-open" ||
+          String(event.target.className) === "header-btn-lg pr-0" ||
           String(event.target.id) === "MobileMenuIcon"
         ) {
           console.log("Yes");

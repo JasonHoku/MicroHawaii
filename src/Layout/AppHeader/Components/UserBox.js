@@ -110,13 +110,11 @@ class UserBox extends React.Component {
                       <PerfectScrollbar>
                         <Nav vertical>
                           <NavItem>
-                            <NavLink href=".#">Site Home</NavLink>
+                            <NavLink href="/">Site Home</NavLink>
                           </NavItem>
 
                           <NavItem>
-                            <NavLink href="/dashboards/services">
-                              About
-                            </NavLink>
+                            <NavLink href="/dashboards/services">About</NavLink>
                           </NavItem>
                           <NavItem>
                             <NavLink href="/dashboards/projects">

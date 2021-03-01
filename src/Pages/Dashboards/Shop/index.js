@@ -13,6 +13,7 @@ import Popup from "react-popup";
 import emailNotify from "./Emailer";
 import PayPalForwarder from "./PayPalForwarder";
 import CheckoutHelper from "./Checkout";
+import { Helmet } from "react-helmet";
 
 import {
   Row,
@@ -193,6 +194,18 @@ export default class ShopPage extends Component {
     document.getElementById("popupContainer");
     return (
       <Fragment>
+        <Helmet>
+          <title>MicroHawaii.com Shop</title>
+          <meta
+            name="description"
+            content="Find and purchase MicroHawaii services and products."
+          />
+          <meta name="theme-color" content="#008f68" />
+          <link
+            rel="canonical"
+            href="https://microhawaii.com/dashboards/shop"
+          />
+        </Helmet>
         <Row
           style={{
             alignContent: "center",
