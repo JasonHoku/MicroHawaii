@@ -85,7 +85,7 @@ export default function CRMDashboard2() {
     for (var i = 0; i < messages2.length; i++) {
       let gotDate = new Date(EventDate);
       let are24hFrom0 = new Date(new Date(setDate));
-      are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 4);
+      are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 7);
       var are24hFrom1 = new Date(setDate);
       are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
       if (gotDate >= are24hFrom0) {
@@ -103,7 +103,9 @@ export default function CRMDashboard2() {
                 >
                   {EventTitle}
                   <br />
-                  <div style={{ textAlign: "left" }}>{EventDate}</div>
+                  <div style={{ textAlign: "left" }}>
+                    <b>{EventDate}</b>
+                  </div>
                 </p>
               </div>
             </>
@@ -213,8 +215,7 @@ export default function CRMDashboard2() {
                 }}
               >
                 <CardBody>
-                  <h2>Recent Posts By MicroHawaii:</h2>
-                  <br />
+                  <h2>Recent Events:</h2>
                   {messages2 &&
                     messages2.map((msg, index) => (
                       <EventDataSelectedDate
@@ -365,10 +366,9 @@ export default function CRMDashboard2() {
               }}
             >
               <CardHeader className="card-header-tab" color="light">
-                <div className="card-header-title font-size-lg font-weight-normal">
-                  <i className="header-icon pe-7s-news-paper text-muted opacity-6"></i>
-                  Web Architecture w/ MicroHawaii
-                </div>
+                <h4 style={{ textAlign: "left" }}>
+                  Web Architecture with MicroHawaii
+                </h4>
               </CardHeader>
               <CardBody>
                   MicroHawaii is a local tech startup, specializing in providing
@@ -457,13 +457,13 @@ export default function CRMDashboard2() {
                 style={{ justifyContent: "center" }}
               >
                 <div
-                  className="dropdown-menu-header-inner bg-primary"
-                  style={{ justifyContent: "center" }}
+                  className="dropdown-menu-header-inner"
+                  style={{ justifyContent: "center", background: "#3333FFCC" }}
                 >
                   <div className="menu-header-content">
                     <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                       <div className="avatar-icon">
-                        <img src="/logo192.png" alt="Avatar 5" />
+                        <img src="/assets/images/logo.png" alt="Avatar 5" />
                       </div>
                     </div>
                     <div>
@@ -495,8 +495,8 @@ export default function CRMDashboard2() {
                 style={{ justifyContent: "center" }}
               >
                 <div
-                  className="dropdown-menu-header-inner bg-primary"
-                  style={{ justifyContent: "center" }}
+                  className="dropdown-menu-header-inner"
+                  style={{ justifyContent: "center", background: "#3333DDCC" }}
                 >
                   <div className="menu-header-content">
                     <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
@@ -537,8 +537,8 @@ export default function CRMDashboard2() {
                 style={{ justifyContent: "center" }}
               >
                 <div
-                  className="dropdown-menu-header-inner bg-primary"
-                  style={{ justifyContent: "center" }}
+                  className="dropdown-menu-header-inner"
+                  style={{ justifyContent: "center", background: "#3333CCCC" }}
                 >
                   <div className="menu-header-content">
                     <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">

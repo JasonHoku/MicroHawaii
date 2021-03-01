@@ -104,7 +104,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 .sent p {
-  color: white;
+  color: black;
   background: #0b93f6;
   align-self: flex-end;
 }

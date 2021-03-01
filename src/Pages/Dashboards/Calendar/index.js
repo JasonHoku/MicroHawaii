@@ -117,7 +117,7 @@ function EventManagerComponent() {
                 <p className="pchat">
                   {EventTitle}
                   <br />
-                  <div style={{ textAlign: "right" }}>{EventDate}</div>
+                  <div style={{ textAlign: "right" }}><b>{EventDate}</b></div>
                 </p>
               </div>
             </>
@@ -219,7 +219,7 @@ function EventManagerComponent() {
     <Fragment>
       <Card style={{ width: "100%" }}>
         <CardHeader style={{ textAlign: "center" }}>
-          <h3 style={{ textAlign: "center" }}>MicroHawaii Events</h3>
+          <h3 style={{ textAlign: "center" }}>View &amp; Schedule Events</h3>
         </CardHeader>
         <CardBody
           style={{

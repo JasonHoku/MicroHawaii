@@ -27,7 +27,6 @@ import {
 import axios from "axios";
 import Calendar from "react-calendar";
 import "../../../assets/components/Calendar.css";
-
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
 import firebase from "firebase/app";
@@ -118,7 +117,7 @@ function EventManagerComponent() {
 
     const messageClass = "sent";
 
-    for (var i = 0; i < loadedEvents.length; i++) {
+    for (var i = 0; i < messages2.length; i++) {
       let gotDate = new Date(EventDate);
       let are24hFrom0 = new Date(new Date(setDate));
       are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
@@ -134,7 +133,7 @@ function EventManagerComponent() {
                 <p className="pchat">
                   {EventTitle}
                   <br />
-                  <div style={{ textAlign: "right" }}>{EventDate}</div>
+                  <div style={{ textAlign: "right" }}><b>{EventDate}</b></div>
                 </p>
               </div>
             </>
@@ -153,13 +152,25 @@ function EventManagerComponent() {
       return messages2[parseInt(loadedEzID) - 1].id;
     } catch (error) {}
   }
+  function getDocDate() {
+    try {
+      setsetDate(messages2[parseInt(loadedEzID) - 1].EventDate);
+    } catch (error) {}
+  }
+  function getDocTitle() {
+    try {
+      setFormValue(messages2[parseInt(loadedEzID) - 1].EventTitle);
+    } catch (error) {}
+  }
   function runSendData() {
+    const { uid } = auth.currentUser;
     console.log(String(loadedEzID));
-    firebase
-      .firestore()
-      .collection("events")
-      .doc(getDocID())
-      .set({ body: String(editedDescription) });
+    firebase.firestore().collection("events").doc(getDocID()).set({
+      EventTitle: formValue,
+      EventDate: setDate,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid,
+    });
   }
 
   function runDeleteData() {
@@ -188,71 +199,13 @@ function EventManagerComponent() {
       console.log("Updating, Stage: " + loadStage);
       if (loadStage === "1") {
         console.log(getDocID());
+        getDocDate();
+        getDocTitle();
 
         setloadStage("2");
       }
       if (loadStage === "2") {
         setloadStage("3");
-      }
-    }
-  });
-  useEffect(() => {
-    let concData = [];
-    let concData2 = [];
-    let concData3 = [];
-
-    if (isInitialMount.current === true) {
-      console.log(loadStage);
-      if (loadStage === "1") {
-        const loadsnapshot = async () => {
-          const snapshot = await firebase
-            .firestore()
-            .collection("events")
-            .get();
-          snapshot.forEach((doc) => {
-            concData = concData.concat({
-              [doc.id]: [doc.data()],
-            });
-
-            concData2 = concData2.concat(doc.id);
-          });
-
-          setloadedEvents(concData);
-          setloadedEventIDs(concData2);
-        };
-
-        console.log(
-          loadsnapshot().then(async () => {
-            setloadStage("2");
-          })
-        );
-      }
-      if (loadStage === "2") {
-        for (var i = 0; i < loadedEvents.length; i++) {
-          localStorage.setItem("eventCounter", loadedEvents.length);
-          let gotDate = new Date(
-            loadedEvents[i][loadedEventIDs[i]][0].EventDate
-          );
-          let are24hFrom0 = new Date(new Date(setDate));
-          are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
-          var are24hFrom1 = new Date(setDate);
-          are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
-          if (gotDate >= are24hFrom0) {
-            if (gotDate <= are24hFrom1) {
-              concData3 = concData3.concat(
-                "\n" + loadedEvents[i][loadedEventIDs[i]][0].EventTitle
-              );
-              settextVar(
-                String(concData3)
-                  .split("\n")
-                  .map((str, index) => <h5 key={index}>{str}</h5>)
-              );
-              setloadStage("3");
-            }
-          }
-        }
-      }
-      if (loadStage === "3") {
       }
     }
   });
@@ -271,6 +224,10 @@ function EventManagerComponent() {
             fontSize: "16px",
           }}
         >
+          <h5 style={{ textAlign: "left" }}>
+            Events always flow to HomePage and Schedule with a Title and
+            optionally generate their own page with additional data.
+          </h5>
           <center>
             <b>Hawaiian Time Zone</b>
             <Calendar
