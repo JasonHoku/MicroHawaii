@@ -109,11 +109,10 @@ function AccountPage() {
         />
       </Helmet>
       <Card
-        classname="AccountBackground"
+        className="AccountBackground"
         style={{
           justifyContent: "center",
           textAlign: "center",
-          width: "102%",
           marginLeft: "-10px",
           borderRadius: "35px",
           background:

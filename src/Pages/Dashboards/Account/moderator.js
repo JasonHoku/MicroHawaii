@@ -1,4 +1,3 @@
-
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 import axios from "axios";
 import firebase from "firebase/app";
@@ -312,535 +311,538 @@ function ModeratorElements() {
   }
   return (
     <Fragment>
-      <Container
-        fluid
-        style={{
-          backgroundColor: "transparent",
-          backgroundColor: "#FFFFFFDD",
-          borderRadius: "55px",
-          width: "100%",
-          justifyContent: "center",
-        }}
-      >
-        <TabContent
-          activeTab={activeTab}
+      <center>
+        {" "}
+        <Container
+          className="ModeratorBackground"
+          fluid
           style={{
             backgroundColor: "transparent",
-            opacity: 0.9,
+            backgroundColor: "#FFFFFFDD",
+            borderRadius: "55px",
             justifyContent: "center",
-            alignSelf: "center",
-            width: "100%",
           }}
         >
-          <CardHeader
-            className="ponoTitle"
+          <TabContent
+            activeTab={activeTab}
             style={{
-              justifyContent: "center",
               backgroundColor: "transparent",
+              opacity: 1,
+              justifyContent: "center",
               alignSelf: "center",
-              borderBottom: "none",
-              marginBottom: "-25px",
               width: "100%",
-              opacity: 100,
             }}
           >
-            <h2>
-              <i className="pe-7s-tools icon-gradient bg-plum-plate"></i>
-              Moderator Controls
-            </h2>
-          </CardHeader>
-          <CardHeader
-            style={{
-              marginBottom: "-35px",
-              justifyContent: "center",
-              backgroundColor: "transparent",
-              borderBottom: "none",
-              alignSelf: "center",
-            }}
-          >
-            <Button
-              size="sm"
-              outline
-              color="alternate"
-              className={
-                "btn-pill btn-wide " +
-                classnames({ active: useState(activeTab) === "1" })
-              }
-              onClick={() => {
-                toggle("1");
-              }}
-            >
-              Tools
-            </Button>
-            <Button
-              outline
-              color="alternate"
-              className={
-                "btn-pill btn-wide " +
-                classnames({ active: useState(activeTab) === "2" })
-              }
-              onClick={async () => {
-                toggle("2");
-                setTimeout(
-                  () =>
-                    document.getElementById("id001").scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                      inline: "center",
-                    }),
-                  100
-                );
-              }}
-            >
-              User View
-            </Button>
-          </CardHeader>
-          <br />
-          <br />
-          <Row style={{ justifyContent: "center" }}>
-            <Row>
-              {" "}
-              <Card
-                style={{
-                  width: "auto",
-                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  alignContent: "center",
-                  height: "100%",
-                  marginTop: "-5px",
-                  marginBottom: "-10px",
-                  marginLeft: "25px",
-                  marginRight: "25px",
-                  alignItems: "center",
-                }}
-              >
-                <CardTitle
-                  style={{
-                    justifyContent: "center",
-                    alignSelf: "center",
-                    marginBottom: "-15px",
-                  }}
-                >
-                  <h4>Main Website Tools:</h4>
-                </CardTitle>
-                <span
-                  style={{
-                    marginLeft: "10px",
-                    marginTop: "5px",
-                    display: "block",
-                  }}
-                >
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#009900",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      toggle("Documentation");
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                    }}
-                  >
-                    {" "}
-                    Documentation{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#009999",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Content");
-                    }}
-                  >
-                    {" "}
-                    Content Editor{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#006699",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Video");
-                    }}
-                  >
-                    {" "}
-                    Video Manager{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#0033AA",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Users");
-                    }}
-                  >
-                    {" "}
-                    User Management{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#0000CC",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Comments");
-                    }}
-                  >
-                    {" "}
-                    Comments{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#3300CC",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Products");
-                    }}
-                  >
-                    {" "}
-                    Products{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#6600CC",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Events");
-                    }}
-                  >
-                    {" "}
-                    Events{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      marginTop: "10px",
-                      backgroundColor: "#BB00CC",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Notes");
-                    }}
-                  >
-                    Team Notes
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      backgroundColor: "#BB0099",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Surveys");
-                    }}
-                  >
-                    {" "}
-                    Surveys{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      backgroundColor: "#BB0066",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Site Chat");
-                    }}
-                  >
-                    {" "}
-                    Site Chat{" "}
-                  </button>
-                  &nbsp;
-                  <button
-                    style={{
-                      backgroundColor: "#BB0033",
-                      borderRadius: "16px",
-                      height: "35px",
-                      fontSize: "120%",
-                      marginTop: "5px",
-                    }}
-                    onClick={async () => {
-                      setTimeout(
-                        () =>
-                          document.getElementById("id002").scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                            inline: "center",
-                          }),
-                        100
-                      );
-                      toggle("Issue");
-                    }}
-                  >
-                    {" "}
-                    Report Issue{" "}
-                  </button>
-                  &nbsp;
-                  <br />
-                  <br />
-                </span>
-              </Card>
-            </Row>
-            <TabPane
+            <CardHeader
               className="ponoTitle"
-              tabId="1"
               style={{
-                height: "100%",
+                justifyContent: "center",
                 backgroundColor: "transparent",
-                alignContent: "center",
+                alignSelf: "center",
+                borderBottom: "none",
+                marginBottom: "-25px",
+                width: "100%",
                 opacity: 100,
               }}
             >
-              <Card
-                style={{
-                  width: "100%",
-                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  alignContent: "center",
-                  height: "100%",
-                  marginTop: "15px",
-                  alignItems: "center",
-                  marginBottom: "25px",
+              <h2>
+                <i className="pe-7s-tools icon-gradient bg-plum-plate"></i>
+                Moderator Controls
+              </h2>
+            </CardHeader>
+            <CardHeader
+              style={{
+                marginBottom: "-35px",
+                justifyContent: "center",
+                backgroundColor: "transparent",
+                borderBottom: "none",
+                alignSelf: "center",
+              }}
+            >
+              <Button
+                size="sm"
+                outline
+                color="alternate"
+                className={
+                  "btn-pill btn-wide " +
+                  classnames({ active: useState(activeTab) === "1" })
+                }
+                onClick={() => {
+                  toggle("1");
                 }}
               >
-                <CardTitle
+                Tools
+              </Button>
+              <Button
+                outline
+                color="alternate"
+                className={
+                  "btn-pill btn-wide " +
+                  classnames({ active: useState(activeTab) === "2" })
+                }
+                onClick={async () => {
+                  toggle("2");
+                  setTimeout(
+                    () =>
+                      document.getElementById("id001").scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                        inline: "center",
+                      }),
+                    100
+                  );
+                }}
+              >
+                User View
+              </Button>
+            </CardHeader>
+            <br />
+            <br />
+            <Row style={{ justifyContent: "center" }}>
+              <Row>
+                {" "}
+                <Card
                   style={{
-                    justifyContent: "center",
-                    alignSelf: "center",
-                    margin: "5px",
+                    width: "auto",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    alignContent: "center",
+                    height: "100%",
+                    marginTop: "-5px",
+                    marginBottom: "-10px",
+                    marginLeft: "25px",
+                    marginRight: "25px",
+                    alignItems: "center",
                   }}
                 >
-                  <h3>Highlight Metrics:</h3>
-                </CardTitle>
-                <h5>
-                  <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-                    <Row
+                  <CardTitle
+                    style={{
+                      justifyContent: "center",
+                      alignSelf: "center",
+                      marginBottom: "-15px",
+                    }}
+                  >
+                    <h4>Main Website Tools:</h4>
+                  </CardTitle>
+                  <span
+                    style={{
+                      marginLeft: "10px",
+                      marginTop: "5px",
+                      display: "block",
+                    }}
+                  >
+                    <button
                       style={{
-                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
-                        marginBottom: "2px",
-                        paddingBottom: "2px",
+                        marginTop: "10px",
+                        backgroundColor: "#009900",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        toggle("Documentation");
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
                       }}
                     >
-                      <Col style={{ width: "100%" }}>Clicks: </Col>
-                      <Col style={{ textAlign: "right" }}>
-                        <GetDocData3 />
-                      </Col>
-                    </Row>{" "}
-                    <Row
+                      {" "}
+                      Documentation{" "}
+                    </button>
+                    &nbsp;
+                    <button
                       style={{
-                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
-                        marginBottom: "2px",
-                        paddingBottom: "2px",
+                        marginTop: "10px",
+                        backgroundColor: "#009999",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Content");
                       }}
                     >
-                      <Col> PageLoads: </Col>
-                      <Col style={{ textAlign: "right" }}>
-                        <GetDocData2 />
-                      </Col>
-                    </Row>{" "}
-                    <Row
+                      {" "}
+                      SiteContent{" "}
+                    </button>
+                    &nbsp;
+                    <button
                       style={{
-                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
-                        marginBottom: "2px",
-                        paddingBottom: "2px",
+                        marginTop: "10px",
+                        backgroundColor: "#006699",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Video");
                       }}
                     >
-                      <Col>Users: </Col>
-                      <Col style={{ textAlign: "right" }}>
-                        <GetCollectionLength />
-                        <span id="id002"></span>
-                      </Col>
-                    </Row>{" "}
-                    <Row
+                      {" "}
+                      Video Tools{" "}
+                    </button>
+                    &nbsp;
+                    <button
                       style={{
-                        boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
-                        marginBottom: "2px",
-                        paddingBottom: "2px",
+                        marginTop: "10px",
+                        backgroundColor: "#0033AA",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Users");
                       }}
                     >
-                      <Col>SiteVersion: </Col>
-                      <Col style={{ textAlign: "right" }}>
-                        <GetDocData />
-                      </Col>
-                    </Row>
-                  </FirebaseAppProvider>{" "}
-                </h5>
-              </Card>
-            </TabPane>
-          </Row>
-          <TabPane tabId="2">
-            <Row style={{ justifyContent: "center" }}>
-              {" "}
-              <Card
+                      {" "}
+                      Users{" "}
+                    </button>
+                    &nbsp;
+                    <button
+                      style={{
+                        marginTop: "10px",
+                        backgroundColor: "#0000CC",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Comments");
+                      }}
+                    >
+                      {" "}
+                      Comments{" "}
+                    </button>
+                    &nbsp;
+                    <button
+                      style={{
+                        marginTop: "10px",
+                        backgroundColor: "#3300CC",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Products");
+                      }}
+                    >
+                      {" "}
+                      Products{" "}
+                    </button>
+                    &nbsp;
+                    <button
+                      style={{
+                        marginTop: "10px",
+                        backgroundColor: "#6600CC",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Events");
+                      }}
+                    >
+                      {" "}
+                      Events{" "}
+                    </button>
+                    &nbsp;
+                    <button
+                      style={{
+                        marginTop: "10px",
+                        backgroundColor: "#BB00CC",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Notes");
+                      }}
+                    >
+                      Notes
+                    </button>
+                    &nbsp;
+                    <button
+                      style={{
+                        backgroundColor: "#BB0099",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Surveys");
+                      }}
+                    >
+                      {" "}
+                      Surveys{" "}
+                    </button>
+                    &nbsp;
+                    <button
+                      style={{
+                        backgroundColor: "#BB0066",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Site Chat");
+                      }}
+                    >
+                      {" "}
+                      Site Chat{" "}
+                    </button>
+                    &nbsp;
+                    <button
+                      style={{
+                        backgroundColor: "#BB0033",
+                        borderRadius: "16px",
+                        height: "35px",
+                        fontSize: "120%",
+                        marginTop: "5px",
+                      }}
+                      onClick={async () => {
+                        setTimeout(
+                          () =>
+                            document.getElementById("id002").scrollIntoView({
+                              behavior: "smooth",
+                              block: "start",
+                              inline: "center",
+                            }),
+                          100
+                        );
+                        toggle("Issue");
+                      }}
+                    >
+                      {" "}
+                      Issues{" "}
+                    </button>
+                    &nbsp;
+                    <br />
+                    <br />
+                  </span>
+                </Card>
+              </Row>
+              <TabPane
+                className="ponoTitle"
+                tabId="1"
                 style={{
-                  width: "100%",
+                  height: "100%",
                   backgroundColor: "transparent",
-                  alignContent: "left",
-                  borderRadius: "50px",
-                  alignItems: "left",
-                  textAlign: "left",
+                  alignContent: "center",
+                  opacity: 100,
                 }}
               >
-                <h4 style={{ width: "100%", textAlign: "left" }}>
-                  <b>&nbsp; Registered User View:</b>
-                </h4>
-                {loadAccountElementComponent()}
-                <br />
-              </Card>
+                <Card
+                  style={{
+                    width: "100%",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    alignContent: "center",
+                    height: "100%",
+                    marginTop: "15px",
+                    alignItems: "center",
+                    marginBottom: "25px",
+                  }}
+                >
+                  <CardTitle
+                    style={{
+                      justifyContent: "center",
+                      alignSelf: "center",
+                      margin: "5px",
+                    }}
+                  >
+                    <h3>Highlight Metrics:</h3>
+                  </CardTitle>
+                  <h5>
+                    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+                      <Row
+                        style={{
+                          boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                          marginBottom: "2px",
+                          paddingBottom: "2px",
+                        }}
+                      >
+                        <Col style={{ width: "100%" }}>Clicks: </Col>
+                        <Col style={{ textAlign: "right" }}>
+                          <GetDocData3 />
+                        </Col>
+                      </Row>{" "}
+                      <Row
+                        style={{
+                          boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                          marginBottom: "2px",
+                          paddingBottom: "2px",
+                        }}
+                      >
+                        <Col> PageLoads: </Col>
+                        <Col style={{ textAlign: "right" }}>
+                          <GetDocData2 />
+                        </Col>
+                      </Row>{" "}
+                      <Row
+                        style={{
+                          boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                          marginBottom: "2px",
+                          paddingBottom: "2px",
+                        }}
+                      >
+                        <Col>Users: </Col>
+                        <Col style={{ textAlign: "right" }}>
+                          <GetCollectionLength />
+                          <span id="id002"></span>
+                        </Col>
+                      </Row>{" "}
+                      <Row
+                        style={{
+                          boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
+                          marginBottom: "2px",
+                          paddingBottom: "2px",
+                        }}
+                      >
+                        <Col>SiteVersion: </Col>
+                        <Col style={{ textAlign: "right" }}>
+                          <GetDocData />
+                        </Col>
+                      </Row>
+                    </FirebaseAppProvider>{" "}
+                  </h5>
+                </Card>
+              </TabPane>
             </Row>
-          </TabPane>
-          <TabPane tabId="3"></TabPane>
-          <TabPane tabId="Comments">{loadCommentManagerComponent()}</TabPane>
-          <TabPane tabId="Events">
-            {loadEvents()} <br />
-          </TabPane>
-          <TabPane tabId="Content">
-            {loadContentManagerComponent()}
-            <br />
-          </TabPane>
-          <TabPane tabId="Notes">{loadNoteManagerComponent()}</TabPane>
-          <TabPane tabId="Products">{loadProducts()}</TabPane>
-          <TabPane tabId="Site Chat">{loadLiveChatManager()}</TabPane>
-          <TabPane tabId="Documentation">{documentationPageLoader()}</TabPane>
-          <TabPane tabId="Video"></TabPane>
-          <TabPane tabId="Users">{loadUserQueryComponent()}</TabPane>
-          <TabPane tabId="Issue"></TabPane>
-        </TabContent>
-      </Container>
+            <TabPane tabId="2">
+              <Row style={{ justifyContent: "center" }}>
+                {" "}
+                <Card
+                  style={{
+                    width: "100%",
+                    backgroundColor: "transparent",
+                    alignContent: "left",
+                    borderRadius: "50px",
+                    alignItems: "left",
+                    textAlign: "left",
+                  }}
+                >
+                  <h4 style={{ width: "100%", textAlign: "left" }}>
+                    <b>&nbsp; Registered User View:</b>
+                  </h4>
+                  {loadAccountElementComponent()}
+                  <br />
+                </Card>
+              </Row>
+            </TabPane>
+            <TabPane tabId="3"></TabPane>
+            <TabPane tabId="Comments">{loadCommentManagerComponent()}</TabPane>
+            <TabPane tabId="Events">
+              {loadEvents()} <br />
+            </TabPane>
+            <TabPane tabId="Content">
+              {loadContentManagerComponent()}
+              <br />
+            </TabPane>
+            <TabPane tabId="Notes">{loadNoteManagerComponent()}</TabPane>
+            <TabPane tabId="Products">{loadProducts()}</TabPane>
+            <TabPane tabId="Site Chat">{loadLiveChatManager()}</TabPane>
+            <TabPane tabId="Documentation">{documentationPageLoader()}</TabPane>
+            <TabPane tabId="Video"></TabPane>
+            <TabPane tabId="Users">{loadUserQueryComponent()}</TabPane>
+            <TabPane tabId="Issue"></TabPane>
+          </TabContent>
+        </Container>
+      </center>
     </Fragment>
   );
 }

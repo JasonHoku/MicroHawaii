@@ -226,14 +226,38 @@ div.card {
   .videoDivide {
     height: 200px;
   }
+}
+@media screen and (max-width: 500px) {
   .AccountBackground {
     width: 105%;
+  }
+}
+
+@media screen and (max-width: 400px) and (min-width: 300px) {
+  .ModeratorBackground {
+    width: 107%;
+    position: relative;
+    left: -11px;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 400px) {
+  .ModeratorBackground {
+    width: 105%;
+    position: relative;
+    left: -15px;
   }
 }
 
 @media screen and (min-width: 600px) {
   .videoDivide {
     height: 400px;
+  }
+  .AccountBackground {
+    width: 102%;
+  }
+  .ModeratorBackground {
+    width: 100%;
   }
 }
 #root

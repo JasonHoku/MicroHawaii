@@ -211,6 +211,7 @@ function NoteManagerComponent() {
             style={{
               textAlign: "center",
               borderRadius: "25px",
+              whiteSpace:"normal"
             }}
             className="inputchat"
             value={formValue}

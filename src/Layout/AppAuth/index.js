@@ -99,82 +99,6 @@ function AppAuth() {
             email: String(authResult.user.email),
           });
 
-        localStorage.setItem("username", authResult.user.displayName);
-        localStorage.setItem("email", authResult.user.email);
-        if (
-          authResult.user.uid === "4MfzCSlNhiTJMJRFKtKxl249oVe2f" ||
-          authResult.user.uid === "8gZKzIAI7le5B03GbynBUKCpyl02f"
-        ) {
-          setloadElements(
-            <span>
-              <ModeratorElements />
-              <button
-                className="zoom"
-                style={{
-                  width: "90px",
-                  backgroundColor: "#AA3322",
-                  height: "30px",
-                  position: "absolute",
-                  top: "0px",
-                  right: "15px",
-                  borderRadius: "10px",
-                  fontSize: "15px",
-                }}
-                onClick={() => {
-                  firebase.auth().signOut() &
-                    localStorage.setItem("username", null);
-                  localStorage.setItem("jwt", null);
-                  window.location.reload();
-                }}
-              >
-                <span
-                  style={{
-                    display: "inline-block",
-                    paddingRight: "-5px",
-                    paddingLeft: "-5px",
-                  }}
-                >
-                  Sign&nbsp;Out
-                </span>
-              </button>
-            </span>
-          );
-        } else
-          setloadElements(
-            <span>
-              <AccountElements />
-              <button
-                className="zoom"
-                style={{
-                  width: "90px",
-                  backgroundColor: "#AA3322",
-                  height: "30px",
-                  position: "absolute",
-                  top: "0px",
-                  right: "15px",
-                  borderRadius: "10px",
-                  fontSize: "15px",
-                }}
-                onClick={() => {
-                  firebase.auth().signOut() &
-                    localStorage.setItem("username", null);
-                  localStorage.setItem("jwt", null);
-                  window.location.reload();
-                }}
-              >
-                <span
-                  style={{
-                    display: "inline-block",
-                    paddingRight: "-5px",
-                    paddingLeft: "-5px",
-                  }}
-                >
-                  Sign&nbsp;Out
-                </span>
-              </button>
-            </span>
-          );
-
         return false;
       },
     },
@@ -213,8 +137,8 @@ function AppAuth() {
                 fontSize: "15px",
               }}
               onClick={() => {
-                firebase.auth().signOut() &
-                  localStorage.setItem("username", null);
+                firebase.auth().signOut();
+                localStorage.setItem("username", null);
                 localStorage.setItem("jwt", null);
                 window.location.reload();
               }}
@@ -248,8 +172,8 @@ function AppAuth() {
                 fontSize: "15px",
               }}
               onClick={() => {
-                firebase.auth().signOut() &
-                  localStorage.setItem("username", null);
+                firebase.auth().signOut();
+                localStorage.setItem("username", null);
                 localStorage.setItem("jwt", null);
                 window.location.reload();
               }}
@@ -295,69 +219,55 @@ function AppAuth() {
 
   if (!user.loggedIn) {
     return (
-      <Card
+      <CardBody
         style={{
-          backgroundColor: "#CCCCCCC",
-          boxShadow: "0px 0px 0px 5px rgba(50,50,50, .9)",
+          backgroundColor: "#303030",
           borderRadius: "10px",
-          opacity: 100,
-          justifyContent: "center",
-          marginLeft: "-5px",
-          marginRight: "-5px",
           color: "black",
-          background:
-            "linear-gradient(0.25turn, #103066FF, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #103066FF)",
+          background: "transparent",
+          width: "100%",
+          justifyContent: "center",
         }}
       >
-        <br />
-        <CardBody
+        <div
           style={{
-            backgroundColor: "#303030",
-            borderRadius: "10px",
-            color: "black",
-            background: "transparent",
+            paddingLeft: "15px",
+            paddingRight: "25px",
           }}
         >
-          <div
+          <h2
             style={{
-              paddingLeft: "15px",
-              paddingRight: "25px",
+              color: "black",
+              textAlign: "center",
             }}
           >
-            <h2
+            <b> An account is required to:</b>
+          </h2>
+          <br />
+          <div style={{ textAlign: "center", justifyContent: "center" }}>
+            <h4
               style={{
                 color: "black",
-                textAlign: "center",
+                textAlign: "left",
+                paddingLeft: "25px",
               }}
             >
-              <b> An account is required to:</b>
-            </h2>
-            <br />
-            <div style={{ textAlign: "center", justifyContent: "center" }}>
-              <h4
-                style={{
-                  color: "black",
-                  textAlign: "left",
-                  paddingLeft: "25px",
-                }}
-              >
-                <li>Subscribe to Updates</li>
-                <br />
-                <li>Schedule a Meeting</li>
-                <br />
-                <li>Chat Amongst the Community</li>
-                <br />
-                <li>Access Moderator Tools</li>
-                <br />
-                <li>And more!</li>
-              </h4>
+              <li>Subscribe to Updates</li>
               <br />
-              <div style={{ width: "100%", textAlign: "center" }}></div>
-            </div>
+              <li>Schedule a Meeting</li>
+              <br />
+              <li>Chat Amongst the Community</li>
+              <br />
+              <li>Access Moderator Tools</li>
+              <br />
+              <li>And more!</li>
+            </h4>
+            <br />
+            <div style={{ width: "100%", textAlign: "center" }}></div>
           </div>
-          <div id="firebaseui-auth-container">{decideUserLoad()}</div>
-        </CardBody>
-      </Card>
+        </div>
+        <div id="firebaseui-auth-container">{decideUserLoad()}</div>
+      </CardBody>
     );
   } else {
     return (
