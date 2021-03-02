@@ -2,6 +2,10 @@ import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 import "./polyfills";
 
+import "core-js";
+
+import "core-js/features/set";
+
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -29,7 +33,23 @@ ReactDOM.render(
   </Provider>,
   rootElement
 );
-
-serviceWorker.register();
-
+function iOS() {
+  return (
+    [
+      "iPad Simulator",
+      "iPhone Simulator",
+      "iPod Simulator",
+      "iPad",
+      "iPhone",
+      "iPod",
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  );
+}
+if (iOS) {
+  serviceWorker.unregister();
+} else {
+  serviceWorker.register();
+}
 reportWebVitals();

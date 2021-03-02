@@ -31,7 +31,6 @@ import "firebase/auth";
 import "firebase/storage";
 import "firebase/firestore";
 
-
 function AccountElements() {
   const [activeTab, setactiveTab] = useState("1");
   const [formTitle, setformTitle] = useState("");
@@ -76,13 +75,9 @@ function AccountElements() {
     document.execCommand("copy");
 
     var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copied " + copyText.value;
+    tooltip.innerHTML = `Copied ${copyText.value}`;
   }
 
-  function outFunc() {
-    var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copy to clipboard";
-  }
   function handleChange(e) {
     setFile(e.target.files[0]);
   }

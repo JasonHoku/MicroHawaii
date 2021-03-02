@@ -143,7 +143,6 @@ function UserQueryComponent() {
     document.execCommand("copy");
 
     var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copied " + copyText.value;
   }
 
   function outFunc() {

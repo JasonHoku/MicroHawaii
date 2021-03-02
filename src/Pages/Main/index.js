@@ -2,7 +2,7 @@ import React, { Fragment, lazy, useState, useRef } from "react";
 import { connect } from "react-redux";
 import cx from "classnames";
 import { withRouter } from "react-router-dom";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Suspense } from "react";
 import Loader from "react-loaders";
 
@@ -22,6 +22,7 @@ import "firebase/storage";
 import "firebase/firestore";
 
 import firebase from "firebase/app";
+import "firebase/performance";
 
 var appVersion = packageJson.version;
 class Main extends React.Component {
@@ -106,10 +107,12 @@ class Main extends React.Component {
         appId: "1:775965301611:web:5858ed50ba444371e74a2e",
         measurementId: "G-H00S7BSD3H",
       };
+
       if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
       }
 
+      firebase.performance();
       const snapshot = await firebase.firestore().collection("version").get();
 
       snapshot.forEach(async function (doc) {
@@ -205,21 +208,11 @@ class Main extends React.Component {
                     </div>
                   }
                 >
-                  <Route path="/dashboards" component={Dashboards} />
+                  <Switch>
+                    <Route path="/dashboards" component={Dashboards} />
+                    <Route path="/" component={LandingPage} />
+                  </Switch>
                 </Suspense>
-
-                <Route exact path="/" component={LandingPage} />
-
-                <Route exact path="/dashboards/acc" component={LandingPage} />
-
-                {
-                  //Load URLS from Database
-                }
-
-                {this.state.loadedDataArray.map((tag) => (
-                  <Route exact path={"/" + tag.title} component={LandingPage} />
-                ))}
-
                 <ToastContainer />
               </Fragment>
             </div>

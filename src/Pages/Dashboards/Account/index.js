@@ -153,6 +153,21 @@ function handleInputChangeEvent(event) {
 }
 
 function showNotification() {
+  function iOS() {
+    return (
+      [
+        "iPad Simulator",
+        "iPhone Simulator",
+        "iPod Simulator",
+        "iPad",
+        "iPhone",
+        "iPod",
+      ].includes(navigator.platform) ||
+      // iPad on iOS 13 detection
+      (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    );
+  }if (!iOS){
+    
   navigator.serviceWorker.register("sw2.js");
   Notification.requestPermission(function (result) {
     if (result === "granted") {
@@ -171,6 +186,7 @@ function showNotification() {
       });
     }
   });
+  }
 }
 
 function showNotification2(e) {

@@ -33,26 +33,43 @@ if (!firebase.apps.length) {
 }
 
 function showNotification() {
-  navigator.serviceWorker.register("sw2.js");
-  Notification.requestPermission(function (result) {
-    if (result === "granted") {
-      navigator.serviceWorker.ready.then(function (registration) {
-        var options = {
-          body:
-            "A new version of this website is available, please reload after saving any work to load new website content.",
-          icon: "logo.png",
-          vibrate: [100, 50, 100],
-          data: {
-            dateOfArrival: Date.now(),
-            primaryKey: 1,
-          },
-        };
-        registration.showNotification("Site Update", options);
+  function showNotification() {
+    function iOS() {
+      return (
+        [
+          "iPad Simulator",
+          "iPhone Simulator",
+          "iPod Simulator",
+          "iPad",
+          "iPhone",
+          "iPod",
+        ].includes(navigator.platform) ||
+        // iPad on iOS 13 detection
+        (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+      );
+    }
+    if (!iOS) {
+      navigator.serviceWorker.register("sw2.js");
+      Notification.requestPermission(function (result) {
+        if (result === "granted") {
+          navigator.serviceWorker.ready.then(function (registration) {
+            var options = {
+              body:
+                "A new version of this website is available, please reload after saving any work to load new website content.",
+              icon: "logo.png",
+              vibrate: [100, 50, 100],
+              data: {
+                dateOfArrival: Date.now(),
+                primaryKey: 1,
+              },
+            };
+            registration.showNotification("Site Update", options);
+          });
+        }
       });
     }
-  });
+  }
 }
-
 function showNotification2(e) {
   toast(
     "A new version of this website is available, please reload after saving any work to load new website content.",
@@ -90,7 +107,6 @@ function Burrito() {
           for (let name of names) caches.delete(name);
         });
         localStorage.setItem("appVersion", concData);
-
       }
     }
   }
