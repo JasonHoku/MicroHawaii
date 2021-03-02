@@ -297,7 +297,7 @@ function EventManagerComponent() {
                   value={formValue}
                   type="textarea"
                   onChange={(e) => setFormValue(e.target.value)}
-                  placeholder="Request Activity On Selected Date"
+                  placeholder="Be Sure To Include Contact Info"
                 />
                 &nbsp;
                 <Button

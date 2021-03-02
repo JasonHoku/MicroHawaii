@@ -62,6 +62,7 @@ import LoginPageElements from "./loginPage";
 import AccountElements from "./account";
 
 import { toast } from "react-toastify";
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE,
   authDomain: "microhawaii-5f97b.firebaseapp.com",
@@ -134,8 +135,7 @@ function ModeratorElements() {
       } else console.log("YYY");
       showNotification(e);
       showNotification2(e);
-      localStorage.setItem("users", parseInt(items.data.length)) &
-        setuserMetric(items.data.length);
+      localStorage.setItem("users", parseInt(items.data.length));
       return items.data.length;
     } else return "Fetching...";
   }
@@ -312,7 +312,6 @@ function ModeratorElements() {
   return (
     <Fragment>
       <center>
-        {" "}
         <Container
           className="ModeratorBackground"
           fluid
@@ -399,323 +398,322 @@ function ModeratorElements() {
             <br />
             <br />
             <Row style={{ justifyContent: "center" }}>
-              
-                <Card
+              <Card
+                style={{
+                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                  alignContent: "center",
+                  height: "100%",
+                  marginTop: "-5px",
+                  marginBottom: "-10px",
+                  marginLeft: "25px",
+                  marginRight: "25px",
+                  padding: 0,
+                  alignItems: "center",
+                }}
+              >
+                <CardTitle
                   style={{
-                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                    alignContent: "center",
-                    height: "100%",
-                    marginTop: "-5px",
-                    marginBottom: "-10px",
-                    marginLeft: "25px",
-                    marginRight: "25px",
-                    padding: 0,
-                    alignItems: "center",
+                    justifyContent: "center",
+                    alignSelf: "center",
+                    marginBottom: "-15px",
+                    padding: "0",
                   }}
                 >
-                  <CardTitle
+                  <h4>Main Website Tools:</h4>
+                </CardTitle>
+                <span
+                  style={{
+                    marginLeft: "10px",
+                    marginTop: "5px",
+                    display: "block",
+                  }}
+                >
+                  <button
                     style={{
-                      justifyContent: "center",
-                      alignSelf: "center",
-                      marginBottom: "-15px",
-                      padding: "0",
-                    }}
-                  >
-                    <h4>Main Website Tools:</h4>
-                  </CardTitle>
-                  <span
-                    style={{
-                      marginLeft: "10px",
+                      marginTop: "10px",
+                      backgroundColor: "#009900",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
                       marginTop: "5px",
-                      display: "block",
+                    }}
+                    onClick={async () => {
+                      toggle("Documentation");
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
                     }}
                   >
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#009900",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        toggle("Documentation");
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                      }}
-                    >
-                      {" "}
-                      Documentation{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#009999",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Content");
-                      }}
-                    >
-                      {" "}
-                      SiteContent{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#006699",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Video");
-                      }}
-                    >
-                      {" "}
-                      Video Tools{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#0033AA",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Users");
-                      }}
-                    >
-                      {" "}
-                      Users{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#0000CC",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Comments");
-                      }}
-                    >
-                      {" "}
-                      Comments{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#3300CC",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Products");
-                      }}
-                    >
-                      {" "}
-                      Products{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#6600CC",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Events");
-                      }}
-                    >
-                      {" "}
-                      Events{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        marginTop: "10px",
-                        backgroundColor: "#BB00CC",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Notes");
-                      }}
-                    >
-                      Notes
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        backgroundColor: "#BB0099",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Surveys");
-                      }}
-                    >
-                      {" "}
-                      Surveys{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        backgroundColor: "#BB0066",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Site Chat");
-                      }}
-                    >
-                      {" "}
-                      Site Chat{" "}
-                    </button>
-                    &nbsp;
-                    <button
-                      style={{
-                        backgroundColor: "#BB0033",
-                        borderRadius: "16px",
-                        height: "35px",
-                        fontSize: "120%",
-                        marginTop: "5px",
-                      }}
-                      onClick={async () => {
-                        setTimeout(
-                          () =>
-                            document.getElementById("id002").scrollIntoView({
-                              behavior: "smooth",
-                              block: "start",
-                              inline: "center",
-                            }),
-                          100
-                        );
-                        toggle("Issue");
-                      }}
-                    >
-                      {" "}
-                      Issues{" "}
-                    </button>
-                    &nbsp;
-                    <br />
-                    <br />
-                  </span>
-                </Card>
+                    {" "}
+                    Documentation{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      marginTop: "10px",
+                      backgroundColor: "#009999",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Content");
+                    }}
+                  >
+                    {" "}
+                    SiteContent{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      marginTop: "10px",
+                      backgroundColor: "#006699",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Video");
+                    }}
+                  >
+                    {" "}
+                    Video Tools{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      marginTop: "10px",
+                      backgroundColor: "#0033AA",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Users");
+                    }}
+                  >
+                    {" "}
+                    Users{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      marginTop: "10px",
+                      backgroundColor: "#0000CC",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Comments");
+                    }}
+                  >
+                    {" "}
+                    Comments{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      marginTop: "10px",
+                      backgroundColor: "#3300CC",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Products");
+                    }}
+                  >
+                    {" "}
+                    Products{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      marginTop: "10px",
+                      backgroundColor: "#6600CC",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Events");
+                    }}
+                  >
+                    {" "}
+                    Events{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      marginTop: "10px",
+                      backgroundColor: "#BB00CC",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Notes");
+                    }}
+                  >
+                    Notes
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      backgroundColor: "#BB0099",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Surveys");
+                    }}
+                  >
+                    {" "}
+                    Surveys{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      backgroundColor: "#BB0066",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Site Chat");
+                    }}
+                  >
+                    {" "}
+                    Site Chat{" "}
+                  </button>
+                  &nbsp;
+                  <button
+                    style={{
+                      backgroundColor: "#BB0033",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("Issue");
+                    }}
+                  >
+                    {" "}
+                    Issues{" "}
+                  </button>
+                  &nbsp;
+                  <br />
+                  <br />
+                </span>
+              </Card>
               <TabPane
                 className="ponoTitle"
                 tabId="1"

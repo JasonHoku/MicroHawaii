@@ -178,7 +178,7 @@ function ChatMessage(props) {
       <div className={`message ${messageClass}`}>
         <img
           className="imgchat"
-          src={photoURL || "/images/smallsquare3.png"}
+          src={photoURL || "./images/smallsquare3.png"}
         />
         <p style={{ fontSize: "22px" }} className="pchat">
           {text}
