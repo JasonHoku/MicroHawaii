@@ -103,9 +103,7 @@ export default function CRMDashboard2() {
                 >
                   {EventTitle}
                   <br />
-                  <div style={{ textAlign: "left" }}>
-                    <b>{EventDate}</b>
-                  </div>
+                  <b style={{ textAlign: "left" }}>{EventDate}</b>
                 </p>
               </div>
             </>

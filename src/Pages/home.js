@@ -7,6 +7,7 @@ import "firebase/storage";
 import "firebase/firestore";
 import firebase from "firebase/app";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -94,14 +95,16 @@ class LandingPage extends React.Component {
             component="div"
             transitionName="MainAnimation"
             transitionAppear={true}
-            transitionEnter={false}
+            transitionAppearTimeout={1000}
+            transitionEnterTimeout={1000}
+            transitionEnter={true}
             transitionLeave={false}
           >
             <div>
               <h1>
-                <a style={{ color: "white" }} href="/dashboards/home">
+                <Link style={{ color: "white" }} to="/dashboards/home">
                   MicroHawaii.com
-                </a>
+                </Link>
               </h1>
             </div>
           </CSSTransitionGroup>
@@ -111,7 +114,9 @@ class LandingPage extends React.Component {
               component="div"
               transitionName="MainAnimation3"
               transitionAppear={true}
-              transitionEnter={false}
+              transitionAppearTimeout={2000}
+              transitionEnterTimeout={2000}
+              transitionEnter={true}
               transitionLeave={false}
             >
               <div>
@@ -135,7 +140,9 @@ class LandingPage extends React.Component {
             component="div"
             transitionName="MainAnimation4"
             transitionAppear={true}
-            transitionEnter={false}
+            transitionAppearTimeout={3000}
+            transitionEnterTimeout={3000}
+            transitionEnter={true}
             transitionLeave={false}
           >
             <div>

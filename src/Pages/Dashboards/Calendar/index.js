@@ -1,5 +1,6 @@
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 
+import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import {
   Row,
   Col,
@@ -117,7 +118,7 @@ function EventManagerComponent() {
                 <p className="pchat">
                   {EventTitle}
                   <br />
-                  <div style={{ textAlign: "right" }}><b>{EventDate}</b></div>
+                  <b style={{ textAlign: "right" }}>{EventDate}</b>
                 </p>
               </div>
             </>
@@ -217,105 +218,116 @@ function EventManagerComponent() {
 
   return (
     <Fragment>
-      <Card style={{ width: "100%" }}>
-        <CardHeader style={{ textAlign: "center" }}>
-          <h3 style={{ textAlign: "center" }}>View &amp; Schedule Events</h3>
-        </CardHeader>
-        <CardBody
-          style={{
-            width: "100%",
-            boxShadow: "0px 0px 0px 2px rgba(50,50,50, .8)",
-            width: "auto",
-            fontSize: "16px",
-          }}
-        >
-          {" "}
-          <h5>
-            <b>Viewing Events on Selected Day:</b>
-          </h5>
-          <br />
-          <Row>
-            <Col>
-              {messages2 &&
-                messages2.map((msg, index) => (
-                  <EventDataSelectedDate
-                    index={index}
-                    key={msg.id}
-                    message={msg}
+      <CSSTransitionGroup
+        component="div"
+        transitionName="MainAnimation"
+        transitionAppear={true}
+        transitionAppearTimeout={1000}
+        transitionEnterTimeout={1000}
+        transitionEnter={true}
+        transitionLeave={false}
+      >
+        <Card style={{ width: "100%" }}>
+          <CardHeader style={{ textAlign: "center" }}>
+            <h3 style={{ textAlign: "center" }}>View &amp; Schedule Events</h3>
+          </CardHeader>
+          <CardBody
+            style={{
+              width: "100%",
+              boxShadow: "0px 0px 0px 2px rgba(50,50,50, .8)",
+              width: "auto",
+              fontSize: "16px",
+            }}
+          >
+            {" "}
+            <h5>
+              <b>Viewing Events on Selected Day:</b>
+            </h5>
+            <br />
+            <Row>
+              <Col className="loadContentTransition" style={{ height: "auto" }}>
+                {(messages2 &&
+                  messages2.map((msg, index) => (
+                    <EventDataSelectedDate
+                      index={index}
+                      key={msg.id}
+                      message={msg}
+                    />
+                  ))) ||
+                  "Loading Event Data"}
+              </Col>
+              <Col>
+                <center>
+                  <b>Hawaiian Time Zone</b>
+                  <Calendar
+                    className="calendarVar"
+                    onChange={(e) =>
+                      setsetDate(
+                        new Date(e).toLocaleTimeString([], {
+                          year: "numeric",
+                          month: "numeric",
+                          day: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })
+                      ) & setloadStage("2")
+                    }
                   />
-                ))}
-            </Col>
-            <Col>
-              <center>
-                <b>Hawaiian Time Zone</b>
-                <Calendar
-                  className="calendarVar"
-                  onChange={(e) =>
-                    setsetDate(
-                      new Date(e).toLocaleTimeString([], {
-                        year: "numeric",
-                        month: "numeric",
-                        day: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })
-                    ) & setloadStage("2")
-                  }
-                />
-              </center>{" "}
-            </Col>
-          </Row>
-          <br />
-          <div style={{ textAlign: "left" }}>
-            <div>
-              <b>Selected Date:</b>
-            </div>{" "}
+                </center>{" "}
+              </Col>
+            </Row>
             <br />
-            <input
-              style={{ width: "50%", maxWidth: "165px" }}
-              id="eventsFormDate"
-              onChange={(e) => setsetDate(e.target.value)}
-              value={setDate}
-            ></input>{" "}
-            <br />
-            <br />
-            <div>
-              <b>Quickly Request a Meeting with MicroHawaii:</b>
+            <div style={{ textAlign: "left" }}>
+              <div>
+                <b>Selected Date:</b>
+              </div>{" "}
+              <br />
+              <input
+                style={{ width: "50%", maxWidth: "165px" }}
+                id="eventsFormDate"
+                onChange={(e) => setsetDate(e.target.value)}
+                value={setDate}
+              ></input>{" "}
               <br />
               <br />
-              <form className="formchat" onSubmit={sendMessage}>
-                &nbsp;
-                <Input
-                  value={eventsFormDescription}
-                  onChange={(e) => handleInputChange(e)}
-                  style={{
-                    textAlign: "center",
-                    borderRadius: "25px",
-                    whiteSpace: "normal",
-                  }}
-                  className="inputchat"
-                  value={formValue}
-                  type="textarea"
-                  onChange={(e) => setFormValue(e.target.value)}
-                  placeholder="Be Sure To Include Contact Info"
-                />
-                &nbsp;
-                <Button
-                  color="primary"
-                  style={{ height: "100%", minWidth: "75px" }}
-                  className="buttonchat"
-                  type="submit"
-                  disabled={!formValue}
-                >
-                  Send
-                </Button>
-              </form>
+              <div>
+                <b>Quickly Request a Meeting with MicroHawaii:</b>
+                <br />
+                <br />
+                <form className="formchat" onSubmit={sendMessage}>
+                  &nbsp;
+                  <Input
+                    value={eventsFormDescription}
+                    onChange={(e) => handleInputChange(e)}
+                    style={{
+                      textAlign: "center",
+                      borderRadius: "25px",
+                      whiteSpace: "normal",
+                    }}
+                    className="inputchat"
+                    value={formValue}
+                    type="textarea"
+                    onChange={(e) => setFormValue(e.target.value)}
+                    placeholder="Be Sure To Include Contact Info"
+                  />
+                  &nbsp;
+                  <Button
+                    color="primary"
+                    style={{ height: "100%", minWidth: "75px" }}
+                    className="buttonchat"
+                    type="submit"
+                    disabled={!formValue}
+                  >
+                    Send
+                  </Button>
+                </form>
+              </div>
+              &nbsp;
             </div>
-            &nbsp;
-          </div>
-          <br />
-        </CardBody>
-      </Card>
+            <br />
+          </CardBody>
+        </Card>
+      </CSSTransitionGroup>
     </Fragment>
   );
 }

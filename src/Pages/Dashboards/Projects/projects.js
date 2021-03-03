@@ -87,18 +87,18 @@ export default class ProjectElements extends Component {
 
     return (
       <Fragment>
-      <Helmet>
-        <title>MicroHawaii.com Networks</title>
-        <meta
-          name="description"
-          content="Find MicroHawaii's activity on various networks."
-        />
-        <meta name="theme-color" content="#008f68" />
-        <link
-          rel="canonical"
-          href="https://microhawaii.com/dashboards/projects"
-        />
-      </Helmet>
+        <Helmet>
+          <title>MicroHawaii.com Networks</title>
+          <meta
+            name="description"
+            content="Find MicroHawaii's activity on various networks."
+          />
+          <meta name="theme-color" content="#008f68" />
+          <link
+            rel="canonical"
+            href="https://microhawaii.com/dashboards/projects"
+          />
+        </Helmet>
         <CSSTransitionGroup
           component="div"
           transitionName="TabsAnimation"
@@ -240,88 +240,10 @@ export default class ProjectElements extends Component {
                   <br></br>
                 </CardBody>
               </Card>
-              <Row
-                id="timer"
-                hidden="true"
-                style={{
-                  alignContent: "center",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {" "}
-                <Card style={{ fontSize: "40px", width: "26rem" }}>
-                  {" "}
-                  <Row>
-                    <CardBody>
-                      <p>
-                        <a
-                          onClick={this.timerReset}
-                          href="/dashboards/projects"
-                        >
-                          <i className="pe-7s-plus"></i>
-                        </a>
-                        <a>
-                          <i className="pe-7s-less"></i>
-                          <i className="pe-7s-lock"></i>
-                          <i className="pe-7s-refresh"></i>
-                        </a>
-                      </p>
-                      <Input
-                        style={{
-                          width: "60%",
-                          alignContent: "center",
-                          alignItems: "center",
-                          position: "relative",
-                          display: "block",
-                          justifyContent: "center",
-                        }}
-                        width="13rem"
-                        size="10"
-                        type="text"
-                        id="timerText"
-                        placeholder={timerVar}
-                      >
-                        {" "}
-                      </Input>{" "}
-                    </CardBody>
-                    <br></br>
-                    <Col>
-                      <CountdownCircleTimer
-                        isPlaying={true}
-                        duration={this.state.timerVar}
-                        key={this.state.timerVar}
-                        colors={[
-                          ["#004777", 0.33],
-                          ["#F7B801", 0.33],
-                          ["#A30000", 0.33],
-                        ]}
-                      >
-                        {({ remainingTime }) => remainingTime}
-                      </CountdownCircleTimer>
-                    </Col>
-                    <Col>
-                      <CountdownCircleTimer
-                        isPlaying
-                        duration={120}
-                        colors={[
-                          ["#004777", 0.33],
-                          ["#F7B801", 0.33],
-                          ["#A30000", 0.33],
-                        ]}
-                      >
-                        {({ remainingTime }) => remainingTime}
-                      </CountdownCircleTimer>
-                    </Col>
-                  </Row>
-                </Card>
-                <Col xs="auto" sm="auto" md="auto" xl="auto"></Col>
-              </Row>
             </Col>
           </Row>
           <br></br>
           <Card
-            alignContent="center"
             style={{
               width: "100%",
               alignContent: "center",
@@ -336,10 +258,7 @@ export default class ProjectElements extends Component {
               </a>
             </CardHeader>
             <CardBody>
-              <CardImg
-                alignContent="center"
-                src="https://grass-graph.moshimo.works/images/JasonHoku.png"
-              ></CardImg>
+              <CardImg src="https://grass-graph.moshimo.works/images/JasonHoku.png"></CardImg>
             </CardBody>
           </Card>
           <br />

@@ -82,7 +82,7 @@ export default class ShopPage extends Component {
     });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getProducts();
   }
 
