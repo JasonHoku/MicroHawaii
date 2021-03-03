@@ -368,5 +368,6 @@ div.card {
 }
 
 .loadContentTransition {
-  transition: 0.2s; 
+  height: min-content;
+  transition: height 2s;
 }

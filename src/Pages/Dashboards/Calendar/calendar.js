@@ -143,8 +143,8 @@ export default class Calendar extends React.Component {
   }
 
   bindEventHandlers = (props) => {
-    this.calendarInst.on('clickSchedule', function(event) {
-    console.log(event.event.target)
+    this.calendarInst.on("clickSchedule", function (event) {
+      console.log(event.event.target);
     });
 
     const eventHandlerNames = Object.keys(props).filter((key) =>

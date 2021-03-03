@@ -113,9 +113,9 @@ function EventManagerComponent() {
         if (gotDate <= are24hFrom1) {
           return (
             <>
-              <div className={`message ${messageClass}`}>
+              <div className={` message ${messageClass}`}>
                 <br />
-                <p className="pchat">
+                <p className="pchat ">
                   {EventTitle}
                   <br />
                   <b style={{ textAlign: "right" }}>{EventDate}</b>
@@ -143,25 +143,11 @@ function EventManagerComponent() {
   const isInitialMount = useRef(true);
 
   useEffect(() => {
-    if (isInitialMount.current === true) {
-      console.log("Updating, Stage: " + loadStage);
-      if (loadStage === "1") {
-        console.log(getDocID());
-
-        setloadStage("2");
-      }
-      if (loadStage === "2") {
-        setloadStage("3");
-      }
-    }
-  });
-  useEffect(() => {
     let concData = [];
     let concData2 = [];
     let concData3 = [];
 
     if (isInitialMount.current === true) {
-      console.log(loadStage);
       if (loadStage === "1") {
         const loadsnapshot = async () => {
           const snapshot = await firebase
@@ -187,31 +173,34 @@ function EventManagerComponent() {
         );
       }
       if (loadStage === "2") {
-        for (var i = 0; i < loadedEvents.length; i++) {
-          localStorage.setItem("eventCounter", loadedEvents.length);
-          let gotDate = new Date(
-            loadedEvents[i][loadedEventIDs[i]][0].EventDate
-          );
-          let are24hFrom0 = new Date(new Date(setDate));
-          are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
-          var are24hFrom1 = new Date(setDate);
-          are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
-          if (gotDate >= are24hFrom0) {
-            if (gotDate <= are24hFrom1) {
-              concData3 = concData3.concat(
-                "\n" + loadedEvents[i][loadedEventIDs[i]][0].EventTitle
-              );
-              settextVar(
-                String(concData3)
-                  .split("\n")
-                  .map((str, index) => <h5 key={index}>{str}</h5>)
-              );
-              setloadStage("3");
+        if (loadedEvents.length < 2) {
+          console.log(loadedEvents);
+          for (var i = 0; i < loadedEvents.length; i++) {
+            localStorage.setItem("eventCounter", loadedEvents.length);
+            let gotDate = new Date(
+              loadedEvents[i][loadedEventIDs[i]][0].EventDate
+            );
+            let are24hFrom0 = new Date(new Date(setDate));
+            are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
+            var are24hFrom1 = new Date(setDate);
+            are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
+            if (gotDate >= are24hFrom0) {
+              if (gotDate <= are24hFrom1) {
+                concData3 = concData3.concat(
+                  "\n" + loadedEvents[i][loadedEventIDs[i]][0].EventTitle
+                );
+                settextVar(
+                  String(concData3)
+                    .split("\n")
+                    .map((str, index) => <h5 key={index}>{str}</h5>)
+                );
+                setloadStage("3");
+              }
             }
           }
+        } else {
+          return setloadStage("3");
         }
-      }
-      if (loadStage === "3") {
       }
     }
   });
@@ -245,16 +234,40 @@ function EventManagerComponent() {
             </h5>
             <br />
             <Row>
-              <Col className="loadContentTransition" style={{ height: "auto" }}>
-                {(messages2 &&
-                  messages2.map((msg, index) => (
-                    <EventDataSelectedDate
-                      index={index}
-                      key={msg.id}
-                      message={msg}
-                    />
-                  ))) ||
-                  "Loading Event Data"}
+              <Col style={{ height: "auto" }}>
+                <CSSTransitionGroup
+                  component="div"
+                  transitionName="MainAnimation5"
+                  transitionAppear={true}
+                  transitionAppearTimeout={1000}
+                  transitionEnterTimeout={1000}
+                  transitionEnter={true}
+                  transitionLeave={false}
+                >
+                  <div
+                    style={{ minHeight: "200px", alignItems: "center" }}
+                    className="loadContentTransition"
+                  >
+                    {(messages2 &&
+                      messages2.map((msg, index) => (
+                        <EventDataSelectedDate
+                          index={index}
+                          key={msg.id}
+                          message={msg}
+                        />
+                      ))) || (
+                      <center>
+                        <div className={` message sent`}>
+                          <br />
+                          <p className="pchat FadeIn">
+                            Loading...
+                            <br />
+                          </p>
+                        </div>
+                      </center>
+                    )}
+                  </div>
+                </CSSTransitionGroup>
               </Col>
               <Col>
                 <center>

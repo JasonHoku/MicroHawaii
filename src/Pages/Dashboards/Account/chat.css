@@ -96,6 +96,7 @@ main::-webkit-scrollbar-thumb {
   position: relative;
   color: white;
   text-align: center;
+  transition: height 2s;
 }
 
 .message {
