@@ -1,6 +1,6 @@
 {
     "name": "microhawaii-site",
-    "version": "1.94.0",
+    "version": "1.102.0",
     "homepage": "https://microhawaii-5f97b.web.app",
     "private": true,
     "dependencies": {
@@ -159,7 +159,6 @@
         "workbox-range-requests": "^5.1.4",
         "workbox-routing": "^5.1.4",
         "workbox-strategies": "^5.1.4",
-        "next": "10.0.7",
         "workbox-streams": "^5.1.4"
     },
     "scripts": {

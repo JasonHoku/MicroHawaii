@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import { Suspense } from "react";
 import Loader from "react-loaders";
 
-const Dashboards = lazy(() => import("../../Pages/Dashboards"));
+const Dashboards = lazy(() => retry(() => import("../../Pages/Dashboards")));
 
 import LandingPage from "../../Pages/home";
 import { ToastContainer } from "react-toastify";
@@ -23,6 +23,25 @@ import "firebase/firestore";
 
 import firebase from "firebase/app";
 import "firebase/performance";
+
+function retry(fn, retriesLeft = 5, interval = 1000) {
+  return new Promise((resolve, reject) => {
+    fn()
+      .then(resolve)
+      .catch((error) => {
+        setTimeout(() => {
+          if (retriesLeft === 1) {
+            // reject('maximum retries exceeded');
+            reject(error);
+            return;
+          }
+
+          // Passing on "reject" is the important part
+          retry(fn, retriesLeft - 1, interval).then(resolve, reject);
+        }, interval);
+      });
+  });
+}
 
 var appVersion = packageJson.version;
 class Main extends React.Component {
@@ -137,11 +156,6 @@ class Main extends React.Component {
   }
 
   render() {
-    if (appVersion) {
-      if (!localStorage.getItem("appVersion")) {
-        localStorage.setItem("appVersion", appVersion);
-      }
-    }
     let {
       colorScheme,
       enableFixedHeader,

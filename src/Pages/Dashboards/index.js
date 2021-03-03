@@ -11,7 +11,7 @@ import HomeDashboard from "./Home/";
 import Services from "./Services/";
 import CalendarPage from "./Calendar/";
 
-const Account = lazy(() => import("./Account/"));
+const Account = lazy(() => retry(() => import("./Account/")));
 const Privacy = lazy(() => import("./PrivacyPolicy/"));
 const Terms = lazy(() => import("./TermsOfService/"));
 
@@ -22,6 +22,24 @@ import AppHeader from "../../Layout/AppHeader/";
 import AppSidebar from "../../Layout/AppSidebar/";
 import AppFooter from "../../Layout/AppFooter/";
 
+function retry(fn, retriesLeft = 5, interval = 1000) {
+  return new Promise((resolve, reject) => {
+    fn()
+      .then(resolve)
+      .catch((error) => {
+        setTimeout(() => {
+          if (retriesLeft === 1) {
+            // reject('maximum retries exceeded');
+            reject(error);
+            return;
+          }
+
+          // Passing on "reject" is the important part
+          retry(fn, retriesLeft - 1, interval).then(resolve, reject);
+        }, interval);
+      });
+  });
+}
 // Theme Options
 import ThemeOptions from "../../Layout/ThemeOptions/";
 const Dashboards = ({ match }) => (

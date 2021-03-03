@@ -17,6 +17,17 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <title>MicroHawaii.com: E-Commerce Design & Business Web Solutions</title>
+    <script>
+      (function () {
+        window.addEventListener("error", (e) => {
+          // prompt user to confirm refresh
+          if (/Loading chunk [\d]+ failed/.test(e.message)) {
+            window.location.reload();
+          }
+        });
+      });
+    </script>
+
     <!-- Clarity tracking code for https://microhawaii.com/ -->
     <script>
       (function (c, l, a, r, i, t, y) {
