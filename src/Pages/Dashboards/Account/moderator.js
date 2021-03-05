@@ -14,6 +14,7 @@ import {
 
 import FormQueryComponent from "./FormQueryComponent.js";
 import UserQueryComponent from "./UserQueryComponent.js";
+import DiscordJSComponent from "./DiscordJSComponent.js";
 import { toInteger } from "lodash";
 import ProductManagerComponent from "./ProductManagerComponent.js";
 import ChatManagerComponent from "./ChatManagerComponent.js";
@@ -203,6 +204,11 @@ function ModeratorElements() {
   function loadUserQueryComponent(props) {
     if (activeTab === "Users") {
       return <UserQueryComponent />;
+    }
+  }
+  function loadDiscordJSComponent(props) {
+    if (activeTab === "DiscordJS") {
+      return <DiscordJSComponent />;
     }
   }
 
@@ -710,6 +716,31 @@ function ModeratorElements() {
                     Issues{" "}
                   </button>
                   &nbsp;
+                  <button
+                    style={{
+                      backgroundColor: "#000000",
+                      borderRadius: "16px",
+                      height: "35px",
+                      fontSize: "120%",
+                      marginTop: "5px",
+                    }}
+                    onClick={async () => {
+                      setTimeout(
+                        () =>
+                          document.getElementById("id002").scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                            inline: "center",
+                          }),
+                        100
+                      );
+                      toggle("DiscordJS");
+                    }}
+                  >
+                    {" "}
+                    DiscordJS{" "}
+                  </button>
+                  &nbsp;
                   <br />
                   <br />
                 </span>
@@ -836,6 +867,7 @@ function ModeratorElements() {
             <TabPane tabId="Documentation">{documentationPageLoader()}</TabPane>
             <TabPane tabId="Video"></TabPane>
             <TabPane tabId="Users">{loadUserQueryComponent()}</TabPane>
+            <TabPane tabId="DiscordJS">{loadDiscordJSComponent()}</TabPane>
             <TabPane tabId="Issue"></TabPane>
           </TabContent>
         </Container>
