@@ -20,9 +20,10 @@ import packageJson from "../../meta.json";
 
 import "firebase/storage";
 import "firebase/firestore";
+import "firebase/analytics";
+import "firebase/performance";
 
 import firebase from "firebase/app";
-import "firebase/performance";
 
 function retry(fn, retriesLeft = 5, interval = 1000) {
   return new Promise((resolve, reject) => {
@@ -56,6 +57,9 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+    this.toggle1()
+    const defaultAnalytics = firebase.analytics();
+    firebase.performance();
     let concData = [];
     const loadsnapshot = async () => {
       const snapshot = await firebase.firestore().collection("linkTest").get();
@@ -98,7 +102,7 @@ class Main extends React.Component {
   }
 
   async toggle1() {
-    // Initialize document
+    window.scrollTo(0, 0);
     const cityRef = firebase.firestore().collection("totalHits").doc("value");
 
     try {
@@ -114,7 +118,6 @@ class Main extends React.Component {
     let concData = [];
     let concData2 = [];
     let concData3 = [];
-    window.scrollTo(0, 0);
     try {
       const firebaseConfig = {
         apiKey: process.env.REACT_APP_FIREBASE,

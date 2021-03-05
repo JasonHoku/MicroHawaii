@@ -33,41 +33,39 @@ if (!firebase.apps.length) {
 }
 
 function showNotification() {
-  function showNotification() {
-    function iOS() {
-      return (
-        [
-          "iPad Simulator",
-          "iPhone Simulator",
-          "iPod Simulator",
-          "iPad",
-          "iPhone",
-          "iPod",
-        ].includes(navigator.platform) ||
-        // iPad on iOS 13 detection
-        (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-      );
-    }
-    if (!iOS) {
-      navigator.serviceWorker.register("sw2.js");
-      Notification.requestPermission(function (result) {
-        if (result === "granted") {
-          navigator.serviceWorker.ready.then(function (registration) {
-            var options = {
-              body:
-                "A new version of this website is available, please reload after saving any work to load new website content.",
-              icon: "logo.png",
-              vibrate: [100, 50, 100],
-              data: {
-                dateOfArrival: Date.now(),
-                primaryKey: 1,
-              },
-            };
-            registration.showNotification("Site Update", options);
-          });
-        }
-      });
-    }
+  function iOS() {
+    return (
+      [
+        "iPad Simulator",
+        "iPhone Simulator",
+        "iPod Simulator",
+        "iPad",
+        "iPhone",
+        "iPod",
+      ].includes(navigator.platform) ||
+      // iPad on iOS 13 detection
+      (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    );
+  }
+  if (!iOS) {
+    navigator.serviceWorker.register("sw2.js");
+    Notification.requestPermission(function (result) {
+      if (result === "granted") {
+        navigator.serviceWorker.ready.then(function (registration) {
+          var options = {
+            body:
+              "A new version of this website is available, please reload after saving any work to load new website content.",
+            icon: "logo.png",
+            vibrate: [100, 50, 100],
+            data: {
+              dateOfArrival: Date.now(),
+              primaryKey: 1,
+            },
+          };
+          registration.showNotification("Site Update", options);
+        });
+      }
+    });
   }
 }
 function showNotification2(e) {
@@ -86,13 +84,10 @@ function showNotification2(e) {
   );
 }
 function Burrito() {
-  // easily access the Firestore library
   const burritoRef = useFirestore().collection("version").doc("0");
 
-  // subscribe to a document for realtime updates. just one line!
   const { status, data } = useFirestoreDocData(burritoRef);
 
-  // easily check the loading status
   if (status === "loading") {
   } else {
     console.log(data.version);

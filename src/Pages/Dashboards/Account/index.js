@@ -43,9 +43,6 @@ import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-import packageJson from "../../../meta.json";
-
-var appVersion = packageJson.version;
 
 var CLIIP;
 
@@ -82,18 +79,6 @@ function AccountPage() {
       });
     }
   }
-  function componentDidMount() {
-    this.setState({ isLoading: true });
-
-    fetch("https://api.ipify.org")
-      .then((response) => response.text())
-      .then((response) => {
-        CLIIP = response;
-      })
-      .then(function (parsedData) {})
-      .catch((error) => this.setState({ error, isLoading: false }));
-  }
-
   return (
     <Fragment>
       <Helmet>

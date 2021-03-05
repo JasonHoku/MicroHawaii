@@ -7,8 +7,11 @@ import React, {
   lazy,
 } from "react";
 
+import { Link } from "react-router-dom";
+
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
+import { SiGooglecalendar, SiShopify } from "react-icons/si";
 import { Route } from "react-router-dom";
 
 import {
@@ -85,28 +88,31 @@ export default function CRMDashboard2() {
     for (var i = 0; i < messages2.length; i++) {
       let gotDate = new Date(EventDate);
       let are24hFrom0 = new Date(new Date(setDate));
-      are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 7);
+      are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 5);
       var are24hFrom1 = new Date(setDate);
       are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
       if (gotDate >= are24hFrom0) {
         if (gotDate <= are24hFrom1) {
           return (
-            <>
-              <div
-                style={{ width: "100%" }}
-                className={`message ${messageClass}`}
+            <span
+              style={{ maxWidth: "450px", margin: "auto" }}
+              className={`message ${messageClass}`}
+            >
+              <br />
+              <p
+                style={{ textAlign: "left", width: "100%", fontSize: "20px" }}
+                className="pchat"
               >
-                <br />
-                <p
-                  style={{ textAlign: "left", width: "100%" }}
-                  className="pchat"
+                <span
+                  style={{ position: "relative", top: "-5px", left: "-5px" }}
                 >
-                  {EventTitle}
-                  <br />
+                  <SiGooglecalendar />{" "}
                   <b style={{ textAlign: "left" }}>{EventDate}</b>
-                </p>
-              </div>
-            </>
+                </span>
+                <br />
+                <div style={{ margin: "15px" }}> {EventTitle}</div>
+              </p>
+            </span>
           );
         } else {
           return null;
@@ -152,17 +158,55 @@ export default function CRMDashboard2() {
                 className="mb-3 main-card"
                 style={{
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                  maxWidth: "950px",
                 }}
               >
                 <CardBody>
                   <h2>
-                    MicroHawaii brings expert web developers to modern toolsets
-                    and training to fit the needs of any online experience.
+                    MicroHawaii provides modern toolsets, training and solutions
+                    to optimize the work flow of any online experience.
                   </h2>
                 </CardBody>
               </Card>
             </Col>
           </Row>
+          <br />
+          <Row>
+            <Col mx-auto="true" style={{ width: "31rem" }}>
+              <Card
+                className="mb-3 main-card"
+                style={{
+                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                }}
+              >
+                <CardBody>
+                  <h2>Recent Events:</h2>
+                  <Row>
+                    {messages2 &&
+                      messages2
+                        .reverse()
+                        .map((msg, index) => (
+                          <EventDataSelectedDate
+                            index={index}
+                            key={msg.id}
+                            message={msg}
+                          />
+                        ))}
+                  </Row>
+                  <br />
+                  <p>
+                    MicroHawaii.Com is designed to optimize the workflow of
+                    creating content and distributing it to various networks and
+                    social medias.
+                  </p>
+                  <p>
+                    <Link to="/dashboards/calendar">Schedule A Meeting</Link>
+                  </p>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          <br />{" "}
           <Row style={{ justifyContent: "center" }}>
             <Card
               style={{
@@ -181,7 +225,7 @@ export default function CRMDashboard2() {
                 }}
               >
                 <CardTitle>
-                  <h4>Web Tools Training</h4>
+                  <h4>Education</h4>
                 </CardTitle>
                 <center>
                   <br />
@@ -200,62 +244,16 @@ export default function CRMDashboard2() {
                     ></iframe>
                   </div>
                 </center>
+                <br />
+                <h4 style={{ paddingLeft: "25px", paddingRight: "25px" }}>
+                  Microhawaii's educational web building resources are growing
+                  rapidly. Tune in to a live stream, or browse amongst series of
+                  curated libraries.
+                </h4>
+                <br />
               </CardBody>
             </Card>
-          </Row>
-          <br />
-          <Row>
-            <Col mx-auto="true" style={{ width: "31rem" }}>
-              <Card
-                className="mb-3 main-card"
-                style={{
-                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                }}
-              >
-                <CardBody>
-                  <h2>Recent Events:</h2>
-                  {messages2 &&
-                    messages2.map((msg, index) => (
-                      <EventDataSelectedDate
-                        index={index}
-                        key={msg.id}
-                        message={msg}
-                      />
-                    ))}
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-          <br />
-          <Row style={{ justifyContent: "center" }}>
-            <Card
-              style={{
-                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                justifyContent: "center",
-                borderRadius: "50px",
-                width: "95%",
-              }}
-            >
-              <CardBody
-                style={{
-                  width: "100%",
-                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  justifyContent: "center",
-                  borderRadius: "50px",
-                }}
-              >
-                <center>
-                  <CardTitle>
-                    <h3> Custom Designed SEO Strategies</h3>
-                  </CardTitle>
-                  <span className="zoom">
-                    {" "}
-                    <Slideshow />
-                  </span>
-                </center>
-              </CardBody>
-            </Card>
-          </Row>
+          </Row>{" "}
           <br />
           <Row>
             <Col
@@ -352,7 +350,37 @@ export default function CRMDashboard2() {
                 <br></br>
               </a>
             </Col>
+          </Row>{" "}
+          <Row style={{ justifyContent: "center" }}>
+            <Card
+              style={{
+                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                justifyContent: "center",
+                borderRadius: "50px",
+                width: "95%",
+              }}
+            >
+              <CardBody
+                style={{
+                  width: "100%",
+                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                  justifyContent: "center",
+                  borderRadius: "50px",
+                }}
+              >
+                <center>
+                  <CardTitle>
+                    <h3> Custom Designed SEO Strategies</h3>
+                  </CardTitle>
+                  <span className="zoom">
+                    {" "}
+                    <Slideshow />
+                  </span>
+                </center>
+              </CardBody>
+            </Card>
           </Row>
+          <br />
         </center>
         <Row></Row>
         <Row>
@@ -422,24 +450,32 @@ export default function CRMDashboard2() {
             </Card>
           </Col>
         </Row>
-        <Row style={{ width: "100%", justifyContent: "center" }}>
-          <center>
-            <Col className=" opacity-9  zoom">
-              <a href="/dashboards/projects">
-                <Card>
-                  <CardHeader className="card-header-tab">
-                    <div className="card text-center card-shadow-focus opacity-9">
-                      Join The MicroHawaii Network
-                    </div>{" "}
-                    <div> </div>
-                  </CardHeader>
-                  <CardBody>
-                    <center>Learn More &amp; Get Connected</center>
-                  </CardBody>
-                </Card>
-              </a>
-            </Col>
-          </center>
+        <Row style={{ justifyContent: "center" }}>
+          <Col
+            style={{
+              width: "100%",
+              maxWidth: "500px",
+              justifyContent: "center",
+            }}
+            className=" opacity-9  zoom"
+          >
+            <a href="/dashboards/projects">
+              <Card style={{ width: "100%", justifyContent: "center" }}>
+                <CardHeader
+                  style={{ justifyContent: "center" }}
+                  className="card-header-tab"
+                >
+                  <div className="card text-center card-shadow-focus opacity-9">
+                    Join The MicroHawaii Network
+                  </div>{" "}
+                  <div> </div>
+                </CardHeader>
+                <CardBody>
+                  <center>Learn More &amp; Get Connected</center>
+                </CardBody>
+              </Card>
+            </a>
+          </Col>
         </Row>
         <br />
         <Row style={{ justifyContent: "center" }}>
