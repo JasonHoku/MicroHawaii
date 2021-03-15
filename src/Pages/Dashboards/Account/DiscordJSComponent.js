@@ -73,7 +73,7 @@ function DiscordJSComponent() {
       })
       .catch(console.error);
   }
-
+  
   return (
     <Fragment>
       <Card>

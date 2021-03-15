@@ -24,8 +24,7 @@ import {
   TabContent,
   TabPane,
 } from "reactstrap";
-import axios from "axios";
-import { toInteger } from "lodash";
+
 const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
@@ -164,7 +163,10 @@ class NoteManagerComponent extends Component {
             name="NoteVar"
             id="NoteVar"
             onChange={() => this.handleInputChange(event)}
-            style={{ top: "15px", position: "relative" }}
+            style={{
+              top: "15px",
+              position: "relative",
+            }}
             type="textarea"
           ></Input>{" "}
           &nbsp;
