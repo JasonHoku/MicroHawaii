@@ -103,7 +103,20 @@ Again, not necessary but very useful for launching your application quickly, eas
 
 * https://firebase.google.com/official/site
 
-Signup and get API keys from Settings --> Config
+Signup and Install firebase tools 
+
+`npm i firebase-tools`
+
+Sign in and init project:
+
+`firebase init`
+
+ then possible scripts are: 
+
+`npm run femu` - Start React Frontend + Firebase Backend 
+`npm run fb` - Build CRA and Deploy Everything To Live
+`npm run fbh` - Build CRA and Deploy Only Hosting (excludes functions and saves minutes)
+
 
 
 ## C2.) PayPal
@@ -124,6 +137,6 @@ This app is strapped to send details on every click to Google Analytics. Amazing
 
 https://analytics.google.com/
 
-Get UA-APIKEYHERE from projects --> settings
+Settings and stats found in Firebase Console.
 
 ### Accepting PRs, questions, comments and concerns.
