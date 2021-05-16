@@ -1,11 +1,4 @@
-import React, {
-  Component,
-  Fragment,
-  useState,
-  useEffect,
-  useRef,
-  lazy,
-} from "react";
+import React, { Component, Fragment, useState, useEffect, useRef, lazy } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -69,6 +62,8 @@ export default function CRMDashboard2() {
       })
     )
   );
+  const [recentEventsHiddenBool, setRecentEventsHiddenBool] = useState(true);
+
   const firestore = firebase.firestore();
 
   const messagesRef = firestore.collection("events");
@@ -99,19 +94,16 @@ export default function CRMDashboard2() {
               className={`message ${messageClass}`}
             >
               <br />
-              <p
-                style={{ textAlign: "left", width: "100%", fontSize: "20px" }}
-                className="pchat"
-              >
-                <span
-                  style={{ position: "relative", top: "-5px", left: "-5px" }}
-                >
-                  <SiGooglecalendar />{" "}
-                  <b style={{ textAlign: "left" }}>{EventDate}</b>
+              <p style={{ textAlign: "left", width: "100%", fontSize: "20px" }} className="pchat">
+                <span style={{ position: "relative", top: "-5px", left: "-5px" }}>
+                  <SiGooglecalendar /> <b style={{ textAlign: "left" }}>{EventDate}</b>
                 </span>
                 <br />
                 <div style={{ margin: "15px" }}> {EventTitle}</div>
               </p>
+              {() => {
+                setRecentEventsHiddenBool(false);
+              }}
             </span>
           );
         } else {
@@ -143,17 +135,10 @@ export default function CRMDashboard2() {
               content="Software development, e-commerce, education, training, tools and services."
             />
             <meta name="theme-color" content="#008f68" />
-            <link
-              rel="canonical"
-              href="https://microhawaii.com/dashboards/home"
-            />
+            <link rel="canonical" href="https://microhawaii.com/dashboards/home" />
           </Helmet>
           <Row>
-            <Col
-              mx-auto="true"
-              className=" opacity-9"
-              style={{ width: "31rem" }}
-            >
+            <Col mx-auto="true" className=" opacity-9" style={{ width: "31rem" }}>
               <Card
                 className="mb-3 main-card"
                 style={{
@@ -163,15 +148,15 @@ export default function CRMDashboard2() {
               >
                 <CardBody>
                   <h2>
-                    MicroHawaii provides modern toolsets, training and solutions
-                    to optimize the work flow of any online experience.
+                    MicroHawaii provides modern toolsets, training and solutions to optimize the
+                    work flow of any online experience.
                   </h2>
                 </CardBody>
               </Card>
             </Col>
           </Row>
           <br />
-          <Row>
+          <Row hidden={recentEventsHiddenBool}>
             <Col mx-auto="true" style={{ width: "31rem" }}>
               <Card
                 className="mb-3 main-card"
@@ -186,18 +171,13 @@ export default function CRMDashboard2() {
                       messages2
                         .reverse()
                         .map((msg, index) => (
-                          <EventDataSelectedDate
-                            index={index}
-                            key={msg.id}
-                            message={msg}
-                          />
+                          <EventDataSelectedDate index={index} key={msg.id} message={msg} />
                         ))}
                   </Row>
                   <br />
                   <p>
-                    MicroHawaii.Com is designed to optimize the workflow of
-                    creating content and distributing it to various networks and
-                    social medias.
+                    MicroHawaii.Com is designed to optimize the workflow of creating content and
+                    distributing it to various networks and social medias.
                   </p>
                   <p>
                     <Link to="/dashboards/calendar">Schedule A Meeting</Link>
@@ -229,10 +209,7 @@ export default function CRMDashboard2() {
                 </CardTitle>
                 <center>
                   <br />
-                  <div
-                    className="videoDivide"
-                    style={{ width: "80%", maxWidth: "600px" }}
-                  >
+                  <div className="videoDivide" style={{ width: "80%", maxWidth: "600px" }}>
                     <iframe
                       width="100%"
                       height="100%"
@@ -246,9 +223,8 @@ export default function CRMDashboard2() {
                 </center>
                 <br />
                 <h4 style={{ paddingLeft: "25px", paddingRight: "25px" }}>
-                  Microhawaii's educational web building resources are growing
-                  rapidly. Tune in to a live stream, or browse amongst series of
-                  curated libraries.
+                  Microhawaii's educational web building resources are growing rapidly. Tune in to a
+                  live stream, or browse amongst series of curated libraries.
                 </h4>
                 <br />
               </CardBody>
@@ -256,11 +232,7 @@ export default function CRMDashboard2() {
           </Row>{" "}
           <br />
           <Row>
-            <Col
-              mx-auto="true"
-              className=" opacity-9 zoom"
-              style={{ width: "12rem" }}
-            >
+            <Col mx-auto="true" className=" opacity-9 zoom" style={{ width: "12rem" }}>
               <Card
                 mx-auto="true"
                 style={{
@@ -271,9 +243,7 @@ export default function CRMDashboard2() {
                 <a href="/dashboards/services">
                   {" "}
                   <CardHeader className="card-header-tab">
-                    <div className="card text-center card-shadow-focus opacity-9">
-                      Services
-                    </div>
+                    <div className="card text-center card-shadow-focus opacity-9">Services</div>
                   </CardHeader>
                   <CardBody>
                     <div>
@@ -300,18 +270,11 @@ export default function CRMDashboard2() {
                   }}
                 >
                   <CardHeader className="card-header-tab">
-                    <div className="card text-center card-shadow-focus opacity-9">
-                      Shop
-                    </div>
+                    <div className="card text-center card-shadow-focus opacity-9">Shop</div>
                   </CardHeader>
                   <CardBody>
                     <div>
-                      <img
-                        width={140}
-                        className=" text-center"
-                        src={shoppic}
-                        alt=""
-                      />
+                      <img width={140} className=" text-center" src={shoppic} alt="" />
                     </div>
                     <center>E-Commerce</center>
                   </CardBody>
@@ -330,19 +293,12 @@ export default function CRMDashboard2() {
                   }}
                 >
                   <CardHeader className="card-header-tab">
-                    <div className="card text-center card-shadow-focus opacity-9">
-                      About
-                    </div>{" "}
+                    <div className="card text-center card-shadow-focus opacity-9">About</div>{" "}
                     <div> </div>
                   </CardHeader>
                   <CardBody>
                     <div>
-                      <img
-                        width={140}
-                        className=" text-center"
-                        src={aboutpic}
-                        alt=""
-                      />
+                      <img width={140} className=" text-center" src={aboutpic} alt="" />
                     </div>
                     <center> Learn More</center>
                   </CardBody>
@@ -392,25 +348,18 @@ export default function CRMDashboard2() {
               }}
             >
               <CardHeader className="card-header-tab" color="light">
-                <h4 style={{ textAlign: "left" }}>
-                  Web Architecture with MicroHawaii
-                </h4>
+                <h4 style={{ textAlign: "left" }}>Web Architecture with MicroHawaii</h4>
               </CardHeader>
               <CardBody>
-                  MicroHawaii is a local tech startup, specializing in providing
-                web focused technologies, strategy, and solutions to businesses
-                of all shapes and sizes.
+                  MicroHawaii is a local tech startup, specializing in providing web focused
+                technologies, strategy, and solutions to businesses of all shapes and sizes.
                 <br></br> <br></br>
                  This website is an{" "}
-                <a href="https://github.com/JasonHoku/MicroHawaii">
-                  {" "}
-                  open-source{" "}
-                </a>
-                cross platform application that services authentication
-                alongside Google's powerful and generous
-                <a href="https://firebase.google.com/"> FireBase</a>{" "}
-                technologies to accomidate the needs of any online experience.{" "}
-                <br />
+                <a href="https://github.com/JasonHoku/MicroHawaii"> open-source </a>
+                cross platform application that services authentication alongside Google's powerful
+                and generous
+                <a href="https://firebase.google.com/"> FireBase</a> technologies to accomidate the
+                needs of any online experience. <br />
                 <br></br>
                 <center>
                   <img
@@ -443,8 +392,7 @@ export default function CRMDashboard2() {
                 </center>
                 <br />
                 <a href="/dashboards/services">
-                  Gain ultimate control and expert assistance through
-                  MicroHawaii today.{" "}
+                  Gain ultimate control and expert assistance through MicroHawaii today.{" "}
                 </a>
               </CardBody>
             </Card>
@@ -461,10 +409,7 @@ export default function CRMDashboard2() {
           >
             <a href="/dashboards/projects">
               <Card style={{ width: "100%", justifyContent: "center" }}>
-                <CardHeader
-                  style={{ justifyContent: "center" }}
-                  className="card-header-tab"
-                >
+                <CardHeader style={{ justifyContent: "center" }} className="card-header-tab">
                   <div className="card text-center card-shadow-focus opacity-9">
                     Join The MicroHawaii Network
                   </div>{" "}
@@ -486,10 +431,7 @@ export default function CRMDashboard2() {
               className="card-shadow-primary card-border text-white mb-3"
               color="primary"
             >
-              <div
-                className="dropdown-menu-header"
-                style={{ justifyContent: "center" }}
-              >
+              <div className="dropdown-menu-header" style={{ justifyContent: "center" }}>
                 <div
                   className="dropdown-menu-header-inner"
                   style={{ justifyContent: "center", background: "#3333FFCC" }}
@@ -502,9 +444,7 @@ export default function CRMDashboard2() {
                     </div>
                     <div>
                       <h5 className="menu-header-title">PrettyCoolPattern</h5>
-                      <h6 className="menu-header-subtitle">
-                        Arts &amp; Entertainment
-                      </h6>
+                      <h6 className="menu-header-subtitle">Arts &amp; Entertainment</h6>
                     </div>
                   </div>
                 </div>
@@ -524,10 +464,7 @@ export default function CRMDashboard2() {
               className="card-shadow-primary card-border text-white mb-3"
               color="primary"
             >
-              <div
-                className="dropdown-menu-header"
-                style={{ justifyContent: "center" }}
-              >
+              <div className="dropdown-menu-header" style={{ justifyContent: "center" }}>
                 <div
                   className="dropdown-menu-header-inner"
                   style={{ justifyContent: "center", background: "#3333DDCC" }}
@@ -566,10 +503,7 @@ export default function CRMDashboard2() {
               className="card-shadow-primary card-border text-white mb-3"
               color="primary"
             >
-              <div
-                className="dropdown-menu-header"
-                style={{ justifyContent: "center" }}
-              >
+              <div className="dropdown-menu-header" style={{ justifyContent: "center" }}>
                 <div
                   className="dropdown-menu-header-inner"
                   style={{ justifyContent: "center", background: "#3333CCCC" }}
@@ -577,17 +511,12 @@ export default function CRMDashboard2() {
                   <div className="menu-header-content">
                     <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
                       <div className="avatar-icon">
-                        <img
-                          src="/images/mauiartprintslogo.webp"
-                          alt="Avatar 5"
-                        />
+                        <img src="/images/mauiartprintslogo.webp" alt="Avatar 5" />
                       </div>
                     </div>
                     <div>
                       <h5 className="menu-header-title">MauiArtPrints</h5>
-                      <h6 className="menu-header-subtitle">
-                        Hawaiian Arts Gallery
-                      </h6>
+                      <h6 className="menu-header-subtitle">Hawaiian Arts Gallery</h6>
                     </div>
                   </div>
                 </div>
@@ -609,10 +538,7 @@ export default function CRMDashboard2() {
               className="card-shadow-primary card-border text-white mb-3"
               color="primary"
             >
-              <div
-                className="dropdown-menu-header"
-                style={{ justifyContent: "center" }}
-              >
+              <div className="dropdown-menu-header" style={{ justifyContent: "center" }}>
                 <div
                   className="dropdown-menu-header-inner bg-primary"
                   style={{ justifyContent: "center" }}

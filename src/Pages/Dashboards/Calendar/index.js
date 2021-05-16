@@ -29,7 +29,6 @@ import axios from "axios";
 import Calendar from "react-calendar";
 
 import "../../../assets/components/Calendar.css";
-import CalendarElements from "./calendar";
 
 import "../Account/chat.css";
 
