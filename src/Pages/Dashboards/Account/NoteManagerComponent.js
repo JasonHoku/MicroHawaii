@@ -79,7 +79,7 @@ function NoteManagerComponent() {
 
   const dummy = useRef();
   const messagesRef = firestore.collection("Notes");
-  const query = messagesRef.orderBy("createdAt").limit(25);
+  const query = messagesRef.orderBy("createdAt");
 
   const [messages] = useCollectionData(query, { idField: "id" });
 

@@ -21,5 +21,22 @@
   "start_url": "https://microhawaii.com/",
   "display": "standalone",
   "theme_color": "#ddddff",
-  "background_color": "#ddddff"
+  "background_color": "#ddddff",
+  "shortcuts": [
+    {
+      "name": "Notes",
+
+      "description": "MicroHawaii Personal Notes Page",
+
+      "url": "https://microhawaii.com/dashboards/account",
+
+      "icons": [
+        {
+          "src": "logo512.png",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    }
+  ]
 }

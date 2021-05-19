@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /events/{document}  {
+      allow read, write: if request.auth != null && request.auth.uid == "zlnmlPv5KfeSEitHQhtd6UReWhF3";
+    }
+  }
+  match /databases/{database}/documents {
+    match /Users/{document}  {
+      allow read;allow write: if request.auth != null;
+    }
+  }
+  match /databases/{database}/documents {
+    match /totalClicks/{document}  {
+      allow read;allow write;
+    }
+  }
+  match /databases/{database}/documents {
+    match /totalHits/value  {
+      allow read;allow write: if true;
+    }
+  }
+  match /databases/{database}/documents {
+    match /linkTest/{document}  {
+      allow read;
+    }
+  }
+  match /databases/{database}/documents {
+    match /eventRequests/{document}  {
+      allow read;allow write;
+    }
+  }
+  match /databases/{database}/documents {
+    match /version/{document}  {
+      allow read;
+    }
+  }
+  match /databases/{database}/documents {
+    match /Notes/{document}  {
+      allow read, write: if  request.auth != null && request.auth.uid == "zlnmlPv5KfeSEitHQhtd6UReWhF3"
+ 
+  } 
+}
+  match /databases/{database}/documents {
+    match /Secrets/{document}  {
+      allow read: if  request.auth != null && request.auth.uid == "zlnmlPv5KfeSEitHQhtd6UReWhF3"
+ 
+  } }
+}

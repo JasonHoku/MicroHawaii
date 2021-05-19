@@ -76,16 +76,29 @@ const firebaseConfig = {
 };
 
 function ModeratorElements() {
-  const [activeTab, setactiveTab] = useState("1");
-  const [userMetric, setuserMetric] = useState(
-    parseInt(localStorage.getItem("users")) || 0
-  );
+  const [activeTab, setActiveTab] = useState("1");
+  const [userMetric, setuserMetric] = useState(parseInt(localStorage.getItem("users")) || 0);
   const [loadedSnapshotData, setloadedSnapshotData] = useState("");
   const [loadedSnapshotData2, setloadedSnapshotData2] = useState("");
   const [isLoadedOnce, setisLoadedOnce] = useState("1");
   const [issuesMetric, setissuesMetric] = useState("");
   const [loadStage, setloadStage] = useState("1");
   const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (!isInitialMount.current) {
+      return null;
+    } else {
+      //Run Once : Preload
+
+      if (window.location.search === "?Notes") {
+        setActiveTab("Notes");
+      }
+      console.log(window.location.search);
+    }
+
+    isInitialMount.current = false;
+  }, []);
 
   function showNotification(e) {
     console.log(userMetric, localStorage.getItem("users"));
@@ -270,7 +283,7 @@ function ModeratorElements() {
   }
   function toggle(tab) {
     if (activeTab !== tab) {
-      setactiveTab(tab);
+      setActiveTab(tab);
     }
   }
   function handleRemoveProduct(id, e) {
@@ -302,10 +315,7 @@ function ModeratorElements() {
     });
   }
   function handlePriceInputChange(event) {
-    localStorage.setItem(
-      "localData7",
-      event.target.value - localStorage.getItem("localData4")
-    );
+    localStorage.setItem("localData7", event.target.value - localStorage.getItem("localData4"));
     this.setState({
       adminPrice: event.target.value,
     });
@@ -369,8 +379,7 @@ function ModeratorElements() {
                 outline
                 color="alternate"
                 className={
-                  "btn-pill btn-wide " +
-                  classnames({ active: useState(activeTab) === "1" })
+                  "btn-pill btn-wide " + classnames({ active: useState(activeTab) === "1" })
                 }
                 onClick={() => {
                   toggle("1");
@@ -382,8 +391,7 @@ function ModeratorElements() {
                 outline
                 color="alternate"
                 className={
-                  "btn-pill btn-wide " +
-                  classnames({ active: useState(activeTab) === "2" })
+                  "btn-pill btn-wide " + classnames({ active: useState(activeTab) === "2" })
                 }
                 onClick={async () => {
                   toggle("2");
