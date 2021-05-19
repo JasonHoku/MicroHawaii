@@ -1,4 +1,4 @@
-  GNU nano 3.2                           /home/pi/Projects/PCWeb/.gitignore                           Modified  
+  GNU nano 3.2                           /home/pi/Projects/PCWeb/.gitignore                           Modified
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
@@ -35,3 +35,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+firebase.json
