@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://microhawaii.com/",
+  "start_url": "https://microhawaii.com",
   "display": "standalone",
   "theme_color": "#ddddff",
   "background_color": "#ddddff",
