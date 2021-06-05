@@ -43,10 +43,7 @@ class Nav extends Component {
                 </svg>
                 &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 Homepage
               </span>
             </button>
@@ -62,10 +59,7 @@ class Nav extends Component {
                 <SiGooglecalendar />
                 &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 Schedule
               </span>
             </button>
@@ -81,10 +75,7 @@ class Nav extends Component {
                 <GiPaintBrush />
                 &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 Artwork
               </span>
             </button>
@@ -93,17 +84,11 @@ class Nav extends Component {
         <Link onClick={this.toggleMobileSidebar} to="/dashboards/shop">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
-              <span
-                className="spin"
-                style={{ position: "relative", top: "-3px", left: "-15px" }}
-              >
+              <span className="spin" style={{ position: "relative", top: "-3px", left: "-15px" }}>
                 <SiShopify />
                 &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 E-Shop
               </span>
             </button>
@@ -122,10 +107,7 @@ class Nav extends Component {
                 </svg>
                 &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 Services
               </span>
             </button>
@@ -141,10 +123,7 @@ class Nav extends Component {
                 <IoIosInformationCircleOutline />
                 &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 About
               </span>
             </button>
@@ -157,12 +136,10 @@ class Nav extends Component {
                 className="metismenu-item"
                 style={{ position: "relative", top: "-3px", left: "-15px" }}
               >
-                <GoMailRead /> &nbsp;&nbsp;&nbsp;
+                <GoMailRead />
+                &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 Contact
               </span>
             </button>
@@ -179,16 +156,13 @@ class Nav extends Component {
                 <VscAccount />
                 &nbsp;&nbsp;&nbsp;
               </span>
-              <span
-                className="sidebarLinks"
-                style={{ position: "relative", top: "1px" }}
-              >
+              <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
                 Login
               </span>
             </button>
           </h4>
         </Link>
-        {/* 
+        {/*
         <h5 className="app-sidebar__heading">Forms</h5>
         <MetisMenu content={FormsNav} onSelected={this.toggleMobileSidebar} activeLinkFromLocation
           className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>

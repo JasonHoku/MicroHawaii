@@ -21,10 +21,7 @@ class LandingPage extends React.Component {
 
   loadRegisterClick(event) {
     document.body.addEventListener("click", async function (e) {
-      const cityRef = firebase
-        .firestore()
-        .collection("totalClicks")
-        .doc("value");
+      const cityRef = firebase.firestore().collection("totalClicks").doc("value");
 
       try {
         await firebase.firestore().runTransaction(async (t) => {
@@ -53,11 +50,7 @@ class LandingPage extends React.Component {
   componentDidMount() {}
 
   componentWillUnmount() {
-    document.removeEventListener(
-      "click",
-      this.loadRegisterClick.bind(this),
-      false
-    );
+    document.removeEventListener("click", this.loadRegisterClick.bind(this), false);
   }
   setRedirect = () => {
     this.setState({
@@ -78,11 +71,11 @@ class LandingPage extends React.Component {
           <link rel="canonical" href="https://microhawaii.com" />
         </Helmet>
         <div
+          style={{ position: "absolute", zIndex: 1 }}
           id="fadeIn"
           className="landingContent "
           onClick={() =>
-            (document.getElementById("fadeIn").className =
-              "landingContent fadeOut") &
+            (document.getElementById("fadeIn").className = "landingContent fadeOut") &
             setTimeout(() => {
               this.setRedirect();
             }, 500)

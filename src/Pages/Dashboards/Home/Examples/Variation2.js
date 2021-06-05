@@ -50,6 +50,8 @@ import "firebase/firestore";
 
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
+import { InitFrontPage } from "./homePageThreeJSLoader";
+
 export default function CRMDashboard2() {
   const [setDate, setsetDate] = useState(
     String(
@@ -63,14 +65,24 @@ export default function CRMDashboard2() {
     )
   );
   const [recentEventsHiddenBool, setRecentEventsHiddenBool] = useState(true);
+  const [loadStage, setloadStage] = useState("1");
 
   const firestore = firebase.firestore();
 
   const messagesRef = firestore.collection("events");
-
   const query2 = messagesRef.orderBy("EventDate");
-
   const [messages2] = useCollectionData(query2, { idField: "id" });
+
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      setTimeout(() => {
+        InitFrontPage();
+      }, 150);
+      isInitialMount.current = false;
+    }
+  });
 
   function EventDataSelectedDate(props) {
     const auth = firebase.auth();
@@ -144,13 +156,11 @@ export default function CRMDashboard2() {
                 style={{
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                   maxWidth: "950px",
+                  zIndex: 1100,
                 }}
               >
                 <CardBody>
-                  <h2>
-                    MicroHawaii provides modern toolsets, training and solutions to optimize the
-                    work flow of any online experience.
-                  </h2>
+                  <h2>Hawaii's own website architecture service and reference provider.</h2>
                 </CardBody>
               </Card>
             </Col>
@@ -186,8 +196,68 @@ export default function CRMDashboard2() {
               </Card>
             </Col>
           </Row>
-          <br />{" "}
-          <Row style={{ justifyContent: "center" }}>
+          <br />
+          <br />
+          <CardTitle></CardTitle>
+          <CSSTransitionGroup
+            component="div"
+            transitionName="MainAnimation"
+            transitionAppear={true}
+            transitionAppearTimeout={1000}
+            transitionEnterTimeout={1000}
+            transitionEnter={false}
+            transitionLeave={false}
+          >
+            <Row style={{ justifyContent: "center" }}>
+              <div
+                id="ThreeJSContainer"
+                className="ThreeJSContainer"
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  position: "relative",
+                  transformStyle: "preserve-3d",
+                  transition: ".5s ease",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    position: "relative",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "400px",
+                    transformStyle: "preserve-3d",
+                    height: window.innerHeight - 250,
+                    transition: ".5s ease",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                  class="ThreeJSCard"
+                  id="ThreeJSCard"
+                >
+                  <div
+                    onMouseOver={() => {
+                      console.log("Over");
+                    }}
+                    style={{
+                      width: "100%",
+                      maxWidth: "100%",
+                      height: window.innerHeight - 250,
+                      position: "absolute",
+                      zIndex: 3,
+                      left: 0,
+                    }}
+                    id="ThreeJSSceneContainer"
+                  ></div>
+                </div>
+              </div>
+            </Row>
+          </CSSTransitionGroup>
+          <Row style={{ justifyContent: "center", height: "400px" }}>
             <Card
               style={{
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
@@ -199,7 +269,6 @@ export default function CRMDashboard2() {
                 style={{
                   width: "100%",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  justifyContent: "center",
                   background:
                     "linear-gradient(0.25turn, #1030DDDD, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #1030DDDD)",
                 }}
@@ -223,14 +292,17 @@ export default function CRMDashboard2() {
                 </center>
                 <br />
                 <h4 style={{ paddingLeft: "25px", paddingRight: "25px" }}>
-                  Microhawaii's educational web building resources are growing rapidly. Tune in to a
-                  live stream, or browse amongst series of curated libraries.
+                  Microhawaii's educational web building resources are growing rapidly.{" "}
+                  <a href="https://www.youtube.com/JasonLevien808">
+                    Browse amongst series of curated libraries.
+                  </a>
                 </h4>
                 <br />
               </CardBody>
             </Card>
           </Row>{" "}
-          <br />
+          <br /> <br />
+          <div style={{ height: "250px" }}></div>
           <Row>
             <Col mx-auto="true" className=" opacity-9 zoom" style={{ width: "12rem" }}>
               <Card
@@ -358,7 +430,7 @@ export default function CRMDashboard2() {
                 <a href="https://github.com/JasonHoku/MicroHawaii"> open-source </a>
                 cross platform application that services authentication alongside Google's powerful
                 and generous
-                <a href="https://firebase.google.com/"> FireBase</a> technologies to accomidate the
+                <a href="https://firebase.google.com/"> Firebase</a> technologies to accommodate the
                 needs of any online experience. <br />
                 <br></br>
                 <center>

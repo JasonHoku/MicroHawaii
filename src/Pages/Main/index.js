@@ -11,7 +11,8 @@ const Dashboards = lazy(() => retry(() => import("../../Pages/Dashboards")));
 import LandingPage from "../../Pages/home";
 import { ToastContainer } from "react-toastify";
 
-import App from "../../Pages/Dashboards/Home/Examples/backgroundeffect";
+import "../../Pages/Dashboards/Home/Examples/backgroundeffect";
+
 import { unregister } from "../../serviceWorker";
 
 import ResizeDetector from "react-resize-detector";
@@ -57,7 +58,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.toggle1()
+    this.toggle1();
     const defaultAnalytics = firebase.analytics();
     firebase.performance();
     let concData = [];
@@ -79,10 +80,7 @@ class Main extends React.Component {
     window.addEventListener("hashchange", this.toggle1, false);
 
     document.body.addEventListener("click", async function (e) {
-      const cityRef = firebase
-        .firestore()
-        .collection("totalClicks")
-        .doc("value");
+      const cityRef = firebase.firestore().collection("totalClicks").doc("value");
 
       try {
         await firebase.firestore().runTransaction(async (t) => {
@@ -144,6 +142,7 @@ class Main extends React.Component {
           if (!localStorage.getItem("appVersion")) {
             localStorage.setItem("appVersion", concData.version);
           } else if (localStorage.getItem("appVersion") != concData.version) {
+            var caches = false;
             if (caches) {
               caches.keys().then(function (names) {
                 for (let name of names) caches.delete(name);
@@ -151,6 +150,7 @@ class Main extends React.Component {
               localStorage.setItem("appVersion", concData.version);
             }
             unregister();
+            localStorage.setItem("appVersion", concData.version);
             window.location.reload(true);
           }
         }
@@ -198,7 +198,6 @@ class Main extends React.Component {
               )}
             >
               <Fragment>
-                <App />
                 <Suspense
                   fallback={
                     <div className="loader-container">
@@ -217,9 +216,7 @@ class Main extends React.Component {
                         </div>
                         <h2 className="mt-3" style={{ color: "white" }}>
                           Loading...
-                          <small style={{ color: "white" }}>
-                            Welcome to MicroHawaii
-                          </small>
+                          <small style={{ color: "white" }}>Welcome to MicroHawaii</small>
                         </h2>
                       </div>
                     </div>
@@ -230,9 +227,10 @@ class Main extends React.Component {
                     <Route path="/" component={LandingPage} />
                   </Switch>
                 </Suspense>
+
                 <ToastContainer />
               </Fragment>
-            </div>
+              <span style={{ position: "fixed", zIndex: 0 }} id="bgEffectDOM"></span>    </div>{" "}
           </Fragment>
         )}
       />

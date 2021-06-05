@@ -97,6 +97,7 @@ function Burrito() {
     } else if (localStorage.getItem("appVersion") != concData) {
       showNotification();
       showNotification2();
+      var caches = false;
       if (caches) {
         caches.keys().then(function (names) {
           for (let name of names) caches.delete(name);

@@ -125,7 +125,7 @@ const Slideshow = () => {
               }}
             >
               <span style={{ textAlign: "center" }}>
-                <b>&nbsp;Get Your Content Noticed</b>
+                <b>&nbsp;Reach Vast Audiences</b>
               </span>
               <img
                 src="/images/Analytics3.png"

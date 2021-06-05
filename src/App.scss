@@ -121,6 +121,8 @@
 
 @import "App.css";
 
+@import "3DStyles.css";
+
 div.card {
   box-shadow: "0px 0px 0px 5px rgba(50,50,50, .8)";
 }
@@ -286,11 +288,7 @@ div.card {
   position: relative;
   top: -4px;
 }
-#root
-  > div
-  > div.app-main
-  > div.app-sidebar.sidebar-shadow
-  > div.app-header__logo {
+#root > div > div.app-main > div.app-sidebar.sidebar-shadow > div.app-header__logo {
   display: none;
 }
 
@@ -334,12 +332,7 @@ div.card {
 .button {
   text-decoration: none;
 }
-#root
-  > div
-  > div.app-header.header-shadow
-  > div.app-header__mobile-menu
-  > div
-  > button {
+#root > div > div.app-header.header-shadow > div.app-header__mobile-menu > div > button {
   text-decoration: none;
   background-color: transparent;
 }
@@ -354,20 +347,45 @@ div.card {
 }
 .gradientBtn:hover {
   transition: 1s;
-  background-image: linear-gradient(
-    to right,
-    #00d2ff 100%,
-    #3a7bd5 51%,
-    #00d2ff 0%
-  );
+  background-image: linear-gradient(to right, #00d2ff 100%, #3a7bd5 51%, #00d2ff 0%);
   background-position: right center;
 }
 
 .sidebarLinks {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
 .loadContentTransition {
   height: min-content;
   transition: height 2s;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+.card {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+.card-header {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
 }
