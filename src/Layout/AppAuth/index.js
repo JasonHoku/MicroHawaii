@@ -1,10 +1,12 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/auth";
 
 import { Card, CardBody, CardHeader } from "reactstrap";
 import AccountElements from "../../Pages/Dashboards/Account/account";
 import ModeratorElements from "../../Pages/Dashboards/Account/moderator";
+import "firebaseui/dist/firebaseui.css";
 
 const defaultUser = { loggedIn: false, email: "" };
 const UserContext = React.createContext({});
