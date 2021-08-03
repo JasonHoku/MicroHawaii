@@ -1,6 +1,6 @@
 {
     "name": "microhawaii-site",
-    "version": "1.134.0",
+    "version": "1.143.0",
     "homepage": "https://microhawaii-5f97b.web.app",
     "private": true,
     "dependencies": {
@@ -63,7 +63,7 @@
         "pe7-icon": "^1.0.4",
         "postcss-loader": "^2.1.5",
         "prettier": "^2.2.1",
-        "prismjs": "^1.15.0",
+        "prismjs": "^1.24.1",
         "prop-types": "^15.5.10",
         "ra-data-json-server": "^3.10.4",
         "ra-data-simple-rest": "^3.10.4",

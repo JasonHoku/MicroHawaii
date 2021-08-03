@@ -76,7 +76,7 @@ class Nav extends Component {
                 &nbsp;&nbsp;&nbsp;
               </span>
               <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
-                Artwork
+                Designs
               </span>
             </button>
           </h4>
@@ -124,7 +124,7 @@ class Nav extends Component {
                 &nbsp;&nbsp;&nbsp;
               </span>
               <span className="sidebarLinks" style={{ position: "relative", top: "1px" }}>
-                About
+                About Us
               </span>
             </button>
           </h4>

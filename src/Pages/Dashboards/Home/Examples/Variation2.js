@@ -257,52 +257,68 @@ export default function CRMDashboard2() {
               </div>
             </Row>
           </CSSTransitionGroup>
-          <Row style={{ justifyContent: "center", height: "400px" }}>
-            <Card
-              style={{
-                boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                justifyContent: "center",
-                width: "80%",
-              }}
-            >
-              <CardBody
+
+          <Row>
+            <Col>
+              <Card
+                className="main-card mb-3"
                 style={{
-                  width: "100%",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  background:
-                    "linear-gradient(0.25turn, #1030DDDD, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #1030DDDD)",
                 }}
               >
-                <CardTitle>
-                  <h4>Education</h4>
-                </CardTitle>
-                <center>
-                  <br />
-                  <div className="videoDivide" style={{ width: "80%", maxWidth: "600px" }}>
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src="https://www.youtube.com/embed/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                <CardHeader className="card-header-tab" color="light">
+                  <h4 style={{ textAlign: "left" }}>Web Architecture with MicroHawaii</h4>
+                </CardHeader>
+                <CardBody>
+                  MicroHawaii is a local tech startup, specializing in providing web focused
+                  technologies, strategy, and solutions to businesses of all shapes and sizes.
+                  <br></br> <br></br>
+                  This website is an{" "}
+                  <a href="https://github.com/JasonHoku/MicroHawaii"> open-source </a>
+                  cross platform application that services authentication alongside Google's powerful
+                  and generous
+                  <a href="https://firebase.google.com/"> Firebase</a> technologies to accommodate the
+                  needs of any online experience. <br />
+                  <br></br>
+                  <center>
+                    <img
                       style={{
+                        maxWidth: "275px",
                         boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                        margin: "5px",
                       }}
-                    ></iframe>
-                  </div>
-                </center>
-                <br />
-                <h4 style={{ paddingLeft: "25px", paddingRight: "25px" }}>
-                  Microhawaii's educational web building resources are growing rapidly.{" "}
-                  <a href="https://www.youtube.com/JasonLevien808">
-                    Browse amongst series of curated libraries.
-                  </a>
-                </h4>
-                <br />
-              </CardBody>
-            </Card>
-          </Row>{" "}
-          <br /> <br />
-          <div style={{ height: "250px" }}></div>
+                      width="100%"
+                      src={fireAd1}
+                    ></img>
+                    <img
+                      style={{
+                        maxWidth: "275px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                        margin: "5px",
+                      }}
+                      width="100%"
+                      src={fireAd2}
+                    ></img>
+                    <img
+                      style={{
+                        maxWidth: "275px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                        margin: "5px",
+                      }}
+                      width="100%"
+                      src={fireAd3}
+                    ></img>
+                  </center>
+                  <br />
+                  <Link to="/dashboards/services">
+                    Gain ultimate control and expert assistance through MicroHawaii today.{" "}
+                  </Link>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+
+          <div style={{ height: "25px" }}></div>
           <Row>
             <Col mx-auto="true" className=" opacity-9 zoom" style={{ width: "12rem" }}>
               <Card
@@ -315,7 +331,7 @@ export default function CRMDashboard2() {
                 <a href="/dashboards/services">
                   {" "}
                   <CardHeader className="card-header-tab">
-                    <div className="card text-center card-shadow-focus opacity-9">Services</div>
+                    <div>Services</div>
                   </CardHeader>
                   <CardBody>
                     <div>
@@ -326,7 +342,7 @@ export default function CRMDashboard2() {
                         alt=""
                       />
                     </div>
-                    <center>Skills &amp; Consult.</center>
+                    <center>Skills &amp; Consult</center>
                   </CardBody>
                 </a>
               </Card>
@@ -378,7 +394,8 @@ export default function CRMDashboard2() {
                 <br></br>
               </a>
             </Col>
-          </Row>{" "}
+          </Row>
+          <div style={{ height: "25px" }}></div>
           <Row style={{ justifyContent: "center" }}>
             <Card
               style={{
@@ -388,7 +405,7 @@ export default function CRMDashboard2() {
                 width: "95%",
               }}
             >
-              <CardBody
+              <Link to="/dashboards/services">  <CardBody
                 style={{
                   width: "100%",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
@@ -405,71 +422,57 @@ export default function CRMDashboard2() {
                     <Slideshow />
                   </span>
                 </center>
-              </CardBody>
+              </CardBody></Link>
             </Card>
           </Row>
           <br />
         </center>
-        <Row></Row>
-        <Row>
-          <Col>
-            <Card
-              className="main-card mb-3"
+
+        <Row style={{ justifyContent: "center", height: "400px" }}>
+          <Card
+            style={{
+              boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+              justifyContent: "center",
+              width: "80%",
+            }}
+          >
+            <CardBody
               style={{
+                width: "100%",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                background:
+                  "linear-gradient(0.25turn, #1030DDDD, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #1030DDDD)",
               }}
             >
-              <CardHeader className="card-header-tab" color="light">
-                <h4 style={{ textAlign: "left" }}>Web Architecture with MicroHawaii</h4>
-              </CardHeader>
-              <CardBody>
-                  MicroHawaii is a local tech startup, specializing in providing web focused
-                technologies, strategy, and solutions to businesses of all shapes and sizes.
-                <br></br> <br></br>
-                 This website is an{" "}
-                <a href="https://github.com/JasonHoku/MicroHawaii"> open-source </a>
-                cross platform application that services authentication alongside Google's powerful
-                and generous
-                <a href="https://firebase.google.com/"> Firebase</a> technologies to accommodate the
-                needs of any online experience. <br />
-                <br></br>
-                <center>
-                  <img
-                    style={{
-                      maxWidth: "275px",
-                      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                      margin: "5px",
-                    }}
-                    width="100%"
-                    src={fireAd1}
-                  ></img>
-                  <img
-                    style={{
-                      maxWidth: "275px",
-                      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                      margin: "5px",
-                    }}
-                    width="100%"
-                    src={fireAd2}
-                  ></img>
-                  <img
-                    style={{
-                      maxWidth: "275px",
-                      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                      margin: "5px",
-                    }}
-                    width="100%"
-                    src={fireAd3}
-                  ></img>
-                </center>
+              <CardTitle>
+                <h4>Education</h4>
+              </CardTitle>
+              <center>
                 <br />
-                <a href="/dashboards/services">
-                  Gain ultimate control and expert assistance through MicroHawaii today.{" "}
+                <div className="videoDivide" style={{ width: "80%", maxWidth: "600px" }}>
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/playlist?list=PLWGSXq68FTb1BvHxzWGvx63ZDpNZ12xuG"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    style={{
+                      boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    }}
+                  ></iframe>
+                </div>
+              </center>
+              <br />
+              <h4 style={{ paddingLeft: "25px", paddingRight: "25px" }}>
+                Microhawaii's educational web building resources are growing rapidly.{" "}
+                <a href="https://www.youtube.com/JasonLevien808">
+                  Browse amongst series of curated libraries.
                 </a>
-              </CardBody>
-            </Card>
-          </Col>
+              </h4>
+              <br />
+            </CardBody>
+          </Card>
         </Row>
+        <div style={{ height: "325px" }}></div>
         <Row style={{ justifyContent: "center" }}>
           <Col
             style={{
@@ -595,6 +598,74 @@ export default function CRMDashboard2() {
               </div>
               <CardFooter className="text-center d-block">
                 <a href="https://MauiArtPrints.com">
+                  <Button className="btn-shadow-dark btn-wider" color="dark">
+                    Visit Website
+                  </Button>
+                </a>
+              </CardFooter>
+            </Card>
+          </Col>
+          {/* //////////////////// */}
+          <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
+            <Card
+              style={{ justifyContent: "center" }}
+              className="card-shadow-primary card-border text-white mb-3"
+              color="primary"
+            >
+              <div className="dropdown-menu-header" style={{ justifyContent: "center" }}>
+                <div
+                  className="dropdown-menu-header-inner"
+                  style={{ justifyContent: "center", background: "#3333CCCC" }}
+                >
+                  <div className="menu-header-content">
+                    <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
+                      <div className="avatar-icon">
+                        <img src="/images/aarootslogo.webp" alt="Avatar 5" />
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="menu-header-title">A`A Roots</h5>
+                      <h6 className="menu-header-subtitle">Restaurant</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <CardFooter className="text-center d-block">
+                <a href="https://AARootsHI.com">
+                  <Button className="btn-shadow-dark btn-wider" color="dark">
+                    Visit Website
+                  </Button>
+                </a>
+              </CardFooter>
+            </Card>
+          </Col>
+          {/* //////////////////// */}
+          <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
+            <Card
+              style={{ justifyContent: "center" }}
+              className="card-shadow-primary card-border text-white mb-3"
+              color="primary"
+            >
+              <div className="dropdown-menu-header" style={{ justifyContent: "center" }}>
+                <div
+                  className="dropdown-menu-header-inner"
+                  style={{ justifyContent: "center", background: "#3333CCCC" }}
+                >
+                  <div className="menu-header-content">
+                    <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
+                      <div className="avatar-icon">
+                        <img src="/images/myrlogo.webp" alt="Avatar 5" />
+                      </div>
+                    </div>
+                    <div>
+                      <h5 className="menu-header-title">RayMauiYoga</h5>
+                      <h6 className="menu-header-subtitle">Live Stream + Video</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <CardFooter className="text-center d-block">
+                <a href="https://RayMauiYoga.com">
                   <Button className="btn-shadow-dark btn-wider" color="dark">
                     Visit Website
                   </Button>

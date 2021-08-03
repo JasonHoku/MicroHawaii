@@ -89,15 +89,9 @@ export default class ProjectElements extends Component {
       <Fragment>
         <Helmet>
           <title>MicroHawaii.com Networks</title>
-          <meta
-            name="description"
-            content="Find MicroHawaii's activity on various networks."
-          />
+          <meta name="description" content="Find MicroHawaii's activity on various networks." />
           <meta name="theme-color" content="#008f68" />
-          <link
-            rel="canonical"
-            href="https://microhawaii.com/dashboards/projects"
-          />
+          <link rel="canonical" href="https://microhawaii.com/dashboards/projects" />
         </Helmet>
         <CSSTransitionGroup
           component="div"
@@ -117,7 +111,7 @@ export default class ProjectElements extends Component {
             <Col xs="auto" sm="auto" md="auto" xl="auto">
               <Card>
                 <CardBody>
-                  <h1>MicroHawaii Blogs</h1>
+                  <h1>About MicroHawaii</h1>
                 </CardBody>
               </Card>
             </Col>
@@ -135,9 +129,9 @@ export default class ProjectElements extends Component {
               <Card>
                 <CardBody>
                   <h4>
-                    &nbsp; With over fifteen years of software development
-                    experience, Jason Hoku, along-side the MicroHawaii team are
-                    dedicated to a variety of powerful skillsets and networks.
+                    &nbsp; With over fifteen years of software development experience, Jason Hoku,
+                    along-side the MicroHawaii team are dedicated to a variety of powerful skillsets
+                    and networks.
                   </h4>
                   <br /> <br />
                   <li>
@@ -253,9 +247,7 @@ export default class ProjectElements extends Component {
           >
             <CardHeader>
               {" "}
-              <a href="https://github.com/JasonHoku">
-                GitHub Contribution Activity:
-              </a>
+              <a href="https://github.com/JasonHoku">GitHub Contribution Activity:</a>
             </CardHeader>
             <CardBody>
               <CardImg src="https://grass-graph.moshimo.works/images/JasonHoku.png"></CardImg>

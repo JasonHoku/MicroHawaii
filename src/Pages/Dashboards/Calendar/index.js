@@ -40,11 +40,9 @@ import "firebase/storage";
 import "firebase/firestore";
 
 function EventManagerComponent() {
-  const [loadStage, setloadStage] = useState("1");
   const [loadElements, setloadElements] = useState(null);
   const [loadedEvents, setloadedEvents] = useState([]);
   const [loadedEventIDs, setloadedEventIDs] = useState([]);
-
   const [textVar, settextVar] = useState("");
   const [setDate, setsetDate] = useState(
     String(
@@ -67,7 +65,7 @@ function EventManagerComponent() {
   const auth = firebase.auth();
   const firestore = firebase.firestore();
 
-  const dummy = useRef();
+  const loadStageRef = useRef();
   const messagesRef = firestore.collection("events");
   const messagesRef2 = firestore.collection("eventRequests");
 
@@ -82,7 +80,6 @@ function EventManagerComponent() {
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    const { uid } = auth.currentUser;
 
     await messagesRef2.add({
       EventTitle: formValue,
@@ -134,12 +131,14 @@ function EventManagerComponent() {
   function getDocID() {
     try {
       return messages2[parseInt(loadedEzID) - 1].id;
-    } catch (error) {}
+    } catch (error) { }
   }
   function handleInputChange(e) {
     seteventsFormDescription(e.target.value);
   }
   const isInitialMount = useRef(true);
+
+  loadStageRef.current = 1
 
   useEffect(() => {
     let concData = [];
@@ -147,12 +146,9 @@ function EventManagerComponent() {
     let concData3 = [];
 
     if (isInitialMount.current === true) {
-      if (loadStage === "1") {
+      if (loadStageRef.current === 1) {
         const loadsnapshot = async () => {
-          const snapshot = await firebase
-            .firestore()
-            .collection("events")
-            .get();
+          const snapshot = await firebase.firestore().collection("events").get();
           snapshot.forEach((doc) => {
             concData = concData.concat({
               [doc.id]: [doc.data()],
@@ -167,38 +163,48 @@ function EventManagerComponent() {
 
         console.log(
           loadsnapshot().then(async () => {
-            setloadStage("2");
+            loadStageRef.current = 2;
           })
         );
       }
-      if (loadStage === "2") {
+      if (loadStageRef.current === 2) {
         if (loadedEvents.length < 2) {
           console.log(loadedEvents);
           for (var i = 0; i < loadedEvents.length; i++) {
             localStorage.setItem("eventCounter", loadedEvents.length);
-            let gotDate = new Date(
-              loadedEvents[i][loadedEventIDs[i]][0].EventDate
-            );
+            let gotDate = new Date(loadedEvents[i][loadedEventIDs[i]][0].EventDate);
             let are24hFrom0 = new Date(new Date(setDate));
             are24hFrom0.setDate(are24hFrom0.getDate(setDate) - 1);
             var are24hFrom1 = new Date(setDate);
             are24hFrom1.setDate(are24hFrom1.getDate(setDate) + 1);
-            if (gotDate >= are24hFrom0) {
-              if (gotDate <= are24hFrom1) {
-                concData3 = concData3.concat(
-                  "\n" + loadedEvents[i][loadedEventIDs[i]][0].EventTitle
-                );
-                settextVar(
-                  String(concData3)
-                    .split("\n")
-                    .map((str, index) => <h5 key={index}>{str}</h5>)
-                );
-                setloadStage("3");
-              }
+            if (gotDate >= are24hFrom0 && gotDate <= are24hFrom1) {
+
+              concData3 = concData3.concat(
+                "\n" + loadedEvents[i][loadedEventIDs[i]][0].EventTitle
+              );
+              settextVar(
+                String(concData3)
+                  .split("\n")
+                  .map((str, index) => <h5 key={index}>{str}</h5>)
+              );
+              loadStageRef.current = 3;
             }
           }
         } else {
-          return setloadStage("3");
+          return () => {
+
+            if (loadStageRef.current === 2 || loadStageRef.current === 1 || loadStageRef.current === 0) {
+              document.getElementById("EventViewContainer").innerHTML = `
+                <div  class="message sent" >
+<p   class="pchat" >
+
+                No Special Events Found At This Date: Feel free to request a meeting with the form below.
+</p>
+</div>      `
+
+              loadStageRef.current = 3;
+            }
+          }
         }
       }
     }
@@ -243,28 +249,26 @@ function EventManagerComponent() {
                   transitionEnter={true}
                   transitionLeave={false}
                 >
-                  <div
+                  <div id="EventViewContainer"
                     style={{ minHeight: "200px", alignItems: "center" }}
                     className="loadContentTransition"
                   >
                     {(messages2 &&
                       messages2.map((msg, index) => (
-                        <EventDataSelectedDate
-                          index={index}
-                          key={msg.id}
-                          message={msg}
-                        />
-                      ))) || (
-                      <center>
-                        <div className={` message sent`}>
-                          <br />
-                          <p className="pchat FadeIn">
-                            Loading...
+                        messages2.length > 1 ?
+                          <EventDataSelectedDate index={index} key={msg.id} message={msg} />
+                          : "XYZ"))) || (
+                        <center>
+                          <div className={` message sent`}>
                             <br />
-                          </p>
-                        </div>
-                      </center>
-                    )}
+                            <p className="pchat FadeIn">
+                              No Special Events Found At This Date: Feel free to request a meeting
+                              with the form below.
+                              <br />
+                            </p>
+                          </div>
+                        </center>
+                      )}
                   </div>
                 </CSSTransitionGroup>
               </Col>
@@ -273,7 +277,8 @@ function EventManagerComponent() {
                   <b>Hawaiian Time Zone</b>
                   <Calendar
                     className="calendarVar"
-                    onChange={(e) =>
+                    onChange={(e) => {
+                      loadStageRef.current = 2
                       setsetDate(
                         new Date(e).toLocaleTimeString([], {
                           year: "numeric",
@@ -282,7 +287,8 @@ function EventManagerComponent() {
                           hour: "2-digit",
                           minute: "2-digit",
                         })
-                      ) & setloadStage("2")
+                      );
+                    }
                     }
                   />
                 </center>{" "}

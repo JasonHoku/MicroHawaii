@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import { Helmet } from "react-helmet";
 
+import { Link } from "react-router-dom";
 import {
   Row,
   Col,
@@ -70,10 +71,10 @@ export default class CRMDashboard2 extends Component {
           transitionLeave={false}
         >
           {/*
-      
+
 <div>
 
-    <a href="#">
+    <Link to="#">
         <img src="images/thumbs/07.png" alt="" />
         <h2>Custom E-Commerce, Services, Merchandise, Research & More</h2>
     </a>
@@ -91,7 +92,7 @@ export default class CRMDashboard2 extends Component {
 <section class="thumbnails">
     <div>
 
-        <a href="#">
+        <Link to="#">
             <img src="images/thumbs/javaexample.png" alt="" />Example Site A
         </a>
     </div>
@@ -99,7 +100,7 @@ export default class CRMDashboard2 extends Component {
         <br>
 
         </center>
-      
+
     </div>
 </section>
 
@@ -122,7 +123,7 @@ export default class CRMDashboard2 extends Component {
             <Col>
               <Card className="col-md- opacity-9 ">
                 <CardHeader className="card-header-tab">
-                  <div className="card text-center card-shadow-focus opacity-9">
+                  <div>
                     <h4> MicroHawaii Services </h4>
                   </div>
                 </CardHeader>
@@ -137,16 +138,23 @@ export default class CRMDashboard2 extends Component {
                   MicroHawaii Websites:
                   <br /> <br />
                   <li>
-                    <a href="https://prettycoolpattern.com/">
+                    <Link to="https://prettycoolpattern.com/">
                       PrettyCoolPattern
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="https://mauiartprints.com/">MauiArtPrints</a>
+                    <Link href="https://mauiartprints.com/">MauiArtPrints</Link>
                   </li>{" "}
                   <li>
-                    <a href="https://ponomap.com/">PonoMap</a>
+                    <Link to="https://ponomap.com/">PonoMap</Link>
                   </li>{" "}
+                  <li>
+                    <Link to="https://AARootsHI.com/">AARootsHI.com</Link>
+                  </li>{" "}
+                  <li>
+                    <Link to="https://RayMauiYoga.com/">RayMauiYoga.com</Link>
+                  </li>{" "}
+                  <br /> <br /> Join the rapidly expanding network today.
                 </CardBody>
               </Card>
             </Col>
@@ -155,9 +163,8 @@ export default class CRMDashboard2 extends Component {
               <Row>
                 <Col>
                   <Card className="row-md-6 opacity-9 zoom ">
-                    <a
+                    <Link
                       style={{ textDecoration: "none" }}
-                      href="/dashboards/contact"
                       to="/dashboards/contact"
                       activeLinkFromLocation
                     >
@@ -179,7 +186,7 @@ export default class CRMDashboard2 extends Component {
                         <br />
                         <center> Click here to send a direct message.</center>
                       </CardBody>
-                    </a>
+                    </Link>
                   </Card>
                   <Row>
                     <Col>
@@ -187,7 +194,7 @@ export default class CRMDashboard2 extends Component {
                       <br></br>
                       <Card className=" opacity-9 ">
                         <CardHeader className="card-header-tab">
-                          <div className="card text-center card-shadow-focus opacity-9">
+                          <div>
                             <h4> Maui, Hawaii Based</h4>
                           </div>
                         </CardHeader>
@@ -214,7 +221,7 @@ export default class CRMDashboard2 extends Component {
 
           <Row>
             <Col>
-              <a href="/dashboards/contact" to="/dashboards/contact">
+              <Link to="/dashboards/contact" to="/dashboards/contact">
                 <Card className="col-md-6 opacity-9 zoom">
                   <CardHeader className="card-header-tab">
                     <div className="card text-center card-shadow-focus opacity-9"></div>
@@ -234,7 +241,7 @@ export default class CRMDashboard2 extends Component {
                     </div>
                   </CardBody>
                 </Card>{" "}
-              </a>
+              </Link>
               <br></br>
             </Col>
           </Row>
@@ -263,9 +270,9 @@ export default class CRMDashboard2 extends Component {
                   </div>
                 </div>
                 <CardFooter className="text-center d-block">
-                  <Button className="btn-shadow-dark btn-wider" color="dark">
-                    Send Message
-                  </Button>
+                  <Link to="/dashboards/contact">  <Button className="btn-shadow-dark btn-wider" color="dark">
+                    Direct Message
+                  </Button></Link>
                 </CardFooter>
               </Card>
             </Col>

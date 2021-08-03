@@ -111,7 +111,6 @@ export default class GalleryElements extends Component {
               <Card>
                 <CardBody>
                   <h4>
-                    {" "}
                     An image is said to contain a thousand words, but how should
                     one contain a thousand images?
                   </h4>
@@ -125,7 +124,7 @@ export default class GalleryElements extends Component {
                   </center>
                   <h5>
                     MicroHawaii has produced over 1,200 logos, icons, textures,
-                    and graphics.
+                    and other digital graphics.
                   </h5>
                   <p>Here rests a collection of some, growing over time.</p>{" "}
                 </CardBody>

@@ -249,9 +249,8 @@ export default class ShopPage extends Component {
                 </div>
                 <br />
                 <br />
-                <span style={{ fontFamily: "monospace", fontSize: "150%" }}>
-                  {" "}
-                  Here you can find an array of focuses MicroHawaii has to
+                <span style={{ fontFamily: "Montserrat", fontSize: "125%", fontWeight: 999, margin: "15px" }}>
+                  Here you may find an array of focuses MicroHawaii has to
                   offer.
                 </span>
                 <br />
@@ -315,7 +314,6 @@ export default class ShopPage extends Component {
             style={{
               position: "bottom",
               boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-              width: "17rem",
             }}
           >
             <Footer
@@ -331,7 +329,6 @@ export default class ShopPage extends Component {
               productQuantity={this.state.moq}
             ></Footer>{" "}
             <CardBody>
-              {" "}
               <PayPalButton
                 cartBounce={this.state.cartBounce}
                 total={this.state.totalAmount}

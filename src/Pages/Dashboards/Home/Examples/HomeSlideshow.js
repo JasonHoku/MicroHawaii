@@ -55,10 +55,10 @@ const Slideshow = () => {
               }}
             >
               <span style={{ textAlign: "center" }}>
-                <b>&nbsp;Utilize Expert Web Tools</b>
+                <b>&nbsp;Expertly Optimized </b>
               </span>
               <img
-                src="/images/Analytics1.png"
+                src="/images/Analytics4.webp"
                 style={{
                   maxWidth: "750px",
                   width: "90%",

@@ -11,7 +11,7 @@ export const MainNav = [
   },
   {
     icon: "pe-7s-photo",
-    label: "Artwork",
+    label: "Designs",
     to: "/dashboards/gallery",
   },
   {
