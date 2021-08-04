@@ -6,6 +6,8 @@ import { ImInstagram, ImYoutube, ImFacebook, ImTwitter } from "react-icons/im";
 import { FaDiscord, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
+import GitHubCalendar from "github-calendar"
+
 import {
   Row,
   Col,
@@ -67,6 +69,12 @@ export default class ProjectElements extends Component {
         activeTab1: tab,
       });
     }
+  }
+  componentDidMount() {
+
+    GitHubCalendar(".calendar", "JasonHoku");
+
+
   }
   timerLoader() {
     document.getElementById("timer").hidden = false;
@@ -246,11 +254,19 @@ export default class ProjectElements extends Component {
             }}
           >
             <CardHeader>
-              {" "}
               <a href="https://github.com/JasonHoku">GitHub Contribution Activity:</a>
             </CardHeader>
             <CardBody>
-              <CardImg src="https://grass-graph.moshimo.works/images/JasonHoku.png"></CardImg>
+
+
+              <link
+                rel="stylesheet"
+                href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+              />
+
+              <div class="calendar" style={{ width: "100%" }}>
+              </div>
+
             </CardBody>
           </Card>
           <br />
@@ -267,7 +283,7 @@ export default class ProjectElements extends Component {
           <Row></Row>
           <br></br>
         </CSSTransitionGroup>
-      </Fragment>
+      </Fragment >
     );
   }
 }
