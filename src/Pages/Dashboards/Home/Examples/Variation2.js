@@ -36,6 +36,8 @@ import servicespic from "../../../../assets/images/thumbs/services.webp";
 import aboutpic from "../../../../assets/images/thumbs/about.png";
 import shoppic from "../../../../assets/images/thumbs/shop.webp";
 import fireAd1 from "../../../../images/ads/FirePricing3.png";
+import scriptAd from "../../../../images/ads/script.png";
+import seoAd from "../../../../images/ads/seo.png";
 import fireAd2 from "../../../../images/ads/FirePricing2.png";
 import fireAd3 from "../../../../images/ads/FirePricing1.png";
 
@@ -283,27 +285,45 @@ export default function CRMDashboard2() {
                   <center>
                     <img
                       style={{
-                        maxWidth: "275px",
-                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                        margin: "5px",
+                        maxWidth: "325px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .3)",
+                        margin: "25px",
                       }}
                       width="100%"
                       src={fireAd1}
                     ></img>
                     <img
                       style={{
-                        maxWidth: "275px",
-                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                        margin: "5px",
+                        maxWidth: "675px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .3)",
+                        margin: "25px",
+                      }}
+                      width="100%"
+                      src={scriptAd}
+                    ></img>
+                    <img
+                      style={{
+                        maxWidth: "325px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .3)",
+                        margin: "25px",
                       }}
                       width="100%"
                       src={fireAd2}
                     ></img>
                     <img
                       style={{
-                        maxWidth: "275px",
-                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                        margin: "5px",
+                        maxWidth: "300px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .3)",
+                        margin: "25px",
+                      }}
+                      width="100%"
+                      src={seoAd}
+                    ></img>
+                    <img
+                      style={{
+                        maxWidth: "325px",
+                        boxShadow: "0px 0px 0px 5px rgba(50,50,50, .3)",
+                        margin: "25px",
                       }}
                       width="100%"
                       src={fireAd3}

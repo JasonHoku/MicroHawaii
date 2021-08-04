@@ -221,7 +221,7 @@ function EventManagerComponent() {
         transitionEnter={true}
         transitionLeave={false}
       >
-        <Card style={{ width: "100%" }}>
+        <Row style={{ justifyContent: "center" }}><Card style={{ width: "100%", maxWidth: "1250px", }}>
           <CardHeader style={{ textAlign: "center" }}>
             <h3 style={{ textAlign: "center" }}>View &amp; Schedule Events</h3>
           </CardHeader>
@@ -308,8 +308,12 @@ function EventManagerComponent() {
               ></input>{" "}
               <br />
               <br />
-              <div>
+              <br />
+              <br />
+              <div style={{ textAlign: "center" }}>
                 <b>Quickly Request a Meeting with MicroHawaii:</b>
+                <br />
+                <br />
                 <br />
                 <br />
                 <form className="formchat" onSubmit={sendMessage}>
@@ -344,9 +348,9 @@ function EventManagerComponent() {
             </div>
             <br />
           </CardBody>
-        </Card>
+        </Card></Row>
       </CSSTransitionGroup>
-    </Fragment>
+    </Fragment >
   );
 }
 
