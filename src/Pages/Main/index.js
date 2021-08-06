@@ -11,7 +11,7 @@ const Dashboards = lazy(() => retry(() => import("../../Pages/Dashboards")));
 import LandingPage from "../../Pages/home";
 import { ToastContainer } from "react-toastify";
 
-import "../../Pages/Dashboards/Home/Examples/backgroundeffect";
+import MainThreeJS from "../../Pages/Dashboards/Home/Examples/backgroundeffect";
 
 import { unregister } from "../../serviceWorker";
 
@@ -155,7 +155,7 @@ class Main extends React.Component {
           }
         }
       });
-    } catch (error) {}
+    } catch (error) { }
   }
 
   render() {
@@ -228,6 +228,7 @@ class Main extends React.Component {
                   </Switch>
                 </Suspense>
 
+                <MainThreeJS />
                 <ToastContainer />
               </Fragment>
               <span style={{ position: "fixed", zIndex: 0 }} id="bgEffectDOM"></span>    </div>{" "}
