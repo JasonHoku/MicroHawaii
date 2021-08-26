@@ -4,7 +4,6 @@ import axios from "axios";
 import classnames from "classnames";
 
 import PayPalButton from "../Shop/PayPalExpress";
-import SiteChatManagerComponent from "./SiteChatManagerComponent.js";
 
 import {
   Row,
@@ -24,7 +23,6 @@ import {
   TabPane,
   Progress,
 } from "reactstrap";
-import { toInteger } from "lodash";
 
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -62,12 +60,76 @@ function AccountElements() {
   );
   const [file, setFile] = useState(null);
   const [url, setURL] = useState("");
+  const [payPalResponse, setPayPalResponse] = useState(null);
+  const [activatePaypal, setActivatePaypal] = useState({ active: false, link: null });
 
+  const [userDataRes, setUserDataRes] = useState(null);
   const isInitialMount = useRef(true);
+
+  const auth = firebase.auth();
+  const hasPayPalLaunched = useRef(false);
+
 
   function logout() {
     firebase.auth().signOut();
   }
+
+  useEffect(() => {
+    console.log("State Up " + loadStage.current);
+
+    setActivatePaypal
+    if (hasPayPalLaunched.current === undefined) {
+      hasPayPalLaunched.current = false;
+    } else {
+      if (hasPayPalLaunched.current === false) {
+        if (activatePaypal.active) {
+          console.log("TRUE XYZ")
+
+
+          window.open(activatePaypal.link);
+
+          // document.getElementById("UpgradeAccountButton").innerHTML =
+          // "PayPal Opened In New Window";
+        }
+      }
+    }
+
+    if (isInitialMount.current === false) {
+      console.log("Init State2 " + loadStage.current);
+    } else {
+      // Runs Once Upon Mount
+
+
+      //
+      console.log("Init State " + loadStage.current);
+      var dbData = {};
+      var db = firebase.firestore();
+      db
+        .collection("UserDocs")
+        .doc(auth.currentUser.uid)
+        .get()
+        .then((doc) => {
+          dbData = doc.data();
+          if (dbData === undefined) {
+            db.collection("UserDocs").doc(auth.currentUser.uid).set({
+              uid: auth.currentUser.uid,
+              displayName: auth.currentUser.displayName,
+              meta: 0,
+            });
+          }
+
+          console.log(dbData);
+          setUserDataRes(dbData);
+        });
+    }
+    isInitialMount.current = false;
+  }, [
+    auth.currentUser.displayName,
+    auth.currentUser.uid,
+    activatePaypal
+  ])
+
+
   function copyImgURL() {
     var copyText = document.getElementById("copyImgURLElement");
     copyText.select();
@@ -76,16 +138,6 @@ function AccountElements() {
 
     var tooltip = document.getElementById("myTooltip");
     tooltip.innerHTML = `Copied`;
-  }
-
-  function handleChange(e) {
-    setFile(e.target.files[0]);
-  }
-
-  function decideLoadChat() {
-    if (activeTab === "Chat") {
-      return <SiteChatManagerComponent />;
-    }
   }
 
   function handleUpload(e) {
@@ -113,7 +165,6 @@ function AccountElements() {
 
   function loadSubmitFinalListing() {
     if (activeTab === "3") {
-      const auth = firebase.auth();
       firebase
         .firestore()
         .collection("ListingsToApprove")
@@ -200,7 +251,7 @@ function AccountElements() {
       document.forms[4].reset();
       document.forms[5].reset();
       setgotDownloadURL(localStorage.getItem("gotDownloadURL"));
-    } catch (error) {}
+    } catch (error) { }
   }
 
   function loadPayPalButton() {
@@ -219,7 +270,7 @@ function AccountElements() {
               .map((str) => (
                 <p key={str}>{str}</p>
               ))}
-            total={toInteger(readyPaymentCost)}
+            total={parseInt(readyPaymentCost)}
             totalItems={readyPaymentItems
               .toString()
               .split("\n")
@@ -305,7 +356,7 @@ function AccountElements() {
           }
         }
       }
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function handleInputChange(event) {
@@ -350,7 +401,7 @@ function AccountElements() {
           >
             Your Account
           </Button>
-          &nbsp;
+          {/* &nbsp;
           <Button
             style={{
               marginTop: "10px",
@@ -374,43 +425,89 @@ function AccountElements() {
             }}
           >
             Community Chat:
-          </Button>
+          </Button> */}
         </CardHeader>
         <TabContent activeTab={activeTab}>
           <TabPane tabId="1">
             <Card>
               <CardBody>
                 <center>
-                  <h3>More Account Tools Coming Soon.</h3>
+                  <h3>User Account Tools Section.</h3>
                 </center>
                 <br />
                 <br />
                 <span style={{ textAlign: "left" }}>
-                  <b>Username:</b> {localStorage.getItem("username")} <br />
+                  <b>Username:</b> <br /> {auth.currentUser.displayName} <br />
                   <br />
-                  <b> E-Mail:</b> {localStorage.getItem("userEmail")}
+                  <b> E-Mail:</b>  <br /> {auth.currentUser.email}
+                  <br />
+                  <br />
+                  <b>Account Status:</b>  <br /> {userDataRes && userDataRes.meta}
                   <br />
                   <span id="id001"></span>
                   <br />
-                  <li> Edit Your Profile</li>{" "}
-                  <li>
-                    <a
-                      href="#"
-                      onClick={(e) => e.preventDefault() & setactiveTab("Chat")}
-                    >
-                      {" "}
-                      Chat With Community{" "}
-                    </a>{" "}
-                  </li>{" "}
-                  <li>
-                    <a
-                      href="#"
-                      onClick={(e) => e.preventDefault() & setactiveTab("4")}
-                    >
-                      {" "}
-                      Upgrade Account{" "}
-                    </a>{" "}
-                  </li>{" "}
+                  {" "}<br />
+                  <div hidden={userDataRes && userDataRes.meta === 1} style={{ textAlign: "center" }}> <Button onClick={(e) => {
+                    e.preventDefault()
+                    console.log("Running");
+                    require("firebase/functions");
+                    const auth = firebase.auth();
+                    async function sendRequest(props) {
+                      var useEmulator = true;
+                      //Emulator local url for development:
+                      let fetchURL = "";
+                      const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment`;
+
+                      //Live  url:
+                      const urlLive =
+                        "https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment";
+
+                      if (
+                        useEmulator &&
+                        window.location.hostname.includes("localhost")
+                      ) {
+                        fetchURL = urlLocal;
+                      } else {
+                        fetchURL = urlLive;
+                      }
+
+                      //Send Details to Functions
+                      const rawResponse = await fetch(fetchURL, {
+                        method: "POST",
+                        mode: "cors",
+                        headers: new Headers({
+                          "Content-Type": "application/json",
+                          Accept: "application/json",
+                          HeaderTokens: JSON.stringify({
+                            refreshToken: auth.currentUser.refreshToken,
+                            authDomain: auth.currentUser.authDomain,
+                            uid: auth.currentUser.uid,
+                            name: auth.currentUser.displayName,
+                            email: auth.currentUser.email,
+                            hostname: window.location.hostname,
+                          }),
+                        }),
+                        body: JSON.stringify({
+                          UUID: auth.currentUser.uuid,
+                        }),
+                      });
+                      return await rawResponse.json();
+
+                    }
+
+                    sendRequest().then((result) => {
+                      console.log(result);
+                      setActivatePaypal({ active: true, link: result })
+                    }).catch((err) => {
+                      console.log(err)
+                    });
+                  }}
+
+
+                    style={{ fontSize: "22px", width: "50%", height: "75px", alignSelf: "center" }}
+
+
+                    color="primary">Upgrade Account</Button></div>
                 </span>
                 <br /> <br />
                 <Row
@@ -544,7 +641,6 @@ function AccountElements() {
                 boxShadow: "0px 0px 0px 3px rgba(50,50,50, .8)",
               }}
             >
-              <CardBody>{decideLoadChat()}</CardBody>
             </Card>
           </TabPane>
         </TabContent>

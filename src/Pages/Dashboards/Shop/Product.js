@@ -25,15 +25,32 @@ import {
   ButtonGroup,
 } from "../../../../node_modules/reactstrap";
 
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/storage";
+import "firebase/firestore";
+
 class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedProduct: {},
       quickViewProduct: {},
+      activatePaypal: { active: false, link: null },
       isAdded: false,
     };
   }
+
+
+
+  componentDidUpdate() {
+    if (this.state.activatePaypal.active) {
+      window.open(this.state.activatePaypal.link);
+      this.setState({ activatePaypal: { active: false } })
+    }
+
+  }
+
   addToCart(image, name, price, id, quantity) {
     this.setState(
       {
@@ -91,17 +108,21 @@ class Product extends Component {
         <p>
           <center>
             <div
+
+
               className="product"
               style={{
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                height: "475px",
+                position: "relative", maxWidth: "100%"
               }}
             >
               <span
-                style={{ marginTop: "10px", paddingBottom: "10px" }}
-                className="product-name"
+                style={{
+                  marginTop: "10px", paddingBottom: "10px",
+                  position: "relative", maxWidth: "100%"
+                }}
               >
-                <Button
+                <Button color="info"
                   onClick={this.quickView.bind(
                     this,
                     image,
@@ -112,16 +133,18 @@ class Product extends Component {
                   )}
                   size="large"
                   style={{
-                    fontSize: "110%",
+                    fontSize: "20px",
                     marginTop: "5px",
                     marginBottom: "2px",
+                    position: "relative",
+                    height: this.props.name.length >= 19 ? "70px" : "50px",
                   }}
                 >
                   <div
                     style={{
                       position: "relative",
                       left: "-5px",
-                      top: "-3px",
+                      top: "3px",
                     }}
                   >
                     <FcIdea style={{ position: "relative", top: "-5px" }} />{" "}
@@ -160,7 +183,33 @@ class Product extends Component {
                 style={{ borderRadius: "10px" }}
                 className={!this.state.isAdded ? "" : "added"}
                 type="button"
-                onClick={this.addToCart.bind(
+                onClick={this.props.name.includes("Hosting") ? () => {
+
+                  // If Hosting => Account
+
+                  //Run EndAPI Call To Functions
+                  console.log("Running");
+                  require("firebase/functions");
+                  const auth = firebase.auth();
+                  alert("Please Sign In To Continue")
+                  window.location.href = "./account"
+
+                  sendRequest().then((result) => {
+                    console.log(result);
+                    this.setState({ activatePaypal: { active: true, link: result } })
+                  }).catch((err) => {
+                    console.log(err)
+                  });
+
+
+                  //
+
+
+                  // Otherwise Quick Cart
+
+
+
+                } : this.addToCart.bind(
                   this,
                   image,
                   name,
@@ -169,12 +218,12 @@ class Product extends Component {
                   quantity
                 )}
               >
-                {!this.state.isAdded ? "ADD TO CART" : "✔ ADDED"}
+                {this.props.name.includes("Hosting") ? "SIGN UP" : !this.state.isAdded ? "ADD TO CART" : "✔ ADDED"}
               </button>
             </div>
           </center>
         </p>
-      </div>
+      </div >
     );
   }
 }

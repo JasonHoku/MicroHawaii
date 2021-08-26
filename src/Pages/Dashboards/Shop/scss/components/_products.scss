@@ -21,7 +21,6 @@
     padding: 10px;
   }
   .product {
-    max-height: 375px;
     flex-basis: calc(25% - 32px);
     -webkit-flex-basis: calc(25% - 32px);
     @media (max-width: 768px) {

@@ -1,11 +1,11 @@
 {
   "hosting": {
     "rewrites": [
-			{
-				"source": "**",
-				"destination": "/index.html"
-			}
-		],
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "public": "build",
     "ignore": [
       "firebase.json",
@@ -19,16 +19,12 @@
     ],
     "source": "functions"
   },
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
   "emulators": {
     "functions": {
-      "port": 5001
+      "port": 5111
     },
-    "firestore": {
-      "port": 8080
+    "hosting": {
+      "port": 5211
     },
     "ui": {
       "enabled": true

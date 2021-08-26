@@ -1,5 +1,12 @@
 [
   {
+    "id": 9,
+    "name": "Bi-Annual Hosting Plan - Budget",
+    "price": 125,
+    "image": "/images/10.png",
+    "category": "services"
+  },
+  {
     "id": 8,
     "name": "Custom Websites",
     "price": 100,

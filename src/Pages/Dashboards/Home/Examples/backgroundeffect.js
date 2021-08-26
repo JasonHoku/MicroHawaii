@@ -15,7 +15,8 @@ export default function MainThreeJS() {
   useEffect(() => {
     const THREE = require("three/build/three")
 
-    var renderer, scene, camera, composer, circle, skelet, particle, mouseX, mouseY, mhText;
+    var renderer, scene, camera, particle;
+
     init();
     animate();
     function init() {
