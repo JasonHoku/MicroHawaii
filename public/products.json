@@ -7,6 +7,20 @@
     "category": "services"
   },
   {
+    "id": 10,
+    "name": "Bi-Annual Hosting Plan - Regular",
+    "price": 250,
+    "image": "/images/10.png",
+    "category": "services"
+  },
+  {
+    "id": 11,
+    "name": "Bi-Annual Hosting Plan - Regular",
+    "price": 1000,
+    "image": "/images/10.png",
+    "category": "services"
+  },
+  {
     "id": 8,
     "name": "Custom Websites",
     "price": 100,

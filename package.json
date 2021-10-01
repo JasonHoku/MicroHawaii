@@ -1,6 +1,6 @@
 {
     "name": "microhawaii-site",
-    "version": "1.150.0",
+    "version": "1.157.0",
     "homepage": "https://microhawaii-5f97b.web.app",
     "private": true,
     "dependencies": {
@@ -175,6 +175,9 @@
         "fbh:version": "node generate-new-feature",
         "fbh:build": "npm run build",
         "fbh:firebase": "firebase deploy --only hosting",
+        "fbf": "npm-run-all --sequential --print-label fbf:*",
+        "fbf:version": "node generate-new-feature",
+        "fbf:firebase": "firebase deploy --only functions",
         "fbh": "npm-run-all --sequential --print-label fbh:*",
         "start": "react-scripts --max_old_space_size=4096 start",
         "build": "react-scripts --max_old_space_size=4096 build",

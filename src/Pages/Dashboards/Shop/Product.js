@@ -191,7 +191,7 @@ class Product extends Component {
                   console.log("Running");
                   require("firebase/functions");
                   const auth = firebase.auth();
-                  alert("Please Sign In To Continue")
+                  alert("Forwarding to Account Tools")
                   window.location.href = "./account"
 
                   sendRequest().then((result) => {

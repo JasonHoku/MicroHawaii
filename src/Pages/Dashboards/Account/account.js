@@ -30,6 +30,7 @@ import "firebase/storage";
 import "firebase/firestore";
 
 function AccountElements() {
+  const [paymentAmount, setPaymentAmount] = useState(250);
   const [activeTab, setactiveTab] = useState("1");
   const [formTitle, setformTitle] = useState("");
   const [formCategory, setformCategory] = useState("");
@@ -442,72 +443,163 @@ function AccountElements() {
                   <b> E-Mail:</b>  <br /> {auth.currentUser.email}
                   <br />
                   <br />
-                  <b>Account Status:</b>  <br /> {userDataRes && userDataRes.meta}
+                  <b>Account Status:</b>  <br /> {userDataRes && userDataRes.meta === 0 ? "Regular User" : "Status 1 Paid"}
                   <br />
                   <span id="id001"></span>
                   <br />
                   {" "}<br />
-                  <div hidden={userDataRes && userDataRes.meta === 1} style={{ textAlign: "center" }}> <Button onClick={(e) => {
-                    e.preventDefault()
-                    console.log("Running");
-                    require("firebase/functions");
-                    const auth = firebase.auth();
-                    async function sendRequest(props) {
-                      var useEmulator = true;
-                      //Emulator local url for development:
-                      let fetchURL = "";
-                      const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment`;
+                  <div hidden={userDataRes && userDataRes.meta === 1} style={{ textAlign: "center" }}>
 
-                      //Live  url:
-                      const urlLive =
-                        "https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment";
 
-                      if (
-                        useEmulator &&
-                        window.location.hostname.includes("localhost")
-                      ) {
-                        fetchURL = urlLocal;
-                      } else {
-                        fetchURL = urlLive;
+                    <input style={{ width: "100px" }} type="number" onChange={(e) => {
+                      setPaymentAmount(e.target.value)
+                    }} value={paymentAmount}></input> / 6 Months <br />
+
+                    <Button onClick={(e) => {
+                      e.preventDefault()
+                      console.log("Running");
+                      require("firebase/functions");
+                      const auth = firebase.auth();
+                      async function sendRequest(props) {
+                        var useEmulator = true;
+                        //Emulator local url for development:
+                        let fetchURL = "";
+                        const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment?payment=${paymentAmount}`;
+
+                        //Live  url:
+                        const urlLive =
+                          `https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment?payment=${paymentAmount}`;
+
+                        if (
+                          useEmulator &&
+                          window.location.hostname.includes("localhost")
+                        ) {
+                          fetchURL = urlLocal;
+                        } else {
+                          fetchURL = urlLive;
+                        }
+
+                        //Send Details to Functions
+                        const rawResponse = await fetch(fetchURL, {
+                          method: "POST",
+                          mode: "cors",
+                          headers: new Headers({
+                            "Content-Type": "application/json",
+                            Accept: "application/json",
+                            HeaderTokens: JSON.stringify({
+                              refreshToken: auth.currentUser.refreshToken,
+                              authDomain: auth.currentUser.authDomain,
+                              uid: auth.currentUser.uid,
+                              name: auth.currentUser.displayName,
+                              email: auth.currentUser.email,
+                              hostname: window.location.hostname,
+                            }),
+                          }),
+                          body: JSON.stringify({
+                            UUID: auth.currentUser.uuid,
+                          }),
+                        });
+                        return console.log(await rawResponse.json());
+
+                      }
+                      async function sendRequest(props) {
+                        var useEmulator = true;
+                        //Emulator local url for development:
+                        let fetchURL = "";
+                        const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment?payment=${paymentAmount}`;
+
+                        //Live  url:
+                        const urlLive =
+                          `https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment?payment=${paymentAmount}`;
+
+                        if (
+                          useEmulator &&
+                          window.location.hostname.includes("localhost")
+                        ) {
+                          fetchURL = urlLocal;
+                        } else {
+                          fetchURL = urlLive;
+                        }
+
+                        //Send Details to Functions
+                        const rawResponse = await fetch(fetchURL, {
+                          method: "POST",
+                          mode: "cors",
+                          headers: new Headers({
+                            "Content-Type": "application/json",
+                            Accept: "application/json",
+                            HeaderTokens: JSON.stringify({
+                              refreshToken: auth.currentUser.refreshToken,
+                              authDomain: auth.currentUser.authDomain,
+                              uid: auth.currentUser.uid,
+                              name: auth.currentUser.displayName,
+                              email: auth.currentUser.email,
+                              hostname: window.location.hostname,
+                            }),
+                          }),
+                          body: JSON.stringify({
+                            UUID: auth.currentUser.uuid,
+                          }),
+                        });
+                        return await rawResponse.json();
+
+                      }
+                      async function sendRequest(props) {
+                        var useEmulator = true;
+                        //Emulator local url for development:
+                        let fetchURL = "";
+                        const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment?payment=${paymentAmount}`;
+
+                        //Live  url:
+                        const urlLive =
+                          `https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment?payment=${paymentAmount}`;
+
+                        if (
+                          useEmulator &&
+                          window.location.hostname.includes("localhost")
+                        ) {
+                          fetchURL = urlLocal;
+                        } else {
+                          fetchURL = urlLive;
+                        }
+
+                        //Send Details to Functions
+                        const rawResponse = await fetch(fetchURL, {
+                          method: "POST",
+                          mode: "cors",
+                          headers: new Headers({
+                            "Content-Type": "application/json",
+                            Accept: "application/json",
+                            HeaderTokens: JSON.stringify({
+                              refreshToken: auth.currentUser.refreshToken,
+                              authDomain: auth.currentUser.authDomain,
+                              uid: auth.currentUser.uid,
+                              name: auth.currentUser.displayName,
+                              email: auth.currentUser.email,
+                              hostname: window.location.hostname,
+                            }),
+                          }),
+                          body: JSON.stringify({
+                            UUID: auth.currentUser.uuid,
+                          }),
+                        });
+                        return await rawResponse.json();
+
                       }
 
-                      //Send Details to Functions
-                      const rawResponse = await fetch(fetchURL, {
-                        method: "POST",
-                        mode: "cors",
-                        headers: new Headers({
-                          "Content-Type": "application/json",
-                          Accept: "application/json",
-                          HeaderTokens: JSON.stringify({
-                            refreshToken: auth.currentUser.refreshToken,
-                            authDomain: auth.currentUser.authDomain,
-                            uid: auth.currentUser.uid,
-                            name: auth.currentUser.displayName,
-                            email: auth.currentUser.email,
-                            hostname: window.location.hostname,
-                          }),
-                        }),
-                        body: JSON.stringify({
-                          UUID: auth.currentUser.uuid,
-                        }),
+                      sendRequest().then((result) => {
+                        console.log(result);
+                        setActivatePaypal({ active: true, link: result })
+                      }).catch((err) => {
+                        console.log(err)
                       });
-                      return await rawResponse.json();
-
-                    }
-
-                    sendRequest().then((result) => {
-                      console.log(result);
-                      setActivatePaypal({ active: true, link: result })
-                    }).catch((err) => {
-                      console.log(err)
-                    });
-                  }}
+                    }}
 
 
-                    style={{ fontSize: "22px", width: "50%", height: "75px", alignSelf: "center" }}
+                      style={{ fontSize: "22px", width: "50%", height: "75px", alignSelf: "center" }}
 
 
-                    color="primary">Upgrade Account</Button></div>
+                      color="primary">Upgrade Account</Button></div>
                 </span>
                 <br /> <br />
                 <Row
@@ -524,16 +616,6 @@ function AccountElements() {
                   >
                     {" "}
                     Contact Staff
-                  </Button>
-                  &nbsp;&nbsp;
-                  <Button
-                    onClick={(e) => {
-                      window.location.href =
-                        "https://MicroHawaii.com/dashboards/services";
-                    }}
-                  >
-                    {" "}
-                    View Map
                   </Button>
                   &nbsp;&nbsp;
                   <Button
