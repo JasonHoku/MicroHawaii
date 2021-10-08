@@ -36,11 +36,6 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-var EJSSERVICE = process.env.REACT_APP_EJSSERVICE;
-var EJSTEMPLATE = process.env.REACT_APP_EJSTEMPLATE;
-var EJSUSER = process.env.REACT_APP_EJSUSER;
 
 var CLIIP;
 

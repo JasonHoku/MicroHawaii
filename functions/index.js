@@ -26,6 +26,7 @@ exports.getMicroHawaiiData = functions.https.onRequest((req, res) => {
       const gotUID = JSON.parse(req.headers["headertokens"]).uid;
       userID = JSON.parse(req.headers["headertokens"]).uid;
       const gotHeaders = JSON.stringify(req.headers["headertokens"]);
+
       async function getDBData() {
         var db = admin.firestore();
         db.collection("totalClicks")
