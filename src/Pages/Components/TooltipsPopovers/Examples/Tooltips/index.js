@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+// import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle, Container } from "reactstrap";
 
 import TooltipExampleDark from "./TooltipDark";

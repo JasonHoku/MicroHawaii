@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 import {AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio} from 'availity-reactstrap-validation';
 import {
     Button, Card, CardBody, Row, Col,
@@ -10,7 +10,7 @@ export default class FormValidationExample extends React.Component {
     render() {
         return (
             <Fragment>
-                <CSSTransitionGroup
+                <TransitionGroup
                     component="div"
                     transitionName="TabsAnimation"
                     transitionAppear={true}
@@ -116,7 +116,7 @@ export default class FormValidationExample extends React.Component {
                             </CardBody>
                         </Card>
                     </Container>
-                </CSSTransitionGroup>
+                </TransitionGroup>
             </Fragment>
         );
     }

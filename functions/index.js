@@ -58,6 +58,118 @@ exports.getMicroHawaiiData = functions.https.onRequest((req, res) => {
   }
 });
 
+exports.processSendEmail = functions.https.onRequest((req, res) => {
+  // const userID = JSON.parse(req.headers["headertokens"]).UUID;
+  const reqBody = req.body;
+
+  res.status(200);
+  try {
+    const cors = require("cors")({ origin: true });
+    res.status(200);
+    cors(req, res, () => {
+      res.status(200);
+
+      async function getDBData() {
+        var db = admin.firestore();
+
+        var gotEmailAPIKey = "";
+        var gotDailyStats = {};
+
+        var dbData = {};
+        var LiveMapDataDB = {};
+        var ListingsToApproveDB = {};
+        var EcoQuestionsDB = {};
+        var UsersDB = {};
+        var totalHitsDB = {};
+        var dbData2 = {};
+        var totalCategories = [];
+
+        db.collection("Secrets")
+          .get()
+          .then((snapshot) => {
+            snapshot.forEach((doc) => {
+              var key = doc.id;
+              var data = doc.data();
+              data["key"] = key;
+              dbData[key] = data;
+            });
+            // Continue Then
+            // Get Another Doc
+            //
+            db.collection("totalClicks")
+              .get()
+              .then((userData) => {
+                userData.forEach((doc) => {
+                  var key2 = doc.id;
+                  var data2 = doc.data();
+                  data2["key"] = key2;
+                  dbData2[key2] = data2;
+                });
+
+                /////////////////////////////////////
+
+                /////////////////////////////////////
+
+                const nodemailer = require("nodemailer");
+
+                //
+                let mailTransporter = nodemailer.createTransport({
+                  service: "gmail",
+                  auth: {
+                    user: dbData.Emailer.EmailID,
+                    pass: dbData.Emailer.EmailKey,
+                  },
+                });
+
+                Object.entries(dbData.ModEmails.EmailList).forEach((el, index) => {
+                  //
+                  let mailDetails = {
+                    from: "donotreply@microhawaii.com",
+                    to: el,
+                    subject: `DoNotReply MicroHawaii Notification ${new Date(
+                      Date.now()
+                    ).toString()}`,
+                    html: `<b>Date: ${new Date(Date.now()).toString()}</b>
+<br />
+<br />  Name: ${reqBody.name}
+<br />
+<br />  Contact: ${reqBody.contact}
+<br />
+<br />  Message: ${reqBody.message}
+<br />
+<br />
+<br />
+`,
+                  };
+
+                  mailTransporter.sendMail(mailDetails, function (err, data) {
+                    if (err) {
+                      console.log("Error Occurs");
+                      res.send(JSON.stringify({ res: "error" }));
+                      res.status(200).send();
+                    } else {
+                      console.log("Email sent successfully");
+                      res.send(JSON.stringify({ res: "success" }));
+                      res.status(200).send();
+                      return false;
+                    }
+                  });
+                });
+                /////////////////////////////////////
+                return false;
+              });
+          });
+      }
+      getDBData();
+
+      //  End Daily Crontab
+      return null;
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 exports.oneHourInterval = functions.pubsub.schedule("every 60 minutes").onRun((context) => {
   function buildGeneratedData() {
     let listArray = [];

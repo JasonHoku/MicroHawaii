@@ -6,16 +6,13 @@ import { Route, Switch } from "react-router-dom";
 import { Suspense } from "react";
 import Loader from "react-loaders";
 
-const Dashboards = lazy(() => retry(() => import("../../Pages/Dashboards")));
-
-import LandingPage from "../../Pages/home";
+import { Dashboards } from "../../Pages/Dashboards";
+import LandingPage from "../../Pages/landingPage";
 import { ToastContainer } from "react-toastify";
 
 import MainThreeJS from "../../Pages/Dashboards/Home/Examples/backgroundeffect";
 
 import { unregister } from "../../serviceWorker";
-
-import ResizeDetector from "react-resize-detector";
 
 import packageJson from "../../meta.json";
 
@@ -155,7 +152,7 @@ class Main extends React.Component {
           }
         }
       });
-    } catch (error) { }
+    } catch (error) {}
   }
 
   render() {
@@ -170,71 +167,73 @@ class Main extends React.Component {
       enablePageTabsAlt,
     } = this.props;
 
-    return (
-      <ResizeDetector
-        handleWidth
-        render={({ width }) => (
-          <Fragment>
-            <div
-              style={{
-                backgroundColor: "transparent",
-                position: "sticky",
-                margin: 0,
-                padding: 0,
-                width: "100%",
-                height: "100vh",
-              }}
-              className={cx(
-                "app-container app-theme-" + colorScheme,
-                { "fixed-header": enableFixedHeader },
-                { "fixed-sidebar": enableFixedSidebar || width < 1250 },
-                { "fixed-footer": enableFixedFooter },
-                { "closed-sidebar": enableClosedSidebar || width < 1250 },
-                {
-                  "closed-sidebar-mobile": closedSmallerSidebar || width < 1250,
-                },
-                { "sidebar-mobile-open": enableMobileMenu },
-                { "body-tabs-shadow-btn": enablePageTabsAlt }
-              )}
-            >
-              <Fragment>
-                <Suspense
-                  fallback={
-                    <div className="loader-container">
-                      <div className="loader-container-inner">
-                        <div className="text-center loader">
-                          <Loader
-                            style={{
-                              transform: "scale(5.5)",
-                              top: "-100px",
-                              position: "relative",
-                              left: "10px",
-                              float: "center",
-                            }}
-                            type="ball-clip-rotate-multiple"
-                          />
-                        </div>
-                        <h2 className="mt-3" style={{ color: "white" }}>
-                          Loading...
-                          <small style={{ color: "white" }}>Welcome to MicroHawaii</small>
-                        </h2>
-                      </div>
-                    </div>
-                  }
-                >
-                  <Switch>
-                    <Route path="/dashboards" component={Dashboards} />
-                    <Route path="/" component={LandingPage} />
-                  </Switch>
-                </Suspense>
+    let width = window.innerWidth;
 
-                <MainThreeJS />
-                <ToastContainer />
-              </Fragment>
-              <span style={{ position: "fixed", zIndex: 0 }} id="bgEffectDOM"></span>    </div>{" "}
+    window.onresize = function () {
+      width = window.innerWidth;
+    };
+
+    return (
+      <Fragment>
+        <div
+          style={{
+            backgroundColor: "transparent",
+            position: "sticky",
+            margin: 0,
+            padding: 0,
+            width: "100%",
+            height: "100vh",
+          }}
+          className={cx(
+            "app-container app-theme-" + colorScheme,
+            { "fixed-header": enableFixedHeader },
+            { "fixed-sidebar": enableFixedSidebar || width < 1250 },
+            { "fixed-footer": enableFixedFooter },
+            { "closed-sidebar": enableClosedSidebar || width < 1250 },
+            {
+              "closed-sidebar-mobile": closedSmallerSidebar || width < 1250,
+            },
+            { "sidebar-mobile-open": enableMobileMenu },
+            { "body-tabs-shadow-btn": enablePageTabsAlt }
+          )}
+        >
+          <Fragment>
+            <Suspense
+              fallback={
+                <div className="loader-container">
+                  <div className="loader-container-inner">
+                    <div className="text-center loader">
+                      <Loader
+                        style={{
+                          transform: "scale(5.5)",
+                          top: "-100px",
+                          position: "relative",
+                          left: "10px",
+                          float: "center",
+                        }}
+                        type="ball-clip-rotate-multiple"
+                      />
+                    </div>
+                    <h2 className="mt-3" style={{ color: "white" }}>
+                      Loading...
+                      <small style={{ color: "white" }}>Welcome to MicroHawaii</small>
+                    </h2>
+                  </div>
+                </div>
+              }
+            >
+              <Switch>
+                <Route path="/dashboards" component={Dashboards} />
+                <Route path="/" component={LandingPage} />
+              </Switch>
+            </Suspense>
+
+            <MainThreeJS />
+            <ToastContainer />
           </Fragment>
-        )}
-      />
+          <span style={{ position: "fixed", zIndex: 0 }} id="bgEffectDOM"></span>{" "}
+        </div>{" "}
+      </Fragment>
     );
   }
 }

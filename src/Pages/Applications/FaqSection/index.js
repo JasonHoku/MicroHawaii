@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from "react";
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 
 import PageTitleAlt from '../../../Layout/AppMain/PageTitleAlt';
 
@@ -52,7 +52,7 @@ export default class FaqSection extends Component {
     render() {
         return (
             <Fragment>
-                <CSSTransitionGroup className={cx("app-inner-layout chat-layout", {
+                <TransitionGroup className={cx("app-inner-layout chat-layout", {
                         'open-mobile-menu': this.state.active,
                     })}
                     component="div" transitionName="TabsAnimation" transitionAppear={true}
@@ -336,7 +336,7 @@ export default class FaqSection extends Component {
                             </Card>
                         </div>
                     </div>
-                </CSSTransitionGroup>
+                </TransitionGroup>
             </Fragment>
         )
     }

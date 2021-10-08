@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 
 import "firebase/firestore";
-import {
-  FirebaseAppProvider,
-  useFirestoreDocData,
-  useFirestore,
-} from "reactfire";
 
 import firebase from "firebase/app";
 
@@ -35,14 +30,9 @@ if (!firebase.apps.length) {
 function showNotification() {
   function iOS() {
     return (
-      [
-        "iPad Simulator",
-        "iPhone Simulator",
-        "iPod Simulator",
-        "iPad",
-        "iPhone",
-        "iPod",
-      ].includes(navigator.platform) ||
+      ["iPad Simulator", "iPhone Simulator", "iPod Simulator", "iPad", "iPhone", "iPod"].includes(
+        navigator.platform
+      ) ||
       // iPad on iOS 13 detection
       (navigator.userAgent.includes("Mac") && "ontouchend" in document)
     );
@@ -53,8 +43,7 @@ function showNotification() {
       if (result === "granted") {
         navigator.serviceWorker.ready.then(function (registration) {
           var options = {
-            body:
-              "A new version of this website is available, please reload after saving any work to load new website content.",
+            body: "A new version of this website is available, please reload after saving any work to load new website content.",
             icon: "logo.png",
             vibrate: [100, 50, 100],
             data: {
@@ -83,38 +72,9 @@ function showNotification2(e) {
     }
   );
 }
-function Burrito() {
-  const burritoRef = useFirestore().collection("version").doc("0");
-
-  const { status, data } = useFirestoreDocData(burritoRef);
-
-  if (status === "loading") {
-  } else {
-    console.log(data.version);
-    let concData = data.version;
-    if (!localStorage.getItem("appVersion")) {
-      localStorage.setItem("appVersion", concData);
-    } else if (localStorage.getItem("appVersion") != concData) {
-      showNotification();
-      showNotification2();
-      var caches = false;
-      if (caches) {
-        caches.keys().then(function (names) {
-          for (let name of names) caches.delete(name);
-        });
-        localStorage.setItem("appVersion", concData);
-      }
-    }
-  }
-  return null;
-}
 
 function CheckVersions() {
-  return (
-    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <Burrito />
-    </FirebaseAppProvider>
-  );
+  return false;
 }
 
 export default CheckVersions;

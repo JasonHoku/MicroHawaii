@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
 import PageTitle from "../../../../Layout/AppMain/PageTitle";
@@ -15,7 +16,7 @@ class FormDropZone extends React.Component {
         <PageTitle heading="DropZone"
           subheading="Create drag & drop zones for uploading files."
           icon="pe-7s-ticket icon-gradient bg-happy-fisher"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col md="12">
@@ -27,7 +28,7 @@ class FormDropZone extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

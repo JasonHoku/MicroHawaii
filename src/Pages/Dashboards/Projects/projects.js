@@ -1,45 +1,15 @@
 import React, { Component, Fragment, useState } from "react";
-import scriptLoader from "react-async-script-loader";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
+
+import {TransitionGroup} from "react-transition-group";
 import { ImInstagram, ImYoutube, ImFacebook, ImTwitter } from "react-icons/im";
 import { FaDiscord, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
-import GitHubCalendar from "github-calendar"
+import GitHubCalendar from "github-calendar";
 
-import {
-  Row,
-  Col,
-  Button,
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Nav,
-  NavItem,
-  ListGroup,
-  Input,
-  ListGroupItem,
-  Card,
-  CardBody,
-  CardHeader,
-  CardLink,
-  CardImg,
-  NavLink,
-  TabContent,
-  TabPane,
-  Progress,
-  CardFooter,
-  ButtonGroup,
-} from "reactstrap";
+import { Row, Col, Card, CardBody, CardHeader } from "reactstrap";
 
 import { toInteger } from "lodash";
-
-const CLIENT = {
-  sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
-  production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
-};
 
 export default class ProjectElements extends Component {
   constructor(props) {
@@ -71,10 +41,7 @@ export default class ProjectElements extends Component {
     }
   }
   componentDidMount() {
-
     GitHubCalendar(".calendar", "JasonHoku");
-
-
   }
   timerLoader() {
     document.getElementById("timer").hidden = false;
@@ -101,7 +68,7 @@ export default class ProjectElements extends Component {
           <meta name="theme-color" content="#008f68" />
           <link rel="canonical" href="https://microhawaii.com/dashboards/projects" />
         </Helmet>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="div"
           transitionName="TabsAnimation"
           transitionAppear={true}
@@ -257,16 +224,12 @@ export default class ProjectElements extends Component {
               <a href="https://github.com/JasonHoku">GitHub Contribution Activity:</a>
             </CardHeader>
             <CardBody>
-
-
               <link
                 rel="stylesheet"
                 href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
               />
 
-              <div class="calendar" style={{ width: "100%" }}>
-              </div>
-
+              <div class="calendar" style={{ width: "100%" }}></div>
             </CardBody>
           </Card>
           <br />
@@ -282,8 +245,8 @@ export default class ProjectElements extends Component {
           </Row>
           <Row></Row>
           <br></br>
-        </CSSTransitionGroup>
-      </Fragment >
+        </TransitionGroup>
+      </Fragment>
     );
   }
 }

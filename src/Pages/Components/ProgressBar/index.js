@@ -1,11 +1,9 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import PageTitle from "../../../Layout/AppMain/PageTitle";
 
-import Tabs, { TabPane } from "rc-tabs";
-import TabContent from "rc-tabs/lib/SwipeableTabContent";
-import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 
 // Examples
 import ProgressBarExample from "./Examples/Basic/";
@@ -15,7 +13,7 @@ export default class ProgressBarsExamples extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <PageTitle heading="Progress Bar"
             subheading="You can use the progress bars on their own or in combination with other widgets."
@@ -28,7 +26,7 @@ export default class ProgressBarsExamples extends React.Component {
               <ProgressBarAdvancedExample />
             </TabPane>
           </Tabs>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

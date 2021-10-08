@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Button } from "reactstrap";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import avatar5 from "../../../../assets/utils/images/avatars/5.jpg";
 import avatar3 from "../../../../assets/utils/images/avatars/4.jpg";
@@ -21,7 +22,7 @@ class ProfileBlocks extends Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <div>
             <Row>
@@ -101,7 +102,7 @@ class ProfileBlocks extends Component {
               </Col>
             </Row>
           </div>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

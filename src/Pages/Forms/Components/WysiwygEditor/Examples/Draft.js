@@ -2,7 +2,7 @@
 // import {EditorState, convertToRaw} from 'draft-js';
 // import {Editor} from 'react-draft-wysiwyg';
 // import draftToHtml from 'draftjs-to-html';
-// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+// import {TransitionGroup} from "react-transition-group";
 
 // import {
 //     Row, Col,
@@ -25,7 +25,7 @@
 //         const {editorState} = this.state;
 //         return (
 //             <Fragment>
-//                 <CSSTransitionGroup
+//                 <TransitionGroup
 //                     component="div"
 //                     transitionName="TabsAnimation"
 //                     transitionAppear={true}
@@ -51,7 +51,7 @@
 //                             </Card>
 //                         </Col>
 //                     </Row>
-//                 </CSSTransitionGroup>
+//                 </TransitionGroup>
 //             </Fragment>
 //         );
 //     }

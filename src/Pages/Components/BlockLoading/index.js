@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import classnames from "classnames";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import Tabs from "react-responsive-tabs";
 
 import dummyData from "./dummyData";
@@ -84,7 +85,7 @@ class BlockLoadingExample extends Component {
         <PageTitle heading="Block Loading"
           subheading="Sometimes we need to show a loading indicator for some elements, like cards or tables."
           icon="pe-7s-door-lock icon-gradient bg-night-fade"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col md="6">
@@ -754,7 +755,7 @@ class BlockLoadingExample extends Component {
               </LoadingOverlay>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

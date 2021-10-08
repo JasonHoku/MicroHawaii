@@ -6,7 +6,8 @@ import React, {
   useState,
   useRef,
 } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Helmet } from "react-helmet";
 
 import { unregister } from "../../../serviceWorker";
@@ -152,7 +153,7 @@ function showNotification() {
       (navigator.userAgent.includes("Mac") && "ontouchend" in document)
     );
   }if (!iOS){
-    
+
   navigator.serviceWorker.register("sw2.js");
   Notification.requestPermission(function (result) {
     if (result === "granted") {

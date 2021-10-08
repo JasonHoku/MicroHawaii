@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import { Row, Col, Card, CardBody, CardTitle, Button } from "reactstrap";
 import Cropper from "react-cropper";
@@ -44,7 +45,7 @@ class ImageCropExample extends Component {
         <PageTitle heading="Image Crop"
           subheading="You can easily crop and edit images with this React plugin."
           icon="pe-7s-signal icon-gradient bg-malibu-beach"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col lg="6">
@@ -108,7 +109,7 @@ class ImageCropExample extends Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

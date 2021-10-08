@@ -14,10 +14,6 @@ import {
   UncontrolledButtonDropdown,
   Button,
 } from "reactstrap";
-import "font-awesome/css/font-awesome.min.css";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class MegaMenu extends React.Component {
   constructor(props) {
@@ -48,7 +44,7 @@ class MegaMenu extends React.Component {
             <NavLink href="#" onClick={this.toggle} id="PopoverMegaMenu">
               <i className="nav-link-icon pe-7s-folder"> </i>
               Directory
-              <FontAwesomeIcon className="ml-2 opacity-5" icon={faAngleDown} />
+             ↓
             </NavLink>
           </NavItem>
           <Popover

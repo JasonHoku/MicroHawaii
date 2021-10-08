@@ -11,7 +11,8 @@ import {
   Fade,
   Row,
 } from "reactstrap";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 class AccordionsBasicExample extends Component {
   constructor(props) {
@@ -78,7 +79,7 @@ class AccordionsBasicExample extends Component {
 
   render() {
     return (
-      <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+      <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
         transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
         <Row>
           <Col md="6">
@@ -245,7 +246,7 @@ class AccordionsBasicExample extends Component {
             </Card>
           </Col>
         </Row>
-      </CSSTransitionGroup>
+      </TransitionGroup>
     );
   }
 }

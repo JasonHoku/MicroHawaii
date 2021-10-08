@@ -1,14 +1,7 @@
 import React, { Component, Fragment } from "react";
-import scriptLoader from "react-async-script-loader";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import classnames from "classnames";
-import ReactTable from "react-table";
-import { Route } from "react-router-dom";
 
-import emailjs from "emailjs-com";
-import { init } from "emailjs-com";
+import { TransitionGroup } from "react-transition-group";
 
-import PaypalExpressBtn from "react-paypal-express-checkout";
 import { Helmet } from "react-helmet";
 
 import {
@@ -43,38 +36,13 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  Tooltip,
-} from "recharts";
-
 import PerfectScrollbar from "react-perfect-scrollbar";
-
-import {
-  faAngleUp,
-  faDotCircle,
-  faAngleDown,
-  faStrikethrough,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { Sparklines, SparklinesCurve } from "react-sparklines";
-
-import { makeData } from "../../Tables/DataTables/Examples/utils";
 
 var EJSSERVICE = process.env.REACT_APP_EJSSERVICE;
 var EJSTEMPLATE = process.env.REACT_APP_EJSTEMPLATE;
 var EJSUSER = process.env.REACT_APP_EJSUSER;
 
 var CLIIP;
-
-const CLIENT = {
-  sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
-  production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
-};
 
 export default class ContactElements extends Component {
   constructor(props) {
@@ -161,6 +129,7 @@ export default class ContactElements extends Component {
 
   submitContact() {
     let { formName, formEmail, formMessage } = this.state;
+
     document.getElementById("contactFormButton").disabled = true;
 
     if (
@@ -171,26 +140,71 @@ export default class ContactElements extends Component {
       alert("You must fill this form entirely.");
       document.getElementById("contactFormButton").disabled = false;
     } else {
-      var templateParams = {
-        name: `MicroHawaii | Contact From: ${CLIIP}`,
-        message: `FormName: ${formName} FormEmail: ${formEmail} +  Message: ${formMessage}`,
-        message2: `ClientInfo: ${CLIIP} :: ${this.state.infoCLI}`,
-      };
-      emailjs.send(EJSSERVICE, EJSTEMPLATE, templateParams).then(
-        function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("Your message has sent successfully!");
-          var form = document.getElementById("contactFormID");
-          document.getElementById("contactFormID").hidden = true;
-          document.getElementById("contactFormThanks").hidden = false;
-          document.getElementById("contactFormButton").disabled = true;
-        },
-        function (error) {
-          console.log("FAILED...", error);
-          alert("The message did not send. Perhaps you've lost internet?");
+      sendRequest();
+      document.getElementById("headerMsg").innerHTML = "<br /> Sending... <br /> ";
+      async function sendRequest(props) {
+        try {
+          var useEmulator = true;
+          //Emulator local url for development:
+          let fetchURL = "";
+          const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/processSendEmail`;
+
+          //Live  url:
+          const urlLive =
+            "https://us-central1-microhawaii-5f97b.cloudfunctions.net/processSendEmail";
+
+          if (useEmulator && window.location.hostname.includes("localhost")) {
+            fetchURL = urlLocal;
+          } else {
+            fetchURL = urlLive;
+          }
+
+          //Send Details to Functions
+          const rawResponse = await fetch(fetchURL, {
+            method: "POST",
+            mode: "cors",
+            headers: new Headers({
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              HeaderTokens: JSON.stringify({
+                //
+                // //
+                // refreshToken: auth.currentUser.refreshToken,
+                // authDomain: auth.currentUser.authDomain,
+                // uid: auth.currentUser.uid,
+                // name: auth.currentUser.displayName,
+                // email: auth.currentUser.email,
+                hostname: window.location.hostname,
+              }),
+            }),
+            body: JSON.stringify({
+              name: formName,
+              contact: formEmail,
+              message: formMessage,
+              // UUID: auth.currentUser.uuid,
+            }),
+          });
+          const content = await rawResponse.json();
+          console.log(content.res);
+
+          if (content.res === "success") {
+            alert("Your message has sent successfully!");
+            var form = document.getElementById("contactFormID");
+            document.getElementById("contactFormID").hidden = true;
+            document.getElementById("headerMsg").innerHTML =
+              "Thank you!<br /> Your message has sent successfully. <br /> A response can generally be expected within 24hrs";
+            // document.getElementById("contactFormThanks").hidden = false;
+            document.getElementById("contactFormButton").disabled = true;
+          } else {
+            alert("The message did not send. Perhaps you've lost internet? \n" + JSON.stringify);
+          }
+        } catch (error) {
+          alert(
+            "The message did not send. Perhaps you've lost internet? \n" + JSON.stringify(error)
+          );
           document.getElementById("contactFormButton").disabled = false;
         }
-      );
+      }
     }
   }
 
@@ -201,17 +215,11 @@ export default class ContactElements extends Component {
       <Fragment>
         <Helmet>
           <title>MicroHawaii.com Contact Tool</title>
-          <meta
-            name="description"
-            content="Easily make contact with MicroHawaii administration."
-          />
+          <meta name="description" content="Easily make contact with MicroHawaii administration." />
           <meta name="theme-color" content="#008f68" />
-          <link
-            rel="canonical"
-            href="https://microhawaii.com/dashboards/contact"
-          />
+          <link rel="canonical" href="https://microhawaii.com/dashboards/contact" />
         </Helmet>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="div"
           transitionName="TabsAnimation"
           transitionAppear={true}
@@ -233,23 +241,19 @@ export default class ContactElements extends Component {
               >
                 <CardHeader>Contact MicroHawaii.</CardHeader>
                 <CardBody>
-                  <p>
-                    &nbsp; For any inquirines, comments, concerns or critique,
-                    please use this simple form or reach out through the contact
-                    method listed here.
+                  <p id="headerMsg">
+                    &nbsp; For any inquirines, comments, concerns or critique, please use this
+                    simple form or reach out through the contact method listed here.
                   </p>
                   <br />
                   <p style={{ textAlign: "center" }}>
                     Jason Hoku Levien <br />
-                    <a href="mailto:admin@MicroHawaii.com">
-                      admin@MicroHawaii.com
-                    </a>
+                    <a href="mailto:admin@MicroHawaii.com">admin@MicroHawaii.com</a>
                     <br />
                     (808)385-1775
                   </p>
                   <span id="contactFormThanks" hidden>
-                    Thank you for your submission! A response can be expected in
-                    0-3 days.
+                    Thank you for your submission! A response can be expected in 0-3 days.
                   </span>
                   <br />
                   <Form id="contactFormID">
@@ -321,7 +325,7 @@ export default class ContactElements extends Component {
               </Card>
             </Row>
           </Container>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

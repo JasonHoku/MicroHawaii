@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { lightSpeedIn } from "react-animations";
 import Radium, { StyleRoot } from "radium";
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
@@ -17,7 +18,7 @@ const styles = {
 const UtilitiesAnimations = (props) => {
   return (
     <Fragment>
-      <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+      <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
         transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
         <Row>
           <Col lg="6">
@@ -71,7 +72,7 @@ const UtilitiesAnimations = (props) => {
             </Card>
           </Col>
         </Row>
-      </CSSTransitionGroup>
+      </TransitionGroup>
     </Fragment>
   );
 };

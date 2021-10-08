@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 
 // import Ionicon from 'react-ionicons';
 
-import { IoIosCalendar } from "react-icons/io";
 
 import PerfectScrollbar from "react-perfect-scrollbar";
 
@@ -21,9 +20,6 @@ import {
 
 import { toast, Bounce } from "react-toastify";
 
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import city3 from "../../../assets/utils/images/dropdown-header/abstract4.jpg";
 import avatar1 from "../../../assets/utils/images/avatars/1.jpg";
@@ -52,7 +48,7 @@ class UserBox extends React.Component {
                       src={avatar1}
                       alt=""
                     />
-                    <FontAwesomeIcon className="ml-2" icon={faAngleDown} />
+                 ↓
                   </DropdownToggle>
                   <DropdownMenu right className="rm-pointers dropdown-menu-lg">
                     <div className="dropdown-menu-header">

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import {
   Row,
   Col,
@@ -36,7 +37,7 @@ class CountUpExample extends Component {
         <PageTitle heading="Count Up"
           subheading="Add animations to your numbers. It'll make your next ArchitectUI app more user friendly."
           icon="pe-7s-signal icon-gradient bg-malibu-beach"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col lg="6">
@@ -224,7 +225,7 @@ class CountUpExample extends Component {
               </div>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

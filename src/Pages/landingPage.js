@@ -1,7 +1,8 @@
 import react from "react";
 import React, { Fragment } from "react";
 import { Route, useLocation, Redirect } from "react-router-dom";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import { TransitionGroup } from "react-transition-group";
 import "../Layout/AppHeader/Components/analytics";
 import "firebase/storage";
 import "firebase/firestore";
@@ -84,7 +85,7 @@ class LandingPage extends React.Component {
           {this.renderRedirect()}
           <br />
           <br />
-          <CSSTransitionGroup
+          <TransitionGroup
             component="div"
             transitionName="MainAnimation"
             transitionAppear={true}
@@ -100,10 +101,10 @@ class LandingPage extends React.Component {
                 </Link>
               </h1>
             </div>
-          </CSSTransitionGroup>
+          </TransitionGroup>
           <br />
           <div>
-            <CSSTransitionGroup
+            <TransitionGroup
               component="div"
               transitionName="MainAnimation3"
               transitionAppear={true}
@@ -115,7 +116,7 @@ class LandingPage extends React.Component {
               <div>
                 <h3>Unleash Your Web</h3>
               </div>
-            </CSSTransitionGroup>
+            </TransitionGroup>
           </div>
           <br />
           <br />
@@ -129,7 +130,7 @@ class LandingPage extends React.Component {
           <br />
           <br />
           <br />
-          <CSSTransitionGroup
+          <TransitionGroup
             component="div"
             transitionName="MainAnimation4"
             transitionAppear={true}
@@ -141,7 +142,7 @@ class LandingPage extends React.Component {
             <div>
               <h4>Click Anywhere To Enter</h4>
             </div>
-          </CSSTransitionGroup>
+          </TransitionGroup>
           <br />
           <br />
           <br /> <br /> <br /> <br />

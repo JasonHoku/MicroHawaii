@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import MetisMenu from "react-metismenu";
 import { setEnableMobileMenu } from "../../reducers/ThemeOptions";
-import { MainNav, AboutNav, AdminNav } from "./NavItems";
 
 import { IoIosInformationCircleOutline, IoIosCog } from "react-icons/io";
 

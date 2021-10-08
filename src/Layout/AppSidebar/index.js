@@ -4,7 +4,7 @@ import cx from "classnames";
 
 import Nav from "../AppNav/VerticalNavWrapper";
 
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+import { TransitionGroup } from "react-transition-group";
 
 import PerfectScrollbar from "react-perfect-scrollbar";
 import HeaderLogo from "../AppLogo";
@@ -30,11 +30,8 @@ class AppSidebar extends Component {
 
     return (
       <Fragment>
-        <div
-          className="sidebar-mobile-overlay"
-          onClick={this.toggleMobileSidebar}
-        />
-        <CSSTransitionGroup
+        <div className="sidebar-mobile-overlay" onClick={this.toggleMobileSidebar} />
+        <TransitionGroup
           component="div"
           className={cx("app-sidebar", backgroundColor, {
             "sidebar-shadow": enableSidebarShadow,
@@ -54,12 +51,10 @@ class AppSidebar extends Component {
           <div
             className={cx("app-sidebar-bg", backgroundImageOpacity)}
             style={{
-              backgroundImage: enableBackgroundImage
-                ? "url(" + backgroundImage + ")"
-                : null,
+              backgroundImage: enableBackgroundImage ? "url(" + backgroundImage + ")" : null,
             }}
           ></div>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

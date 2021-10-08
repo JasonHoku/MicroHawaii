@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import Tooltip from "rc-tooltip";
 import Slider from "rc-slider";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
@@ -23,7 +24,7 @@ class FormRangeSliderBasic extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col md="6">
@@ -56,7 +57,7 @@ class FormRangeSliderBasic extends React.Component {
                     min={0} step={20} max={480} defaultValue={80} handle={handle}/>
                   <Range className="rc-slider-success rc-slider-square mb-2" dots
                     step={80} min={0} max={480} defaultValue={[30, 60]} tipFormatter={(value) => `${value}%`}/>
-                    
+
                   <Slider className="rc-slider-info mb-2" dots
                     min={0} step={30} max={300} defaultValue={66} handle={handle}/>
                   <Range className="rc-slider-danger rc-slider-sm mb-2" dots
@@ -65,7 +66,7 @@ class FormRangeSliderBasic extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

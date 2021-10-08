@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import PageTitle from "../../../../Layout/AppMain/PageTitle";
 
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
@@ -23,7 +24,7 @@ class FormDatePicker extends React.Component {
         <PageTitle heading="Datepicker"
           subheading="Build beautiful datepickers perfectly integrated in the general style of the application."
           icon="pe-7s-battery icon-gradient bg-plum-plate"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col md="6">
@@ -85,7 +86,7 @@ class FormDatePicker extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

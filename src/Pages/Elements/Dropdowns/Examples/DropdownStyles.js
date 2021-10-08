@@ -8,7 +8,8 @@ import {
   DropdownItem,
   Container,
 } from "reactstrap";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 // import {Animated} from "react-animated-css";
 
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
@@ -42,7 +43,7 @@ export default class DropdownStyles extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Container fluid>
             <Row>
@@ -1014,7 +1015,7 @@ export default class DropdownStyles extends React.Component {
               </Col>
             </Row>
           </Container>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

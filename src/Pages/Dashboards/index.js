@@ -11,7 +11,7 @@ import HomeDashboard from "./Home/";
 import Services from "./Services/";
 import CalendarPage from "./Calendar/";
 
-const Account = lazy(() => retry(() => import("./Account/")));
+const Account = lazy(() => import("./Account/"));
 const Privacy = lazy(() => import("./PrivacyPolicy/"));
 const Terms = lazy(() => import("./TermsOfService/"));
 
@@ -41,31 +41,31 @@ function retry(fn, retriesLeft = 5, interval = 1000) {
 }
 // Theme Options
 import ThemeOptions from "../../Layout/ThemeOptions/";
-const Dashboards = ({ match }) => (
-  <Fragment>
-    <ThemeOptions />
-    <AppHeader />
-    <div className="app-main">
-      <AppSidebar />
-      <div className="app-main__outer">
-        <div className="app-main__inner">
-          <Route path={`${match.url}/home`} component={HomeDashboard} />
-          <Route path={`${match.url}/services`} component={Services} />
-          <Route path={`${match.url}/shop`} component={ShopPage} />
-          <Route path={`${match.url}/gallery`} component={GalleryPage} />
-          <Route path={`${match.url}/writing`} component={Writing} />
-          <Route path={`${match.url}/music`} component={Music} />
-          <Route path={`${match.url}/contact`} component={Contact} />
-          <Route path={`${match.url}/projects`} component={Projects} />
-          <Route path={`${match.url}/privacy`} component={Privacy} />
-          <Route path={`${match.url}/termsofservice`} component={Terms} />
-          <Route path={`${match.url}/calendar`} component={CalendarPage} />
-          <Route path={`${match.url}/account`} component={Account} />
+export function Dashboards({ match }) {
+  return (
+    <Fragment>
+      <ThemeOptions />
+      <AppHeader />
+      <div className="app-main">
+        <AppSidebar />
+        <div className="app-main__outer">
+          <div className="app-main__inner">
+            <Route path={`${match.url}/home`} component={HomeDashboard} />
+            <Route path={`${match.url}/services`} component={Services} />
+            <Route path={`${match.url}/shop`} component={ShopPage} />
+            <Route path={`${match.url}/gallery`} component={GalleryPage} />
+            <Route path={`${match.url}/writing`} component={Writing} />
+            <Route path={`${match.url}/music`} component={Music} />
+            <Route path={`${match.url}/contact`} component={Contact} />
+            <Route path={`${match.url}/projects`} component={Projects} />
+            <Route path={`${match.url}/privacy`} component={Privacy} />
+            <Route path={`${match.url}/termsofservice`} component={Terms} />
+            <Route path={`${match.url}/calendar`} component={CalendarPage} />
+            <Route path={`${match.url}/account`} component={Account} />
+          </div>
+          <AppFooter />
         </div>
-        <AppFooter />
       </div>
-    </div>
-  </Fragment>
-);
-
-export default Dashboards;
+    </Fragment>
+  );
+}

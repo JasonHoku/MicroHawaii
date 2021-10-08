@@ -1,0 +1,21 @@
+[debug] [2021-10-08T22:28:29.135Z] ----------------------------------------------------------------------
+[debug] [2021-10-08T22:28:29.137Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2021-10-08T22:28:29.137Z] CLI Version:   9.20.0
+[debug] [2021-10-08T22:28:29.137Z] Platform:      win32
+[debug] [2021-10-08T22:28:29.137Z] Node Version:  v14.18.0
+[debug] [2021-10-08T22:28:29.138Z] Time:          Fri Oct 08 2021 12:28:29 GMT-1000 (Hawaii-Aleutian Standard Time)
+[debug] [2021-10-08T22:28:29.138Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-10-08T22:28:29.193Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-10-08T22:28:29.193Z] > authorizing via signed-in user (jlevien808@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting"}}
+[debug] [2021-10-08T22:28:29.215Z] [hub] writing locator at C:\Users\JASONH~1\AppData\Local\Temp\hub-microhawaii-5f97b.json
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage\u001b[22m"}}
+[warn] !  Your requested "node" version "12" doesn't match your global version "14" {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"12\" doesn't match your global version \"14\""}}
+[debug] [2021-10-08T22:28:29.247Z] defaultcredentials: writing to file C:\Users\JasonHoku\AppData\Roaming\firebase\jlevien808_gmail_com_application_default_credentials.json
+[debug] [2021-10-08T22:28:29.249Z] Setting GAC to C:\Users\JasonHoku\AppData\Roaming\firebase\jlevien808_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\JasonHoku\\AppData\\Roaming\\firebase\\jlevien808_gmail_com_application_default_credentials.json"}}
+[debug] [2021-10-08T22:28:29.251Z] > refreshing access token with scopes: []
+[debug] [2021-10-08T22:28:29.251Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-10-08T22:28:29.503Z] <<< HTTP RESPONSE 200 {"date":"Fri, 08 Oct 2021 22:28:30 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-10-08T22:28:29.524Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/microhawaii-5f97b/adminSdkConfig [none]

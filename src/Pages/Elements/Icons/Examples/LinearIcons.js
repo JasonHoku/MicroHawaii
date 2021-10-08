@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle, Container } from "reactstrap";
 
 const iconData = [
@@ -176,7 +177,7 @@ const iconData = [
 
 const LinearIconsExample = () => (
   <Fragment>
-    <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+    <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
       transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
       <Container fluid>
         <Row>
@@ -262,7 +263,7 @@ const LinearIconsExample = () => (
           </Col>
         </Row>
       </Container>
-    </CSSTransitionGroup>
+    </TransitionGroup>
   </Fragment>
 );
 

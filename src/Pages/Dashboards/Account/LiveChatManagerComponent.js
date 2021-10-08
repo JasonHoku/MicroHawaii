@@ -1,8 +1,5 @@
 import React, { Component, Fragment, useEffect, useState } from "react";
 
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
-
 import {
   Row,
   Col,
@@ -25,16 +22,6 @@ import {
   TabPane,
 } from "reactstrap";
 
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://api.microhawaii.com/graphql",
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
-  }),
-});
 
 class NoteManagerComponent extends Component {
   constructor(props) {

@@ -2,15 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import cx from "classnames";
 
-import LaddaButton, { ZOOM_IN } from "react-ladda";
-
-import { Button, UncontrolledTooltip } from "reactstrap";
 
 import { toast, Slide } from "react-toastify";
 
-import { faBatteryThreeQuarters } from "@fortawesome/free-solid-svg-icons";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class PageTitleAlt2 extends React.Component {
   state = {
@@ -42,9 +36,9 @@ class PageTitleAlt2 extends React.Component {
     } = this.props;
     return (
       <div className="app-page-title">
-        
+
           <div className="page-title-heading">
-           
+
             <div>
               {heading}
               <div className={cx("page-title-subheading", {
@@ -55,8 +49,8 @@ class PageTitleAlt2 extends React.Component {
             </div>
           </div>
           <div className="page-title-actions">
-       
-         
+
+
         </div>
       </div>
     );

@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 export default class FormInline extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Form inline>
             <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -52,7 +53,7 @@ export default class FormInline extends React.Component {
             </FormGroup>{" "}
             <Button color="primary">Submit</Button>
           </Form>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

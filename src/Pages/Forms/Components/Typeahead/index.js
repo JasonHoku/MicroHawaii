@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
 import { Typeahead } from "react-bootstrap-typeahead";
@@ -20,7 +21,7 @@ export default class FormTypeahead extends React.Component {
         <PageTitle heading="Typeahead"
           subheading="Create beautiful suggestion inputs for React form elements."
           icon="pe-7s-plug icon-gradient bg-arielle-smile"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col md="6">
@@ -41,7 +42,7 @@ export default class FormTypeahead extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

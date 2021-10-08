@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
 import TextareaAutosize from "react-textarea-autosize";
@@ -19,7 +20,7 @@ export default class FormTextareaAutosize extends React.Component {
         <PageTitle heading="Textarea Autosize"
           subheading="Create textareas that grow in height based on their content."
           icon="pe-7s-switch icon-gradient bg-plum-plate"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col md="6">
@@ -63,7 +64,7 @@ export default class FormTextareaAutosize extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

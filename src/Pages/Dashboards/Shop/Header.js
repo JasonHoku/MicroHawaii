@@ -1,22 +1,11 @@
 import React, { Component } from "react";
 import CartScrollBar from "./CartScrollBar";
-import Counter from "./Counter";
 import EmptyCart from "./empty-states/EmptyCart";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import { findDOMNode } from "react-dom";
+
+import {TransitionGroup} from "react-transition-group";
 import "./Product";
-import CheckoutHelper from "./Checkout";
-import ShopPage from ".";
-import emailjs from "emailjs-com";
-import { init } from "emailjs-com";
 
-var EJSSERVICE =process.env.REACT_APP_EJSSERVICE
-var EJSTEMPLATE=process.env.REACT_APP_EJSTEMPLATE
-var EJSUSER =process.env.REACT_APP_EJSUSER
 
-init(EJSUSER)
-
-var IPdata;
 
 class Header extends Component {
   constructor(props) {
@@ -29,18 +18,16 @@ class Header extends Component {
     };
   }
 
-
   componentDidMount() {
     this.setState({ isLoading: true });
- 
-    fetch("https://api.ipify.org") 
-    .then(function(response) {
-      return response.json();
-  })
-  .then(function(parsedData) {
-  }) .catch(error => this.setState({ error, isLoading: false }));
-  }
 
+    fetch("https://api.ipify.org")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (parsedData) {})
+      .catch((error) => this.setState({ error, isLoading: false }));
+  }
 
   handleCart(e) {
     e.preventDefault();
@@ -101,7 +88,7 @@ class Header extends Component {
       view = <EmptyCart />;
     } else {
       view = (
-        <CSSTransitionGroup
+        <TransitionGroup
           transitionName="fadeIn"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
@@ -109,26 +96,18 @@ class Header extends Component {
           className="cart-items"
         >
           {cartItems}
-        </CSSTransitionGroup>
+        </TransitionGroup>
       );
     }
     return (
       <header>
         <div className="container">
           <div className="brand">
-            <img
-              className="logo"
-              src="/images/logo.png"
-              alt="Veggy Brand Logo"
-            />
+            <img className="logo" src="/images/logo.png" alt="Veggy Brand Logo" />
           </div>
 
           <div className="search">
-            <a
-              className="mobile-search"
-              href="#"
-              onClick={this.handleMobileSearch.bind(this)}
-            >
+            <a className="mobile-search" href="#" onClick={this.handleMobileSearch.bind(this)}>
               <img
                 src="https://res.cloudinary.com/sivadass/image/upload/v1494756966/icons/search-green.png"
                 alt="search"
@@ -137,15 +116,9 @@ class Header extends Component {
             <form
               action="#"
               method="get"
-              className={
-                this.state.mobileSearch ? "search-form active" : "search-form"
-              }
+              className={this.state.mobileSearch ? "search-form active" : "search-form"}
             >
-              <a
-                className="back-button"
-                href="#"
-                onClick={this.handleSearchNav.bind(this)}
-              >
+              <a className="back-button" href="#" onClick={this.handleSearchNav.bind(this)}>
                 <img
                   src="https://res.cloudinary.com/sivadass/image/upload/v1494756030/icons/back.png"
                   alt="back"
@@ -187,12 +160,7 @@ class Header extends Component {
                 </tbody>
               </table>
             </div>
-            <a
-              className="cart-icon"
-              href="#"
-              onClick={this.handleCart.bind(this)}
-              ref="cartButton"
-            >
+            <a className="cart-icon" href="#" onClick={this.handleCart.bind(this)} ref="cartButton">
               <img
                 className={this.props.cartBounce ? "tada" : " "}
                 src="/images/cart.png"
@@ -205,16 +173,18 @@ class Header extends Component {
               )}
             </a>
             <div
-              className={
-                this.state.showCart ? "cart-preview active" : "cart-preview"
-              }
+              className={this.state.showCart ? "cart-preview active" : "cart-preview"}
               ref="cartPreview"
             >
               <CartScrollBar>{view}</CartScrollBar>
-              <div className="action-block" >
+              <div className="action-block">
                 <form action="#">
                   <button onClick={this.handleClick.bind(this)} type="button">
-                 <strong  style={{ color: "black" }}> CHECKOUT </strong><small> powered by </small><img src="/images/paylogo.svg" width="20"></img> <img src="/images/paypal.svg" width="80"></img>   </button>
+                    <strong style={{ color: "black" }}> CHECKOUT </strong>
+                    <small> powered by </small>
+                    <img src="/images/paylogo.svg" width="20"></img>{" "}
+                    <img src="/images/paypal.svg" width="80"></img>{" "}
+                  </button>
                 </form>
               </div>
             </div>
@@ -225,8 +195,7 @@ class Header extends Component {
   }
 
   handleClick() {
-
-    window.scrollTo(0,document.body.scrollHeight);
+    window.scrollTo(0, document.body.scrollHeight);
   }
 }
 /*   let cartItems;

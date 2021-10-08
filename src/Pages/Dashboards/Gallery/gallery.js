@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "../../../../node_modules/react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import CarouselBSExample from "./Carousel";
 import { Helmet } from "react-helmet";
 
@@ -61,7 +62,7 @@ export default class GalleryElements extends Component {
 
     return (
       <Fragment>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="div"
           transitionName="TabsAnimation"
           transitionAppear={true}
@@ -177,7 +178,7 @@ export default class GalleryElements extends Component {
             </Col>
           </Row>
           <br></br>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import {
   Row,
   Col,
@@ -212,7 +213,7 @@ function EventManagerComponent() {
 
   return (
     <Fragment>
-      <CSSTransitionGroup
+      <TransitionGroup
         component="div"
         transitionName="MainAnimation"
         transitionAppear={true}
@@ -240,7 +241,7 @@ function EventManagerComponent() {
             <br />
             <Row>
               <Col style={{ height: "auto" }}>
-                <CSSTransitionGroup
+                <TransitionGroup
                   component="div"
                   transitionName="MainAnimation5"
                   transitionAppear={true}
@@ -270,7 +271,7 @@ function EventManagerComponent() {
                         </center>
                       )}
                   </div>
-                </CSSTransitionGroup>
+                </TransitionGroup>
               </Col>
               <Col>
                 <center>
@@ -349,7 +350,7 @@ function EventManagerComponent() {
             <br />
           </CardBody>
         </Card></Row>
-      </CSSTransitionGroup>
+      </TransitionGroup>
     </Fragment >
   );
 }

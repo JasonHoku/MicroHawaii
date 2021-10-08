@@ -1,10 +1,6 @@
 import React, { Component, Fragment } from "react";
-import scriptLoader from "react-async-script-loader";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import classnames from "classnames";
-import ReactTable from "react-table";
-import { Route } from "react-router-dom";
 
+import {TransitionGroup} from "react-transition-group";
 import {
   Row,
   Col,
@@ -29,33 +25,6 @@ import {
   CardFooter,
   ButtonGroup,
 } from "reactstrap";
-
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  Tooltip,
-} from "recharts";
-
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-import {
-  faAngleUp,
-  faDotCircle,
-  faAngleDown,
-  faStrikethrough,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { Sparklines, SparklinesCurve } from "react-sparklines";
-
-import { makeData } from "../../Tables/DataTables/Examples/utils";
-
-const CLIENT = {
-  sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
-  production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
-};
 
 export default class WritingElements extends Component {
   constructor(props) {
@@ -89,7 +58,7 @@ export default class WritingElements extends Component {
 
     return (
       <Fragment>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="div"
           transitionName="TabsAnimation"
           transitionAppear={true}
@@ -102,7 +71,7 @@ export default class WritingElements extends Component {
             height="800"
             src="/IndividualIntelligence.html"
           ></iframe>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

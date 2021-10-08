@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 
 import PageTitle from '../../../../Layout/AppMain/PageTitle';
 
@@ -17,7 +17,7 @@ class FormDropdown extends React.Component {
     render() {
         return (
             <Fragment>
-                <CSSTransitionGroup
+                <TransitionGroup
                     component="div"
                     transitionName="TabsAnimation"
                     transitionAppear={true}
@@ -37,7 +37,7 @@ class FormDropdown extends React.Component {
                         <TabPane tab='Dropdown' key="1"><FormDropdownExample/></TabPane>
                         <TabPane tab='Combobox' key="2"><FormComboboxExample/></TabPane>
                     </Tabs>
-                </CSSTransitionGroup>
+                </TransitionGroup>
             </Fragment>
         )
     }

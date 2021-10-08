@@ -1,10 +1,6 @@
 import React, { Component, Fragment } from "../../../../node_modules/react";
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 
-
-import Tabs, { TabPane } from "rc-tabs";
-import TabContent from "rc-tabs/lib/SwipeableTabContent";
-import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 
 // Examples
 
@@ -14,20 +10,20 @@ import PrivacyPolicy from "./privacyPolicy";
 
 
 
-//  
+//
 
 export default class Privacy extends Component {
   render() {
-    return ( 
+    return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
 
-          
+
             <PrivacyPolicy />
-                 </CSSTransitionGroup>
+                 </TransitionGroup>
       </Fragment>
     )
-    
+
   }
 }

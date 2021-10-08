@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, Button } from "reactstrap";
 
 import PageTitle from "../../../../Layout/AppMain/PageTitle";
@@ -45,7 +46,7 @@ export default class FormColorPicker extends React.Component {
         <PageTitle heading="Forms Color Picker"
           subheading="Color Pickers following the design from Photoshop, Sketch, Chrome, Twitter and more."
           icon="pe-7s-drawer icon-gradient bg-happy-itmeo"/>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row className="mt-2">
             <Col md="4">
@@ -99,7 +100,7 @@ export default class FormColorPicker extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

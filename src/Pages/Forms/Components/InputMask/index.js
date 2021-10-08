@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 
 import PageTitle from '../../../../Layout/AppMain/PageTitle';
 
@@ -17,7 +17,7 @@ class FormInputMask extends React.Component {
                     subheading="Add all kind of input masks for inputs for a better user experience."
                     icon="pe-7s-global icon-gradient bg-happy-itmeo"
                 />
-                <CSSTransitionGroup
+                <TransitionGroup
                     component="div"
                     transitionName="TabsAnimation"
                     transitionAppear={true}
@@ -25,7 +25,7 @@ class FormInputMask extends React.Component {
                     transitionEnter={false}
                     transitionLeave={false}>
                     <FormInputMaskExample/>
-                </CSSTransitionGroup>
+                </TransitionGroup>
             </Fragment>
         )
     }

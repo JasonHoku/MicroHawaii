@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Slider from "rc-slider";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
 const marks = {
@@ -25,7 +26,7 @@ class FormRangeSliderVertical extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row style={parentStyle}>
             <Col md="3">
@@ -109,7 +110,7 @@ class FormRangeSliderVertical extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

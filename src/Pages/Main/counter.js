@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 
 import "firebase/firestore";
-import {
-  FirebaseAppProvider,
-  useFirestoreDocData,
-  useFirestore,
-} from "reactfire";
+
 
 import firebase from "firebase/app";
 

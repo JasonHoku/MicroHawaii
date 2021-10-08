@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 
 import PageTitle from '../../../Layout/AppMain/PageTitle';
 
@@ -18,7 +18,7 @@ export default class TimelineExample extends React.Component {
 
         return (
             <Fragment>
-                <CSSTransitionGroup
+                <TransitionGroup
                     component="div"
                     transitionName="TabsAnimation"
                     transitionAppear={true}
@@ -39,7 +39,7 @@ export default class TimelineExample extends React.Component {
                         <TabPane tab='Icon Badges' key="2"><TimelineIconBadge/></TabPane>
                         <TabPane tab='Scrollable Timelines' key="3"><TimelineScrollable/></TabPane>
                     </Tabs>
-                </CSSTransitionGroup>
+                </TransitionGroup>
             </Fragment>
         );
     }

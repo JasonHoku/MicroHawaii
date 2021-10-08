@@ -1,8 +1,5 @@
 import React, { Component, Fragment, useEffect } from "react";
-import { compose, graphql } from "react-apollo";
 
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
 
 import {
   Row,
@@ -25,17 +22,6 @@ import {
   TabContent,
   TabPane,
 } from "reactstrap";
-import axios from "axios";
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://api.microhawaii.com/graphql",
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
-  }),
-});
 
 class NoteManagerComponent extends Component {
   constructor(props) {
@@ -52,66 +38,7 @@ class NoteManagerComponent extends Component {
   }
   getData() {
     console.log("Check Chat Data");
-    try {
-      this.state.authVar = axios
-        .get(`https://api.microHawaii.com/live-chats`, {
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-          },
-        })
-        .then((res) => {
-          if (res.err == null) {
-            localStorage.setItem(
-              "ActiveChatUserCount",
-              String(JSON.parse(JSON.stringify(res.data)).length)
-            );
-            let concData = "";
-            let concData2 = "";
-            let concData3 = "";
-            this.state.getOldTimestamp = [];
-            this.state.getDataEZID = [];
-            for (
-              var i = 0;
-              i < JSON.parse(JSON.stringify(res.data)).length;
-              i++
-            ) {
-              concData2 = this.state.getOldTimestamp.concat([
-                JSON.parse(JSON.stringify(res.data))[i].timestamp,
-              ]);
-              this.setState({
-                getOldTimestamp: concData2,
-              });
-              concData3 = this.state.getDataEZID.concat([
-                JSON.stringify(JSON.parse(JSON.stringify(res.data))[i].id),
-              ]);
-              this.setState({
-                getDataEZID: concData3,
-              });
 
-              concData =
-                concData +
-                "\r\n ID#" +
-                JSON.stringify(JSON.parse(JSON.stringify(res.data))[i].id) +
-                "\r\n Instance: " +
-                JSON.parse(JSON.stringify(res.data))[i].instance +
-                "\r\n Created At: " +
-                JSON.parse(JSON.stringify(res.data))[i].timestamp +
-                "\r\n . ";
-              this.setState({
-                textVar: concData
-                  .split("\n")
-                  .map((str, index) => <h5 key={index}>{str}</h5>),
-              });
-            }
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   handleInputChange(event) {
@@ -246,7 +173,7 @@ class NoteManagerComponent extends Component {
             style={{ width: "50px" }}
           ></input>{" "}
           &nbsp;
-          
+
           <br />
           <Input
             value={this.state.noteVar}

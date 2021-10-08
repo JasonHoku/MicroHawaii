@@ -1,32 +1,12 @@
 import React, { Component, Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import Products from "./Products";
-import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 import QuickView from "./QuickView";
-import Tabs, { TabPane } from "rc-tabs";
-import TabContent from "rc-tabs/lib/SwipeableTabContent";
-import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
-import PayPalButton from "./PayPalExpress";
-import Popup from "react-popup";
-import emailNotify from "./Emailer";
-import PayPalForwarder from "./PayPalForwarder";
-import CheckoutHelper from "./Checkout";
 import { Helmet } from "react-helmet";
 
 import {
   Row,
-  Col,
-  Button,
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Nav,
-  NavItem,
-  ListGroup,
-  ListGroupItem,
   Card,
   CardTitle,
   CardBody,
@@ -36,10 +16,11 @@ import {
   CardFooter,
   ButtonGroup,
 } from "reactstrap";
-import Product from "./Product";
-import PayPalExpress from "./PayPalExpress";
 
-// Examples
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/storage";
+import "firebase/firestore";
 
 //
 
@@ -59,6 +40,7 @@ export default class ShopPage extends Component {
       quantity: 1,
       quickViewProduct: {},
       modalActive: false,
+      payPalLink: null,
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handleMobileSearch = this.handleMobileSearch.bind(this);
@@ -107,8 +89,7 @@ export default class ShopPage extends Component {
     if (this.checkProduct(productID)) {
       console.log("hi");
       let index = cartItem.findIndex((x) => x.id === productID);
-      cartItem[index].quantity =
-        Number(cartItem[index].quantity) + Number(productQty);
+      cartItem[index].quantity = Number(cartItem[index].quantity) + Number(productQty);
       this.setState({
         cart: cartItem,
       });
@@ -191,20 +172,16 @@ export default class ShopPage extends Component {
   }
 
   render() {
+    var gotAmount = this.state.totalAmount;
+
     document.getElementById("popupContainer");
     return (
       <Fragment>
         <Helmet>
           <title>MicroHawaii.com Shop</title>
-          <meta
-            name="description"
-            content="Find and purchase MicroHawaii services and products."
-          />
+          <meta name="description" content="Find and purchase MicroHawaii services and products." />
           <meta name="theme-color" content="#008f68" />
-          <link
-            rel="canonical"
-            href="https://microhawaii.com/dashboards/shop"
-          />
+          <link rel="canonical" href="https://microhawaii.com/dashboards/shop" />
         </Helmet>
         <Row
           style={{
@@ -249,9 +226,15 @@ export default class ShopPage extends Component {
                 </div>
                 <br />
                 <br />
-                <span style={{ fontFamily: "Montserrat", fontSize: "125%", fontWeight: 999, margin: "15px" }}>
-                  Here you may find an array of focuses MicroHawaii has to
-                  offer.
+                <span
+                  style={{
+                    fontFamily: "Montserrat",
+                    fontSize: "125%",
+                    fontWeight: 999,
+                    margin: "15px",
+                  }}
+                >
+                  Here you may find an array of focuses MicroHawaii has to offer.
                 </span>
                 <br />
                 <br /> <a href="/dashboards/contact">Questions?</a>
@@ -301,8 +284,8 @@ export default class ShopPage extends Component {
               </li>{" "}
               <br />
               <li>
-                <a href="/dashboards/services">The services page</a> has more
-                information about skillsets.
+                <a href="/dashboards/services">The services page</a> has more information about
+                skillsets.
               </li>
             </CardBody>
           </Card>
@@ -319,7 +302,7 @@ export default class ShopPage extends Component {
             <Footer
               style={{ width: "13rem" }}
               cartBounce={this.state.cartBounce}
-              total={this.state.totalAmount}
+              total={gotAmount}
               totalItems={this.state.totalItems}
               cartItems={this.state.cart}
               removeProduct={this.handleRemoveProduct}
@@ -329,18 +312,149 @@ export default class ShopPage extends Component {
               productQuantity={this.state.moq}
             ></Footer>{" "}
             <CardBody>
-              <PayPalButton
-                cartBounce={this.state.cartBounce}
-                total={this.state.totalAmount}
-                totalItems={this.state.totalItems}
-                cartItems={this.state.cart}
-                removeProduct={this.handleRemoveProduct}
-                handleCategory={this.handleCategory}
-                categoryTerm={this.state.category}
-                updateQuantity={this.updateQuantity}
-                productQuantity={this.state.moq}
-                style={{ width: "13rem" }}
-              />
+              Total: ${this.state.totalAmount} <br />
+              <button
+                id="CheckoutButtonID"
+                onClick={(e) => {
+                  document.getElementById("CheckoutButtonID").innerHTML = "Loading";
+
+                  e.preventDefault();
+                  console.log("Running");
+                  require("firebase/functions");
+                  const auth = firebase.auth();
+                  async function sendRequest(props) {
+                    var useEmulator = true;
+                    //Emulator local url for development:
+                    let fetchURL = "";
+                    const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment?payment=${gotAmount}`;
+
+                    //Live  url:
+                    const urlLive = `https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment?payment=${gotAmount}`;
+
+                    if (useEmulator && window.location.hostname.includes("localhost")) {
+                      fetchURL = urlLocal;
+                    } else {
+                      fetchURL = urlLive;
+                    }
+
+                    //Send Details to Functions
+                    const rawResponse = await fetch(fetchURL, {
+                      method: "POST",
+                      mode: "cors",
+                      headers: new Headers({
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        HeaderTokens: JSON.stringify({
+                          refreshToken: auth.currentUser.refreshToken,
+                          authDomain: auth.currentUser.authDomain,
+                          uid: auth.currentUser.uid,
+                          name: auth.currentUser.displayName,
+                          email: auth.currentUser.email,
+                          hostname: window.location.hostname,
+                        }),
+                      }),
+                      body: JSON.stringify({
+                        UUID: auth.currentUser.uuid,
+                      }),
+                    });
+                    return console.log(await rawResponse.json());
+                  }
+                  async function sendRequest(props) {
+                    var useEmulator = true;
+                    //Emulator local url for development:
+                    let fetchURL = "";
+                    const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment?payment=${gotAmount}`;
+
+                    //Live  url:
+                    const urlLive = `https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment?payment=${gotAmount}`;
+
+                    if (useEmulator && window.location.hostname.includes("localhost")) {
+                      fetchURL = urlLocal;
+                    } else {
+                      fetchURL = urlLive;
+                    }
+
+                    //Send Details to Functions
+                    const rawResponse = await fetch(fetchURL, {
+                      method: "POST",
+                      mode: "cors",
+                      headers: new Headers({
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        HeaderTokens: JSON.stringify({
+                          refreshToken: auth.currentUser.refreshToken,
+                          authDomain: auth.currentUser.authDomain,
+                          uid: auth.currentUser.uid,
+                          name: auth.currentUser.displayName,
+                          email: auth.currentUser.email,
+                          hostname: window.location.hostname,
+                        }),
+                      }),
+                      body: JSON.stringify({
+                        UUID: auth.currentUser.uuid,
+                      }),
+                    });
+                    return await rawResponse.json();
+                  }
+                  async function sendRequest(props) {
+                    var useEmulator = true;
+                    //Emulator local url for development:
+                    let fetchURL = "";
+                    const urlLocal = `http://localhost:5111/microhawaii-5f97b/us-central1/createPayment?payment=${gotAmount}`;
+
+                    //Live  url:
+                    const urlLive = `https://us-central1-microhawaii-5f97b.cloudfunctions.net/createPayment?payment=${gotAmount}`;
+
+                    if (useEmulator && window.location.hostname.includes("localhost")) {
+                      fetchURL = urlLocal;
+                    } else {
+                      fetchURL = urlLive;
+                    }
+
+                    //Send Details to Functions
+                    const rawResponse = await fetch(fetchURL, {
+                      method: "POST",
+                      mode: "cors",
+                      headers: new Headers({
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        HeaderTokens: JSON.stringify({
+                          refreshToken: auth.currentUser.refreshToken,
+                          authDomain: auth.currentUser.authDomain,
+                          uid: auth.currentUser.uid,
+                          name: auth.currentUser.displayName,
+                          email: auth.currentUser.email,
+                          hostname: window.location.hostname,
+                        }),
+                      }),
+                      body: JSON.stringify({
+                        UUID: auth.currentUser.uuid,
+                      }),
+                    });
+                    return await rawResponse.json();
+                  }
+
+                  sendRequest()
+                    .then((result) => {
+                      console.log(result);
+
+                      document.getElementById("CheckoutButtonID").innerHTML =
+                        "Success! Finalize With PayPal Below.";
+
+                      this.setState({ payPalLink: result });
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }}
+                style={{ fontSize: "22px", width: "50%", height: "75px", alignSelf: "center" }}
+                color="primary"
+              >
+                {this.state.totalAmount ? "Proceed To Checkout" : "Cart Is Empty"}
+              </button>
+              <div hidden id="PayPalLinkID">
+                <a href={this.state.payPalLink}></a>
+              </div>
             </CardBody>{" "}
           </Card>
         </center>{" "}

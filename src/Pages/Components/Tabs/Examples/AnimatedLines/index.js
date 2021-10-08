@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import Tabs from "react-responsive-tabs";
 
 import { Row, Col, Card, Container } from "reactstrap";
@@ -40,7 +41,7 @@ export default class AnimatedLinesTabsExample extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Container fluid>
             <Row>
@@ -60,7 +61,7 @@ export default class AnimatedLinesTabsExample extends React.Component {
               </Col>
             </Row>
           </Container>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

@@ -51,7 +51,7 @@ const Slideshow = () => {
                 width: "90%",
                 alignContent: "center",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                textAlign:"center"
+                textAlign: "center",
               }}
             >
               <span style={{ textAlign: "center" }}>
@@ -62,8 +62,8 @@ const Slideshow = () => {
                 style={{
                   maxWidth: "750px",
                   width: "90%",
-                  justifySelf:"center",
-                  alignSelf:"center",
+                  justifySelf: "center",
+                  alignSelf: "center",
                 }}
               ></img>
             </Card>
@@ -97,8 +97,8 @@ const Slideshow = () => {
                 style={{
                   maxWidth: "750px",
                   width: "90%",
-                  justifySelf:"center",
-                  alignSelf:"center",
+                  justifySelf: "center",
+                  alignSelf: "center",
                   zIndex: 9,
                 }}
               ></img>
@@ -130,8 +130,8 @@ const Slideshow = () => {
               <img
                 src="/images/Analytics3.png"
                 style={{
-                  justifySelf:"center",
-                  alignSelf:"center",
+                  justifySelf: "center",
+                  alignSelf: "center",
                   maxWidth: "750px",
                   width: "90%",
                 }}

@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 import {
     Row, Col,
     Card, CardBody,
@@ -26,7 +26,7 @@ const RegularTables = (props) => {
                 subheading="Tables are the backbone of almost all web applications."
                 icon="pe-7s-drawer icon-gradient bg-happy-itmeo"
             />
-            <CSSTransitionGroup
+            <TransitionGroup
                 component="div"
                 transitionName="TabsAnimation"
                 transitionAppear={true}
@@ -99,7 +99,7 @@ const RegularTables = (props) => {
                         </Card>
                     </Col>
                 </Row>
-            </CSSTransitionGroup>
+            </TransitionGroup>
         </Fragment>
     );
 };

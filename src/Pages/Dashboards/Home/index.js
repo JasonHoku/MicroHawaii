@@ -1,26 +1,15 @@
 import React, { Component, Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
-import PageTitleAlt2 from "../../../Layout/AppMain/PageTitleAlt2";
+import {TransitionGroup} from "react-transition-group";
 
-import Tabs, { TabPane } from "rc-tabs";
-import TabContent from "rc-tabs/lib/SwipeableTabContent";
-import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
-
-// Examples
-import CRMDashboard1 from "./Examples/Variation1";
 import CRMDashboard2 from "./Examples/Variation2";
 
-import { Router, Switch, Route } from "react-router-dom";
-
-import { Helmet } from "react-helmet";
-//
 
 export default class HomeDashboard extends Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="div"
           transitionName="TabsAnimation"
           transitionAppear={true}
@@ -29,7 +18,7 @@ export default class HomeDashboard extends Component {
           transitionLeave={false}
         >
           <CRMDashboard2 />
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

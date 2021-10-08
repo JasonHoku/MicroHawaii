@@ -1,6 +1,6 @@
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 import { Route } from "react-router-dom";
-import LandingPage from "../../../Pages/home";
+import LandingPage from "../../../Pages/landingPage";
 import {
   Row,
   Col,
@@ -22,7 +22,7 @@ import {
   TabContent,
   TabPane,
 } from "reactstrap";
-import CKEditor from "ckeditor4-react";
+import {CKEditor} from "ckeditor4-react";
 
 import firebase from "firebase/app";
 import "firebase/auth";

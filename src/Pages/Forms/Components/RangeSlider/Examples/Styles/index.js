@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import Slider, { Range } from "rc-slider";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
 class FormRangeSliderStyles extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <Row>
             <Col md="6">
@@ -29,7 +30,7 @@ class FormRangeSliderStyles extends React.Component {
               <Card className="main-card mb-3">
                 <CardBody>
                   <CardTitle>Lines Sizing</CardTitle>
-                  <Range min={0} max={100} defaultValue={[30, 70]} 
+                  <Range min={0} max={100} defaultValue={[30, 70]}
                     className="rc-slider-warning rc-slider-line rc-slider-lg mb-2"/>
                   <Range min={0} max={100} defaultValue={[35, 65]}
                     className="rc-slider-info rc-slider-line mb-2" />
@@ -80,7 +81,7 @@ class FormRangeSliderStyles extends React.Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

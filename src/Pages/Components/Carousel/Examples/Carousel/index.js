@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
@@ -9,7 +10,7 @@ import CustomExample from "./CustomTag";
 const CarouselBSExample = (props) => {
   return (
     <Fragment>
-      <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+      <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
         transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
         <Row className="slick-slider-md">
           <Col lg="6">
@@ -29,7 +30,7 @@ const CarouselBSExample = (props) => {
             </Card>
           </Col>
         </Row>
-      </CSSTransitionGroup>
+      </TransitionGroup>
     </Fragment>
   );
 };

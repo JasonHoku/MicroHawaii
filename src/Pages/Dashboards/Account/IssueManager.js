@@ -1,8 +1,4 @@
 import React, { Component, Fragment, useEffect } from "react";
-import { compose, graphql } from "react-apollo";
-
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
 
 import {
   Row,
@@ -25,18 +21,6 @@ import {
   TabContent,
   TabPane,
 } from "reactstrap";
-import axios from "axios";
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://api.microhawaii.com/graphql",
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
-  }),
-});
-
 class IssueManager extends Component {
   constructor(props) {
     super(props);
@@ -263,7 +247,7 @@ class IssueManager extends Component {
                 style={{ width: "50px" }}
               ></input>{" "}
               &nbsp;
-              
+
               <br />
               <span style={{ marginLeft: "2px", marginRight: "2px" }}>
                 <div

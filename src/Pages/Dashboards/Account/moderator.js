@@ -1,21 +1,8 @@
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
-import axios from "axios";
-import firebase from "firebase/app";
 import "firebase/auth";
 
-import {
-  FirebaseAppProvider,
-  useFirestoreDocData,
-  useFirestore,
-  useFirebaseApp,
-  useFirestoreCollectionData,
-  useFirestoreCollection,
-} from "reactfire";
-
-import FormQueryComponent from "./FormQueryComponent.js";
 import UserQueryComponent from "./UserQueryComponent.js";
 import DiscordJSComponent from "./DiscordJSComponent.js";
-import { toInteger } from "lodash";
 import ProductManagerComponent from "./ProductManagerComponent.js";
 import ChatManagerComponent from "./ChatManagerComponent.js";
 import ContentManagerComponent from "./ContentManagerComponent.js";
@@ -31,8 +18,6 @@ import IssueManager from "./IssueManager.js";
 
 import classnames from "classnames";
 
-import PayPalButton from "../Shop/PayPalExpress";
-import TextareaAutosize from "react-textarea-autosize";
 import {
   Row,
   Col,
@@ -57,9 +42,6 @@ import {
   CardFooter,
   ButtonGroup,
 } from "reactstrap";
-import { faAlignCenter } from "@fortawesome/free-solid-svg-icons";
-import { relative } from "path";
-import LoginPageElements from "./loginPage";
 import AccountElements from "./account";
 
 import { toast } from "react-toastify";
@@ -132,71 +114,6 @@ function ModeratorElements() {
       onClose: () => setloadStage("1"),
       draggable: true,
     });
-  }
-
-  function GetCollectionLength(e) {
-    // easily access the Firestore library
-    const firebaseApp = useFirebaseApp();
-
-    const collectionRef = firebaseApp.firestore().collection("Users");
-
-    const items = useFirestoreCollectionData(collectionRef);
-
-    // easily check the loading status
-    if (items.data) {
-      if (items.data.length === userMetric) {
-        return items.data.length;
-      } else console.log("YYY");
-      showNotification(e);
-      showNotification2(e);
-      localStorage.setItem("users", parseInt(items.data.length));
-      return items.data.length;
-    } else return "Fetching...";
-  }
-
-  function GetDocData2(e) {
-    // easily access the Firestore library
-    const firebaseApp = useFirebaseApp();
-
-    const docRef = useFirestore().collection("totalHits").doc("value");
-
-    // subscribe to a document for realtime updates. just one line!
-    const { status, data } = useFirestoreDocData(docRef);
-
-    // easily check the loading status
-    if (data) {
-      return data.population;
-    } else return "Fetching...";
-  }
-
-  function GetDocData3(e) {
-    // easily access the Firestore library
-    const firebaseApp = useFirebaseApp();
-
-    const docRef = useFirestore().collection("totalClicks").doc("value");
-
-    // subscribe to a document for realtime updates. just one line!
-    const { status, data } = useFirestoreDocData(docRef);
-
-    // easily check the loading status
-    if (data) {
-      return data.population;
-    } else return "...";
-  }
-
-  function GetDocData(e) {
-    // easily access the Firestore library
-    const firebaseApp = useFirebaseApp();
-
-    const docRef = useFirestore().collection("version").doc("0");
-
-    // subscribe to a document for realtime updates. just one line!
-    const { status, data } = useFirestoreDocData(docRef);
-
-    // easily check the loading status
-    if (data) {
-      return data.version;
-    } else return "Fetching...";
   }
 
   function loadProducts() {
@@ -784,7 +701,7 @@ function ModeratorElements() {
                     <h3>Highlight Metrics:</h3>
                   </CardTitle>
                   <h5>
-                    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+                    {/* <FirebaseAppProvider firebaseConfig={firebaseConfig}>
                       <Row
                         style={{
                           boxShadow: "0px 0px 0px 2px rgba(50,50,50, .9)",
@@ -794,7 +711,6 @@ function ModeratorElements() {
                       >
                         <Col style={{ width: "100%" }}>Clicks: </Col>
                         <Col style={{ textAlign: "right" }}>
-                          <GetDocData3 />
                         </Col>
                       </Row>{" "}
                       <Row
@@ -834,7 +750,7 @@ function ModeratorElements() {
                           <GetDocData />
                         </Col>
                       </Row>
-                    </FirebaseAppProvider>{" "}
+                    </FirebaseAppProvider>{" "} */}
                   </h5>
                 </Card>
               </TabPane>

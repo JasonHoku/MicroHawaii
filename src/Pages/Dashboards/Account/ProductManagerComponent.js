@@ -1,5 +1,5 @@
 import React, { Component, Fragment, useEffect } from "react";
-import { compose, graphql } from "react-apollo";
+
 
 import {
   Row,

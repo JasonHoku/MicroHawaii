@@ -1,8 +1,5 @@
 import React, { Component, Fragment, useEffect } from "react";
 
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
-
 import {
   Row,
   Col,
@@ -24,18 +21,6 @@ import {
   TabContent,
   TabPane,
 } from "reactstrap";
-import axios from "axios";
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://api.microhawaii.com/graphql",
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
-  }),
-});
-
 class DocumentationPage extends Component {
   constructor(props) {
     super(props);

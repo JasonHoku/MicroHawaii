@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import {
   Row,
@@ -59,7 +60,7 @@ export default class PrivacyPolicy extends Component {
 
     return (
       <Fragment>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="div"
           transitionName="TabsAnimation"
           transitionAppear={true}
@@ -697,7 +698,7 @@ export default class PrivacyPolicy extends Component {
             </Col>
           </Row>
           <br></br>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

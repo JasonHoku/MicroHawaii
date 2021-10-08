@@ -1,6 +1,5 @@
 import React, { Component, Fragment, useState, useEffect, useRef } from "react";
 
-import axios from "axios";
 import classnames from "classnames";
 
 import PayPalButton from "../Shop/PayPalExpress";
@@ -301,33 +300,7 @@ function AccountElements() {
       );
     }
   }
-  function postListingImage() {
-    console.log("x");
-    setproStatusText("Awaiting Initialize");
-    const formData = new FormData();
-    if (images != null) {
-      Array.from(images).forEach((image) => {
-        formData.append("files", image);
-      });
-      formData.Image = images[0];
-      axios
-        .post(`https://api.MicroHawaii.com/upload`, formData, {
-          headers: {
-            "content-type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          if (res.err == null) {
-            document.getElementById("imageUpped").hidden = false;
-            console.log(res);
-            setactiveProURL("http://api.MicroHawaii.com" + res.data[0].url);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }
+
 
   function checkFormStates() {
     setgotDownloadURL(localStorage.getItem("gotDownloadURL"));

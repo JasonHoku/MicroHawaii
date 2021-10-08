@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
 import { Query, ApolloProvider, Mutation } from "react-apollo";
 
-import axios from "axios";
 
 import classnames from "classnames";
 
@@ -89,31 +88,6 @@ export default class AdminElements extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    if (this.state.images != null) {
-      var form = document.getElementById("apiupform");
-      document.getElementById("apiupform").hidden = true;
-      Array.from(this.state.images).forEach((image) => {
-        formData.append("files", image);
-      });
-
-      axios
-        .post(`https://upload.microhawaii.com/uploadfiles/`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          if (res.err == null) {
-            alert("Success!");
-            document.getElementById("apiupform").hidden = false;
-          }
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
   };
   handleInputChange(event) {
     this.setState({

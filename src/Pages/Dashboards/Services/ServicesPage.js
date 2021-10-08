@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Helmet } from "react-helmet";
 
 import { Link } from "react-router-dom";
@@ -62,7 +63,7 @@ export default class CRMDashboard2 extends Component {
 
     return (
       <Fragment>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="div"
           transitionName="TabsAnimation"
           transitionAppear={true}
@@ -277,7 +278,7 @@ export default class CRMDashboard2 extends Component {
               </Card>
             </Col>
           </Row>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import {
   Row,
   Col,
@@ -130,7 +131,7 @@ const GridTables = (props) => {
         subheading="Basic example of a React table with sort, search and filter functionality."
         icon="pe-7s-notebook icon-gradient bg-mixed-hopes"
       />
-      <CSSTransitionGroup
+      <TransitionGroup
         component="div"
         transitionName="TabsAnimation"
         transitionAppear={true}
@@ -156,7 +157,7 @@ const GridTables = (props) => {
             </Card>
           </Col>
         </Row>
-      </CSSTransitionGroup>
+      </TransitionGroup>
     </Fragment>
   );
 };

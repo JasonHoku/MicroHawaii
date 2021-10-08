@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {TransitionGroup} from "react-transition-group";
 
 import PageTitle from '../../../../Layout/AppMain/PageTitle';
 
@@ -20,7 +20,7 @@ export default class ButtonsSquare extends React.Component {
 
         return (
             <Fragment>
-                <CSSTransitionGroup
+                <TransitionGroup
                     component="div"
                     transitionName="TabsAnimation"
                     transitionAppear={true}
@@ -43,7 +43,7 @@ export default class ButtonsSquare extends React.Component {
                         <TabPane tab='Dashed' key="4"><ButtonsSquareDashed/></TabPane>
                         <TabPane tab='Gradients' key="5"><ButtonsSquareGradients/></TabPane>
                     </Tabs>
-                </CSSTransitionGroup>
+                </TransitionGroup>
             </Fragment>
         );
     }

@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import { Card, CardTitle, CardBody } from "reactstrap";
 
@@ -11,7 +12,7 @@ export default class SplitLayout extends Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <div>
             <div className="app-inner-layout rm-sidebar">
@@ -61,7 +62,7 @@ export default class SplitLayout extends Component {
               </div>
             </div>
           </div>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }

@@ -5,7 +5,6 @@ import { Slider } from "react-burgers";
 
 import cx from "classnames";
 
-import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
 import { FiMoreVertical } from "react-icons/fi";
 

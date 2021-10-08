@@ -2,7 +2,8 @@ import React, { Component, Fragment, useState, useEffect, useRef, lazy } from "r
 
 import { Link } from "react-router-dom";
 
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 import { SiGooglecalendar, SiShopify } from "react-icons/si";
 import { Route } from "react-router-dom";
@@ -132,7 +133,7 @@ export default function CRMDashboard2() {
 
   return (
     <Fragment>
-      <CSSTransitionGroup
+      <TransitionGroup
         component="div"
         transitionName="MainAnimation"
         transitionAppear={true}
@@ -201,7 +202,7 @@ export default function CRMDashboard2() {
           <br />
           <br />
           <CardTitle></CardTitle>
-          <CSSTransitionGroup
+          <TransitionGroup
             component="div"
             transitionName="MainAnimation"
             transitionAppear={true}
@@ -258,7 +259,7 @@ export default function CRMDashboard2() {
                 </div>
               </div>
             </Row>
-          </CSSTransitionGroup>
+          </TransitionGroup>
 
           <Row>
             <Col>
@@ -729,7 +730,7 @@ export default function CRMDashboard2() {
             </Card>
           </Col>
         </Row>
-      </CSSTransitionGroup>
+      </TransitionGroup>
     </Fragment>
   );
 }

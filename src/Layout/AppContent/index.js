@@ -1,19 +1,20 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 
 class AppContent extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup
+        <TransitionGroup
           component="span"
           transitionName="fade-appear"
           transitionAppear={true}
           transitionAppearTimeout={0}
           transitionEnter={false}
           transitionLeave={false}
-        ></CSSTransitionGroup>
+        ></TransitionGroup>
       </Fragment>
     );
   }

@@ -1,8 +1,4 @@
 import React, { Component, Fragment, useEffect } from "react";
-import { compose, graphql } from "react-apollo";
-
-import { ApolloClient, InMemoryCache, HttpLink } from "apollo-boost";
-import { Query, ApolloProvider, Mutation } from "react-apollo";
 
 import {
   Row,
@@ -25,17 +21,6 @@ import {
   TabContent,
   TabPane,
 } from "reactstrap";
-import axios from "axios";
-const apolloClient = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: "https://api.microhawaii.com/graphql",
-    headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
-  }),
-});
 
 class VideoManager extends Component {
   constructor(props) {
@@ -163,7 +148,7 @@ class VideoManager extends Component {
       <Fragment>
         <CardHeader> PCP Site Video Manager</CardHeader>
         <CardBody>Setup Per Request. </CardBody>
-      
+
         <br />
       </Fragment>
     );

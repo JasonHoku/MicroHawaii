@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from "react";
-import scriptLoader from 'react-async-script-loader';
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import classnames from "classnames";
-import ReactTable from "react-table";
-import { Route } from 'react-router-dom';
+
+import {TransitionGroup} from "react-transition-group";
 
 import {
   Row,
@@ -30,35 +27,6 @@ import {
   ButtonGroup,
 } from "reactstrap";
 
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  Tooltip,
-} from "recharts";
-
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-import {
-  faAngleUp,
-  faDotCircle,
-  faAngleDown,
-  faStrikethrough,
-} from "@fortawesome/free-solid-svg-icons";
-
-import { Sparklines, SparklinesCurve } from "react-sparklines";
-
-import { makeData } from "../../Tables/DataTables/Examples/utils";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import CountUp from "react-countup";
-
-const CLIENT = {
-  sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
-  production: process.env.PAYPAL_CLIENT_ID_PRODUCTION,
-};
 
 
 export default class MusicElements extends Component {
@@ -97,7 +65,7 @@ export default class MusicElements extends Component {
 
 
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation"
+        <TransitionGroup component="div" transitionName="TabsAnimation"
           transitionAppear={true} transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
 
 
@@ -117,9 +85,9 @@ export default class MusicElements extends Component {
                 <CardBody>SoundCloud Player:
     <br></br>
                                 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/359400835&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-    
+
                 </CardBody>
-              </Card>  </Col> 
+              </Card>  </Col>
 
 
             <Col xs="12" sm="12" md="8" xl="6">
@@ -137,7 +105,7 @@ export default class MusicElements extends Component {
           </Row>
           <br></br>
 
-        </CSSTransitionGroup>
+        </TransitionGroup>
 
       </Fragment>
     );

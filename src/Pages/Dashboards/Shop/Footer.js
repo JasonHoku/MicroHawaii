@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EmptyCart from "./empty-states/EmptyCart";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 
 class Footer extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class Footer extends Component {
         this.props.handleMobileSearch();
       }
     );
-  
+
   }
   render() {
     let cartItems;
@@ -64,14 +65,14 @@ class Footer extends Component {
             ×
           </a>
         </li>
-      ); 
+      );
     });
     let view;
     if (cartItems.length <= 0) {
       view = <EmptyCart   style={{ width: "13rem" }} />;
     } else {
       view = (
-        <CSSTransitionGroup
+        <TransitionGroup
           transitionName="fadeIn"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
@@ -79,7 +80,7 @@ class Footer extends Component {
           className="cart-items"
         >
           {cartItems}
-        </CSSTransitionGroup>
+        </TransitionGroup>
       );
     }
     return (

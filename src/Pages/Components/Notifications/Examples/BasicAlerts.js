@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+
+import {TransitionGroup} from "react-transition-group";
 import { Alert, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
 class BasicAlerts extends React.Component {
@@ -20,7 +21,7 @@ class BasicAlerts extends React.Component {
   render() {
     return (
       <Fragment>
-        <CSSTransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
+        <TransitionGroup component="div" transitionName="TabsAnimation" transitionAppear={true}
           transitionAppearTimeout={0} transitionEnter={false} transitionLeave={false}>
           <div>
             <Row>
@@ -151,7 +152,7 @@ class BasicAlerts extends React.Component {
               </Col>
             </Row>
           </div>
-        </CSSTransitionGroup>
+        </TransitionGroup>
       </Fragment>
     );
   }
