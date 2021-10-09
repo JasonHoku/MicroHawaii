@@ -71,7 +71,6 @@ class Header extends React.Component {
 				this.setState({ mobileActive: false });
 			}
 			this.setState({ mobileActive: true });
-		} else {
 		}
 	}
 

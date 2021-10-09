@@ -215,7 +215,8 @@ export default class ShopPage extends Component {
             <br />
             <Card
               style={{
-                width: "19rem",
+                width: "100%",
+                maxWidth: "500px",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                 borderRadius: "35px",
               }}
@@ -234,7 +235,7 @@ export default class ShopPage extends Component {
                     margin: "15px",
                   }}
                 >
-                  Here you may find an array of focuses MicroHawaii has to offer.
+                  Here you'll find an array of services and products MicroHawaii has to offer.
                 </span>
                 <br />
                 <br /> <a href="/dashboards/contact">Questions?</a>
@@ -314,9 +315,10 @@ export default class ShopPage extends Component {
             <CardBody>
               Total: ${this.state.totalAmount} <br />
               <button
+                disabled={!this.state.totalAmount > 3}
                 id="CheckoutButtonID"
                 onClick={(e) => {
-                  document.getElementById("CheckoutButtonID").innerHTML = "Loading";
+                  document.getElementById("CheckoutButtonID").innerHTML = "Creating Order...";
 
                   e.preventDefault();
                   console.log("Running");
@@ -345,16 +347,16 @@ export default class ShopPage extends Component {
                         "Content-Type": "application/json",
                         Accept: "application/json",
                         HeaderTokens: JSON.stringify({
-                          refreshToken: auth.currentUser.refreshToken,
-                          authDomain: auth.currentUser.authDomain,
-                          uid: auth.currentUser.uid,
-                          name: auth.currentUser.displayName,
-                          email: auth.currentUser.email,
+                          refreshToken: auth.currentUser ? auth.currentUser.refreshToken : "guest",
+                          authDomain: auth.currentUser ? auth.currentUser.authDomain : "guest",
+                          uid: auth.currentUser ? auth.currentUser.uid : "guest",
+                          name: auth.currentUser ? auth.currentUser.displayName : "guest",
+                          email: auth.currentUser ? auth.currentUser.email : "guest",
                           hostname: window.location.hostname,
                         }),
                       }),
                       body: JSON.stringify({
-                        UUID: auth.currentUser.uuid,
+                        UUID: auth.currentUser ? auth.currentUser.uuid : "guest",
                       }),
                     });
                     return console.log(await rawResponse.json());
@@ -382,16 +384,16 @@ export default class ShopPage extends Component {
                         "Content-Type": "application/json",
                         Accept: "application/json",
                         HeaderTokens: JSON.stringify({
-                          refreshToken: auth.currentUser.refreshToken,
-                          authDomain: auth.currentUser.authDomain,
-                          uid: auth.currentUser.uid,
-                          name: auth.currentUser.displayName,
-                          email: auth.currentUser.email,
+                          refreshToken: auth.currentUser ? auth.currentUser.refreshToken : "guest",
+                          authDomain: auth.currentUser ? auth.currentUser.authDomain : "guest",
+                          uid: auth.currentUser ? auth.currentUser.uid : "guest",
+                          name: auth.currentUser ? auth.currentUser.displayName : "guest",
+                          email: auth.currentUser ? auth.currentUser.email : "guest",
                           hostname: window.location.hostname,
                         }),
                       }),
                       body: JSON.stringify({
-                        UUID: auth.currentUser.uuid,
+                        UUID: auth.currentUser ? auth.currentUser.uuid : "guest",
                       }),
                     });
                     return await rawResponse.json();
@@ -419,16 +421,16 @@ export default class ShopPage extends Component {
                         "Content-Type": "application/json",
                         Accept: "application/json",
                         HeaderTokens: JSON.stringify({
-                          refreshToken: auth.currentUser.refreshToken,
-                          authDomain: auth.currentUser.authDomain,
-                          uid: auth.currentUser.uid,
-                          name: auth.currentUser.displayName,
-                          email: auth.currentUser.email,
+                          refreshToken: auth.currentUser ? auth.currentUser.refreshToken : "guest",
+                          authDomain: auth.currentUser ? auth.currentUser.authDomain : "guest",
+                          uid: auth.currentUser ? auth.currentUser.uid : "guest",
+                          name: auth.currentUser ? auth.currentUser.displayName : "guest",
+                          email: auth.currentUser ? auth.currentUser.email : "guest",
                           hostname: window.location.hostname,
                         }),
                       }),
                       body: JSON.stringify({
-                        UUID: auth.currentUser.uuid,
+                        UUID: auth.currentUser ? auth.currentUser.uuid : "guest",
                       }),
                     });
                     return await rawResponse.json();
@@ -440,6 +442,10 @@ export default class ShopPage extends Component {
 
                       document.getElementById("CheckoutButtonID").innerHTML =
                         "Success! Finalize With PayPal Below.";
+                      console.log(result);
+
+                      document.getElementById("PayPalLinkID").hidden = false;
+                      document.getElementById("CheckoutButtonID").disabled = true;
 
                       this.setState({ payPalLink: result });
                     })
@@ -452,8 +458,13 @@ export default class ShopPage extends Component {
               >
                 {this.state.totalAmount ? "Proceed To Checkout" : "Cart Is Empty"}
               </button>
-              <div hidden id="PayPalLinkID">
-                <a href={this.state.payPalLink}></a>
+              <div
+                hidden={
+                  this.state.payPalLink === null
+                }
+                id="PayPalLinkID"
+              > <br />
+                <a href={this.state.payPalLink}>Checkout With PayPal By Clicking Here</a>
               </div>
             </CardBody>{" "}
           </Card>

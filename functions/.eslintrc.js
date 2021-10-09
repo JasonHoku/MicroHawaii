@@ -8,5 +8,5 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 12,
   },
-  rules: { "no-unused-vars": "off" },
+  rules: { "no-unused-vars": "off", },
 };

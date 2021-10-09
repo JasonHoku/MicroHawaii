@@ -5,17 +5,13 @@ import { Slider } from "react-burgers";
 
 import cx from "classnames";
 
-
 import { FiMoreVertical } from "react-icons/fi";
 
 import { IconContext } from "react-icons";
 
 import { Button } from "reactstrap";
 
-import {
-  setEnableMobileMenu,
-  setEnableMobileMenuSmall,
-} from "../../reducers/ThemeOptions";
+import { setEnableMobileMenu, setEnableMobileMenuSmall } from "../../reducers/ThemeOptions";
 
 class AppMobileMenu extends React.Component {
   constructor(props) {
@@ -38,14 +34,6 @@ class AppMobileMenu extends React.Component {
       this.toggleMobileSmall;
     }
   }
-  handleClickOutside(event) {
-    if (String(event.target.className).includes("Burger")) {
-    } else {
-      this.setState({ active: false });
-      this.toggleMobileSidebar;
-      this.toggleMobileSmall;
-    }
-  }
 
   hashChangeEvent() {
     this.setState({ active: false });
@@ -55,23 +43,11 @@ class AppMobileMenu extends React.Component {
 
   componentDidMount() {
     window.addEventListener("hashchange", this.hashChangeEvent, true);
-    document.addEventListener(
-      "click",
-      this.handleClickOutside.bind(this),
-      true
-    );
+    document.addEventListener("click", this.handleClickOutside.bind(this), true);
   }
   componentWillUnmount() {
-    document.removeEventListener(
-      "click",
-      this.handleClickOutside.bind(this),
-      false
-    );
-    document.removeEventListener(
-      "hashchange",
-      this.hashChangeEvent.bind(this),
-      false
-    );
+    document.removeEventListener("click", this.handleClickOutside.bind(this), false);
+    document.removeEventListener("hashchange", this.hashChangeEvent.bind(this), false);
   }
 
   toggleMobileSidebar = () => {
@@ -119,15 +95,12 @@ class AppMobileMenu extends React.Component {
               color="primary"
               onClick={() =>
                 this.setState({
-                  activeSecondaryMenuMobile: !this.state
-                    .activeSecondaryMenuMobile,
+                  activeSecondaryMenuMobile: !this.state.activeSecondaryMenuMobile,
                 })
               }
             >
               <div id="MobileMenuID" className="btn-icon-wrapper">
-                <IconContext.Provider
-                  value={{ color: "white", className: "MobileMenuID" }}
-                >
+                <IconContext.Provider value={{ color: "white", className: "MobileMenuID" }}>
                   <FiMoreVertical
                     style={{
                       transform: "scale(2)",
@@ -153,8 +126,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setEnableMobileMenu: (enable) => dispatch(setEnableMobileMenu(enable)),
-  setEnableMobileMenuSmall: (enable) =>
-    dispatch(setEnableMobileMenuSmall(enable)),
+  setEnableMobileMenuSmall: (enable) => dispatch(setEnableMobileMenuSmall(enable)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppMobileMenu);

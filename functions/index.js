@@ -445,7 +445,7 @@ exports.processPaid = functions.https.onRequest((req, res) => {
   console.log("Confirming Payment");
   const htmlParams = req.query;
   // const paymentId = req.query.paymentId;
-  const userParam = req.query.user;
+  const userParam = req.query.user || "guest";
   const token = req.query.token;
   const ba_token = req.query.ba_token;
   const PayerID = req.query.PayerID;
@@ -521,7 +521,7 @@ exports.createPayment = functions.https.onRequest((req, res) => {
     res.status(200);
     res.set("Access-Control-Allow-Origin", "*");
     res.set("Access-Control-Allow-Headers", "Content-Type");
-    const userID = JSON.parse(req.headers["headertokens"]).uid;
+    const userID = JSON.parse(req.headers["headertokens"]).uid || "guest";
     const gotHeaders = req.headers["headertokens"];
     console.log("Got Headers, Creating Promise");
     new Promise((resolve, reject) => {
@@ -651,7 +651,7 @@ exports.createPayment = functions.https.onRequest((req, res) => {
 
                                 res.send(JSON.stringify(approval_url));
                                 res.status(200).send();
-                                console.log(JSON.parse(gotHeaders).uid);
+                                console.log(JSON.parse(gotHeaders).uid || "guest");
                               }
                             }
                           }
