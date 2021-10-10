@@ -23,26 +23,26 @@ import "firebase/performance";
 
 import firebase from "firebase/app";
 
-function retry(fn, retriesLeft = 5, interval = 1000) {
-  return new Promise((resolve, reject) => {
-    fn()
-      .then(resolve)
-      .catch((error) => {
-        setTimeout(() => {
-          if (retriesLeft === 1) {
-            // reject('maximum retries exceeded');
-            reject(error);
-            return;
-          }
+import Contact from "../Dashboards/Contact/";
+import ShopPage from "../Dashboards/Shop/";
+import GalleryPage from "../Dashboards/Gallery/";
+import Music from "../Dashboards/Music/";
+import Writing from "../Dashboards/Writing/";
+import Projects from "../Dashboards/Projects/";
+import HomeDashboard from "../Dashboards/Home/";
+import Services from "../Dashboards/Services/";
+import CalendarPage from "../Dashboards/Calendar/";
 
-          // Passing on "reject" is the important part
-          retry(fn, retriesLeft - 1, interval).then(resolve, reject);
-        }, interval);
-      });
-  });
-}
+const Account = lazy(() => import("../Dashboards/Account/"));
+const Privacy = lazy(() => import("../Dashboards/PrivacyPolicy/"));
+const Terms = lazy(() => import("../Dashboards/TermsOfService/"));
 
-var appVersion = packageJson.version;
+import AppHeader from "../../Layout/AppHeader/";
+import AppSidebar from "../../Layout/AppSidebar/";
+import AppFooter from "../../Layout/AppFooter/";
+
+import ThemeOptions from "../../Layout/ThemeOptions/";
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -223,8 +223,31 @@ class Main extends React.Component {
               }
             >
               <Switch>
-                <Route path="/dashboards" component={Dashboards} />
-                <Route path="/" component={LandingPage} />
+                <Route exact path="/" component={LandingPage} />
+                <>
+                  <ThemeOptions />
+                  <AppHeader />
+                  <div className="app-main">
+                    <AppSidebar />
+                    <div className="app-main__outer">
+                      <div className="app-main__inner">
+                        <Route path={`/home`} component={HomeDashboard} />
+                        <Route path={`/services`} component={Services} />
+                        <Route path={`/shop`} component={ShopPage} />
+                        <Route path={`/gallery`} component={GalleryPage} />
+                        <Route path={`/writing`} component={Writing} />
+                        <Route path={`/music`} component={Music} />
+                        <Route path={`/contact`} component={Contact} />
+                        <Route path={`/projects`} component={Projects} />
+                        <Route path={`/privacy`} component={Privacy} />
+                        <Route path={`/termsofservice`} component={Terms} />
+                        <Route path={`/calendar`} component={CalendarPage} />
+                        <Route path={`/account`} component={Account} />
+                      </div>
+                      <AppFooter />
+                    </div>
+                  </div>{" "}
+                </>
               </Switch>
             </Suspense>
 

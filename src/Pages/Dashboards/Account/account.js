@@ -584,7 +584,7 @@ function AccountElements() {
                   <Button
                     onClick={(e) => {
                       window.location.href =
-                        "https://MicroHawaii.com/dashboards/contact";
+                        "https://MicroHawaii.com/contact";
                     }}
                   >
                     {" "}

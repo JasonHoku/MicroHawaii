@@ -28,7 +28,7 @@ const LoginRedirect = (props) => {
         setText(
           "You have been successfully logged in. You will be redirected in a few seconds..."
         );
-        setTimeout(() => history.push("/dashboards/account"), 500); // Redirect to account page after 0.5 sec
+        setTimeout(() => history.push("/account"), 500); // Redirect to account page after 0.5 sec
       })
       .catch((err) => {
         console.log(err);

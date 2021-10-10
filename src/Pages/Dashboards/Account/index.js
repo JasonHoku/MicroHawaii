@@ -91,7 +91,7 @@ function AccountPage() {
         <meta name="theme-color" content="#008f68" />
         <link
           rel="canonical"
-          href="https://microhawaii.com/dashboards/account"
+          href="https://microhawaii.com/account"
         />
       </Helmet>
       <Card

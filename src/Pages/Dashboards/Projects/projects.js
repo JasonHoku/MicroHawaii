@@ -66,7 +66,7 @@ export default class ProjectElements extends Component {
           <title>MicroHawaii.com Networks</title>
           <meta name="description" content="Find MicroHawaii's activity on various networks." />
           <meta name="theme-color" content="#008f68" />
-          <link rel="canonical" href="https://microhawaii.com/dashboards/projects" />
+          <link rel="canonical" href="https://microhawaii.com/projects" />
         </Helmet>
         <TransitionGroup
           component="div"
@@ -238,7 +238,7 @@ export default class ProjectElements extends Component {
             <Card>
               <CardBody>
                 Find more about MicroHawaii's provisions on the{" "}
-                <a href="/dashboards/services">services</a> page.
+                <a href="/services">services</a> page.
                 <br></br>
               </CardBody>
             </Card>

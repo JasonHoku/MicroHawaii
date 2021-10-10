@@ -212,7 +212,7 @@ export default class ContactElements extends Component {
           <title>MicroHawaii.com Contact Tool</title>
           <meta name="description" content="Easily make contact with MicroHawaii administration." />
           <meta name="theme-color" content="#008f68" />
-          <link rel="canonical" href="https://microhawaii.com/dashboards/contact" />
+          <link rel="canonical" href="https://microhawaii.com/contact" />
         </Helmet>
         <TransitionGroup
           component="div"

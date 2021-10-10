@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 class AppFooter extends React.Component {
   render() {
     function decideURLToLoad() {
-      if (window.location.pathname === "/dashboards/home") {
-        return <Link to="/dashboards/calendar"> View Schedule </Link>;
+      if (window.location.pathname === "/home") {
+        return <Link to="/calendar"> View Schedule </Link>;
       } else {
-        return <Link to="/dashboards/home"> Site Home </Link>;
+        return <Link to="/home"> Site Home </Link>;
       }
     }
     return (
@@ -27,7 +27,7 @@ class AppFooter extends React.Component {
         >
           <div style={{ width: "100%", position: "absolute", bottom: "5px" }}>
             <span style={{ position: "absolute", left: "12px", bottom: "7px" }}>
-              <Link to="/dashboards/projects"> Learn More </Link>
+              <Link to="/projects"> Learn More </Link>
             </span>
             <span
               style={{
@@ -45,7 +45,7 @@ class AppFooter extends React.Component {
                 bottom: "7px",
               }}
             >
-              <Link to="/dashboards/contact"> Contact </Link>
+              <Link to="/contact"> Contact </Link>
             </span>
           </div>
         </div>

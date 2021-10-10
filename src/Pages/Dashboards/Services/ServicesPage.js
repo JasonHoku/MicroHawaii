@@ -118,7 +118,7 @@ export default class CRMDashboard2 extends Component {
               />
               <link
                 rel="canonical"
-                href="https://microhawaii.com/dashboards/services"
+                href="https://microhawaii.com/services"
               />
             </Helmet>
             <Col>
@@ -166,7 +166,7 @@ export default class CRMDashboard2 extends Component {
                   <Card className="row-md-6 opacity-9 zoom ">
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/dashboards/contact"
+                      to="/contact"
                       activeLinkFromLocation
                     >
                       <CardHeader
@@ -222,7 +222,7 @@ export default class CRMDashboard2 extends Component {
 
           <Row>
             <Col>
-              <Link to="/dashboards/contact" to="/dashboards/contact">
+              <Link to="/contact" to="/contact">
                 <Card className="col-md-6 opacity-9 zoom">
                   <CardHeader className="card-header-tab">
                     <div className="card text-center card-shadow-focus opacity-9"></div>
@@ -271,7 +271,7 @@ export default class CRMDashboard2 extends Component {
                   </div>
                 </div>
                 <CardFooter className="text-center d-block">
-                  <Link to="/dashboards/contact">  <Button className="btn-shadow-dark btn-wider" color="dark">
+                  <Link to="/contact">  <Button className="btn-shadow-dark btn-wider" color="dark">
                     Direct Message
                   </Button></Link>
                 </CardFooter>

@@ -150,7 +150,7 @@ export default function CRMDashboard2() {
               content="Software development, e-commerce, education, training, tools and services."
             />
             <meta name="theme-color" content="#008f68" />
-            <link rel="canonical" href="https://microhawaii.com/dashboards/home" />
+            <link rel="canonical" href="https://microhawaii.com/home" />
           </Helmet>
           <Row>
             <Col mx-auto="true" className=" opacity-9" style={{ width: "31rem" }}>
@@ -193,7 +193,7 @@ export default function CRMDashboard2() {
                     distributing it to various networks and social medias.
                   </p>
                   <p>
-                    <Link to="/dashboards/calendar">Schedule A Meeting</Link>
+                    <Link to="/calendar">Schedule A Meeting</Link>
                   </p>
                 </CardBody>
               </Card>
@@ -331,7 +331,7 @@ export default function CRMDashboard2() {
                     ></img>
                   </center>
                   <br />
-                  <Link to="/dashboards/services">
+                  <Link to="/services">
                     Gain ultimate control and expert assistance through MicroHawaii today.{" "}
                   </Link>
                 </CardBody>
@@ -349,7 +349,7 @@ export default function CRMDashboard2() {
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
                 }}
               >
-                <a href="/dashboards/services">
+                <a href="/services">
                   {" "}
                   <CardHeader className="card-header-tab">
                     <div>Services</div>
@@ -370,7 +370,7 @@ export default function CRMDashboard2() {
               <br></br>
             </Col>
             <Col mx-auto="true" className=" opacity-9  zoom">
-              <a href="/dashboards/shop">
+              <a href="/shop">
                 <Card
                   mx-auto="true"
                   style={{
@@ -392,8 +392,8 @@ export default function CRMDashboard2() {
               <br></br>
             </Col>
             <Col mx-auto="true" className=" opacity-9  zoom">
-              <a href="/dashboards/projects">
-                <Route path="/dashboards/projects" />
+              <a href="/projects">
+                <Route path="/projects" />
                 <Card
                   mx-auto="true"
                   style={{
@@ -426,7 +426,7 @@ export default function CRMDashboard2() {
                 width: "95%",
               }}
             >
-              <Link to="/dashboards/services">  <CardBody
+              <Link to="/services">  <CardBody
                 style={{
                   width: "100%",
                   boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
@@ -503,7 +503,7 @@ export default function CRMDashboard2() {
             }}
             className=" opacity-9  zoom"
           >
-            <a href="/dashboards/projects">
+            <a href="/projects">
               <Card style={{ width: "100%", justifyContent: "center" }}>
                 <CardHeader style={{ justifyContent: "center" }} className="card-header-tab">
                   <div className="card text-center card-shadow-focus opacity-9">
@@ -721,7 +721,7 @@ export default function CRMDashboard2() {
                 </div>
               </div>
               <CardFooter className="text-center d-block">
-                <a href="/dashboards/contact">
+                <a href="/contact">
                   <Button className="btn-shadow-dark btn-wider" color="dark">
                     Contact
                   </Button>

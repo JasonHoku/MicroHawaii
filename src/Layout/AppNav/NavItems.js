@@ -2,39 +2,39 @@ export const MainNav = [
   {
     icon: "pe-7s-rocket",
     label: "Homepage",
-    to: "/dashboards/home",
+    to: "/home",
   },
   {
     icon: "pe-7s-date",
     label: "Schedule",
-    to: "/dashboards/calendar",
+    to: "/calendar",
   },
   {
     icon: "pe-7s-photo",
     label: "Designs",
-    to: "/dashboards/gallery",
+    to: "/gallery",
   },
   {
     icon: "pe-7s-shopbag",
     label: "E-Shop",
-    to: "/dashboards/shop",
+    to: "/shop",
   },
 ];
 export const AboutNav = [
   {
     icon: "pe-7s-tools",
     label: "Services",
-    to: "/dashboards/services",
+    to: "/services",
   },
   {
     icon: "pe-7s-arc",
     label: "About",
-    to: "/dashboards/projects",
+    to: "/projects",
   },
   {
     icon: "pe-7s-mail",
     label: "Contact",
-    to: "/dashboards/contact",
+    to: "/contact",
   },
 ];
 
@@ -42,6 +42,6 @@ export const AdminNav = [
   {
     icon: "pe-7s-tools",
     label: "Login",
-    to: "/dashboards/account",
+    to: "/account",
   },
 ];

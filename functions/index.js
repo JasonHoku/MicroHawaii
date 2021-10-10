@@ -318,7 +318,7 @@ exports.createPaymentMDD = functions.https.onRequest((req, res) => {
               description: "MDD Ad Plan",
               merchant_preferences: {
                 auto_bill_amount: "yes",
-                cancel_url: "https://mauidiscountdollar.web.app/dashboards/account",
+                cancel_url: "https://mauidiscountdollar.web.app/account",
                 initial_fail_amount_action: "continue",
                 max_fail_attempts: "2",
                 return_url:
@@ -498,7 +498,7 @@ exports.processPaid = functions.https.onRequest((req, res) => {
               { merge: true }
             )
             .then(() => {
-              res.redirect("mauidiscountdollar.web.app/dashboards/account");
+              res.redirect("mauidiscountdollar.web.app/account");
             });
           console.log("Billing Agreement Execute Response");
           console.log(JSON.stringify(billingAgreement));
@@ -554,7 +554,7 @@ exports.createPayment = functions.https.onRequest((req, res) => {
               description: "MicroHawaii Hosting 125 Plan",
               merchant_preferences: {
                 auto_bill_amount: "yes",
-                cancel_url: "https://www.microhawaii.com/dashboards/account",
+                cancel_url: "https://www.microhawaii.com/account",
                 initial_fail_amount_action: "continue",
                 max_fail_attempts: "2",
                 return_url:

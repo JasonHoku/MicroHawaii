@@ -78,7 +78,7 @@ export default class GalleryElements extends Component {
             />
             <link
               rel="canonical"
-              href="https://microhawaii.com/dashboards/home"
+              href="https://microhawaii.com/home"
             />
           </Helmet>
           <Row
@@ -166,7 +166,7 @@ export default class GalleryElements extends Component {
             </Col>
 
             <Col style={{ marginTop: "15px" }} xs="7" sm="4" md="4" xl="5">
-              <CardLink href="/dashboards/contact">
+              <CardLink href="/contact">
                 <Card>
                   <CardHeader>Contact</CardHeader>
                   <CardBody>

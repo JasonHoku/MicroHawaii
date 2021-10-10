@@ -29,7 +29,7 @@ class Nav extends Component {
     return (
       <Fragment>
         <h5 className="app-sidebar__heading">Index</h5>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/home">
+        <Link onClick={this.toggleMobileSidebar} to="/home">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
@@ -47,7 +47,7 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/calendar">
+        <Link onClick={this.toggleMobileSidebar} to="/calendar">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
@@ -63,7 +63,7 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/gallery">
+        <Link onClick={this.toggleMobileSidebar} to="/gallery">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
@@ -79,7 +79,7 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/shop">
+        <Link onClick={this.toggleMobileSidebar} to="/shop">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span className="spin" style={{ position: "relative", top: "-3px", left: "-15px" }}>
@@ -93,7 +93,7 @@ class Nav extends Component {
           </h4>
         </Link>
         <h3 className="app-sidebar__heading">Info</h3>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/services">
+        <Link onClick={this.toggleMobileSidebar} to="/services">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
@@ -111,7 +111,7 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/projects">
+        <Link onClick={this.toggleMobileSidebar} to="/projects">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
@@ -127,7 +127,7 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/contact">
+        <Link onClick={this.toggleMobileSidebar} to="/contact">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span
@@ -144,7 +144,7 @@ class Nav extends Component {
           </h4>
         </Link>{" "}
         <h5 className="app-sidebar__heading">Account</h5>
-        <Link onClick={this.toggleMobileSidebar} to="/dashboards/account">
+        <Link onClick={this.toggleMobileSidebar} to="/account">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>
               <span

@@ -60,7 +60,7 @@ class LandingPage extends React.Component {
   };
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to="/dashboards/home" />;
+      return <Redirect to="/home" />;
     }
   };
   render() {
@@ -96,7 +96,7 @@ class LandingPage extends React.Component {
           >
             <div>
               <h1>
-                <Link style={{ color: "white" }} to="/dashboards/home">
+                <Link style={{ color: "white" }} to="/home">
                   MicroHawaii.com
                 </Link>
               </h1>

@@ -181,7 +181,7 @@ export default class ShopPage extends Component {
           <title>MicroHawaii.com Shop</title>
           <meta name="description" content="Find and purchase MicroHawaii services and products." />
           <meta name="theme-color" content="#008f68" />
-          <link rel="canonical" href="https://microhawaii.com/dashboards/shop" />
+          <link rel="canonical" href="https://microhawaii.com/shop" />
         </Helmet>
         <Row
           style={{
@@ -238,7 +238,7 @@ export default class ShopPage extends Component {
                   Here you'll find an array of services and products MicroHawaii has to offer.
                 </span>
                 <br />
-                <br /> <a href="/dashboards/contact">Questions?</a>
+                <br /> <a href="/contact">Questions?</a>
               </CardTitle>
             </Card>
           </center>
@@ -281,11 +281,11 @@ export default class ShopPage extends Component {
             <CardBody style={{ textAlign: "left", fontSize: "120%" }}>
               <li>
                 If you have any questions please use the{" "}
-                <a href="/dashboards/contact"> contact form.</a>
+                <a href="/contact"> contact form.</a>
               </li>{" "}
               <br />
               <li>
-                <a href="/dashboards/services">The services page</a> has more information about
+                <a href="/services">The services page</a> has more information about
                 skillsets.
               </li>
             </CardBody>

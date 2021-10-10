@@ -8,7 +8,7 @@ const Loginbutton = (props) => (
       alignContent: "center",
     }}
   >
-    <a href={`/dashboards/account`}>
+    <a href={`/account`}>
       <Button
         className="btn-icon-horizontal btn-transition app-header-right"
         outline
