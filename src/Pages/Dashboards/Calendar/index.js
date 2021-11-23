@@ -194,7 +194,7 @@ function EventManagerComponent() {
         } else {
           return () => {
 
-            if (loadStageRef.current === 2 || loadStageRef.current === 1 || loadStageRef.current === 0) {
+            if (document.getElementById("EventViewContainer") && loadStageRef.current === 2 || loadStageRef.current === 1 || loadStageRef.current === 0) {
               document.getElementById("EventViewContainer").innerHTML = `
                 <div  class="message sent" >
 <p   class="pchat" >
