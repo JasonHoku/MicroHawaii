@@ -2,8 +2,7 @@ import React, { Component, Fragment, useState, useEffect, useRef, lazy } from "r
 
 import { Link } from "react-router-dom";
 
-
-import {TransitionGroup} from "react-transition-group";
+import { TransitionGroup } from "react-transition-group";
 
 import { SiGooglecalendar, SiShopify } from "react-icons/si";
 import { Route } from "react-router-dom";
@@ -157,13 +156,17 @@ export default function CRMDashboard2() {
               <Card
                 className="mb-3 main-card"
                 style={{
-                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  maxWidth: "950px",
+                  boxShadow: "0px 0px 0px 2px rgba(50,50,50, .8)",
+                  maxWidth: window.innerHeight / window.innerWidth > 1 ? "90%" : "950px",
                   zIndex: 1100,
+                  position: "absolute",
+                  left: window.innerHeight / window.innerWidth > 1 ? "0" : "10%",
+                  margin: "10px",
+                  zIndex: 9999,
                 }}
               >
                 <CardBody>
-                  <h2>Hawaii's own website architecture service and reference provider.</h2>
+                  <h2>Website & Software Architecture Services & Consultation.</h2>
                 </CardBody>
               </Card>
             </Col>
@@ -211,7 +214,7 @@ export default function CRMDashboard2() {
             transitionEnter={false}
             transitionLeave={false}
           >
-            <Row style={{ justifyContent: "center" }}>
+            <Row style={{ justifyContent: "center", overflowX: "hidden", overflowY: "hidden" }}>
               <div
                 id="ThreeJSContainer"
                 className="ThreeJSContainer"
@@ -223,6 +226,8 @@ export default function CRMDashboard2() {
                   transition: ".5s ease",
                   justifyContent: "center",
                   alignItems: "center",
+                  overflowX: "hidden",
+                  overflowY: "hidden",
                 }}
               >
                 <div
@@ -238,6 +243,8 @@ export default function CRMDashboard2() {
                     transition: ".5s ease",
                     flexDirection: "column",
                     justifyContent: "space-between",
+                    overflowX: "hidden",
+                    overflowY: "hidden",
                   }}
                   class="ThreeJSCard"
                   id="ThreeJSCard"
@@ -253,6 +260,8 @@ export default function CRMDashboard2() {
                       position: "absolute",
                       zIndex: 3,
                       left: 0,
+                      overflowX: "hidden",
+                      overflowY: "hidden",
                     }}
                     id="ThreeJSSceneContainer"
                   ></div>
@@ -261,7 +270,12 @@ export default function CRMDashboard2() {
             </Row>
           </TransitionGroup>
 
-          <Row>
+          <Row
+            style={{
+              overflowX: "hidden",
+              overflowY: "hidden",
+            }}
+          >
             <Col>
               <Card
                 className="main-card mb-3"
@@ -278,10 +292,10 @@ export default function CRMDashboard2() {
                   <br></br> <br></br>
                   This website is an{" "}
                   <a href="https://github.com/JasonHoku/MicroHawaii"> open-source </a>
-                  cross platform application that services authentication alongside Google's powerful
-                  and generous
-                  <a href="https://firebase.google.com/"> Firebase</a> technologies to accommodate the
-                  needs of any online experience. <br />
+                  cross platform application that services authentication alongside Google's
+                  powerful and generous
+                  <a href="https://firebase.google.com/"> Firebase</a> technologies to accommodate
+                  the needs of any online experience. <br />
                   <br></br>
                   <center>
                     <img
@@ -426,24 +440,27 @@ export default function CRMDashboard2() {
                 width: "95%",
               }}
             >
-              <Link to="/services">  <CardBody
-                style={{
-                  width: "100%",
-                  boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                  justifyContent: "center",
-                  borderRadius: "50px",
-                }}
-              >
-                <center>
-                  <CardTitle>
-                    <h3> Custom Designed SEO Strategies</h3>
-                  </CardTitle>
-                  <span className="zoom">
-                    {" "}
-                    <Slideshow />
-                  </span>
-                </center>
-              </CardBody></Link>
+              <Link to="/services">
+                {" "}
+                <CardBody
+                  style={{
+                    width: "100%",
+                    boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
+                    justifyContent: "center",
+                    borderRadius: "50px",
+                  }}
+                >
+                  <center>
+                    <CardTitle>
+                      <h3> Custom Designed SEO Strategies</h3>
+                    </CardTitle>
+                    <span className="zoom">
+                      {" "}
+                      <Slideshow />
+                    </span>
+                  </center>
+                </CardBody>
+              </Link>
             </Card>
           </Row>
           <br />
@@ -454,6 +471,7 @@ export default function CRMDashboard2() {
             style={{
               boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
               justifyContent: "center",
+              borderRadius: "50px",
               width: "80%",
             }}
           >
@@ -461,8 +479,7 @@ export default function CRMDashboard2() {
               style={{
                 width: "100%",
                 boxShadow: "0px 0px 0px 5px rgba(50,50,50, .8)",
-                background:
-                  "linear-gradient(0.25turn, #1030DDDD, #FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD,#FFFFFFDD, #1030DDDD)",
+                borderRadius: "50px",
               }}
             >
               <CardTitle>

@@ -14,7 +14,9 @@ export function InitFrontPage() {
     renderer.domElement.style.top = "-150px";
     renderer.domElement.style.left = "0";
     renderer.domElement.style.position = "absolute";
-    (renderer.domElement.style.maxWidth = "100%"), (renderer.domElement.style.zIndex = 100);
+    renderer.domElement.style.maxWidth = "100%";
+    renderer.domElement.style.maxWidth = "100%";
+    renderer.domElement.style.zIndex = 0;
     renderer.domElement.className = "ThreeJSScene";
     renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
     renderer.setSize(window.innerWidth, window.innerHeight);

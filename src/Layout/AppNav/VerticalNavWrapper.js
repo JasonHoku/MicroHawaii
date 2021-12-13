@@ -92,7 +92,7 @@ class Nav extends Component {
             </button>
           </h4>
         </Link>
-        <h3 className="app-sidebar__heading">Info</h3>
+        <h5 className="app-sidebar__heading">Info</h5>
         <Link onClick={this.toggleMobileSidebar} to="/services">
           <h4>
             <button className="gradientBtn" style={{ width: "100%" }}>

@@ -674,3 +674,27 @@ exports.createPayment = functions.https.onRequest((req, res) => {
     });
   });
 });
+
+exports.MicroHawaiiGameData = functions.https.onRequest((req, res) => {
+  console.log("Processing Payment");
+  res.status(200);
+  const cors = require("cors")({ origin: true });
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Headers", "Content-Type");
+  //Declare CORs Rules
+  cors(req, res, () => {
+    res.status(200);
+    res.set("Access-Control-Allow-Origin", "*");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
+    const gotHeaders = req.headers["headertokens"];
+    console.log("Got Headers, Creating Promise");
+
+    new Promise((resolve) => {
+      res.send(JSON.stringify({ X: "X" }));
+      res.status(200).send();
+
+      console.log(JSON.parse(gotHeaders).uid || "guest");
+      return resolve("X");
+    });
+  });
+});

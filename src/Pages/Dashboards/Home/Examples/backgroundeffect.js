@@ -1,19 +1,14 @@
-
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react";
 
 // import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js";
 
-
 export default function MainThreeJS() {
-
   const roundInfo = useRef(false);
 
-
-
   useEffect(() => {
-    const THREE = require("three/build/three")
+    const THREE = require("three/build/three");
 
     var renderer, scene, camera, particle;
 
@@ -25,7 +20,9 @@ export default function MainThreeJS() {
       renderer.domElement.style.left = "0";
       renderer.domElement.style.position = "fixed";
       renderer.domElement.style.zIndex = 0;
-      (renderer.domElement.style.maxWidth = "100%"), (renderer.domElement.style.zIndex = 100);
+      renderer.domElement.style.maxWidth = "100%";
+      renderer.domElement.style.zIndex = 0;
+
       renderer.domElement.className = "ThreeJSBG";
       renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -60,7 +57,9 @@ export default function MainThreeJS() {
 
       for (var i = 0; i < 100; i++) {
         var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
+        mesh.position
+          .set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5)
+          .normalize();
         mesh.position.multiplyScalar(50 + Math.random() * 700);
         mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
         particle.add(mesh);
@@ -98,12 +97,8 @@ export default function MainThreeJS() {
       renderer.clear();
 
       renderer.render(scene, camera);
-
     }
+  }, []);
 
-  }, [])
-
-
-
-  return false
+  return false;
 }

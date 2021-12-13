@@ -178,7 +178,6 @@ class Main extends React.Component {
         <div
           style={{
             backgroundColor: "transparent",
-            position: "sticky",
             margin: 0,
             padding: 0,
             width: "100%",
@@ -250,11 +249,10 @@ class Main extends React.Component {
                 </>
               </Switch>
             </Suspense>
-
             <MainThreeJS />
             <ToastContainer />
           </Fragment>
-          <span style={{ position: "fixed", zIndex: 0 }} id="bgEffectDOM"></span>{" "}
+          <span style={{}} id="bgEffectDOM"></span>{" "}
         </div>{" "}
       </Fragment>
     );
