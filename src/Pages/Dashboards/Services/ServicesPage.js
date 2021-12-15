@@ -152,9 +152,6 @@ export default class CRMDashboard2 extends Component {
                   <li>
                     <Link to="https://AARootsHI.com/">AARootsHI.com</Link>
                   </li>{" "}
-                  <li>
-                    <Link to="https://RayMauiYoga.com/">RayMauiYoga.com</Link>
-                  </li>{" "}
                   <br /> <br /> Join the rapidly expanding network today.
                 </CardBody>
               </Card>

@@ -160,13 +160,15 @@ export default function CRMDashboard2() {
                   maxWidth: window.innerHeight / window.innerWidth > 1 ? "90%" : "950px",
                   zIndex: 1100,
                   position: "absolute",
-                  left: window.innerHeight / window.innerWidth > 1 ? "0" : "10%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  minWidth: "350px",
                   margin: "10px",
                   zIndex: 9999,
                 }}
               >
                 <CardBody>
-                  <h2>Website & Software Architecture Services & Consultation.</h2>
+                  <h2>Website & Software Architecture: Services & Consultation.</h2>
                 </CardBody>
               </Card>
             </Col>
@@ -287,8 +289,9 @@ export default function CRMDashboard2() {
                   <h4 style={{ textAlign: "left" }}>Web Architecture with MicroHawaii</h4>
                 </CardHeader>
                 <CardBody>
-                  MicroHawaii is a local tech startup, specializing in providing web focused
-                  technologies, strategy, and solutions to businesses of all shapes and sizes.
+                  MicroHawaii is a computer science focused business, specializing in providing web
+                  focused technologies, strategy, and solutions to businesses of all shapes and
+                  sizes.
                   <br></br> <br></br>
                   This website is an{" "}
                   <a href="https://github.com/JasonHoku/MicroHawaii"> open-source </a>
@@ -345,9 +348,12 @@ export default function CRMDashboard2() {
                     ></img>
                   </center>
                   <br />
-                  <Link to="/services">
-                    Gain ultimate control and expert assistance through MicroHawaii today.{" "}
-                  </Link>
+                  <br />
+                  <h2>
+                    {" "}
+                    <Link to="/services">Get expert assistance through MicroHawaii today. </Link>
+                  </h2>
+                  <br />
                 </CardBody>
               </Card>
             </Col>
@@ -678,39 +684,6 @@ export default function CRMDashboard2() {
             </Card>
           </Col>
           {/* //////////////////// */}
-          <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>
-            <Card
-              style={{ justifyContent: "center" }}
-              className="card-shadow-primary card-border text-white mb-3"
-              color="primary"
-            >
-              <div className="dropdown-menu-header" style={{ justifyContent: "center" }}>
-                <div
-                  className="dropdown-menu-header-inner"
-                  style={{ justifyContent: "center", background: "#3333CCCC" }}
-                >
-                  <div className="menu-header-content">
-                    <div className="avatar-icon-wrapper mb-3 avatar-icon-xl">
-                      <div className="avatar-icon">
-                        <img src="/images/myrlogo.webp" alt="Avatar 5" />
-                      </div>
-                    </div>
-                    <div>
-                      <h5 className="menu-header-title">RayMauiYoga</h5>
-                      <h6 className="menu-header-subtitle">Live Stream + Video</h6>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <CardFooter className="text-center d-block">
-                <a href="https://RayMauiYoga.com">
-                  <Button className="btn-shadow-dark btn-wider" color="dark">
-                    Visit Website
-                  </Button>
-                </a>
-              </CardFooter>
-            </Card>
-          </Col>
         </Row>
         <Row style={{ justifyContent: "center" }}>
           <Col sm="12" md="6" xl="4" style={{ justifyContent: "center" }}>

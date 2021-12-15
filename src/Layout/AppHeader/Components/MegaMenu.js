@@ -96,18 +96,7 @@ class MegaMenu extends React.Component {
                   <Col xl="4" sm="6">
                     <Nav vertical>
                       <NavItem className="nav-item-header">Favorites</NavItem>
-                      <NavItem>
-                        <NavLink href="/gallery/">
-                          <i className="nav-link-icon fa fa-picture-o"> </i>
-                          Visual Arts
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink href="/music/">
-                          <i className="nav-link-icon fa fa-music"> </i>
-                          Audio Arts
-                        </NavLink>
-                      </NavItem>
+
                       <NavItem>
                         <NavLink href="/writing/">
                           {" "}
@@ -117,7 +106,7 @@ class MegaMenu extends React.Component {
                       <NavItem>
                         <NavLink href="/projects/">
                           {" "}
-                          <i className="nav-link-icon fa fa-code"> </i>Game
+                          <i className="nav-link-icon fa fa-code"> </i>Software
                           Development
                           <div className="ml-auto badge badge-success">
                             New
@@ -147,15 +136,6 @@ class MegaMenu extends React.Component {
                         <NavLink href="https://github.com/JasonHoku">
                           <i className="nav-link-icon fa fa-database"> </i>
                           GitHub
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
-                          href="https://www.paypal.com/paypalme/JasonLevien"
-                          target="_blank"
-                        >
-                          {" "}
-                          <i className="nav-link-icon fa fa-star"> </i>Donate
                         </NavLink>
                       </NavItem>
                     </Nav>
