@@ -22,7 +22,7 @@
         "firebase-functions": "^3.14.1",
         "firebaseui": "^4.7.3",
         "github-calendar": "^2.2.7",
-        "got": "^11.8.2",
+        "got": "^11.8.5",
         "hls.js": "^1.0.11",
         "loaders.css": "^0.1.2",
         "mux-embed": "^4.1.1",
